@@ -16,6 +16,7 @@
 * [Schreiben von XMP Metadaten in Bilddateien](step-plugins/intranda_step_xmp.md)
 * [PDFs aufsplitten, Volltext extrahieren und Inhaltsverzeichnis auslesen](step-plugins/intranda_step_pdf-extraction.md)
 * [Ändern des Workflows auf Grundlage von Vorgangseigenschaften](step-plugins/intranda_step_changeworkflow.md)
+* [Anzeige von Metadaten in einem Schritt](step-plugins/anzeige-von-metadaten-in-einem-schritt.md)
 
 ## Opac Plugins
 
@@ -31,7 +32,7 @@
 * [Fedora Export PROV](export-plugins/plugin_intranda_export_fedora_prov.md)
 * [HAAB Export](export-plugins/haabexport.md)
 
-## Sonstiges
+## Sonstiges <a id="other"></a>
 
 * [Counterscript Application](other/counterscript-application.md)
 
