@@ -17,6 +17,7 @@
 * [PDFs aufsplitten, Volltext extrahieren und Inhaltsverzeichnis auslesen](step-plugins/intranda_step_pdf-extraction.md)
 * [Ändern des Workflows auf Grundlage von Vorgangseigenschaften](step-plugins/intranda_step_changeworkflow.md)
 * [Anzeige von Metadaten in einem Schritt](step-plugins/anzeige-von-metadaten-in-einem-schritt.md)
+* [Automatische Paginierung auf Basis der Dateinamen](step-plugins/automatische-paginierung-auf-basis-der-dateinamen.md)
 
 ## Opac Plugins
 
