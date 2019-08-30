@@ -198,7 +198,7 @@ Sollte die Berechtigung für die Benutzergruppe neu eingetragen werden, so muss 
 
 ## Automatische Backups
 
-Sollte das Plugin für einen Vorgang aktualisierte Metadaten finden und daher die METS-Datei aktualisieren, so wird zunächst automatisch ein Backup der aktuellen METS-Datei `meta.xml`erzeugt. und  neben  der aktualisierten METS-Datei gespeichert.
+Sollte das Plugin für einen Vorgang aktualisierte Metadaten finden und daher die METS-Datei aktualisieren, so wird zunächst automatisch ein Backup der aktuellen METS-Datei `meta.xml` und sofern relevant auch der `meta_anchor.xml` erzeugt. Das Backup wird  neben der aktualisierten METS-Datei gespeichert.
 
 ![Mehrere Versionen der METS-Dateien werden als Backup aufgehoben](../.gitbook/assets/catalogue_poller_04.png)
 
