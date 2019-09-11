@@ -20,7 +20,7 @@ Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den
 
 ## Voraussetzung
 
-Voraussetzung für die Verwendung des Plugins ist der Einsatz der Goobi 2.1, die Nutzung der neuen Oberfläche von Goobi, die anschließende korrekte Installation und Konfiguration des Plugins sowie die korrekte Einbindung des Plugins in die gewünschten Arbeitsschritte der Workflows.
+Voraussetzung für die Verwendung des Plugins ist der Einsatz der Goobi Version 2.1, die Nutzung der neuen Oberfläche von Goobi, die anschließende korrekte Installation und Konfiguration des Plugins sowie die korrekte Einbindung des Plugins in die gewünschten Arbeitsschritte der Workflows.
 
 ## Installation und Konfiguration
 
@@ -51,8 +51,7 @@ Der Inhalt der Konfigurationsdatei `plugin_PdfUploadPlugin.xml` muss folgenderma
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-In `<folder>` wird festgelegt, in welchem Ordner die hochgeladenen Dateien gespeichert werden. Dabei können die Werte  `master`, `source` und `derivate` verwendet werden.  
-Anschließend müssen noch die erlaubten Dateiendungen konfiguriert werden. Hierbei muss darauf geachtet werden, dass die Überprüfung case sensitive ist. Will man Groß- und Kleinschreibung erlauben, müssen beide Schreibweisen definiert werden.
+In `<folder>` wird festgelegt, in welchem Ordner die hochgeladenen Dateien gespeichert werden. Dabei können die Werte  `master`, `source` und `derivate` verwendet werden.
 
 Anschließend müssen noch die erlaubten Dateiendungen konfiguriert werden. Hierbei muss darauf geachtet werden, dass die Überprüfung case sensitive ist. Will man Groß- und Kleinschreibung erlauben, müssen beide Schreibweisen definiert werden.
 

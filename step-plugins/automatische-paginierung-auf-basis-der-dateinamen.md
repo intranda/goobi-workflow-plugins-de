@@ -1,8 +1,7 @@
 ---
 description: >-
   Dies ist eine technische Dokumentation für das Plugin zum automatischen
-  erstellen einer Paginierung basierend auf den Dateinamen.## EinführungDie
-  vorliegende Dokumentation beschreibt die Installat
+  erstellen einer Paginierung basierend auf den Dateinamen.
 ---
 
 # Automatische Paginierung auf Basis der Dateinamen
