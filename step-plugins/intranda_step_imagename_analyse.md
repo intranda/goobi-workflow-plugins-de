@@ -73,7 +73,7 @@ Im Element `skipWhenDataExists` wird definiert, wie sich das Plugin verhält, we
 
 Das Element `paginationRegex` enthält einen regulären Ausdruck, mit dem versucht wird, die logische Seitenzahl aus dem Dateinamen zu extrahieren. Dabei wird der Wert aus der ersten Gruppe in die METS-Datei übernommen.
 
-Falls der reguläre Ausdruck nicht erfolgreich war, wird im Anschluß geprüft, ob der Dateiname eine besondere Struktur wie `Cover`, `Titlepage` oder `Contents` beschreibt. Diese Struktur wird innerhalb von `structureList` definiert. Dabei wird innnerhalb von dem Element `item` im Attribut `filepart` ein \(Teil-\) String definiert, der im Dateinamen vorkommen muss. Im Attribut `docstruct` wird das Strukturelement definiert, das in diesem Fall erzeugt werden soll.
+Falls der reguläre Ausdruck nicht erfolgreich war, wird im Anschluß geprüft, ob der Dateiname eine besondere Struktur wie `Cover`, `Titlepage` oder `Contents` beschreibt. Diese Struktur wird innerhalb von `structureList` definiert. Dabei wird innerhalb von dem Element `item` im Attribut `filepart` ein \(Teil-\) String definiert, der im Dateinamen vorkommen muss. Im Attribut `docstruct` wird das Strukturelement definiert, das in diesem Fall erzeugt werden soll.
 
 ## Einstellungen in Goobi
 
