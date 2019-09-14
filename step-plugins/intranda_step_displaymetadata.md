@@ -1,10 +1,10 @@
 ---
 description: >-
   Dies ist die technische Dokumentation für das Goobi-Plugin für die Anzeige von
-  beliebigen Metadaten in einem Workflow-Schritt
+  beliebigen Metadaten in einem Workflow-Aufgabe
 ---
 
-# Anzeige von Metadaten in einem Schritt
+# Anzeige von Metadaten in einer Aufgabe
 
 ## Einführung
 
