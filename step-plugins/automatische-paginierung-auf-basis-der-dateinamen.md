@@ -1,14 +1,14 @@
 ---
 description: >-
   Dies ist eine technische Dokumentation für das Plugin zum automatischen
-  erstellen einer Paginierung basierend auf den Dateinamen.
+  Erstellen einer Paginierung basierend auf den Dateinamen.
 ---
 
 # Automatische Paginierung auf Basis der Dateinamen
 
 ## Einführung
 
-Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den Einsatz des Plugins. Mit Hilfe dieses Plugins können METS Dateien automatisch aufbereitet und eine Grundstruktur und die Paginierung gesetzt werden.
+Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den Einsatz des Plugins. Mit Hilfe dieses Plugins können METS-Dateien automatisch aufbereitet, eine Grundstruktur erzeugt sowie eine Paginierung gesetzt werden.
 
 | Details |  |
 | :--- | :--- |
@@ -18,11 +18,11 @@ Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den
 | Kompatibilität | Goobi workflow 3.0.10 |
 | Dokumentation vom | 14.08.2019 |
 
-### Voraussetzung
+## Voraussetzung
 
 Voraussetzung für die Verwendung des Plugins ist der Einsatz von Goobi mindestens in der Version 3.0.10, die korrekte Installation und Konfiguration des Plugins sowie die korrekte Einbindung des Plugins in die gewünschten Arbeitsschritte der Workflows.
 
-### Installation und Konfiguration
+## Installation und Konfiguration
 
 Das Plugin besteht aus zwei Dateien:
 
@@ -71,17 +71,17 @@ Diese Datei dient zur Konfiguration des Plugins und muss wie folgt aufgebaut sei
 
 Im Element `skipWhenDataExists` wird definiert, wie sich das Plugin verhält, wenn bereits eine Paginierung vorhanden ist. Bei dem Wert `true` wird die Ausführung übersprungen, bei `false` wird die vorhandene Struktur und Paginierung entfernt und eine neue erzeugt.
 
-Das Element `paginationRegex` enthält einen regulären Ausdruck, mit dem versucht wird, die logische Seitenzahl aus dem Dateinamen zu extrahieren. Dabei wird der Wert aus der ersten Gruppe in die METS Datei übernommen.
+Das Element `paginationRegex` enthält einen regulären Ausdruck, mit dem versucht wird, die logische Seitenzahl aus dem Dateinamen zu extrahieren. Dabei wird der Wert aus der ersten Gruppe in die METS-Datei übernommen.
 
-Falls der reguläre Ausdruck nicht erfolgreich war, wird im Anschluß geprüft, ob der Dateiname eine besondere Struktur wie Cover, Titlepage oder Contents beschreibt. Diese Struktur wird innerhalb von `structureList` definiert. Dabei wird in jedem `item` im Attribut `filepart` ein \(Teil\)string definiert, der im Dateinamen vorkommen muss und im Attribut `docstruct` das Strukturelement, das in dem Fall erzeugt werden soll.
+Falls der reguläre Ausdruck nicht erfolgreich war, wird im Anschluß geprüft, ob der Dateiname eine besondere Struktur wie `Cover`, `Titlepage` oder `Contents` beschreibt. Diese Struktur wird innerhalb von `structureList` definiert. Dabei wird innnerhalb von dem Element `item` im Attribut `filepart` ein \(Teil-\) String definiert, der im Dateinamen vorkommen muss. Im Attribut `docstruct` wird das Strukturelement definiert, das in diesem Fall erzeugt werden soll.
 
-### Einstellungen in Goobi
+## Einstellungen in Goobi
 
 Nachdem das Plugin installiert und konfiguriert wurde, kann es innerhalb eines Arbeitsschrittes von Goobi genutzt werden.
 
-Dazu muss innerhalb der gewünschten Aufgabe das Plugin `intranda_step_imagename_analyse` eingetragen werden. Des Weiteren muss die Checkbox Automatische Aufgabe gesetzt sein.
+Dazu muss innerhalb der gewünschten Aufgabe das Plugin `intranda_step_imagename_analyse` ausgewählt werden. Des Weiteren muss die Checkbox `Automatische Aufgabe` gesetzt sein.
 
-### Arbeitsweise
+## Arbeitsweise
 
 Die Arbeitsweise des Plugins innerhalb des korrekt konfigurierten Workflows sieht folgendermaßen aus:
 
@@ -93,7 +93,7 @@ Die Arbeitsweise des Plugins innerhalb des korrekt konfigurierten Workflows sieh
 * Wenn der reguläre Ausdruck nicht zutrifft, wird im Anschluss die Liste der konfigurierten `item` durchlaufen und geprüft, ob der Dateiname mit dem Ausdruck, gefolgt von einer optionalen Zahl und einer optionalen recto-verso Angabe \(r oder v\) endet. Wenn dies der Fall ist, wird das konfigurierte Strukturelement erzeugt und die Seite wird diesem Element zugewiesen. Durch die Angabe einer Zählung können neue Stukturelemente des selben Typs definiert werden. Haben zwei oder mehr Dateien keine oder die gleiche Zählung, werden sie dem gleichen Strukturelement zugewiesen.
 * Wenn weder der reguläre Ausdruck noch die Liste der Strukturelemente auf den Dateinamen zutreffen, wird eine Page mit der logischen Sortierung "uncounted" erzeugt und ein Eintrag in das Vorgangslog geschrieben.
 
-### Beispiele
+## Beispiele
 
 Die folgenden Beispiele basieren auf der oben definierten Konfiguration:
 
