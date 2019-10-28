@@ -58,6 +58,8 @@ Die Datei `plugin_LzaExportEWIG.xml` muss ebenfalls für den tomcat-Nutzer lesba
 
 ​ Nachdem das Plugin installiert und konfiguriert wurde, kann es innerhalb eines Arbeitsschrittes genutzt werden. Dazu muss innerhalb der gewünschten Aufgabe das Plugin LzaExportEWIG ausgewählt werden. Des Weiteren müssen die Checkboxen Automatische Aufgabe und Export gesetzt sein. ​ ​ ​
 
+![](../.gitbook/assets/plugin_export_ewig.png)
+
 ### Sonstiges
 
 Der Arbeitsschritt innerhalb von Goobi workflow exportiert alle notwendigen Dateien für den EWIG Ingest. Der Upload selbst erfolgt über den intranda TaskManager. Dies ist sinnvoll, um zu vermeiden, das mehrere parallel laufende Uploadvorgänge Konflikte mit einander haben und das System verlangsamen. ​ Für den Upload siehe [Kapitel 4.17](https://docs.intranda.com/intranda-taskmanager-de/4/4.17-upload-von-dateien-in-das-ewig-langzeitarchiv) in der intranda TaskManager Dokumentation.
