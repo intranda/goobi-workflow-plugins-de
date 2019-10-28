@@ -32,6 +32,7 @@
 * [Fedora Export](export-plugins/plugin_intranda_export_fedora.md)
 * [Fedora Export PROV](export-plugins/plugin_intranda_export_fedora_prov.md)
 * [HAAB Export](export-plugins/haabexport.md)
+* [EWIG Langzeitarchivierung](export-plugins/ewig-langzeitarchivierung.md)
 
 ## Sonstiges <a id="other"></a>
 
