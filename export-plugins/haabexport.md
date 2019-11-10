@@ -40,16 +40,16 @@ Im Goobi-Konfigurationsverzeichnis muss im Rahmen der Installation die zusätzli
 
 Der Inhalt dieser Konfigurationsdatei ist folgendermaßen aufgebaut:
 
-{% code-tabs %}
-{% code-tabs-item title="plugin\_HaabExportPlugin.xml" %}
+{% tabs %}
+{% tab title="plugin\_HaabExportPlugin.xml" %}
 ```markup
 <config_plugin>
         <exportFolder>/opt/digiverso/viewer/hotfolder/</exportFolder>
         <exportFolder>/opt/digiverso/archive/</exportFolder>
 </config_plugin>
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endtab %}
+{% endtabs %}
 
 Mit Hilfe der Auflistung `<exportFolder>` können verschiedene Orte definiert werden, in die der Export erfolgen soll. Hierbei können beliebig viele Ordner definiert werden. Mindestens muss jedoch ein Ordner an dieser Stelle definiert sein.
 

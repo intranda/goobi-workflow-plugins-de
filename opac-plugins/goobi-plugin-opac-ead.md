@@ -40,13 +40,13 @@ Für die Installation von BaseX auf einem Linux System muss zunächst die zip Da
 
 Anschließend muss die Jetty-Konfiguration angepasst werden, so dass die Applikation nur auf localhost erreichbar ist. Dafür muss in der Konfigurationsdatei `/opt/digiverso/basex/webapp/WEB-INF/jetty.xml` sichergestellt werden, dass der `host` auf `127.0.0.1` steht:
 
-{% code-tabs %}
-{% code-tabs-item title="jetty.xml" %}
+{% tabs %}
+{% tab title="jetty.xml" %}
 ```markup
   <Set name="host">127.0.0.1</Set>
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endtab %}
+{% endtabs %}
 
 Anschließend wird die Systemd Unit File an diesen Pfad installiert:
 
@@ -56,8 +56,8 @@ Anschließend wird die Systemd Unit File an diesen Pfad installiert:
 
 Diese hat folgenden Aufbau:
 
-{% code-tabs %}
-{% code-tabs-item title="basexhttp.service" %}
+{% tabs %}
+{% tab title="basexhttp.service" %}
 ```ruby
 
 [Unit]
@@ -73,8 +73,8 @@ ExecStop=/opt/digiverso/basex/bin/basexhttp stop
 [Install]
 WantedBy=multi-user.target
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endtab %}
+{% endtabs %}
 
 Anschließend muss der Daemon neu geladen, die Unit-File aktiviert und die Datenbank neu gestartet werden:
 
@@ -115,8 +115,8 @@ Um das Interface zur Abfrage für Goobi einzurichten, muss der Datenbank bekannt
 
 Dazu muss im Verzeichnis `/opt/digiverso/basex/webapp/` eine neue Datei `eadRequest.xq` erzeugt werden.
 
-{% code-tabs %}
-{% code-tabs-item title="eadRequest.xq" %}
+{% tabs %}
+{% tab title="eadRequest.xq" %}
 ```graphql
 (: XQuery file to return an ead record :)
 module namespace page = 'http://basex.org/examples/web-page';
@@ -147,8 +147,8 @@ function page:getRecord($identifier) {
         </ead>
 };
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endtab %}
+{% endtabs %}
 
 Dieses xquery-Modul wird ausgeführt, wenn Anfragen via `GET` an die Adresse `/search/{$identifier}` gestellt werden. Wenn ein anderer `endpoint` genutzt werden soll, kann dies im Bereich `declare` angepasst werden. Sobald eine Anfrage gestellt wird, wird die Funktion `page:getRecord` ausgeführt. In der ersten Zeile der Funktion muss der zu verwendende Datenbankname definiert werden. Für den Fall, dass die Informationen auf mehrere Datenbanken aufgeteilt wurden, müssen daher auch mehrere Dateien mit dieser Funktion verwendet werden. Dabei muss die Variable `rest:path` eindeutig definiert werden.
 
@@ -164,8 +164,8 @@ Nachdem die Datenbank eingerichtet wurde, kann sie in Goobi konfiguriert werden.
 
 Die Datei `goobi_opac.xml` muss um zwei weitere Einträge erweitert werden. Zum einen muss der zu verwendende Dokumententyp definiert werden. Dies passiert im Bereich `<doctypes>`:
 
-{% code-tabs %}
-{% code-tabs-item title="goobi\_opac.xml" %}
+{% tabs %}
+{% tab title="goobi\_opac.xml" %}
 ```markup
 <type isContainedWork="false" isMultiVolume="false" isPeriodical="false" rulesetType="SingleRecord" tifHeaderType="Record" title="Record">
     <label language="de">Akte</label>
@@ -173,15 +173,15 @@ Die Datei `goobi_opac.xml` muss um zwei weitere Einträge erweitert werden. Zum 
     <mapping>SingleRecord</mapping>
 </type>
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endtab %}
+{% endtabs %}
 
 In diesem Beispiel wird der Typ Akte \(`SingleRecord` im Regelsatz\) verwendet.
 
 Außerdem muss die Datenquelle definiert werden:
 
-{% code-tabs %}
-{% code-tabs-item title="goobi\_opac.xml" %}
+{% tabs %}
+{% tab title="goobi\_opac.xml" %}
 ```markup
 <catalogue title="EAD Import">
     <config address="http://localhost:8984/search/" database="hu-ead-example" description="EAD Import" iktlist="IKTLIST-GBV.xml"
@@ -191,8 +191,8 @@ Außerdem muss die Datenquelle definiert werden:
     </searchFields>
 </catalogue>
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endtab %}
+{% endtabs %}
 
 Das Attribut `title` enthält den Namen, unter dem die Datenquelle in Goobi auswählbar ist. Das Element `<config>` enthält in `address` die URL zur zuvor definierten REST-Schnittstelle und in `database` den Namen der Datenbank.
 
@@ -200,8 +200,8 @@ Das Attribut `title` enthält den Namen, unter dem die Datenquelle in Goobi ausw
 
 Diese Datei ist im Ordner `/opt/digiverso/goobi/config/` zu finden und enthält das Mapping der EAD-Elemente zu Goobi-Metadaten.
 
-{% code-tabs %}
-{% code-tabs-item title="plugin\_opac\_ead.xml" %}
+{% tabs %}
+{% tab title="plugin\_opac\_ead.xml" %}
 ```markup
 <?xml version="1.0" encoding="UTF-8"?>
 <config_plugin>
@@ -235,8 +235,8 @@ Diese Datei ist im Ordner `/opt/digiverso/goobi/config/` zu finden und enthält 
     </mapping>
 </config_plugin>
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endtab %}
+{% endtabs %}
 
 Im oberen Bereich werden die zur Verfügung stehenden Namespaces definiert, anschließend der zu erzeugende Strukturtyp. Hier kann mit Hilfe des Attributes `isanchor="true/false"` definiert werden, ob ein mehrbändiges Objekt oder ein eigenständiges Objekt erzeugt werden soll. Im Anschluss erfolgt im Bereich `<mapping>` das Mapping der Metadaten. Da in EAD die Unterscheidung zwischen Personen und anderen Metadaten nicht vorgesehen ist, können hier nur normale Metadaten angelegt werden. Jedes `<metadata>` enthält in `name` das Metadatum, so wie es im Regelsatz definiert wurde. In `level` wird angegeben, an welcher Stelle das Metadatum erzeugt werden soll. Mögliche Werte sind `physical`, `topstruct` und `anchor`.
 
@@ -246,8 +246,8 @@ In `xpath` steht der [XPath](https://www.w3.org/TR/1999/REC-xpath-19991116/) Aus
 
 Die Datei `goobi_projects.xml` benötigt eine neue Definition für den Publikationstyp und die neuen Metadaten.
 
-{% code-tabs %}
-{% code-tabs-item title="goobi\_projects.xml" %}
+{% tabs %}
+{% tab title="goobi\_projects.xml" %}
 ```markup
 <project name="EAD-Import">
     <createNewProcess>
@@ -290,8 +290,8 @@ Die Datei `goobi_projects.xml` benötigt eine neue Definition für den Publikati
     <validate/>
 </project>
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endtab %}
+{% endtabs %}
 
 Nachdem diese Konfiguration abgeschlossen wurde, steht innerhalb von Goobi eine neue Datenquelle innerhalb der Anlegemaske für Vorgänge zur Verfügung. Diese kann nun mittels der Identifier in gleicher Weise abgefragt werden wie andere Datenquellen und Kataloge auch.
 

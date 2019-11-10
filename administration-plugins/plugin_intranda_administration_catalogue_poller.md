@@ -44,8 +44,8 @@ Daneben gibt es eine Konfigurationsdatei, die an folgender Stelle liegen muss:
 
 Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intranda_administration_catalogue_poller.xml` und kann im laufenden Betrieb angepasst werden. Im folgenden ist eine beispielhafte Konfigurationsdatei aufgeführt:
 
-{% code-tabs %}
-{% code-tabs-item title="plugin\_intranda\_administration\_catalogue\_poller.xml" %}
+{% tabs %}
+{% tab title="plugin\_intranda\_administration\_catalogue\_poller.xml" %}
 ```markup
 <?xml version="1.0" encoding="UTF-8"?>
 <config_plugin>
@@ -86,8 +86,8 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
    <lastRun>1551731078691</lastRun>
 </config_plugin>
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endtab %}
+{% endtabs %}
 
 <table>
   <thead>
