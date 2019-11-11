@@ -15,7 +15,7 @@
     * [Installation](step-plugins/layoutwizzard/technische-details/installation.md)
     * [Konfiguration](step-plugins/layoutwizzard/technische-details/configuration.md)
     * [Workflow](step-plugins/layoutwizzard/technische-details/workflow.md)
-    * [Funktionsweise der Bildanalyse](step-plugins/layoutwizzard/technische-details/analyze.md)
+    * [Funktionsweise des LayoutWizzards](step-plugins/layoutwizzard/technische-details/analyze.md)
   * [Verwendung des Plugins](step-plugins/layoutwizzard/use/README.md)
     * [Einzelseitenansicht](step-plugins/layoutwizzard/use/imageview/README.md)
       * [Ordner- und Dateioptionen](step-plugins/layoutwizzard/use/imageview/options.md)

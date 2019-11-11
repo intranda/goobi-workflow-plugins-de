@@ -38,8 +38,6 @@ Die eigentliche Konfigurationsdatei gibt für den Vorgang der Layoutanalyse vers
 
 Beispielhaft hat diese Konfigurationsdatei den folgenden Inhalt:
 
-{% tabs %}
-{% tab title="layoutwizzard\_config.xml" %}
 ```markup
 <!-- intranda Layout Wizzard configuration file -->
 <config>
@@ -116,6 +114,4 @@ Beispielhaft hat diese Konfigurationsdatei den folgenden Inhalt:
     </analysis>
 </config>
 ```
-{% endtab %}
-{% endtabs %}
 

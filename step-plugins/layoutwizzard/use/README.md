@@ -4,11 +4,15 @@ Das Goobi-LayoutWizzard-Plugin ist der wichtigste Interaktionspunkt von Goobi-Nu
 
 ## Konfiguration
 
-Die Konfigurationsdatei des Plugins muss im `config` Verzeichnis der Goobi-Installation liegen und heißt in aktuellen Goobi-Versionen
+Die Konfigurationsdatei des Plugins muss im `config` Verzeichnis der Goobi-Installation liegen und heißt in aktuellen Goobi-Versionen `plugin_intranda_step_LayoutWizzard.xml`.
 
-`plugin_intranda_step_LayoutWizzard.xml`
+Üblicherweise lautet der vollständige Pfad wie folgt:
 
-Der Inhalt sieht üblicherweise folgendermaßen aus:
+```bash
+/opt/digiverso/goobi/config/plugin_intranda_step_LayoutWizzard.xml
+```
+
+Der Inhalt dieser Konfigurationsdatei ist folgendermaßen aufgebaut:
 
 ```markup
 <config_plugin>
@@ -76,7 +80,7 @@ Der Inhalt sieht üblicherweise folgendermaßen aus:
 </config_plugin>
 ```
 
-Wichtig ist hier der Pfad zur Konfigurationsdatei des LayoutWizzard selber im Block 
-
-`<layout-wizzard-config-path>`
+{% hint style="warning" %}
+Bitte beachten Sie, dass hier der korrekte Pfad zur Konfigurationsdatei des LayoutWizzards  im innerhalb des Elements`<layout-wizzard-config-path>` angegeben ist.
+{% endhint %}
 
