@@ -40,7 +40,7 @@
 ## Opac Plugins
 
 * [EAD Datenübernahme](opac-plugins/goobi-plugin-opac-ead.md)
-* [Generischer XML Import](opac-plugins/generischer-xml-import.md)
+* [Generischer XML Import](opac-plugins/goobi-plugin-opac-generic-xml.md)
 
 ## IMPORT PLUGINS
 
