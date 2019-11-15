@@ -36,8 +36,7 @@ Die erste Datei enthält das eigentliche Plugin. Die zweite Datei ist die Konfig
 
 Der Inhalt de Konfigurationsdatei `plugin_intranda_step_mixedocr.xml` muss folgendermaßen aufgebaut sein:
 
-{% tabs %}
-{% tab title="plugin\_intranda\_step\_mixedocr.xml" %}
+{% code title="plugin\_intranda\_step\_mixedocr.xml" %}
 ```markup
 <config_plugin>
 <!--
@@ -75,8 +74,7 @@ Der Inhalt de Konfigurationsdatei `plugin_intranda_step_mixedocr.xml` muss folge
     
     
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
 
 Es sind mehrere Konfigurationen für verschiedene Projekte und Schitte möglich. Diese werden per `<project>` und `<step>` festgelegt. Es ist auch die Wildcard `*` möglich, die für alle Schritte bzw. Projekte greift. Die eigentliche Konfiguration findet dann innerhalb der `<config>` Elemente statt. 
 
@@ -84,8 +82,7 @@ Das `<template>` ist das Template, das der TaskManager benutzen soll, die `<itmU
 
 Zusätzlich zu dieser Plugin-spezifischen Konfiguration muss noch eine Freigabe in der Datei `/opt/digiverso/goobi/config/goobi_rest.xml` erfolgen, damit der TaskManager dem Plugin die erfolgreiche Abarbeitung der Jobs melden kann:
 
-{% tabs %}
-{% tab title="/opt/digiverso/goobi/config/goobi\_rest.xml" %}
+{% code title="/opt/digiverso/goobi/config/goobi\_rest.xml" %}
 ```markup
 <endpoint path="/plugins/ocr.*">
     <method name="post">
@@ -93,8 +90,7 @@ Zusätzlich zu dieser Plugin-spezifischen Konfiguration muss noch eine Freigabe 
     </method>
 </endpoint>
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
 
 ## Einstellungen in Goobi
 

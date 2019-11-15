@@ -36,8 +36,7 @@ Die erste Datei enthält die eigentliche Programmlogik, die zweite Datei stellt 
 
 Der Inhalt der Konfigurationsdatei `plugin_PdfUploadPlugin.xml` muss folgendermaßen aufgebaut sein: 
 
-{% tabs %}
-{% tab title="plugin\_PdfUploadPlugin.xml" %}
+{% code title="plugin\_PdfUploadPlugin.xml" %}
 ```markup
 <config_plugin>
  <!-- allowed values: master, source, derivate -->
@@ -48,8 +47,7 @@ Der Inhalt der Konfigurationsdatei `plugin_PdfUploadPlugin.xml` muss folgenderma
     </extensions>
 </config_plugin>
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
 
 In `<folder>` wird festgelegt, in welchem Ordner die hochgeladenen Dateien gespeichert werden. Dabei können die Werte  `master`, `source` und `derivate` verwendet werden.
 

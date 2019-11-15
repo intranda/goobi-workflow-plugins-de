@@ -48,8 +48,7 @@ Die Datei `plugin_RepresentativeCreationPlugin.xml` muss ebenfalls für den tomc
 
 Folgende Datei dient zur Konfiguration des Plugins und muss wie folgt aufgebaut sein: 
 
-{% tabs %}
-{% tab title="plugin\_RepresentativeCreationPlugin.xml" %}
+{% code title="plugin\_RepresentativeCreationPlugin.xml" %}
 ```markup
 <config_plugin>
     <RepresentativeStructureElement>TitlePage</RepresentativeStructureElement>
@@ -57,8 +56,7 @@ Folgende Datei dient zur Konfiguration des Plugins und muss wie folgt aufgebaut 
     <StepName>Bibliographic import</StepName>
 </config_plugin>
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
 
 Im Element `<RepresentativeStructureElement>` kann das Strukturelement definiert werden, dessen erste Seite als Repräsentant genutzt werden soll. Es handelt sich hierbei um den im Regelsatz definierten internen Namen des `<DocStrctType>` Elements.
 

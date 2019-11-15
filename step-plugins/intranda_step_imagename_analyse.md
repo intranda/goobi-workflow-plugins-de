@@ -45,8 +45,7 @@ Die Datei `plugin_intranda_step_imagename_analyse.xml` muss ebenfalls für den `
 
 Diese Datei dient zur Konfiguration des Plugins und muss wie folgt aufgebaut sein:
 
-{% tabs %}
-{% tab title="plugin\_intranda\_step\_imagename\_analyse.xml" %}
+{% code title="plugin\_intranda\_step\_imagename\_analyse.xml" %}
 ```markup
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
@@ -66,8 +65,7 @@ Diese Datei dient zur Konfiguration des Plugins und muss wie folgt aufgebaut sei
     </structureList>
 </config>
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
 
 Im Element `skipWhenDataExists` wird definiert, wie sich das Plugin verhält, wenn bereits eine Paginierung vorhanden ist. Bei dem Wert `true` wird die Ausführung übersprungen, bei `false` wird die vorhandene Struktur und Paginierung entfernt und eine neue erzeugt.
 

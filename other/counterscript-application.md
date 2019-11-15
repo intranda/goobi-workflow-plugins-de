@@ -261,15 +261,13 @@ Das Goobi Plugin besteht aus folgenden drei Teilen:
 
 Die ersten beiden Dateien enthalten die Programmlogik sowie die graphische Oberfläche. Die Datei `plugin_CounterscriptPlugin.xml` dient zur Konfiguration der RESTful URL und hat folgenden Inhalt:
 
-{% tabs %}
-{% tab title="plugin\_CounterscriptPlugin.xml" %}
+{% code title="plugin\_CounterscriptPlugin.xml" %}
 ```markup
 <config_plugin>
     <rest_url>http://localhost:8080/Counterscript/api/</rest_url>
 </config_plugin>
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
 
 ### 3.2. Nutzung
 

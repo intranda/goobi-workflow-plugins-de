@@ -41,16 +41,14 @@ Die Datei `plugin_LzaExportEWIG.xml` muss ebenfalls für den tomcat-Nutzer lesba
 
 ​ Folgende Datei dient zur Konfiguration des Plugins und muss wie folgt aufgebaut sein: ​
 
-{% tabs %}
-{% tab title="plugin\_LzaExportEWIG.xml" %}
+{% code title="plugin\_LzaExportEWIG.xml" %}
 ```markup
 <?xml version="1.0" encoding="UTF-8"?>
 <config_plugin>
     <exportFolder>/opt/digiverso/</exportFolder>
 </config_plugin>
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
 
 ​ Im Element `<exportFolder>` wird dabei festgelegt an welcher Stelle im Dateisystem die exportierten METS Dateien abgelegt werden.
 
