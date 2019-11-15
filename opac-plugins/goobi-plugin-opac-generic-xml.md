@@ -4,7 +4,7 @@ description: OPAC Plugin für die Datenübernahme von XML Datensätzen aus einem
 
 # Generischer XML Import
 
-### Einführung <a id="einf%C3%BChrung"></a>
+## Einführung
 
 Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den Einsatz des Plugins. Mit Hilfe dieses Plugins können Daten aus einem externen System abgefragt und in Goobi übernommen werden. Der Katalog muss eine API haben, über die Datensätze als XML ausgeliefert werden können.
 
@@ -15,7 +15,7 @@ Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den
 | Repository | goobi-plugin-opac-generic-xml |
 | Dokumentation vom | 11.11.2019 |
 
-### Installation <a id="installation"></a>
+## Installation
 
 Das Plugin besteht aus zwei Dateien:
 
@@ -36,7 +36,7 @@ Die Datei`plugin_intranda_opac_xml.xml` muss ebenfalls für den Nutzer `tomcat` 
 /opt/digiverso/goobi/config/
 ```
 
-### Konfiguration <a id="konfiguration"></a>
+## Konfiguration
 
 Die Konfiguration erfolgt in den folgenden Dateien, die sich im Verzeichnis `/opt/digiverso/goobi/config/` befinden.
 
