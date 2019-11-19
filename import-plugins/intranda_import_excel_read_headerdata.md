@@ -245,7 +245,7 @@ Mit dem Element `metadata` werden deskriptive Metadaten erzeugt.
 | `headerName` | Attribut | Spaltentitel in der Exceldatei |
 | `ugh` | Attribut | Name des Metadatums |
 | `name` | Attribut | Name der Eigenschaft |
-| `docType` | Attribut | anchor oder child |
+| `docType` | Attribut | `anchor` oder `child` |
 | `normdataHeaderName` | Attribut | Spaltentitel einer Spalte mit dazugehörigen Identifiern |
 
 Das Attribut `headerName` enthält den Spaltentitel. Die Regel greift nur dann, wenn die Excel-Datei eine Spalte mit diesem Titel enthält und die Zelle nicht leer ist. Von den beiden Attributen `ugh` und `name` muss mindestens eines existieren. Das Feld `ugh` kann den Namen eines Metadatums enthalten. Wenn dies der Fall ist \(und das Metadatum für den konfigurierten Publikationstyp erlaubt ist\), wird ein neues Metadatum erzeugt. Mittels `name` wird eine Eigenschaft mit diesem Namen erstellt.
@@ -261,12 +261,12 @@ Mittels des Elements `person` können automatisiert Personen angelegt werden.
 | Name | Typ | Beschreibung |
 | :--- | :--- | :--- |
 | `ugh` | Attribut | Name der Personenrolle |
-| `docType` | Attribut | anchor oder child |
+| `docType` | Attribut | `anchor` oder `child` |
 | `normdataHeaderName` | Attribut | Spaltentitel einer Spalte mit dazugehörigen Identifiern |
 | `firstnameFieldHeader` | Element | Spaltentitel des Feldes für Vorname |
 | `lastnameFieldHeader` | Element | Spaltentitel für Nachnamen |
 | `nameFieldHeader` | Element | Spaltentitel für den kompletten Namen |
-| `splitName` | Element | Definiert, ob der Wert in nameFieldHeader gesplittet werden soll |
+| `splitName` | Element | Definiert, ob der Wert in `nameFieldHeader` gesplittet werden soll |
 | `splitChar` | Element | Element, an dem gesplittet wird. Default ist das erste Leerzeichen |
 | `firstNameIsFirstPart` | Attribut | Definiert, in welcher Reihenfolge die Angaben gemacht wurden |
 
@@ -279,7 +279,7 @@ Mittels des Elements `group` können Metadatengruppen erstellt werden.
 | Name | Typ | Beschreibung |
 | :--- | :--- | :--- |
 | `ugh` | Attribut | Name der Metadatengruppe |
-| `docType` | Attribut | anchor oder child |
+| `docType` | Attribut | `anchor` oder `child` |
 | `metadata` | Element | Metadatum innerhalb der Gruppe |
 | `person` | Element | Person innerhalb der Gruppe |
 

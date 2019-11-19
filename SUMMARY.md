@@ -45,7 +45,7 @@
 ## IMPORT PLUGINS
 
 * [Import für Zeitschriftenartikel aus einem Endnote Export](import-plugins/intranda_import_endnote.md)
-* [Import von Datensätzen aus einer Excel-Datei](import-plugins/import-von-datensaetzen-aus-einer-excel-datei.md)
+* [Import von Datensätzen aus einer Excel-Datei](import-plugins/intranda_import_excel_read_headerdata.md)
 
 ## Export Plugins
 
