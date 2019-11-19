@@ -161,9 +161,8 @@ Die folgende Liste an allgemeinen Konfigurationspfaden ist nicht vollständig. S
           eines Bildes an, nach der die Ausf&#xFC;hrung f&#xFC;r das Bild abgebrochen
           werden soll. Eine wegen Timeouts abgebrochene Analyse wird vermerkt, die
           Analyse der folgenden Bilder jedoch fortgesetzt. Die fehlenden Analysedaten
-          k&#xF6;nnen in der manuellen Kontrolle nachgetragen werden.</p>
-        <p>Ein abgebrochenes Speichern beendet jedoch immer den TaskManager-Job mit
-          einem Fehler.</p>
+          k&#xF6;nnen in der manuellen Kontrolle nachgetragen werden. Ein abgebrochenes
+          Speichern beendet jedoch immer den TaskManager-Job mit einem Fehler.</p>
         <p>Sinnvolle Werte f&#xFC;r den Timeout liegen zwischen 4 Sekunden und etwa
           einer Minute, je nach Leistung und Zuverl&#xE4;ssigkeit des Systems, und
           der Gr&#xF6;&#xDF;e und Komplexit&#xE4;t der zu analysierenden Bilder.</p>
@@ -243,14 +242,14 @@ Folgende Einstellungen können in jedem `<analysis>` Block existieren:
       <td style="text-align:left">Mit dieser Wert wird der Konsolenbefehl definiert, mit dem das externe
         Programm zum Erzeugen von Bildern aufgerufen werden soll. An diesen Befehl
         werden die Spezifika der Ausf&#xFC;hrung angeh&#xE4;ngt, die dem Format
-        von <code>ImageMagick</code> folgen. Das aufgerufene Programm muss also mit <code>ImageMagick</code>-Kompatiblen
-        Parametern aufgerufen werden k&#xF6;nnen.</td>
+        von <code>ImageMagick</code> folgen. Das aufgerufene Programm muss also mit
+        Parametern aufgerufen werden k&#xF6;nnen, die kompatibel zu <code>ImageMagick</code> sind.</td>
     </tr>
     <tr>
       <td style="text-align:left"><code>analysisStep</code>
       </td>
-      <td style="text-align:left">Dieser Wert enth&#xE4;lt alle Konfigurationsbl&#xF6;cke f&#xFC;r interne
-        Parameter zur automatischen Analyse eines Analyseschrittes.</td>
+      <td style="text-align:left">Dieser Wert enth&#xE4;lt alle internen Parameter den jeweiligen automatischen
+        Analyseschritt.</td>
     </tr>
     <tr>
       <td style="text-align:left"><code>analysisStep/@name</code>
@@ -274,13 +273,13 @@ Folgende Einstellungen können in jedem `<analysis>` Block existieren:
     <tr>
       <td style="text-align:left"><code>analysisStep/@order</code>
       </td>
-      <td style="text-align:left">An dieser Stelle wird die Reihenfolge des Analyseschrittes innerhalb des
-        Analyseworkflow bestimmt.</td>
+      <td style="text-align:left">An dieser Stelle wird die Reihenfolge des Analyseschrittes innerhalb der
+        gesamten Analyse festgelegt.</td>
     </tr>
   </tbody>
-</table>Die Einstellungen in den `<analysisStep>` Blöcken betreffen spezifische Parameter der Analyse-Algorithmen. Sie werden hier nicht weiter beschrieben. Benutzer können jedoch in der Oberfläche potentiell jeden Parameter anpassen. Sollten sich so vorgenommene Einstellungen genug bewähren, um in die Konfiguration übernommen zu werden, kann der entsprechende Block in der Konfigurationsdatei auf den neuen Wert gesetzt werden. Der passenden Parameter-Block kann ermittelt werden, indem der `<analysisStep>` zum jeweiligen Analyse-Schritt in der Konfigurationsdatei herausgefunden  und dort der Block mit dem internen Parameternamen geändert wird. Der interne Paramtername wird in der Oberfläche als Tooltip angezeigt, wenn der Mauszeiger über das Label des veränderten Parameters gehalten wird.
+</table>Die Einstellungen in den `<analysisStep>` Blöcken betreffen spezifische Parameter der Analyse-Algorithmen. Sie werden hier nicht weiter beschrieben. Benutzer können jedoch in der Oberfläche potentiell jeden Parameter anpassen. Sollten sich so vorgenommene Einstellungen genug bewähren, um in die Konfiguration übernommen zu werden, kann der entsprechende Block in der Konfigurationsdatei auf den neuen Wert gesetzt werden. Der passende Parameter-Block kann hierbei ermittelt werden, indem der `<analysisStep>` zum jeweiligen Analyse-Schritt in der Konfigurationsdatei herausgefunden  und dort der Block mit dem internen Parameternamen geändert wird. Der interne Parametername wird in der Oberfläche als Tooltip angezeigt, wenn der Mauszeiger über das Label des veränderten Parameters gehalten wird.
 
-Zusätzlich können alle Analyse-Paramter-Blöcke das Attribut `visibility` besitzen, das die Sichtbarkeit des Parameters in der Oberfläche regelt. Fehlt dieses Attribut wird der default-Wert `HIDDEN` verwendet.
+Zusätzlich können alle Analyse-Parameter-Blöcke das Attribut `visibility` besitzen, das die Sichtbarkeit des Parameters in der Oberfläche regelt. Fehlt dieses Attribut wird der default-Wert `HIDDEN` verwendet.
 
 | Sichtbarkeit | Beschreibung |
 | :--- | :--- |
