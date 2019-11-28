@@ -14,7 +14,7 @@ Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den
 | :--- | :--- |
 | Version des Plugins | 1.1.0 |
 | Identifier | intranda\_step\_displayMetadata |
-| Source code | - Quellcode noch nicht öffentlich verfügbar - |
+| Source code | [https://github.com/intranda/goobi-plugin-step-displaymetadata](https://github.com/intranda/goobi-plugin-step-displaymetadata) |
 | Kompatibilität | Goobi Workflow 3.0.0 |
 | Dokumentation vom | 28.11.2019 |
 
