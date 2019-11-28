@@ -42,12 +42,16 @@ Es können mehrere Metadaten zur Anzeige konfiguriert werden, zusätzlich kann e
 ```markup
     <?xml version="1.0" encoding="UTF-8"?>
     <config_plugin>
-        <metadatalist>
-            <metadata>Author</metadata>
-            <metadata>TitleDocMain</metadata>
-            <metadata>_urn</metadata>
-            <metadata prefix="http://viewer.mydomain.tld/viewer/image/" suffix="/1/" key="url">CatalogIDDigital</metadata>
-        </metadatalist>
+        <config>
+            <project>*</project>
+            <step>*</step>
+            <metadatalist>
+                <metadata>Author</metadata>
+                <metadata>TitleDocMain</metadata>
+                <metadata>_urn</metadata>
+                <metadata prefix="http://svdmzgoobiweb01.klassik-stiftung.de/viewer/image/" suffix="/1/" key="url">CatalogIDDigital</metadata>
+            </metadatalist>
+        </config>
     </config_plugin>
 ```
 

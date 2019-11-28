@@ -8,11 +8,12 @@ description: OPAC Plugin für die Datenübernahme von XML Datensätzen aus einem
 
 Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den Einsatz des Plugins. Mit Hilfe dieses Plugins können Daten aus einem externen System abgefragt und in Goobi übernommen werden. Der Katalog muss eine API haben, über die Datensätze als XML ausgeliefert werden können.
 
-| Details |  |
+|  |  |
 | :--- | :--- |
-| Goobi Version | 2019.11 |
-| maven Version | 1.0.0 |
-| Repository | goobi-plugin-opac-generic-xml |
+| Version des Plugins | 1.0.0 |
+| Identifier | goobi-plugin-opac-generic-xml |
+| Source code | - Source code not yet publicly available - |
+| Kompatibilität | Goobi workflow 2019.11 |
 | Dokumentation vom | 11.11.2019 |
 
 ## Installation
