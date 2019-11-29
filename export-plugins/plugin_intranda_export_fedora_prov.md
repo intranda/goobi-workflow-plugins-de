@@ -12,11 +12,11 @@ Die vorliegende Dokumentation beschreibt die Installation, die Konfiguration und
 
 | Details |  |
 | :--- | :--- |
-| Version des Plugins | 1.0.0 |
+| Version des Plugins | 1.0.2 |
 | Identifier | plugin\_intranda\_export\_fedora\_prov |
 | Source code | [https://gitea.intranda.com/goobi-workflow/goobi-plugin-export-fedora-prov](https://gitea.intranda.com/goobi-workflow/goobi-plugin-export-fedora-prov) |
 | Kompatibilität | Goobi workflow 3.0 und neuer |
-| Dokumentation vom | 19.02.2019 |
+| Dokumentation vom | 29.11.2019 |
 
 ## Konfiguration <a id="konfiguration"></a>
 
@@ -31,6 +31,10 @@ Die Konfiguration erfolgt über die Konfigurationsdatei `intranda_export_fedora.
         <!-- general Fedora configuration data -->
         <fedoraUrl>http://localhost:8080/fedora/rest</fedoraUrl>
         <useVersioning>false</useVersioning>
+        <!-- Basic HTTP authentication user name (optional) -->
+        <userName>foo</userName>
+        <!-- Basic HTTP authentication password (optional) -->
+        <password>bar</password>
 
         <!-- which content to ingest -->
         <ingestMaster>true</ingestMaster>
@@ -100,6 +104,7 @@ Die Konfiguration erfolgt über die Konfigurationsdatei `intranda_export_fedora.
 | :--- | :--- |
 | `fedoraUrl` | REST Endpoint des Fedora Applikation |
 | `useVersioning` | Wenn `true` gesetzt ist, wird die Revisionierung von Fedora verwendet. In diesem Fall wird für jeder Ausführung des Exportschrittes eine neue Revision des Vorgangs im Repository angelegt. Standardwert ist `true`. |
+| `userName, password` | Optionale Basic HTTP Authentifizierung. Beide Werte müssen gesetzt sein, damit die Authentifizierung stattfindet. |
 | `ingestMaster` | Wenn `true` gesetzt ist, werden die Master-Bilder des Vorgangs exportiert. Standardwert ist `true`. |
 | `ingestMedia` | Wenn `true` gesetzt ist, werden die Derivate des Vorgangs exportiert. Standardwert ist `true`. |
 | `ingestJp2` | Wenn `true` gesetzt ist, werden die JPEG2000-Bilder des Vorgangs in den Subcontainer `/media` exportiert. Standardwert ist `true`. |
@@ -108,6 +113,7 @@ Die Konfiguration erfolgt über die Konfigurationsdatei `intranda_export_fedora.
 | `exportMetsFile` | Wenn `true` gesetzt ist, eine METS/MODS Datei erzeugt und in den üblichen Export-Ordner \(z.B. `/hotfolder`\) geschrieben. Standardwert ist `true`. |
 | `externalLinkContent` |  |
 | `fullPartialContent` |  |
+| `availableMetadataQuery` | Optionale SPARQL-Query, um das Veröffentlichungs-Datum als Attribut rum Root-Container des Werks hinzuzufügen. Die Prozesseigenschaft `available` muss hierfür gesetzt sein. |
 | `imagesContainerMetadataQuery` | Optionale SPARQL-Query, um zusätzliche Attribute und Verlinkungen zum `/images`-Container hinzuzufügen. |
 | `filesContainerMetadataQuery` | Optionale SPARQL-Query, um zusätzliche Attribute und Verlinkungen zum `/files`-Container hinzuzufügen. |
 | `imageFileMetadataQuery` | Optionale SPARQL-Query, um für alle Bilddateien im Repository \(unter z.B. `../00000001.tif/fcr:metadata`\) zusätzliche Attribute zu schreiben. |
