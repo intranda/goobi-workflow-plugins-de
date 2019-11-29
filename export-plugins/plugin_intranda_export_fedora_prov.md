@@ -56,6 +56,15 @@ Die Konfiguration erfolgt über die Konfigurationsdatei `intranda_export_fedora.
             WHERE { }
         </fullPartialContent>
         
+        <!-- Property containing the public release date (optional)-->
+        <availableMetadataQuery>
+            PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt; 
+            INSERT {
+                &lt;&gt; dcterms:available "[DATE_AVAILABLE]" .
+            }
+            WHERE { }
+        </availableMetadataQuery>
+        
         <!-- Properties query for the /images container -->
         <imagesContainerMetadataQuery>
             PREFIX ldp: &lt;http://www.w3.org/ns/ldp#&gt; 
