@@ -56,7 +56,7 @@
 
 ## Workflow Plugins
 
-* [Generisches Import Plugin für Excel-Dateien inklusive Validierung](workflow-plugins/generisches-import-plugin-fuer-excel-dateien-inklusive-validierung.md)
+* [Generisches Import Plugin für Excel-Dateien inklusive Validierung](workflow-plugins/goobi-plugin-workflow-excelimport.md)
 
 ## Sonstiges <a id="other"></a>
 
