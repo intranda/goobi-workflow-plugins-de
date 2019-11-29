@@ -54,6 +54,10 @@
 * [HAAB Export](export-plugins/haabexport.md)
 * [EWIG Langzeitarchivierung](export-plugins/ewig-langzeitarchivierung.md)
 
+## Workflow Plugins
+
+* [Generisches Import Plugin für Excel-Dateien inklusive Validierung](workflow-plugins/goobi-plugin-workflow-excelimport.md)
+
 ## Sonstiges <a id="other"></a>
 
 * [Counterscript Application](other/counterscript-application.md)
