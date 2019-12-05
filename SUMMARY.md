@@ -36,6 +36,7 @@
 * [Ändern des Workflows auf Grundlage von Vorgangseigenschaften](step-plugins/intranda_step_changeworkflow.md)
 * [Anzeige von Metadaten in einer Aufgabe](step-plugins/intranda_step_displaymetadata.md)
 * [Automatische Paginierung auf Basis der Dateinamen](step-plugins/intranda_step_imagename_analyse.md)
+* [EWIG Langzeitarchivierung](step-plugins/ewig-langzeitarchivierung.md)
 
 ## Opac Plugins
 
@@ -52,7 +53,6 @@
 * [Fedora Export](export-plugins/plugin_intranda_export_fedora.md)
 * [Fedora Export PROV](export-plugins/plugin_intranda_export_fedora_prov.md)
 * [HAAB Export](export-plugins/haabexport.md)
-* [EWIG Langzeitarchivierung](export-plugins/ewig-langzeitarchivierung.md)
 
 ## Workflow Plugins
 
