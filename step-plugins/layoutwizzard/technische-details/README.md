@@ -6,6 +6,8 @@ Da die Installation, Konfiguration sowie die technische Arbeitsweise umfangreich
 
 {% page-ref page="configuration.md" %}
 
+{% page-ref page="konfiguration-der-nutzeroberflaeche.md" %}
+
 {% page-ref page="workflow.md" %}
 
 

@@ -19,7 +19,7 @@ Der Inhalt dieser Konfigurationsdatei ist folgendermaßen aufgebaut:
         /opt/digiverso/LayoutWizzard/layoutwizzard_config.xml
     </layout-wizzard-config-path>
     <startPage>PREVIEW</startPage>
-	<!--<startPage>SINGLEVIEW</startPage>-->
+	  <!--<startPage>SINGLEVIEW</startPage>-->
     <previewMode>ALTERNATING</previewMode>
     <contentBorder>
         <width>2</width>
@@ -77,6 +77,6 @@ Der Inhalt dieser Konfigurationsdatei ist folgendermaßen aufgebaut:
 ```
 
 {% hint style="warning" %}
-Bitte beachten Sie, dass hier der korrekte Pfad zur Konfigurationsdatei des LayoutWizzards  im innerhalb des Elements`<layout-wizzard-config-path>` angegeben ist.
+Bitte beachten Sie, dass hier der korrekte Pfad zur Konfigurationsdatei des LayoutWizzards   innerhalb des Elements`<layout-wizzard-config-path>` angegeben ist.
 {% endhint %}
 
