@@ -8,8 +8,6 @@ Da die Installation, Konfiguration sowie die technische Arbeitsweise umfangreich
 
 {% page-ref page="workflow.md" %}
 
-{% page-ref page="analyze.md" %}
-
 
 
 

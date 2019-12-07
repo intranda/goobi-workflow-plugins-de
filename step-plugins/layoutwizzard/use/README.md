@@ -2,7 +2,7 @@
 
 Das Goobi-LayoutWizzard-Plugin ist der wichtigste Interaktionspunkt von Goobi-Nutzern mit dem LayoutWizzard. Es ermöglicht die komplette Konfiguration und Durchführung der automatischen Analyse und das Speichern der Derivate. Seine Hauptaufgabe ist jedoch die Kontrolle und Korrektur der Analyseergebnisse. Dazu besitzt das LayoutWizzard-Plugin zwei Ansichten; die `Einzelseitenansicht` zur detaillierten Bearbeitung einzelner Bilder und die `Vorschauansicht` zur Sichtung und direkten Korrektur aller Bilder eines Vorganges. 
 
-Alle allgemeinen Einstellungen zur Konfiguration und dem Analyseworkflow sind in der `Einzelseitenansicht` untergebracht, weshalb sie als Startseite für das Plugin fungiert. Die eigentliche Kontrolle und Korrektur wird in den meisten Fällen jedoch ausschließlich in der `Vorschauansicht` stattfinden.
+Alle allgemeinen Einstellungen zur Konfiguration und dem Analyseworkflow sind in der `Einzelseitenansicht` untergebracht, weshalb sie zumeist als Startseite für das Plugin fungiert. Die eigentliche Kontrolle und Korrektur wird in den meisten Fällen jedoch ausschließlich in der `Vorschauansicht` stattfinden.
 
 ## Konfiguration
 
