@@ -14,7 +14,7 @@ Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den
 
 ### Installation und Konfiguration
 
-Das Plugin besteht aus zwei Dateien: ​
+Das Plugin besteht aus zwei Dateien:
 
 ```markup
 plugin_intranda_step_LZA_EWIG.jar
