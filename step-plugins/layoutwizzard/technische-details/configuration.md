@@ -1,6 +1,6 @@
-# Konfiguration
+# Konfiguration des LayoutWizzards
 
-Die LayoutWizzard-Konfigurationsdatei kann an einem beliebigen Ort im Dateisystem liegen, da ihr Pfad in jedem verwendenden Plugin festgelegt ist. Üblicherweise lautet der Pfad folgendermaßen:
+Die zentrale Konfiguration des LayoutWizzards findet in einer eigenständigen Konfigurationsdatei statt. Diese kann an einem beliebigen Ort im Dateisystem liegen, da ihr Pfad in jedem Programmbestandteil des LayoutWizzards angegeben werden kann. Üblicherweise lautet der Pfad zu dieser zentralen Konfigurationsdatei folgendermaßen:
 
 ```bash
 /opt/digiverso/LayoutWizzard/layoutwizzard_config.xml
@@ -110,7 +110,7 @@ Der Inhalt einer solchen Konfiguration sieht beispielhaft wie folgt aus:
 </config>
 ```
 
-Die Konfiguration besteht aus einigen allgemeinen Einstellungen und mehreren `<analysis>`Blöcken. Die `<analysis>` Blöcke regeln im Wesentlichen die Einstellungen für die automatische Analyse. Verschiedene Projekte oder Vorgänge können unterschiedliche Einstellungen verwenden, indem Sie der automatischen Analyse die `id` des `<analysis>` Blocks übergeben. 
+Die Konfiguration besteht aus einigen allgemeinen Einstellungen und mehreren `<analysis>`Blöcken. Die `<analysis>` Blöcke regeln im Wesentlichen die Einstellungen für die automatische Analyse. Verschiedene Projekte oder Vorgänge können dabei unterschiedliche Einstellungen verwenden, indem Sie der automatischen Analyse die `id` des `<analysis>` Blocks übergeben. 
 
 Allgemeine Einstellungen betreffen immer alle Vorgänge und werden auch nicht durch vorgangsspezifische Einstellungen überschrieben.
 
