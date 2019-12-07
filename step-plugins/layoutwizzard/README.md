@@ -28,6 +28,10 @@ Die automatischen Arbeitsschritte \(`Automatische Bildanalyse` und `Automatische
 
 Die manuelle Kontrolle der Analyseergebnisse mit dem Vorschlag für das Croppen erfolgt innerhalb eines eigenständigen Goobi Step Plugins mit Nutzeroberläche, so dass dessen Bedienung vollständig in Goobi workflow integriert ist.
 
+Je nach individueller Installation von Goobi workflow und der jeweiligen Workflows können die einzelnen Arbeitsschritte natürlich individuell benannt werden. Im folgenden Screenshot wurden für die drei nacheinander folgenden Arbeitsschritte beispielsweise andere Namen vergeben:
+
+![Individuelle Benennung der einzelnen Arbeitsschritte, die zum LayoutWizzard geh&#xF6;ren](../../.gitbook/assets/layoutwizzard_goobi_workflow.png)
+
 ## 3. Details zur Bildanalyse
 
 Die Bildanalyse des LayoutWizzard arbeitet in mehreren Phasen, um ausgehend von dem originalen Bild zu dem gewünschten Bildderivat zu gelangen. Hierzu durchläuft jedes Bild eine Bildanalyse, in der die Seiten ausgerichtet, das Objekt erkannt und die Buchfalz ermittelt wird. Die Bildanalyse besteht entsprechend zumeist aus den folgenden Phasen:
