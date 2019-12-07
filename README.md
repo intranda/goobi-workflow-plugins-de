@@ -126,7 +126,7 @@ Die Installation der Workflow Plugins erfolgt im Ordner:
 /opt/digiverso/goobi/plugins/workflow/
 ```
 
-Da die meisten Workflow Plugins neben der eigentlichen Funktionalität ausserdem über eine Nutzeroberfläche verfügen, so muss diese zusätzlich in folgenden Ordner installiert werden:
+Da die meisten Workflow Plugins neben der eigentlichen Funktionalität ausserdem über eine Nutzeroberfläche verfügen, so muss diese zusätzlich in folgenden Ordner installiert werden: 
 
 ```text
 /opt/digiverso/goobi/plugins/GUI/
