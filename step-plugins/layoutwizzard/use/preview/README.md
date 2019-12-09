@@ -1,6 +1,6 @@
 # Vorschauansicht
 
-Die Vorschauansicht enthält eine Liste aller Bilder im Eingabeordner, in der Regel verteilt auf mehrere Seiten um Ladezeiten zu begrenzen. Je nach Einstellung werden gegenüberliegende rechte und linke Bilder nebeneinander angezeigt, oder es werden auf jeder Seite abwechelnd nur rechte und linke Bilder angezeigt um sie schneller vergleichen zu können.  
+Die Vorschauansicht enthält eine Liste aller Bilder im Eingabeordner, die in der Regel auf mehrere Seiten verteilt werden, um Ladezeiten zu begrenzen. Je nach Einstellung werden gegenüberliegende rechte und linke Bilder nebeneinander angezeigt, oder es werden auf jeder Seite abwechelnd nur rechte und linke Bilder angezeigt um sie schneller vergleichen zu können.  
 Diese beiden Modi der Vorschauansicht für rechts-links alternierende Seiten. Links mit gegenüberliegenden Seiten nebeneinander, rechts nur die rechten Seiten. Die zugehörigen linken Seiten werden mit Druck auf Vorwärts angezeigt.
 
 ![Zwei Modi der Vorschauansicht](../../../../.gitbook/assets/layoutwizzard2_preview-duo.png)
