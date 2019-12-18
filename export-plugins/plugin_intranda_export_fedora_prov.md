@@ -12,11 +12,11 @@ Die vorliegende Dokumentation beschreibt die Installation, die Konfiguration und
 
 | Details |  |
 | :--- | :--- |
-| Version des Plugins | 1.0.2 |
+| Version des Plugins | 1.0.3 |
 | Identifier | plugin\_intranda\_export\_fedora\_prov |
 | Source code | [https://gitea.intranda.com/goobi-workflow/goobi-plugin-export-fedora-prov](https://gitea.intranda.com/goobi-workflow/goobi-plugin-export-fedora-prov) |
 | Kompatibilität | Goobi workflow 3.0 und neuer |
-| Dokumentation vom | 29.11.2019 |
+| Dokumentation vom | 18.12.2019 |
 
 ## Konfiguration <a id="konfiguration"></a>
 
@@ -45,9 +45,16 @@ Die Konfiguration erfolgt über die Konfigurationsdatei `intranda_export_fedora.
         <!-- command for specific property including the parameter for Barcode and for the unit-or-item-type -->
         <externalLinkContent>
             PREFIX crm: &lt;http://www.cidoc-crm.org/cidoc-crm/&gt; 
-            INSERT { &lt;&gt; crm:P70_documents &lt;http://access.prov.vic.gov.au/public/component/daPublicBaseContainer?component=daView[UNIT_ITEM_CODE]&amp;entityId=[BARCODE]#&gt; } 
+            INSERT { &lt;&gt; crm:P70_documents &lt;http://example.com/code=[UNIT_ITEM_CODE]&amp;entityId=[BARCODE]#&gt; } 
             WHERE { }
         </externalLinkContent>
+        
+        <!-- command for specific property including the parameter for PID -->
+        <externalLinkContentPID>
+            PREFIX crm:&lt;http://www.cidoc-crm.org/cidoc-crm/&gt;
+            INSERT { &lt;&gt; crm:P70_documents &lt;http://example.com/resolver?pid=/[PID]#&gt; }
+            WHERE { }
+        </externalLinkContentPID>
 
         <!-- command for specific property including the parameter for full_partial -->
         <fullPartialContent>
@@ -120,7 +127,8 @@ Die Konfiguration erfolgt über die Konfigurationsdatei `intranda_export_fedora.
 | `ingestPdf` | Wenn `true` gesetzt ist, werden die PDFs des Vorgangs in den Subcontainer `/media` exportiert. Standardwert ist `true`. |
 | `ingestMetsFile` | Wenn `true` gesetzt ist, eine METS/MODS Datei erzeugt und im Container Exportiert. Standardwert ist `true`. |
 | `exportMetsFile` | Wenn `true` gesetzt ist, eine METS/MODS Datei erzeugt und in den üblichen Export-Ordner \(z.B. `/hotfolder`\) geschrieben. Standardwert ist `true`. |
-| `externalLinkContent` |  |
+| `externalLinkContent` | Externe URL mit Verwendung eines 10-stelligen Barcodes und des Unit Item Codes. |
+| `externalLinkContentPID` | Externe URL mit Verwendung einer 36-steligen PID. |
 | `fullPartialContent` |  |
 | `availableMetadataQuery` | Optionale SPARQL-Query, um das Veröffentlichungs-Datum als Attribut rum Root-Container des Werks hinzuzufügen. Die Prozesseigenschaft `available` muss hierfür gesetzt sein. |
 | `imagesContainerMetadataQuery` | Optionale SPARQL-Query, um zusätzliche Attribute und Verlinkungen zum `/images`-Container hinzuzufügen. |
