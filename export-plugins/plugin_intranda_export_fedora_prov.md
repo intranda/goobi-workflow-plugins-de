@@ -130,7 +130,7 @@ Die Konfiguration erfolgt über die Konfigurationsdatei `intranda_export_fedora.
 | `externalLinkContent` | Externe URL mit Verwendung eines 10-stelligen Barcodes und des Unit Item Codes. |
 | `externalLinkContentPID` | Externe URL mit Verwendung einer 36-steligen PID. |
 | `fullPartialContent` |  |
-| `availableMetadataQuery` | Optionale SPARQL-Query, um das Veröffentlichungs-Datum als Attribut rum Root-Container des Werks hinzuzufügen. Die Prozesseigenschaft `available` muss hierfür gesetzt sein. |
+| `availableMetadataQuery` | Optionale SPARQL-Query, um das Veröffentlichungs-Datum als Attribut zum Root-Container des Werks hinzuzufügen. Die Prozesseigenschaft `available` muss hierfür gesetzt sein. |
 | `imagesContainerMetadataQuery` | Optionale SPARQL-Query, um zusätzliche Attribute und Verlinkungen zum `/images`-Container hinzuzufügen. |
 | `filesContainerMetadataQuery` | Optionale SPARQL-Query, um zusätzliche Attribute und Verlinkungen zum `/files`-Container hinzuzufügen. |
 | `imageFileMetadataQuery` | Optionale SPARQL-Query, um für alle Bilddateien im Repository \(unter z.B. `../00000001.tif/fcr:metadata`\) zusätzliche Attribute zu schreiben. |
