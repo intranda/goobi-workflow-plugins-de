@@ -147,10 +147,10 @@ Es muss ein Export Schritt konfiguriert werden:
 
 Bei der Ausführung des Schrittes wird ein Export des Goobi Vorgangs \(analog zum Export ins Dateisystem\) in das konfigurierte Fedora Repository unter Berücksichtigung der Konfiguration \(siehe oben\) eingespielt.
 
-Es werden für die Bildung der Container-URLs bzw. von zusätzlichen Container-Attributen folgende Vorgangseigenschaften hinzugezogen \(und sind zwingend erforderlich\):
+Es werden für die Bildung der Container-URLs bzw. von zusätzlichen Container-Attributen folgende Vorgangseigenschaften hinzugezogen \(und sind unter Umständen zwingend erforderlich\):
 
-* barcode
-* unit\_Item\_code
+* barcode \(enthält einen 10-stelligen Barcode oder eine 36-stellige PID\)
+* unit\_Item\_code \(nur bei Barcodes\)
 * full\_partial
 
 Die Daten des Vorgangs lassen sich anschließend über das folgende URL-Muster im Repository abrufen:
