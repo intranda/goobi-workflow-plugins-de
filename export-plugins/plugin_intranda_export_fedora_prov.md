@@ -128,7 +128,7 @@ Die Konfiguration erfolgt über die Konfigurationsdatei `intranda_export_fedora.
 | `ingestMetsFile` | Wenn `true` gesetzt ist, eine METS/MODS Datei erzeugt und im Container Exportiert. Standardwert ist `true`. |
 | `exportMetsFile` | Wenn `true` gesetzt ist, eine METS/MODS Datei erzeugt und in den üblichen Export-Ordner \(z.B. `/hotfolder`\) geschrieben. Standardwert ist `true`. |
 | `externalLinkContent` | Externe URL mit Verwendung eines 10-stelligen Barcodes und des Unit Item Codes. |
-| `externalLinkContentPID` | Externe URL mit Verwendung einer 36-steligen PID. |
+| `externalLinkContentPID` | Externe URL mit Verwendung einer 36-stelligen PID. |
 | `fullPartialContent` |  |
 | `availableMetadataQuery` | Optionale SPARQL-Query, um das Veröffentlichungs-Datum als Attribut zum Root-Container des Werks hinzuzufügen. Die Prozesseigenschaft `available` muss hierfür gesetzt sein. |
 | `imagesContainerMetadataQuery` | Optionale SPARQL-Query, um zusätzliche Attribute und Verlinkungen zum `/images`-Container hinzuzufügen. |
