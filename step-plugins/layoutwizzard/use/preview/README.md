@@ -2,7 +2,7 @@
 
 Die Vorschauansicht enthält eine Liste aller Bilder im Eingabeordner. Diese sind jedoch in der Regel auf mehrere Seiten verteilt, um die Ladezeiten der anzuzeigenden Bilder möglichst gering zu halten. Je nach gewählter Einstellung werden dabei gegenüberliegende rechte und linke Buchseiten nebeneinander angezeigt, oder es werden abwechselnd jeweils nur rechte und nur linke Bilder angezeigt, so dass diese jeweils schnell verglichen verglichen werden können.
 
-![Vorschauansicht mit gegen&#xFC;berliegenden Seiten nebeneinander dargestellt](../../../../.gitbook/assets/layoutwizzard_02.png)
+![Vorschauansicht mit gegen&#xFC;berliegenden Seiten nebeneinander dargestellt](../../../../.gitbook/assets/layoutwizzard_02%20%281%29.png)
 
 ![Vorschauansicht mit der Anzeige nur der linken Seiten. Die rechten Seiten folgen nach dem Bl&#xE4;ttern](../../../../.gitbook/assets/layoutwizzard_14.png)
 
