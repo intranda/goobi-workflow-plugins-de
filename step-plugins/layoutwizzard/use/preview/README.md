@@ -12,7 +12,7 @@ Für jedes einzelne Bild lassen sich direkt aus dieser Anzeige Korrekturen vorne
 
 {% hint style="info" %}
 **Tip:**  
-Beachten Sie, dass Sie eine Anpassung eines Bildes \(Rotation, Buchfalz oder Rahmen\) auch mit gedrückter Shift-Taste durchführen können. In diesem Fall wird Ihre Korrektur nicht nur für das aktuell gewählte Bild angewendet, sondern ebenfalls für alle nachfolgenden angezeigten Bilder. Dies spart unter Umständen sehr viel Zeit für manuelle Korrekturarbeiten.
+Beachten Sie, dass Sie eine Anpassung eines Bildes \(Rotation, Buchfalz oder Rahmen\) auch mit gedrückter `Shift-Taste` durchführen können. In diesem Fall wird Ihre Korrektur nicht nur für das aktuell gewählte Bild angewendet, sondern ebenfalls für alle nachfolgenden angezeigten Bilder. Dies spart unter Umständen sehr viel Zeit für manuelle Korrekturarbeiten.
 {% endhint %}
 
 Neben der Möglichkeit, jedes Bild direkt aus der Vorschauansicht zu ändern, erlauben die drei Buttons neben jedem Bild einen direkten Zugang in die Detailansicht der Bildanalyse für das entsprechende Bild innerhalb der Einzelseitenansicht.
