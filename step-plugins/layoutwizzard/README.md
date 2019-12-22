@@ -24,7 +24,7 @@ Die Analyse im LayoutWizzard findet halbautomatisch statt. Sie beginnt in der Re
 
 ![Arbeitsweise des LayoutWizzards innerhalb des Goobi Workflows](../../.gitbook/assets/layoutwizzard_workflow_de.png)
 
-Die automatischen Arbeitsschritte \(`Automatische Bildanalyse` und `Automatisches Croppen`\) finden in aller Regel ausgelagert in einem TaskManager-Plugin statt, um andere Arbeiten innerhalb von Goobi nicht durch eine hohe Rechenlast auf dem Goobi-Server einzuschränken. Aber auch eine Ausführung ohne TaskManager-Plugin ist möglich, so dass diese automatische Arbeitsschritte innerhalb von Goobi Step Plugins ohne eigenen Nutzeroberfläche unmittelbar innerhalb von Goobi workflow erfolgt.
+Die automatischen Arbeitsschritte \(`Automatische Bildanalyse` und `Automatisches Croppen`\) finden in aller Regel ausgelagert in einem TaskManager-Plugin statt, um andere Arbeiten innerhalb von Goobi nicht durch eine hohe Rechenlast auf dem Goobi-Server einzuschränken. Aber auch eine Ausführung ohne TaskManager-Plugin ist möglich, so dass diese automatische Arbeitsschritte innerhalb von Goobi Step Plugins ohne eigenen Nutzeroberfläche unmittelbar innerhalb von Goobi workflow erfolgen.
 
 Die manuelle Kontrolle der Analyseergebnisse mit dem Vorschlag für das Croppen erfolgt innerhalb eines eigenständigen Goobi Step Plugins mit Nutzeroberläche, so dass dessen Bedienung vollständig in Goobi workflow integriert ist.
 
@@ -102,7 +102,7 @@ Die Bildanalyse des LayoutWizzard arbeitet in mehreren Phasen, um ausgehend von 
         <p></p>
         <p>In der dritten Phase erfolgt die Ermittlung der Buchfalz. Diese ist nur
           notwendig, wenn die Buchfalz tats&#xE4;chlich teil des Bildes ist und an
-          dieses Bild entlang der Falz geschnitten werden soll, um den Teil der gegen&#xFC;berliegenden
+          diesem Bild entlang der Falz geschnitten werden soll, um den Teil der gegen&#xFC;berliegenden
           Seite zu verbergen. Diese Analysephase ist hochgradig abh&#xE4;ngig von
           der ermittelten Ausrichtung der Seite, also ob es sich hierbei um eine
           rechte oder linke Seite im Buch oder um eine Doppelseite handelt. In letzterem
@@ -118,8 +118,8 @@ Die Bildanalyse des LayoutWizzard arbeitet in mehreren Phasen, um ausgehend von 
         <p><b>Ende</b>
         </p>
         <p></p>
-        <p>Der Vorschlag des LayoutWizzards nach dem Durchlaufen aller Analysephasen
-          wird dem Nutzer zur Pr&#xFC;fung &#xFC;bergeben und dort ggf. angepasst.</p>
+        <p>Der Vorschlag des LayoutWizzards wird dem Nutzer nach dem Durchlaufen
+          aller Analysephasen zur Pr&#xFC;fung &#xFC;bergeben und dort ggf. angepasst.</p>
       </td>
     </tr>
   </tbody>
