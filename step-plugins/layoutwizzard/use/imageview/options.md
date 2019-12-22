@@ -6,7 +6,7 @@ Im Bereich Ordner- und Dateioptionen können globale Einstellungen zur Handhabun
 
 ## Umschaltung zwischen den Anzeigemodi
 
-Innerhalb der Übersicht kann der Modus für die Anzeige umgeschaltet werden. Üblicherweise öffnet sich der LayoutWizzard im normalen Modus. Hier sind die wichtigsten Einstellungen bereits direkt editierbar. Sollen hingegen die erweiterten Einstellungsoptionen angezeigt werden, so kann der erweiterte Modus aktiviert werden. Eine Umschaltung zwischen den beiden Anzeigemodi ist mit der Nutzung dieses Buttons in der Titelleiste möglich:
+Innerhalb der Übersicht kann der Modus für die Anzeige umgeschaltet werden. Üblicherweise öffnet sich der LayoutWizzard im normalen Modus. Hier sind die wichtigsten Einstellungen bereits direkt bearbeitbar. Sollen hingegen die erweiterten Einstellungsoptionen angezeigt werden, so kann der erweiterte Modus aktiviert werden. Eine Umschaltung zwischen den beiden Anzeigemodi ist mit der Nutzung dieses Buttons in der Titelleiste möglich:
 
 ![Button f&#xFC;r die Umschaltung zwischen dem normalen und dem erweiterten Anzeigemodus](../../../../.gitbook/assets/layoutwizzard_40.png)
 
@@ -16,8 +16,8 @@ Folgende Optionen sind im Bereich des normalen Anzeigemodus verfügbar:
 
 ### **Seitenmodus**
 
-Einstellung für die Einteilung der Seiten in rechte, linke, Doppel- oder Einzelseiten. Jeder Modus setzt die Ausrichtung für alle Bilder einmalig fest. Spätere Änderungen der Ausrichtung einzelner Seiten änder die Ausrichtung aller Folgeseiten wie vom Seitenmodus vorgegeben.  
-Der interne Name in der Tabelle ist die in der LayoutWizzard-Konfigurationsdatei verwendete Bezeichnung für den Seitenmodus
+Der Seitenmodus dient für die Festlegung der Seitenverarbeitung in rechte, linke, Doppel- oder Einzelseiten. Jeder Modus setzt die Ausrichtung für alle Bilder einmalig fest. Spätere Änderungen der Ausrichtung einzelner Seiten ändern die Ausrichtung aller Folgeseiten wie vom Seitenmodus vorgegeben.  
+Der interne Name innerhalb der nachfolgenden Tabelle ist derjenige, wie er in der LayoutWizzard-Konfigurationsdatei für den Seitenmodus verwendet wird. 
 
 | Seitenmodus | Beschreibung | interner Name |
 | :--- | :--- | :--- |
@@ -25,13 +25,13 @@ Der interne Name in der Tabelle ist die in der LayoutWizzard-Konfigurationsdatei
 | **Nur linke Seiten** | Alle Bilder werden als linke Seiten behandelt. | `ALL_LEFT` |
 | **Nur rechte Seiten** | Alle Bilder werden als rechte Seiten behandelt. | `ALL_RIGHT` |
 | **Doppelseiten** | Alle Bilder werden als Doppelseiten behandelt. Das heißt, dass sie beim Speichern in jeweils zwei Einzelbilder zerlegt werden, wenn eine Falzlinie gesetzt wurde. | `DOUBLE_PAGES` |
-| **Doppelseiten mit Einband** | Die Bilder werden wie im Modus `Doppelseiten` behandelt, außer der ersten und letzten Seite. Diese werden als Einzelblätter behandelt. | `DOUBLE_PAGES_WITH_COVERS` |
-| **Einzelblätter** | Jede Seite wird als Einzelblatt behandelt. Das heißt es wird keine Falz geschnitten. | `SINGLE_PAGES` |
-| **Unabhängig** | Alle Seiten behalten die aktuell eingestellte Ausrichtung. Änderungen der Orientierung von einzelnen Seiten haben keine Auswirkung auf die Folgeseiten. | `INDEPENDENT` |
+| **Doppelseiten mit Einband** | Die Bilder werden wie im Modus `Doppelseiten` behandelt, mit Ausnahme der ersten und letzten Seite. Diese beiden Seiten werden hingegen als `Einzelblätter` behandelt. | `DOUBLE_PAGES_WITH_COVERS` |
+| **Einzelblätter** | Jede Seite wird als Einzelblatt behandelt. Dies bedeutet, dass keine Buchfalz geschnitten wird. | `SINGLE_PAGES` |
+| **Unabhängig** | In diesem Modus behalten alle Seiten die aktuell eingestellte Ausrichtung. Änderungen der Orientierung von einzelnen Seiten haben keine Auswirkung auf die Folgeseiten. | `INDEPENDENT` |
 
 ### **Schreibrichtung**
 
-Gibt die Richtung des Textflusses an. Ist die Schreibrichtung `Rechts-nach Links` ist beim alternierenden Seitenmodus die erste Seite nach dem Einband eine rechte Seite, sonst eine linke. Beim Doppelseitenmodus ist der rechte Teil einer Doppelseite in der Reihenfolge vor dem linken.
+Die Einstellung für die Schreibrichtung legt fest, in welche Richtung der Textfluss erfolgt. Ist die Schreibrichtung `Rechts-nach-Links` ist beim alternierenden Seitenmodus die erste Seite nach dem Einband eine rechte Seite. Ist die Schreibrichtung hingegen `Links-nach-Rechts`, so ist die erste Seite eine linke. Im Falle des `Doppelseitenmodus` wird der jeweilige Teil der Doppelseite in der Reihenfolge vor dem anderen Teil der Doppelseite als eigene Datei gespeichert.
 
 | **Schreibrichtung** | Beschreibung |
 | :--- | :--- |
