@@ -40,7 +40,7 @@ Die Einstellung für die Schreibrichtung legt fest, in welche Richtung der Textf
 
 ### **Verwerfen und neu Anfangen**
 
-Hiermit können alle LayoutWizzard-Daten für diesen Vorgang gelöscht werden; das sind sowohl alle Analysedaten als auch die für dieen Vorgang spezifische Konfiguration. Beim Druck auf diesen Knopf öffnet sich ein Menü, um die Vorlage für neue Konfiguration auszuwählen. Druck auf `OK` verwirft alle bisherigen Daten und erstellt eine neue Konfiguration für den Vorgang aufgrund des ausgewählten Templates.
+Mit dem Button `Verwerfen und neu anfangen` können alle LayoutWizzard-Daten für diesen Vorgang gelöscht werden. Dies betrifft sowohl alle Analysedaten als auch die für diesen Vorgang spezifische Konfiguration. Nach dem Klick auf diesen Button öffnet sich ein Menü, um darin die gewünschte Vorlage für die neue Konfiguration auszuwählen. Ein anschließender Klick auf `OK` verwirft alle bisherigen Daten und erstellt eine neue Konfiguration für den Vorgang aufgrund des ausgewählten Templates.
 
 ## Erweiterter Modus
 
