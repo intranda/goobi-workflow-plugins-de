@@ -4,7 +4,7 @@ Die Vorschauansicht enthält eine Liste aller Bilder im Eingabeordner. Diese sin
 
 ![Vorschauansicht mit gegen&#xFC;berliegenden Seiten nebeneinander dargestellt](../../../../.gitbook/assets/layoutwizzard_02.png)
 
-![Vorschauansicht mit der Anzeige nur der rechten Seiten. Die linken Seiten folgen nach dem Weiterbl&#xE4;ttern](../../../../.gitbook/assets/layoutwizzard_03.png)
+![Vorschauansicht mit der Anzeige nur der linken Seiten. Die rechten Seiten folgen nach dem Bl&#xE4;ttern](../../../../.gitbook/assets/layoutwizzard_14.png)
 
 Innerhalb der Vorschauansicht läßt sich festlegen, wie groß die Bilder angezeigt werden sollen und ob der Schneiderahmen oberhalb des originalen Bildes angezeigt werden soll oder stattdessen eine Vorschau, des späteren beschnittenen Bildes. 
 
