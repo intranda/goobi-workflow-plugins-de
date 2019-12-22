@@ -1,8 +1,20 @@
 # Ordner- und Dateioptionen
 
-Hier können globale Einstellungen zur Handhabung der Dateien getätigt werden. Außerdem lässt sich hier der komplette LayoutWizzard Workflow zurücksetzen. Folgende Optionen sind immer verfügbar:
+Im Bereich Ordner- und Dateioptionen können globale Einstellungen zur Handhabung der Dateien getätigt werden. Außerdem lässt sich hier der komplette LayoutWizzard Workflow zurücksetzen. 
 
-## **Seitenmodus**
+![Aktivierter Bereich f&#xFC;r die Ordner- und Dateioptionen](../../../../.gitbook/assets/layoutwizzard_10.png)
+
+## Umschaltung zwischen den Anzeigemodi
+
+Innerhalb der Übersicht kann der Modus für die Anzeige umgeschaltet werden. Üblicherweise öffnet sich der LayoutWizzard im normalen Modus. Hier sind die wichtigsten Einstellungen bereits direkt editierbar. Sollen hingegen die erweiterten Einstellungsoptionen angezeigt werden, so kann der erweiterte Modus aktiviert werden. Eine Umschaltung zwischen den beiden Anzeigemodi ist mit der Nutzung dieses Buttons in der Titelleiste möglich:
+
+![Button f&#xFC;r die Umschaltung zwischen dem normalen und dem erweiterten Anzeigemodus](../../../../.gitbook/assets/layoutwizzard_40.png)
+
+## Normaler Modus
+
+Folgende Optionen sind im Bereich des normalen Anzeigemodus verfügbar:
+
+### **Seitenmodus**
 
 Einstellung für die Einteilung der Seiten in rechte, linke, Doppel- oder Einzelseiten. Jeder Modus setzt die Ausrichtung für alle Bilder einmalig fest. Spätere Änderungen der Ausrichtung einzelner Seiten änder die Ausrichtung aller Folgeseiten wie vom Seitenmodus vorgegeben.  
 Der interne Name in der Tabelle ist die in der LayoutWizzard-Konfigurationsdatei verwendete Bezeichnung für den Seitenmodus
@@ -17,7 +29,7 @@ Der interne Name in der Tabelle ist die in der LayoutWizzard-Konfigurationsdatei
 | **Einzelblätter** | Jede Seite wird als Einzelblatt behandelt. Das heißt es wird keine Falz geschnitten. | `SINGLE_PAGES` |
 | **Unabhängig** | Alle Seiten behalten die aktuell eingestellte Ausrichtung. Änderungen der Orientierung von einzelnen Seiten haben keine Auswirkung auf die Folgeseiten. | `INDEPENDENT` |
 
-## **Schreibrichtung**
+### **Schreibrichtung**
 
 Gibt die Richtung des Textflusses an. Ist die Schreibrichtung `Rechts-nach Links` ist beim alternierenden Seitenmodus die erste Seite nach dem Einband eine rechte Seite, sonst eine linke. Beim Doppelseitenmodus ist der rechte Teil einer Doppelseite in der Reihenfolge vor dem linken.
 
@@ -26,21 +38,23 @@ Gibt die Richtung des Textflusses an. Ist die Schreibrichtung `Rechts-nach Links
 | **Links-nach-rechts** | Im alternierenden Seitenmodus ist die erste Seite nach dem Einband eine linke Seite. Im Doppelseiten Modus kommt die linke Seite einer Doppelseite vor der rechten in der Seitenreihenfolge. |
 | **Rechts-nach-Links** | Im alternierenden Seitenmodus ist die erste Seite nach dem Einband eine rechte Seite. Im Doppelseiten Modus kommt die rechte Seite einer Doppelseite vor der linken in der Seitenreihenfolge. |
 
-## **Verwerfen und neu Anfangen**
+### **Verwerfen und neu Anfangen**
 
 Hiermit können alle LayoutWizzard-Daten für diesen Vorgang gelöscht werden; das sind sowohl alle Analysedaten als auch die für dieen Vorgang spezifische Konfiguration. Beim Druck auf diesen Knopf öffnet sich ein Menü, um die Vorlage für neue Konfiguration auszuwählen. Druck auf `OK` verwirft alle bisherigen Daten und erstellt eine neue Konfiguration für den Vorgang aufgrund des ausgewählten Templates.
 
+## Erweiterter Modus
+
 Die folgenden Optionen sind nur im erweiterten Modus verfügbar:
 
-## Eingabe-Ordner
+### Eingabe-Ordner
 
 Der Ordner innerhalb des `images` Ordners des Goobi-Vorgangs, aus dem die Originalbilder gelesen werden.
 
-#### **Ausgabe-Ordner**
+### **Ausgabe-Ordner**
 
 Der Ordner innerhalb des `images` Ordners des Goobi-Vorgangs, in den die Derivate gespeichert werden.
 
-#### **Komprimierung der Ausgabebilder**
+### **Komprimierung der Ausgabebilder**
 
 Die Komprimierungsart der Derivate. Die Derivate werden immer im Tiff-Format gespeichert
 
@@ -49,7 +63,7 @@ Die Komprimierungsart der Derivate. Die Derivate werden immer im Tiff-Format ges
 | **Keine** | Unkomprimiertes Tiff |
 | **JPEG** | Jpeg-komprimiertes Tiff |
 
-## Ausreißer markieren für
+### Ausreißer markieren für
 
 Bilder, die in der Analyse auffällig andere Werte aufweisen als die maximal 12 Bilder vor und nach ihnen. Ebenso Bilder, deren Analyse aufgrund von Fehlern oder Zeitüberschreitungen nicht abgeschlossen werden konnte.  
 Ausreißer werden in der Dateiliste rot dargestellt und in der Vorschauansicht von einem roten Rahmen umgeben.
@@ -65,7 +79,7 @@ Folgende Ausreißertypen werden unterschieden und können als zu markieren ausge
 | **Alle** | Alle oben genannten Typen von Ausreißern werden markiert. |
 | **Keine** | Ausreißer werden überhaupt nicht markiert. |
 
-## Zuschneidebereiche anpassen
+### Zuschneidebereiche anpassen
 
 Wenn rechte und linke Bilder einzeln gescannt werden und sie dennoch in einer Doppelseitenansicht zusammenpassen sollen, versucht der LayoutWizzard Seiten so zuzuschneiden, dass der Inhalt jeweils auf gleicher Höhe beginnt, also der obere Buchrand auf allen Seiten bündig ist. Je nach Aufnahme ist es aber oft nicht möglich zwei Seiten ohne Verzerrungen komplett bündig zu schneiden. Für eine optimale Doppelseitendarstellung ist daher immer auch ein Doppelseitenscan anstelle dieser Option zu empfehlen.
 

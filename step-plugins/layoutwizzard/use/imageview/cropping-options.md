@@ -6,10 +6,10 @@ Zusätzlich verfügt dieser Bereich über Knöpfe um die Größe und Position de
 
 | Icon | Beschreibung |
 | :--- | :--- |
-| ![](../../../../.gitbook/assets/layoutwizzard2_zuschneiden_all.png)  | Rahmen auf alle anderen Bilder übertragen |
-| ![](../../../../.gitbook/assets/layoutwizzard2_zuschneiden_next.png)  | Rahmen auf alle folgenden Bilder übertragen |
-| ![](../../../../.gitbook/assets/layoutwizzard2_zuschneiden_allright.png)  | Rahmen auf alle rechten Bilder übertragen. Dies ist nur verfügbar, wenn das aktuelle Bild ein rechtes ist. |
-| ![](../../../../.gitbook/assets/layoutwizzard2_zuschneiden_nextright.png)  | Rahmen auf alle folgenden rechten Bilder übertragen. Dies ist nur verfügbar, wenn das aktuelle Bild ein rechtes ist. |
-| ![](../../../../.gitbook/assets/layoutwizzard2_zuschneiden_allleft.png)  | Rahmen auf alle linken Bilder mit übertragen. Dies ist nur verfügbar, wenn das aktuelle Bild ein linkes ist. |
-| ![](../../../../.gitbook/assets/layoutwizzard2_zuschneiden_nextleft.png)  | Rahmen auf alle folgenden linken Bilder mit übertragen. Dies ist nur verfügbar, wenn das aktuelle Bild ein linkes ist. |
+| ![](../../../../.gitbook/assets/layoutwizzard_30.png)  | Rahmen auf alle anderen Bilder übertragen |
+| ![](../../../../.gitbook/assets/layoutwizzard_31.png)  | Rahmen auf alle folgenden Bilder übertragen |
+| ![](../../../../.gitbook/assets/layoutwizzard_41.png)  | Rahmen auf alle rechten Bilder übertragen. Dies ist nur verfügbar, wenn das aktuelle Bild ein rechtes ist. |
+| ![](../../../../.gitbook/assets/layoutwizzard_42.png)  | Rahmen auf alle folgenden rechten Bilder übertragen. Dies ist nur verfügbar, wenn das aktuelle Bild ein rechtes ist. |
+| ![](../../../../.gitbook/assets/layoutwizzard_32.png)  | Rahmen auf alle linken Bilder mit übertragen. Dies ist nur verfügbar, wenn das aktuelle Bild ein linkes ist. |
+| ![](../../../../.gitbook/assets/layoutwizzard_33.png)  | Rahmen auf alle folgenden linken Bilder mit übertragen. Dies ist nur verfügbar, wenn das aktuelle Bild ein linkes ist. |
 

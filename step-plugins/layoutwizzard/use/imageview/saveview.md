@@ -6,7 +6,7 @@ Im erweiterten Modus kann man den Ordner, in den die Bilder gespeichert werden, 
 
 | Icon | Beschreibung |
 | :--- | :--- |
-| ![](../../../../.gitbook/assets/layoutwizzard2_save-current.png)  | Speichert das aktuelle Bild zugeschnitten in den Ausgabeordner |
-| ![](../../../../.gitbook/assets/layoutwizzard2_save-next.png)  | Speichert das aktuelle und alle folgenden Bilder zugeschnitten in den Ausgabeordner |
-| ![](../../../../.gitbook/assets/layoutwizzard2_save-all.png)  | Speichert alle Bilder des Vorgangs zugeschnitten in den Ausgabeordner. |
+| ![](../../../../.gitbook/assets/layoutwizzard_37.png)  | Speichert das aktuelle Bild zugeschnitten in den Ausgabeordner |
+| ![](../../../../.gitbook/assets/layoutwizzard_39.png)  | Speichert das aktuelle und alle folgenden Bilder zugeschnitten in den Ausgabeordner |
+| ![](../../../../.gitbook/assets/layoutwizzard_38.png)  | Speichert alle Bilder des Vorgangs zugeschnitten in den Ausgabeordner. |
 
