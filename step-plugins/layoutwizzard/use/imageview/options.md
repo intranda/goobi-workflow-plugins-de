@@ -1,6 +1,6 @@
 # Ordner- und Dateioptionen
 
-Im Bereich Ordner- und Dateioptionen können globale Einstellungen zur Handhabung der Dateien getätigt werden. Außerdem lässt sich hier der komplette LayoutWizzard Workflow zurücksetzen. 
+Im Bereich Ordner- und Dateioptionen können globale Einstellungen zur Handhabung der Dateien getätigt werden. Außerdem lässt sich hier der komplette LayoutWizzard-Workflow zurücksetzen. 
 
 ![Aktivierter Bereich f&#xFC;r die Ordner- und Dateioptionen](../../../../.gitbook/assets/layoutwizzard_10.png)
 
@@ -12,12 +12,16 @@ Innerhalb der Übersicht kann der Modus für die Anzeige umgeschaltet werden. Ü
 
 ## Normaler Modus
 
-Folgende Optionen sind im Bereich des normalen Anzeigemodus verfügbar:
+Folgende Optionen sind im Bereich des normalen Anzeigemodus verfügbar.
+
+![Aktivierter normaler Modus](../../../../.gitbook/assets/layoutwizzard_47.png)
 
 ### **Seitenmodus**
 
 Der Seitenmodus dient für die Festlegung der Seitenverarbeitung in rechte, linke, Doppel- oder Einzelseiten. Jeder Modus setzt die Ausrichtung für alle Bilder einmalig fest. Spätere Änderungen der Ausrichtung einzelner Seiten ändern die Ausrichtung aller Folgeseiten wie vom Seitenmodus vorgegeben.  
 Der interne Name innerhalb der nachfolgenden Tabelle ist derjenige, wie er in der LayoutWizzard-Konfigurationsdatei für den Seitenmodus verwendet wird. 
+
+![Drop-Down-Element zur Auswahl des Modus](../../../../.gitbook/assets/layoutwizzard_44.png)
 
 | Seitenmodus | Beschreibung | interner Name |
 | :--- | :--- | :--- |
@@ -33,6 +37,8 @@ Der interne Name innerhalb der nachfolgenden Tabelle ist derjenige, wie er in de
 
 Die Einstellung für die Schreibrichtung legt fest, in welche Richtung der Textfluss erfolgt. Ist die Schreibrichtung `Rechts-nach-Links` ist beim alternierenden Seitenmodus die erste Seite nach dem Einband eine rechte Seite. Ist die Schreibrichtung hingegen `Links-nach-Rechts`, so ist die erste Seite eine linke. Im Falle des `Doppelseitenmodus` wird der jeweilige Teil der Doppelseite in der Reihenfolge vor dem anderen Teil der Doppelseite als eigene Datei gespeichert.
 
+![Drop-Down-Element zur Auswahl der Schreibrichtung](../../../../.gitbook/assets/layoutwizzard_45.png)
+
 | **Schreibrichtung** | Beschreibung |
 | :--- | :--- |
 | **Links-nach-rechts** | Im alternierenden Seitenmodus ist die erste Seite nach dem Einband eine linke Seite. Im Doppelseiten Modus kommt die linke Seite einer Doppelseite vor der rechten in der Seitenreihenfolge. |
@@ -42,21 +48,25 @@ Die Einstellung für die Schreibrichtung legt fest, in welche Richtung der Textf
 
 Mit dem Button `Verwerfen und neu anfangen` können alle LayoutWizzard-Daten für diesen Vorgang gelöscht werden. Dies betrifft sowohl alle Analysedaten als auch die für diesen Vorgang spezifische Konfiguration. Nach dem Klick auf diesen Button öffnet sich ein Menü, um darin die gewünschte Vorlage für die neue Konfiguration auszuwählen. Ein anschließender Klick auf `OK` verwirft alle bisherigen Daten und erstellt eine neue Konfiguration für den Vorgang aufgrund des ausgewählten Templates.
 
+![Button um alle Bilder neu zu verarbeiten](../../../../.gitbook/assets/layoutwizzard_43.png)
+
 ## Erweiterter Modus
 
-Die folgenden Optionen sind nur im erweiterten Modus verfügbar:
+Die folgenden Optionen sind nur im erweiterten Modus verfügbar.
+
+![Aktivierter erweiterter Modus mit zus&#xE4;tzlichen Auswahlelementen](../../../../.gitbook/assets/layoutwizzard_48.png)
 
 ### Eingabe-Ordner
 
-Der Ordner innerhalb des `images` Ordners des Goobi-Vorgangs, aus dem die Originalbilder gelesen werden.
+Der Eingabe-Ordner definiert denjenigen Ordner innerhalb des `images`-Ordners des Goobi-Vorgangs, aus dem die Originalbilder gelesen werden. Dies ist üblicherweise der Ordner mit den Master-Digitalisaten.
 
 ### **Ausgabe-Ordner**
 
-Der Ordner innerhalb des `images` Ordners des Goobi-Vorgangs, in den die Derivate gespeichert werden.
+Der Ausgabe-Ordner legt denjenigen Ordner innerhalb des `images`-Ordners des Goobi-Vorgangs fest, in den die gecroppten Derivate gespeichert werden sollen. Dies ist zumeist der Derivate-Ordner.
 
 ### **Komprimierung der Ausgabebilder**
 
-Die Komprimierungsart der Derivate. Die Derivate werden immer im Tiff-Format gespeichert
+Mit dieser Option kann festgelegt werden, wie die Kompression der Bilder erfolgen soll, die nach dem Croppen entstanden sind. Grundsätzlich werden die Derivate im Tiff-Format gespeichert. Hier kann jedoch angegeben werden, ob die Bilder innerhalb des Tiff-Containers mit einer JPEG-Kompression komprimiert werden sollen.
 
 | **Komprimierung** | Beschreibung |
 | :--- | :--- |
