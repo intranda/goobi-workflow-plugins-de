@@ -1,8 +1,10 @@
 # Ausgewählter Analyseschritt
 
-Dieser Bereich ist nur sichtbar wenn ein Analyseschritt ausgewählt wurde und ist dann benannt nach dem jeweiligen Schritt. Er enthält für jeden Schritt Konfigurationsparameter, die die automatische Analyse dieses Schrittes für alle Bilder bestimmen. Die wichtigesten Parameter sind direkt sichtbar, alle weiterem nur in der erweiterten Ansicht. Hilfestellungen zur Bedeutung jedes Parameters werden beim Druck auf `Hilfetexte einblenden` in der Goobi-Kopfleiste angezeigt.
+Dieser Bereich ist nur sichtbar wenn ein Analyseschritt ausgewählt wurde und ist dann benannt nach dem jeweiligen Schritt. Er enthält für jeden Schritt Konfigurationsparameter, die die automatische Analyse dieses Schrittes für alle Bilder bestimmen. Die wichtigsten Parameter sind direkt sichtbar, alle weiterem nur in der erweiterten Ansicht. Hilfestellungen zur Bedeutung jedes Parameters werden beim Druck auf `Hilfetexte einblenden` in der Goobi-Kopfleiste angezeigt.
 
-Unterhalb der Parameter verfügt dieser Bereich noch über drei Knöpfe, die die Ausführung der Analyse regeln:
+![Ausgew&#xE4;hlter Analyseschritt mit Einstellungen](../../../../.gitbook/assets/layoutwizzard_08.png)
+
+Unterhalb der Parameter verfügt dieser Bereich noch über drei Buttons, die die Ausführung der Analyse regeln:
 
 | Icon | Beschreibung |
 | :--- | :--- |

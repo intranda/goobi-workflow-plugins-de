@@ -2,6 +2,8 @@
 
 Dieser Bereich ist nur verfügbar, wenn der Schritt `Seite zuschneiden` ausgewählt ist und diese Option in der Konfiguration aktiviert ist. Dieser Bereich zeigt die Position und Größe des Zuschneiderahmens des aktuellen Bildes an; in Millimetern oder einer anderen konfigurierbaren Maßeinheit. Die Werte sind direkt editierbar und bleiben immer synchron mit dem Rahmen in der Bildanzeige.
 
+![Globale Zuschneideoptionen mit den zugeh&#xF6;rigen Optionen](../../../../.gitbook/assets/layoutwizzard_07.png)
+
 Zusätzlich verfügt dieser Bereich über Knöpfe um die Größe und Position des aktuellen Rahmens auf andere Bilder zu übertragen:
 
 | Icon | Beschreibung |
