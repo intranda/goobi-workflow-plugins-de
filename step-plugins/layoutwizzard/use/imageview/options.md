@@ -1,12 +1,12 @@
 # Ordner- und Dateioptionen
 
-Im Bereich Ordner- und Dateioptionen können globale Einstellungen zur Handhabung der Dateien getätigt werden. Außerdem lässt sich hier der komplette LayoutWizzard-Workflow zurücksetzen. 
+Im Bereich Ordner- und Dateioptionen können globale Einstellungen zur Handhabung der Dateien getätigt werden. Außerdem lässt sich von hier aus der komplette LayoutWizzard-Workflow zurücksetzen. 
 
 ![Aktivierter Bereich f&#xFC;r die Ordner- und Dateioptionen](../../../../.gitbook/assets/layoutwizzard_10.png)
 
 ## Umschaltung zwischen den Anzeigemodi
 
-Innerhalb der Übersicht kann der Modus für die Anzeige umgeschaltet werden. Üblicherweise öffnet sich der LayoutWizzard im normalen Modus. Hier sind die wichtigsten Einstellungen bereits direkt bearbeitbar. Sollen hingegen die erweiterten Einstellungsoptionen angezeigt werden, so kann der erweiterte Modus aktiviert werden. Eine Umschaltung zwischen den beiden Anzeigemodi ist mit der Nutzung dieses Buttons in der Titelleiste möglich:
+Innerhalb der Übersicht kann links oben der Modus für die Anzeige umgeschaltet werden. Üblicherweise öffnet sich der LayoutWizzard im normalen Modus. Hier sind die wichtigsten Einstellungen bereits direkt bearbeitbar. Sollen hingegen die erweiterten Einstellungsoptionen angezeigt werden, so kann der erweiterte Modus aktiviert werden. Eine Umschaltung zwischen den beiden Anzeigemodi ist mit der Nutzung dieses Buttons in der Titelleiste möglich:
 
 ![Button f&#xFC;r die Umschaltung zwischen dem normalen und dem erweiterten Anzeigemodus](../../../../.gitbook/assets/layoutwizzard_40.png)
 
@@ -23,7 +23,7 @@ Der interne Name innerhalb der nachfolgenden Tabelle ist derjenige, wie er in de
 
 ![Drop-Down-Element zur Auswahl des Modus](../../../../.gitbook/assets/layoutwizzard_44.png)
 
-| Seitenmodus | Beschreibung | interner Name |
+| Seitenmodus | Beschreibung | Interner Name |
 | :--- | :--- | :--- |
 | **Alternierend** | Die Bilder werden alternierend als rechte und linke Seiten behandelt. Die Ausrichtung der ersten Seite hängt von der Einstellung  `Schreibrichtung` ab. | `ALTERNATING` |
 | **Nur linke Seiten** | Alle Bilder werden als linke Seiten behandelt. | `ALL_LEFT` |
@@ -35,7 +35,7 @@ Der interne Name innerhalb der nachfolgenden Tabelle ist derjenige, wie er in de
 
 ### **Schreibrichtung**
 
-Die Einstellung für die Schreibrichtung legt fest, in welche Richtung der Textfluss erfolgt. Ist die Schreibrichtung `Rechts-nach-Links` ist beim alternierenden Seitenmodus die erste Seite nach dem Einband eine rechte Seite. Ist die Schreibrichtung hingegen `Links-nach-Rechts`, so ist die erste Seite eine linke. Im Falle des `Doppelseitenmodus` wird der jeweilige Teil der Doppelseite in der Reihenfolge vor dem anderen Teil der Doppelseite als eigene Datei gespeichert.
+Die Einstellung für die Schreibrichtung legt fest, in welche Richtung der Textfluss erfolgt. Ist die Schreibrichtung `Rechts-nach-Links` ist beim alternierenden Seitenmodus die erste Seite nach dem Einband eine rechte Seite. Ist die Schreibrichtung hingegen `Links-nach-Rechts`, so ist die erste Seite nach dem Einband eine linke Seite. Im Falle des `Doppelseitenmodus` wird der jeweilige Teil der Doppelseite in der entsprechenden Reihenfolge vor dem anderen Teil der Doppelseite als eigene Datei gespeichert.
 
 ![Drop-Down-Element zur Auswahl der Schreibrichtung](../../../../.gitbook/assets/layoutwizzard_45.png)
 
@@ -71,34 +71,38 @@ Mit dieser Option kann festgelegt werden, wie die Kompression der Bilder erfolge
 | **Komprimierung** | Beschreibung |
 | :--- | :--- |
 | **Keine** | Unkomprimiertes Tiff |
-| **JPEG** | Jpeg-komprimiertes Tiff |
+| **JPEG** | JPEG-komprimiertes Tiff |
 
 ### Ausreißer markieren für
 
-Bilder, die in der Analyse auffällig andere Werte aufweisen als die maximal 12 Bilder vor und nach ihnen. Ebenso Bilder, deren Analyse aufgrund von Fehlern oder Zeitüberschreitungen nicht abgeschlossen werden konnte.  
+Bei Ausreißern handelt es sich um Bilder, die in der Analyse auffällig andere Werte aufweisen als die maximal 12 Bilder vor und nach ihnen. Ebenso handelt es sich um Ausreißer bei Bildern, deren Analyse aufgrund von Fehlern oder Zeitüberschreitungen nicht abgeschlossen werden konnte.  
 Ausreißer werden in der Dateiliste rot dargestellt und in der Vorschauansicht von einem roten Rahmen umgeben.
+
+{% hint style="danger" %}
+Ausreißer Bild
+{% endhint %}
 
 Folgende Ausreißertypen werden unterschieden und können als zu markieren ausgewählt werden:
 
 | Ausreißertyp | Beschreibung |
 | :--- | :--- |
-| **Rotation** | Winkel der Seitenausrichtung |
-| **Seitengröße** | Größe des Zuschneiderahmens |
-| **Falzposition** | Abstand der Falz vom Seitenrand |
-| **Nicht bearbeitet** | Das Bild wurde konnte nicht vollständig analysiert werden. |
-| **Alle** | Alle oben genannten Typen von Ausreißern werden markiert. |
-| **Keine** | Ausreißer werden überhaupt nicht markiert. |
+| **Rotation** | Der Winkel der Seitenausrichtung ist auffällig. |
+| **Seitengröße** | Die Größe des Zuschneiderahmens ist auffällig. |
+| **Falzposition** | Der Abstand der Falz vom Seitenrand ist auffällig. |
+| **Nicht bearbeitet** | Das Bild konnte nicht vollständig analysiert werden. |
+| **Alle** | Alle oben genannten Typen von Ausreißern sollen markiert werden. |
+| **Keine** | Ausreißer sollen überhaupt nicht markiert werden. |
 
 ### Zuschneidebereiche anpassen
 
-Wenn rechte und linke Bilder einzeln gescannt werden und sie dennoch in einer Doppelseitenansicht zusammenpassen sollen, versucht der LayoutWizzard Seiten so zuzuschneiden, dass der Inhalt jeweils auf gleicher Höhe beginnt, also der obere Buchrand auf allen Seiten bündig ist. Je nach Aufnahme ist es aber oft nicht möglich zwei Seiten ohne Verzerrungen komplett bündig zu schneiden. Für eine optimale Doppelseitendarstellung ist daher immer auch ein Doppelseitenscan anstelle dieser Option zu empfehlen.
+Wenn rechte und linke Bilder einzeln gescannt werden und sie dennoch in einer Doppelseitenansicht zusammenpassen sollen, kann der LayoutWizzard Seiten so zuschneiden, dass der Inhalt jeweils auf gleicher Höhe beginnt, so dass der obere Buchrand auf allen Seiten möglichst bündig ist. Zu beachten ist hierbei jedoch, dass es je nach Aufnahme oft nicht möglich ist, zwei Seiten komplett ohne Verzerrungen  bündig zu schneiden. Für eine optimale Doppelseitendarstellung ist daher immer auch ein Doppelseitenscan anstelle dieser Option zu empfehlen.
 
 | Anpassungsmodus | Beschreibung |
 | :--- | :--- |
-| **Keine Angleichung** | Angleich ist ausgeschaltet |
-| **Angleichung gegenüberliegender Seiten, links nach rechts** | Jeweils gegenüberliegende Seiten werden bündig geschnitten. Als gegenüberliegende Seite einer linken Seiten gilt jeweils die folgende rechte Seite |
-| **Angleichung gegenüberliegender Seiten, rechts nach links** | Jeweils gegenüberliegende Seiten werden bündig geschnitten. Als gegenüberliegende Seite einer rechten Seiten gilt jeweils die folgende linke Seite |
-| **Angleichung über alle Seiten** | Alle Seiten werden möglichst bündig geschnitten. Dies verursacht oft große ungeschnittene Ränder, benötigt relativ viel Bearbeitungszeit und ist daher nicht empfehlenswert |
+| **Keine Angleichung** | Die Angleichung ist ausgeschaltet. |
+| **Angleichung gegenüberliegender Seiten, links nach rechts** | Jeweils gegenüberliegende Seiten werden bündig geschnitten. Als gegenüberliegende Seite einer linken Seiten gilt jeweils die folgende rechte Seite. |
+| **Angleichung gegenüberliegender Seiten, rechts nach links** | Jeweils gegenüberliegende Seiten werden bündig geschnitten. Als gegenüberliegende Seite einer rechten Seiten gilt jeweils die folgende linke Seite. |
+| **Angleichung über alle Seiten** | Alle Seiten werden möglichst bündig geschnitten. Dies verursacht oft große ungeschnittene Ränder, benötigt relativ viel Bearbeitungszeit und ist daher zumeist nicht empfehlenswert. |
 
 
 
