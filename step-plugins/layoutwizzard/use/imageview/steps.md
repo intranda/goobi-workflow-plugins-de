@@ -2,9 +2,7 @@
 
 Der Bereich der Arbeitsschritte enthält eine Liste aller konfigurierten Analyseschritte. Diese werden jeweils mit mehreren Schaltflächen aufgelistet.
 
-{% hint style="danger" %}
-Arbeitsschritte Bild
-{% endhint %}
+![Arbeitsschritte der jeweiligen Analysephasen](../../../../.gitbook/assets/layoutwizzard_53.png)
 
 | Icon | Beschreibung |
 | :--- | :--- |

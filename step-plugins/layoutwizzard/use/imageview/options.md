@@ -78,9 +78,7 @@ Mit dieser Option kann festgelegt werden, wie die Kompression der Bilder erfolge
 Bei Ausreißern handelt es sich um Bilder, die in der Analyse auffällig andere Werte aufweisen als die maximal 12 Bilder vor und nach ihnen. Ebenso handelt es sich um Ausreißer bei Bildern, deren Analyse aufgrund von Fehlern oder Zeitüberschreitungen nicht abgeschlossen werden konnte.  
 Ausreißer werden in der Dateiliste rot dargestellt und in der Vorschauansicht von einem roten Rahmen umgeben.
 
-{% hint style="danger" %}
-Ausreißer Bild
-{% endhint %}
+![Markierte Ausrei&#xDF;er innerhalb der Vorschauansicht](../../../../.gitbook/assets/layoutwizzard_12%20%281%29.png)
 
 Folgende Ausreißertypen werden unterschieden und können als zu markieren ausgewählt werden:
 
