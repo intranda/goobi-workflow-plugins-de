@@ -1,6 +1,8 @@
 # Allgemeine Einstellungen
 
-Unterhalb des Bildbereichs liegen mehrere Knöpfe um das Plugin zu verlassen und den Wofklow fortzusetzen:
+Unterhalb des Bildbereichs liegen mehrere Knöpfe um das Plugin zu verlassen und den Workflow fortzusetzen.
+
+![Buttons zum Verlassen des Plugins unterhalb der Bildanzeige](../../../../.gitbook/assets/layoutwizzard_04.png)
 
 | Icon | Beschreibung |
 | :--- | :--- |
