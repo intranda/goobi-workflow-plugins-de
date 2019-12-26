@@ -6,9 +6,9 @@ Die Prüfung dieser Cropping-Vorschläge jedoch ist der wichtigste Interaktionsp
 
 Alle allgemeinen Einstellungen zur Konfiguration und zu dem Analyseworkflow sind in der `Einzelseitenansicht` untergebracht. Die eigentliche Kontrolle und Korrektur wird in den meisten Fällen jedoch ausschließlich in der `Vorschauansicht` stattfinden. Aus diesem Grund sollte der LayoutWizzard möglichst so konfiguriert werden, dass der Einstieg in das Plugin aus einer angenommenen Aufgabe möglichst direkt in die Vorschauansicht erfolgt.
 
-{% page-ref page="preview/" %}
+{% page-ref page="01\_preview/" %}
 
-{% page-ref page="imageview/" %}
+{% page-ref page="02\_imageview/" %}
 
 
 

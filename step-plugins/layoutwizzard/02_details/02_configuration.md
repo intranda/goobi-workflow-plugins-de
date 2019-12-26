@@ -224,7 +224,7 @@ Folgende Einstellungen können in jedem `<analysis>` Block existieren:
       <td style="text-align:left">
         <p>Dieser Wert definiert den standardm&#xE4;&#xDF;ig zu verwendenden Seitenmodus.
           Die hierf&#xFC;r g&#xFC;ltigen Angaben sind innerhalb der</p>
-        <p><a href="../use/imageview/options.md">Ordner- und Dateioptionen</a> beschrieben.</p>
+        <p><a href="../01_use/02_imageview/01_folders.md">Ordner- und Dateioptionen</a> beschrieben.</p>
       </td>
     </tr>
     <tr>
