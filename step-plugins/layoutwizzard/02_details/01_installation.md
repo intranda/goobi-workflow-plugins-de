@@ -124,5 +124,5 @@ Beispielhaft hat diese Konfigurationsdatei den folgenden Inhalt:
 </config>
 ```
 
-Details über die Anpassung der Konfigurationen finden sich im [Abschnitt zur Konfiguration](configuration.md).
+Details über die Anpassung der Konfigurationen finden sich im [Abschnitt zur Konfiguration](02_configuration.md).
 
