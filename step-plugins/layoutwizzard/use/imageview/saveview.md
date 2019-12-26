@@ -1,6 +1,6 @@
 # Speicheransicht
 
-Die Speicheransicht zeigt das Bild in der Regel so, wie das zugeschnittene Derivat gespeichert wird. Eine Ausnahme davon sind Bilder mit Doppelseitenausrichtung. Diese werden als ein einziges Bild angezeigt, also ohne Teilung an der Falzlinie.
+Die Speicheransicht zeigt das Bild in der Regel so, wie das zugeschnittene Derivat gespeichert wird. Eine Ausnahme davon sind Bilder mit Doppelseitenausrichtung. Sie werden als ein einziges Bild angezeigt, also ohne Teilung an der Falzlinie.
 
 ![Speicheransicht im normalen Modus](../../../../.gitbook/assets/layoutwizzard_11.png)
 
@@ -8,7 +8,7 @@ Im erweiterten Modus kann man den Ordner, in den die Bilder gespeichert werden, 
 
 | Icon | Beschreibung |
 | :--- | :--- |
-| ![](../../../../.gitbook/assets/layoutwizzard_37.png)  | Dieser Button speichert das aktuelle Bild zugeschnitten in den Ausgabeordner. |
-| ![](../../../../.gitbook/assets/layoutwizzard_39.png)  | Dieser Button speichert das aktuelle und alle folgenden Bilder zugeschnitten in den Ausgabeordner. |
-| ![](../../../../.gitbook/assets/layoutwizzard_38.png)  | Dieser Button speichert alle Bilder des Vorgangs zugeschnitten in den Ausgabeordner. |
+| ![](../../../../.gitbook/assets/layoutwizzard_37.png)  | Speichert das aktuelle Bild zugeschnitten in den Ausgabeordner |
+| ![](../../../../.gitbook/assets/layoutwizzard_39.png)  | Speichert das aktuelle und alle folgenden Bilder zugeschnitten in den Ausgabeordner |
+| ![](../../../../.gitbook/assets/layoutwizzard_38.png)  | Speichert alle Bilder des Vorgangs zugeschnitten in den Ausgabeordner. |
 
