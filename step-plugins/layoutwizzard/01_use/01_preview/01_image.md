@@ -2,6 +2,10 @@
 
 Die Vorschauansicht beinhaltet für jede Bilddatei einen Bildbereich wie den folgenden. Er besteht aus der  eigentlichen Bildanzeige, den Steuerelementen für die Rotation und den Zuschneiderahmen sowie mehreren Buttons zum Betreten der Detailansicht für  eine bestimmte Analysephase.
 
+
+
+![Eine Bilddatei in der Vorschauansicht](../../../../.gitbook/assets/layoutwizzard_15.png)
+
 ## Bildanzeige
 
 Die Bildanzeige enthält das eigentliche Bild. Das Bild ist den Analyseergebnissen entsprechend rotiert und enthält Marker für die Falzposition \(rot\) und den Zuschneiderahmen \(türkis\). Beide Marker können mit der Maus angefasst und bewegt werden, um somit die Analysedaten zu korrigieren. Ein Klicken, Halten und Ziehen mit der Maus innerhalb des Zuschneiderahmens bewegt den gesamten Rahmen. 
@@ -30,6 +34,8 @@ Neben der Bildanzeige gibt es ein Steuerelement zum Verschieben des Zuschneidera
 ## Buttons zum Betreten der Detailansicht
 
 Die drei Buttons neben der Bildanzeige erlauben das Betreten der Einzelseitenansicht für die gewählte Analysephase, um dort gezielt einzelne Analyseparameter justieren zu können.  Klicken Sie innerhalb der Detailansicht erneut auf den Button `Vorschauansicht öffnen` gelangen Sie wieder zum selben Bild innerhalb der Vorschauansicht. 
+
+![Buttons zum Betreten der Detailansicht](../../../../.gitbook/assets/layoutwizzard_16.png)
 
 Unterhalb der Buttons für die Detailansicht befindet sich die Bildnummer innerhalb des Eingabeordners. Hierbei handelt es sich nicht um den Dateinamen der Bilddatei sondern um einen einfachen Zähler, der im Falle vieler gleichartiger anzeigter Bilder eine Orientierung geben soll, an welcher Stelle innerhalb der Bilddateien man sich derzeit befindet.
 

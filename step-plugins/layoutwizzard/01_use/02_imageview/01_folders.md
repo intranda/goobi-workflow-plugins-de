@@ -2,7 +2,7 @@
 
 Im Bereich Ordner- und Dateioptionen können globale Einstellungen zur Handhabung der Dateien getätigt werden. Außerdem lässt sich von hier aus der komplette LayoutWizzard-Workflow zurücksetzen.
 
-![Aktivierter Bereich f&#xFC;r die Ordner- und Dateioptionen](../../../../.gitbook/assets/layoutwizzard_10.png)
+![Aktivierter Bereich f&#xFC;r die Ordner- und Dateioptionen](../../../../.gitbook/assets/layoutwizzard_13.png)
 
 ## Umschaltung zwischen den Anzeigemodi
 
@@ -73,7 +73,7 @@ Mit dieser Option kann festgelegt werden, wie die Kompression der Bilder erfolge
 | **Keine** | Unkomprimiertes Tiff |
 | **JPEG** | JPEG-komprimiertes Tiff |
 
-### Ausreißer markieren für
+### Ausreißer markieren
 
 Bei Ausreißern handelt es sich um Bilder, die in der Analyse auffällig andere Werte aufweisen als die maximal 12 Bilder vor und nach ihnen. Ebenso handelt es sich um Ausreißer bei Bildern, deren Analyse aufgrund von Fehlern oder Zeitüberschreitungen nicht abgeschlossen werden konnte.  
 Ausreißer werden in der Dateiliste rot dargestellt und in der Vorschauansicht von einem roten Rahmen umgeben.
