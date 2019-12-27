@@ -1,6 +1,6 @@
 # Ordner- und Dateioptionen
 
-Im Bereich Ordner- und Dateioptionen können globale Einstellungen zur Handhabung der Dateien getätigt werden. Außerdem lässt sich von hier aus der komplette LayoutWizzard-Workflow zurücksetzen. 
+Im Bereich Ordner- und Dateioptionen können globale Einstellungen zur Handhabung der Dateien getätigt werden. Außerdem lässt sich von hier aus der komplette LayoutWizzard-Workflow zurücksetzen.
 
 ![Aktivierter Bereich f&#xFC;r die Ordner- und Dateioptionen](../../../../.gitbook/assets/layoutwizzard_10.png)
 
@@ -19,7 +19,7 @@ Folgende Optionen sind im Bereich des normalen Anzeigemodus verfügbar.
 ### **Seitenmodus**
 
 Der Seitenmodus dient für die Festlegung der Seitenverarbeitung in rechte, linke, Doppel- oder Einzelseiten. Jeder Modus setzt die Ausrichtung für alle Bilder einmalig fest. Spätere Änderungen der Ausrichtung einzelner Seiten ändern die Ausrichtung aller Folgeseiten wie vom Seitenmodus vorgegeben.  
-Der interne Name innerhalb der nachfolgenden Tabelle ist derjenige, wie er in der LayoutWizzard-Konfigurationsdatei für den Seitenmodus verwendet wird. 
+Der interne Name innerhalb der nachfolgenden Tabelle ist derjenige, wie er in der LayoutWizzard-Konfigurationsdatei für den Seitenmodus verwendet wird.
 
 ![Drop-Down-Element zur Auswahl des Modus](../../../../.gitbook/assets/layoutwizzard_44.png)
 
@@ -93,7 +93,7 @@ Folgende Ausreißertypen werden unterschieden und können als zu markieren ausge
 
 ### Zuschneidebereiche anpassen
 
-Wenn rechte und linke Bilder einzeln gescannt werden und sie dennoch in einer Doppelseitenansicht zusammenpassen sollen, kann der LayoutWizzard Seiten so zuschneiden, dass der Inhalt jeweils auf gleicher Höhe beginnt, so dass der obere Buchrand auf allen Seiten möglichst bündig ist. Zu beachten ist hierbei jedoch, dass es je nach Aufnahme oft nicht möglich ist, zwei Seiten komplett ohne Verzerrungen  bündig zu schneiden. Für eine optimale Doppelseitendarstellung ist daher immer auch ein Doppelseitenscan anstelle dieser Option zu empfehlen.
+Wenn rechte und linke Bilder einzeln gescannt werden und sie dennoch in einer Doppelseitenansicht zusammenpassen sollen, kann der LayoutWizzard Seiten so zuschneiden, dass der Inhalt jeweils auf gleicher Höhe beginnt, so dass der obere Buchrand auf allen Seiten möglichst bündig ist. Zu beachten ist hierbei jedoch, dass es je nach Aufnahme oft nicht möglich ist, zwei Seiten komplett ohne Verzerrungen bündig zu schneiden. Für eine optimale Doppelseitendarstellung ist daher immer auch ein Doppelseitenscan anstelle dieser Option zu empfehlen.
 
 | Anpassungsmodus | Beschreibung |
 | :--- | :--- |
@@ -101,6 +101,4 @@ Wenn rechte und linke Bilder einzeln gescannt werden und sie dennoch in einer Do
 | **Angleichung gegenüberliegender Seiten, links nach rechts** | Jeweils gegenüberliegende Seiten werden bündig geschnitten. Als gegenüberliegende Seite einer linken Seiten gilt jeweils die folgende rechte Seite. |
 | **Angleichung gegenüberliegender Seiten, rechts nach links** | Jeweils gegenüberliegende Seiten werden bündig geschnitten. Als gegenüberliegende Seite einer rechten Seiten gilt jeweils die folgende linke Seite. |
 | **Angleichung über alle Seiten** | Alle Seiten werden möglichst bündig geschnitten. Dies verursacht oft große ungeschnittene Ränder, benötigt relativ viel Bearbeitungszeit und ist daher zumeist nicht empfehlenswert. |
-
-
 

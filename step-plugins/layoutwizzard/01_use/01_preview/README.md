@@ -6,7 +6,7 @@ Die Vorschauansicht enthält eine Liste aller Bilder im Eingabeordner. Diese sin
 
 ![Vorschauansicht mit der Anzeige nur der linken Seiten. Die rechten Seiten folgen nach dem Bl&#xE4;ttern](../../../../.gitbook/assets/layoutwizzard_14.png)
 
-Innerhalb der Vorschauansicht läßt sich festlegen, wie groß die Bilder angezeigt werden sollen und ob der Schneiderahmen oberhalb des originalen Bildes angezeigt werden soll oder stattdessen eine Vorschau, des späteren beschnittenen Bildes. 
+Innerhalb der Vorschauansicht läßt sich festlegen, wie groß die Bilder angezeigt werden sollen und ob der Schneiderahmen oberhalb des originalen Bildes angezeigt werden soll oder stattdessen eine Vorschau, des späteren beschnittenen Bildes.
 
 Für jedes einzelne Bild lassen sich direkt aus dieser Anzeige Korrekturen vornehmen. So kann über den Schieberegler neben dem Bild die Rotation, mit dem Mauszeiger die Buchfalz anders positioniert und mittels Klicken und Ziehen die Größe und Position des Zuschneiderahmens geändert werden.
 
