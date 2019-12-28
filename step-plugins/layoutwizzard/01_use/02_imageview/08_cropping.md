@@ -15,3 +15,5 @@ Zusätzlich verfügt dieser Bereich über Buttons, um die Größe und Position d
 | ![](../../../../.gitbook/assets/layoutwizzard_32.png)  | Rahmen auf alle linken Bilder übertragen. Dies ist nur verfügbar, wenn das aktuelle Bild ein linkes ist. |
 | ![](../../../../.gitbook/assets/layoutwizzard_33.png)  | Rahmen auf alle nachfolgenden linken Bilder übertragen. Dies ist nur verfügbar, wenn das aktuelle Bild ein linkes ist. |
 
+
+

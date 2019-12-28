@@ -2,8 +2,6 @@
 
 Die Vorschauansicht beinhaltet für jede Bilddatei einen Bildbereich wie den folgenden. Er besteht aus der  eigentlichen Bildanzeige, den Steuerelementen für die Rotation und den Zuschneiderahmen sowie mehreren Buttons zum Betreten der Detailansicht für  eine bestimmte Analysephase.
 
-
-
 ![Eine Bilddatei in der Vorschauansicht](../../../../.gitbook/assets/layoutwizzard_15.png)
 
 ## Bildanzeige
@@ -37,7 +35,7 @@ Die drei Buttons neben der Bildanzeige erlauben das Betreten der Einzelseitenans
 
 ![Buttons zum Betreten der Detailansicht](../../../../.gitbook/assets/layoutwizzard_16.png)
 
-Unterhalb der Buttons für die Detailansicht befindet sich die Bildnummer innerhalb des Eingabeordners. Hierbei handelt es sich nicht um den Dateinamen der Bilddatei sondern um einen einfachen Zähler, der im Falle vieler gleichartiger anzeigter Bilder eine Orientierung geben soll, an welcher Stelle innerhalb der Bilddateien man sich derzeit befindet.
+Unterhalb der Buttons für die Detailansicht befindet sich die Bildnummer innerhalb des Eingabeordners. Hierbei handelt es sich nicht um den Dateinamen der Bilddatei sondern um einen einfachen Zähler, der im Falle vieler gleichartiger angezeigter Bilder eine Orientierung geben soll, an welcher Stelle innerhalb der Bilddateien man sich derzeit befindet.
 
 Abhängig von der Konfiguration des LayoutWizzards wird in diesem Bereich gegebenenfalls ebenso ein DropDown-Menü angezeigt. Dieses erlaubt eine Änderung der Ausrichtung für die jeweiligen Seite. Beachten Sie bitte, dass die hier vorgenommene Änderung ausschließlich für das aktuell ausgewählte Bild erfolgt und keine Auswirkungen auf die nachfolgenden Bilder hat.
 
