@@ -8,7 +8,7 @@ description: >-
 
 ## Einführung
 
-Dieses Workflow-Plugin dient zur flexiblen Generierung von Barcodes in einer mehrseitigen PDF-Datei. Hierzu kann der Nutzer in einer Nutzeroberfläche verschiedene Werte konfigurieren und festlegen, welche Anzahl an Barcodes mit welchem Präfix und welchem Zähler erzeugt werden sollen. Zugleich kann festgelegt werden, welche xsl-Datei für de Generierung der PDF-Datei verwendet werden soll, so dass ein großes Maß an Freiheit hinsichtlich der optischen Gestaltung besteht.
+Dieses Workflow-Plugin dient zur flexiblen Generierung von Barcodes in einer mehrseitigen PDF-Datei. Hierzu kann der Nutzer in einer Nutzeroberfläche verschiedene Werte konfigurieren und festlegen, welche Anzahl an Barcodes mit welchem Präfix und welchem Zähler erzeugt werden sollen. Zugleich kann festgelegt werden, welche `xsl-Datei` für de Generierung der `PDF-Datei` verwendet werden soll, so dass ein großes Maß an Freiheit hinsichtlich der optischen Gestaltung besteht.
 
 ## Übersicht
 
