@@ -174,5 +174,7 @@ Nach dem Klick auf den Button Barcodes generieren steht eine PDF-Datei zum Downl
 
 Zur Veranschaulichung der Bedienung steht hier ein Screencast für die Benutzung des Plugins zur Verfügung.
 
-{% embed url="https://www.youtube.com/watch?v=Eh8H4k1sKvE" caption="Screencast zur Benutzung des Plugins" %}
+{% embed url="https://www.youtube.com/watch?v=Eh8H4k1sKvE" %}
+
+
 
