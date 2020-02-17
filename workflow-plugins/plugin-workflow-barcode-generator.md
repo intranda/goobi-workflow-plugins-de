@@ -51,6 +51,10 @@ Der Inhalt dieser Konfigurationsdatei sieht wie folgt aus:
 	
 	<!--  default value the first barcode number -->
 	<prefix></prefix>
+	
+	<!--  default separator to use between prefix and counter, 
+	if the prefix is empty this separator does not get used -->
+	<separator>_</separator>
 
 	<!-- path to xslt file for barcode generation, 
 	this value can exist multiple times and gets displayed as dropdown list -->
@@ -69,6 +73,7 @@ Die Konfiguration des Plugins erfolgt innerhalb der oben bereits erwähnten Konf
 | `amount` | Dieser Parameter legt fest, wieviele Barcodes festgelegt werden. |
 | `start` | Soll der Zähler für die Barcodes bei einem bestimmten Startwert beginnen, so kann dieser hier festgelegt werden. |
 | `prefix` | Dieser Parameter definiert einen Präfix, der dem Zähler mit einem Unterstrich `_` vorangestellt wird. |
+| `separator` | Mit diesem Parameter kann ein Trennzeichen angegeben werden, dass zwischen Präfix und dem Zähler verwendet werden soll. Sollte der Präfix hingegen nicht angegeben sein, wird das Trennzeichen nicht verwendet. |
 | `xslt-path` | Der Parameter `xslt-path` erlaubt die Definition beliebig vieler xsl-Dateien. Die hier konfigurierten Dateien werden dem Nutzer anschließend innerhalb der Nutzeroberfläche zur Auswahl angeboten. |
 
 ## Layout der Barcodes
@@ -174,7 +179,5 @@ Nach dem Klick auf den Button Barcodes generieren steht eine PDF-Datei zum Downl
 
 Zur Veranschaulichung der Bedienung steht hier ein Screencast für die Benutzung des Plugins zur Verfügung.
 
-{% embed url="https://www.youtube.com/watch?v=Eh8H4k1sKvE" %}
-
-
+{% embed url="https://www.youtube.com/watch?v=Eh8H4k1sKvE" caption="Screencast zur Benutzung des Plugins" %}
 
