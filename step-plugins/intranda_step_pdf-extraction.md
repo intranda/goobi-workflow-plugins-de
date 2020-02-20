@@ -33,7 +33,7 @@ Zur Nutzung des Plugins muss es an folgenden Ort kopiert werden:
 Die Konfiguration des Plugins wird unter folgendem Pfad erwartet:
 
 ```text
-/opt/digiverso/goobi/config/plugin_intranda_step_extract_pdf.xml
+/opt/digiverso/goobi/config/plugin_intranda_step_pdf-extraction.xml
 ```
 
 Eine Beispielkonfiguration könnte folgendermaßen aussehen:
