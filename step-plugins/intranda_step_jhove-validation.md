@@ -95,7 +95,7 @@ Die Parameter innerhalb der zentralen Konfigurationsdatei des Plugins haben folg
 | Wert | Beschreibung |
 | :--- | :--- |
 | `project` | Dieser Parameter legt fest, für welches Projekt der aktuelle Block `<config>` gelten soll. Verwendet wird hierbei der Name des Projektes. Dieser Parameter kann mehrfach pro `<config>` Block vorkommen. |
-| `step` | Dieser Parameter steuert, für welche Arbeitsschritte der Block &lt;config&gt; gelten soll. Verwendet wird hier der Name des Arbeitsschritts. Dieser Parameter kann mehrfach pro `<config>` Block vorkommen. |
+| `step` | Dieser Parameter steuert, für welche Arbeitsschritte der Block `<config>` gelten soll. Verwendet wird hier der Name des Arbeitsschritts. Dieser Parameter kann mehrfach pro `<config>` Block vorkommen. |
 | `validateMasterFolder` | Mit diesem Parameter wird festgelegt, ob die Validierung der Bilder innerhalb des Master-Verzeichnisses erfolgen soll. |
 | `validateMediaFolder` | Mit diesem Parameter wird festgelegt, ob die Validierung der Bilder innerhalb des Media-Verzeichnisses erfolgen soll. |
 | `openStepOnError` | Dieser Parameter legt fest, welcher Arbeitsschritt des Workflows erneut geöffnet werden soll, wenn ein Fehler innerhalb der Validierung auftritt. Wird dieser Parameter nicht verwendet, so aktiviert das Plugin stattdessen einfach den vorherigen Arbeitsschritt des Validierungsschritts. |
