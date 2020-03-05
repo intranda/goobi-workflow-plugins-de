@@ -81,8 +81,8 @@ Die Konfiguration des Plugins erfolgt innerhalb der bereits erwähnten Konfigura
     <tr>
       <td style="text-align:left"><code>step</code>
       </td>
-      <td style="text-align:left">Dieser Parameter steuert, f&#xFC;r welche Arbeitsschritte der Block &lt;config&gt;
-        gelten soll. Verwendet wird hier der Name des Arbeitsschritts. Dieser Parameter
+      <td style="text-align:left">Dieser Parameter steuert, f&#xFC;r welche Arbeitsschritte der Block <code>&lt;config&gt;</code> gelten
+        soll. Verwendet wird hier der Name des Arbeitsschritts. Dieser Parameter
         kann mehrfach pro <code>&lt;config&gt;</code> Block vorkommen.</td>
     </tr>
     <tr>
