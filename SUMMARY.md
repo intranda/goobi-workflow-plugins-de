@@ -37,6 +37,8 @@
 * [Anzeige von Metadaten in einer Aufgabe](step-plugins/intranda_step_displaymetadata.md)
 * [Automatische Paginierung auf Basis der Dateinamen](step-plugins/intranda_step_imagename_analyse.md)
 * [EWIG Langzeitarchivierung](step-plugins/ewig-langzeitarchivierung.md)
+* [Umbenennung von Dateien](step-plugins/intranda_step-rename-files.md)
+* [Tif-Validierung](step-plugins/intranda_step_jhove-validation.md)
 
 ## Opac Plugins
 
