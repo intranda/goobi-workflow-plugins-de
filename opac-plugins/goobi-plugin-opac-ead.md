@@ -61,8 +61,8 @@ Diese hat folgenden Aufbau:
 Description=BaseX HTTP server
 
 [Service]
-User=tomcat7
-Group=tomcat7
+User=tomcat8
+Group=tomcat8
 ProtectSystem=full
 ExecStart=/opt/digiverso/basex/bin/basexhttp
 ExecStop=/opt/digiverso/basex/bin/basexhttp stop
@@ -89,6 +89,13 @@ Damit das Admin-Interface auch von extern erreichbar ist, kann dieses im `Apache
             ProxyPass http://localhost:8984/ retry=0
             ProxyPassReverse http://localhost:8984/
     </Location>
+```
+
+Im Anschluß daran muss noch das Apache Modul proxy\_http aktiviert und der Apache neu gestartet werden, damit die Anpassungen wirksam werden: 
+
+```markup
+a2enmod proxy_http
+systemctl restart apache2
 ```
 
 ### Datenbank einrichten
