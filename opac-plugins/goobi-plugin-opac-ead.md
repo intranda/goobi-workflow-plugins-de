@@ -91,7 +91,7 @@ Damit das Admin-Interface auch von extern erreichbar ist, kann dieses im `Apache
     </Location>
 ```
 
-Im Anschluß daran muss noch das Apache Modul proxy\_http aktiviert und der Apache neu gestartet werden, damit die Anpassungen wirksam werden: 
+Im Anschluß daran muss noch das Apache Modul `proxy_http` aktiviert und der Apache neu gestartet werden, damit die Anpassungen wirksam werden: 
 
 ```markup
 a2enmod proxy_http
