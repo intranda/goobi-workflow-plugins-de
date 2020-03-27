@@ -22,6 +22,8 @@ Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den
 
 Voraussetzung für die Verwendung des Plugins ist der Einsatz von Goobi workflow in Version 3.0.6 oder höher, die korrekte Installation und Konfiguration des Plugins sowie die korrekte Einbindung des Plugins in die gewünschten Arbeitsschritte des Workflows.
 
+Außerdem wird das Kommandozeilenprogramm Ghostscript benötigt. Es kann über die Paketquellen des Systems installiert werden.
+
 ## Installation und Konfiguration <a id="installation-und-konfiguration"></a>
 
 Zur Nutzung des Plugins muss es an folgenden Ort kopiert werden:
