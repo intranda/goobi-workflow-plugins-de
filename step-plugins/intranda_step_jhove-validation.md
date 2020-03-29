@@ -14,11 +14,11 @@ Diese Plugin dient zur Validierung von Bildern im Format `TIF` innerhalb von def
 
 | Details |  |
 | :--- | :--- |
-| Version des Plugins | 1.0.0 |
+| Version | 1.0.0 |
 | Identifier | intranda\_step\_jhove-validation |
 | Source code | - Source code not yet publicly available - |
 | Kompatibilität | Goobi workflow 2020.02 |
-| Dokumentation vom | 04.03.2020 |
+| Dokumentationsdatum | 04.03.2020 |
 
 ## Installation
 

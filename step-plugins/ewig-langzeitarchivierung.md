@@ -6,11 +6,11 @@ Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den
 
 | Details |  |
 | :--- | :--- |
-| Version des Plugins | 1.0.0 |
+| Version | 1.0.0 |
 | Identifier | intranda\_step\_lza\_ewig |
 | Source code | - Quellcode noch nicht öffentlich verfügbar - |
 | Kompatibilität | Goobi workflow 3.0 |
-| Dokumentation vom | 05.12.2019 |
+| Dokumentationsdatum | 05.12.2019 |
 
 ### Installation und Konfiguration
 

@@ -12,11 +12,11 @@ Die vorliegende Dokumentation beschreibt die Installation, die Konfiguration und
 
 | Details |  |
 | :--- | :--- |
-| Version des Plugins | 1.0.0 |
+| Version | 1.0.0 |
 | Identifier | intranda\_step\_xmp |
 | Source code | - Quellcode noch nicht öffentlich verfügbar - |
 | Kompatibilität | Goobi workflow 3.0.5 |
-| Dokumentation vom | 05.04.2019 |
+| Dokumentationsdatum | 05.04.2019 |
 
 ## Voraussetzung
 

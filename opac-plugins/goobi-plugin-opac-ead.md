@@ -12,11 +12,11 @@ Die vorliegende Dokumentation beschreibt die Installation, die Konfiguration und
 
 | Details |  |
 | :--- | :--- |
-| Version des Plugins | 1.0.0 |
+| Version | 1.0.0 |
 | Identifier | goobi-plugin-opac-ead |
 | Source code | - Quellcode noch nicht öffentlich verfügbar - |
 | Kompatibilität | Goobi workflow 3.0 und neuer |
-| Dokumentation vom | 28.02.2019 |
+| Dokumentationsdatum | 28.02.2019 |
 
 ## Vorbereitung des EAD-Speichers
 

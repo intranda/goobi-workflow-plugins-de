@@ -14,11 +14,11 @@ Dieses Workflow-Plugin wurde implementiert, um neben der reinen Importroutine eb
 
 | Details |  |
 | :--- | :--- |
-| Version des Plugins | 1.0.0 |
+| Version | 1.0.0 |
 | Identifier | goobi-plugin-workflow-excelimport |
 | Source code | - Source code not yet publicly available - |
 | Kompatibilität | Goobi workflow 2019.11 |
-| Dokumentation vom | 29.11.2019 |
+| Dokumentationsdatum | 29.11.2019 |
 
 ## Installation
 

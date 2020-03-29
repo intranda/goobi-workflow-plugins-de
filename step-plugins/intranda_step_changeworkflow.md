@@ -12,11 +12,11 @@ Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den
 
 | Details |  |
 | :--- | :--- |
-| Version des Plugins | 1.0.0 |
+| Version | 1.0.0 |
 | Identifier | intranda\_step\_changeWorkflow |
 | Source code | - Quellcode noch nicht öffentlich verfügbar - |
 | Kompatibilität | Goobi Workflow 3.0.0 |
-| Dokumentation vom | 29.04.2019 |
+| Dokumentationsdatum | 29.04.2019 |
 
 ## Voraussetzung
 

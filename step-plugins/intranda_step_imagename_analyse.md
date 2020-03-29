@@ -12,11 +12,11 @@ Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den
 
 | Details |  |
 | :--- | :--- |
-| Version des Plugins | 1.0.0 |
+| Version | 1.0.0 |
 | Identifier | intranda\_step\_imagename\_analyse |
 | Source code | - noch nicht öffentlich verfügbar - |
 | Kompatibilität | Goobi workflow 3.0.10 |
-| Dokumentation vom | 14.08.2019 |
+| Dokumentationsdatum | 14.08.2019 |
 
 ## Voraussetzung
 

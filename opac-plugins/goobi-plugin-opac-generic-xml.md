@@ -10,11 +10,11 @@ Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den
 
 |  |  |
 | :--- | :--- |
-| Version des Plugins | 1.0.0 |
+| Version | 1.0.0 |
 | Identifier | goobi-plugin-opac-generic-xml |
 | Source code | - Source code not yet publicly available - |
 | Kompatibilität | Goobi workflow 2019.11 |
-| Dokumentation vom | 11.11.2019 |
+| Dokumentationsdatum | 11.11.2019 |
 
 ## Installation
 

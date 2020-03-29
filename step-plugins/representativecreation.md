@@ -15,11 +15,11 @@ Mit Hilfe dieses Plugins können METS Dateien automatisch aufbereitet und der Re
 
 | Details |  |
 | :--- | :--- |
-| Version des Plugins | 1.0.0 |
+| Version | 1.0.0 |
 | Identifier | RepresentativeCreation |
 | Source code | - noch nicht öffentlich verfügbar - |
 | Kompatibilität | Goobi workflow 2.2  |
-| Dokumentation vom | 28.04.2017 |
+| Dokumentationsdatum | 28.04.2017 |
 
 ## Voraussetzung
 

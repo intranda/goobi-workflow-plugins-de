@@ -12,11 +12,11 @@ Die vorliegende Dokumentation beschreibt die Installation, die Konfiguration und
 
 | Details |  |
 | :--- | :--- |
-| Version des Plugins | 1.0.0 |
+| Version | 1.0.0 |
 | Identifier | intranda\_import\_excel\_read\_headerdata |
 | Source code | - Quellcode noch nicht öffentlich verfügbar - |
 | Kompatibilität | Goobi workflow 3.0 und neuer |
-| Dokumentation vom | 02.10.2019 |
+| Dokumentationsdatum | 02.10.2019 |
 
 ## Installation
 

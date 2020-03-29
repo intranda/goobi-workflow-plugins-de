@@ -12,11 +12,11 @@ Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den
 
 | Details |  |
 | :--- | :--- |
-| Version des Plugins | 1.2.0 |
+| Version | 1.2.0 |
 | Identifier | intranda\_step\_pdf-extraction |
 | Source code | - Quellcode noch nicht öffentlich verfügbar - |
 | Kompatibilität | Goobi Workflow 3.0.6 |
-| Dokumentation vom | 09.04.2019 |
+| Dokumentationsdatum | 09.04.2019 |
 
 ## Voraussetzung
 

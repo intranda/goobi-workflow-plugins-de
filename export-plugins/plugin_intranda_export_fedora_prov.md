@@ -12,11 +12,11 @@ Die vorliegende Dokumentation beschreibt die Installation, die Konfiguration und
 
 | Details |  |
 | :--- | :--- |
-| Version des Plugins | 1.0.3 |
+| Version | 1.0.3 |
 | Identifier | plugin\_intranda\_export\_fedora\_prov |
 | Source code | [https://gitea.intranda.com/goobi-workflow/goobi-plugin-export-fedora-prov](https://gitea.intranda.com/goobi-workflow/goobi-plugin-export-fedora-prov) |
 | Kompatibilität | Goobi workflow 3.0 und neuer |
-| Dokumentation vom | 18.12.2019 |
+| Dokumentationsdatum | 18.12.2019 |
 
 ## Konfiguration <a id="konfiguration"></a>
 

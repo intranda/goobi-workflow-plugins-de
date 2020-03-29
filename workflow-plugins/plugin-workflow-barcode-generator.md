@@ -14,11 +14,11 @@ Dieses Workflow-Plugin dient zur flexiblen Generierung von Barcodes in einer meh
 
 | Details |  |
 | :--- | :--- |
-| Version des Plugins | 1.0.0 |
+| Version | 1.0.0 |
 | Identifier | goobi-plugin-workflow-barcode-generator |
 | Source code | - Source code not yet publicly available - |
 | Kompatibilität | Goobi workflow 2020.02 |
-| Dokumentation vom | 15.02.2020 |
+| Dokumentationsdatum | 15.02.2020 |
 
 ## Installation
 

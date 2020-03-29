@@ -12,11 +12,11 @@ Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den
 
 | Details |  |
 | :--- | :--- |
-| Version des Plugins | 1.0.0 |
+| Version | 1.0.0 |
 | Identifier | intranda\_step\_pdfUpload |
 | Source code | - Quellcode noch nicht öffentlich verfügbar - |
 | Kompatibilität | Goobi workflow 2.1 |
-| Dokumentation vom | 04.02.2016 |
+| Dokumentationsdatum | 04.02.2016 |
 
 ## Voraussetzung
 

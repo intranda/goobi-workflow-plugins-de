@@ -14,11 +14,11 @@ Mit Hilfe dieses Export-Plugins für Goobi können die Goobi-Vorgänge innerhalb
 
 | Details |  |
 | :--- | :--- |
-| Version des Plugins | 1.0.0 |
+| Version | 1.0.0 |
 | Identifier | HaabExport |
 | Source code | - Quellcode noch nicht öffentlich verfügbar - |
 | Kompatibilität | Goobi workflow 2.1 und neuer |
-| Dokumentation vom | 17.06.2015 |
+| Dokumentationsdatum | 17.06.2015 |
 
 ## Voraussetzung und Installation
 

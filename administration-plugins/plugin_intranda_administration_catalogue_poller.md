@@ -12,11 +12,11 @@ Die vorliegende Dokumentation beschreibt die Installation, die Konfiguration und
 
 | Details |  |
 | :--- | :--- |
-| Version des Plugins | 1.0.0 |
+| Version | 1.0.0 |
 | Identifier | plugin\_intranda\_administration\_catalogue\_poller |
 | Source code | - Quellcode noch nicht öffentlich verfügbar - |
 | Kompatibilität | Goobi workflow 3.0.4 und neuer |
-| Dokumentation vom | 05.03.2019 |
+| Dokumentationsdatum | 05.03.2019 |
 
 ## Installation
 
