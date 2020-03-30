@@ -1,3 +1,9 @@
+---
+description: >-
+  Dokumentation für die Plugins der Open-Source-Software Goobi workflow von
+  intranda
+---
+
 # Übersicht
 
 Auf den folgenden Seiten finden Sie die einzelnen zumeist kleineren Dokumentationen für verschiedene Plugins und Erweiterungen für Goobi workflow. Bitte wählen Sie zunächst im linken Bereich innerhalb des Inhaltsverzeichnisses das gewünschte Plugin aus, um zu Dokumentation zu gelangen.
