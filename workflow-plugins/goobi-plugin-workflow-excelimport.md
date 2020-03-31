@@ -151,3 +151,9 @@ Für jedes einzelne Metadatum kann festgelegt werden, wie dieses importiert werd
 **Achtung:** Bitte beachten Sie, dass Spalten, die nicht in der Excel-Datei vorhanden sind \(z.B. `14d`\), vom Plugin ignoriert werden, aber hier konfiguriert werden müssen.
 {% endhint %}
 
+## Benutzung des Plugins
+
+Nach der Installation und Inbetriebnahme des Plugins, steht dieses innerhalb des Menüs `Workflow` zur Verfügung. Nach dem Aufruf kann hier hier eine Excel-Datei hochgeladen werden, so dass anschließend alle Validierungsmeldungen sofort ersichtlich werden. Im Anschluß daran, kann entschieden werden, ob die Vorgänge trotz eventueller Validierungsmeldungen dennoch in Goobi erzeugt werden sollen, oder ob der Import abgebrochen werden soll.
+
+![](../.gitbook/assets/workflow_excel_import.png)
+
