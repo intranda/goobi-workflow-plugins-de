@@ -39,6 +39,7 @@
 * [EWIG Langzeitarchivierung](step-plugins/ewig-langzeitarchivierung.md)
 * [Umbenennung von Dateien](step-plugins/intranda_step-rename-files.md)
 * [Tif-Validierung](step-plugins/intranda_step_jhove-validation.md)
+* [Metadaten-Validierung innerhalb einer Aufgabe](step-plugins/metadaten-validierung-innerhalb-einer-aufgabe.md)
 
 ## Opac Plugins
 
