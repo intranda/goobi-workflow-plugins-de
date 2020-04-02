@@ -40,6 +40,7 @@
 * [Umbenennung von Dateien](step-plugins/intranda_step-rename-files.md)
 * [Tif-Validierung](step-plugins/intranda_step_jhove-validation.md)
 * [Metadaten-Validierung innerhalb einer Aufgabe](step-plugins/intranda_step_metadata_yerusha_validation.md)
+* [Automatische Anreicherung von Metadaten aus eigenen Vokabularen](step-plugins/intranda_step_metadata_replacement.md)
 
 ## Opac Plugins
 
