@@ -1,7 +1,7 @@
 ---
 description: >-
-  Dieses Plugin zeigt die Validierungsergebnisse von Metadaten innerhalb einer
-  angenommenen Aufgabe an.
+  Dieses Plugin zeigt die Ergebnisse einer Validierung von Metadaten innerhalb
+  einer angenommenen Aufgabe an.
 ---
 
 # Metadaten-Validierung innerhalb einer Aufgabe
