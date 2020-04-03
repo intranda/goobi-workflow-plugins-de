@@ -27,7 +27,7 @@ Zur Nutzung des Plugins müssen diese beiden Dateien an folgende Orte kopiert we
 /opt/digiverso/goobi/plugins/GUI/plugin_intranda_step_yerusha-validation-GUI.jar
 ```
 
-Die Konfiguration des Plugins basiert auf derjenigen des [Excel-Plugins mit Anzeige von Validierungsergebnissen](https://docs.goobi.io/goobi-workflow-plugins-en/workflow-plugins/goobi-plugin-workflow-excelimport) und wird unter folgendem Pfad erwartet:
+Die Konfiguration des Plugins basiert auf derjenigen des [Excel-Plugins mit Anzeige von Validierungsergebnissen](https://docs.goobi.io/goobi-workflow-plugins-de/workflow-plugins/goobi-plugin-workflow-excelimport) und wird unter folgendem Pfad erwartet:
 
 ```text
 /opt/digiverso/goobi/config/plugin_intranda_workflow_excelimport.xml
@@ -35,7 +35,7 @@ Die Konfiguration des Plugins basiert auf derjenigen des [Excel-Plugins mit Anze
 
 ## Konfiguration des Plugins
 
-Die Konfiguration des Plugins basiert auf derjenigen des Excel-Plugins mit Anzeige von Validierungsergebnissen. [Ihr Aufbau wird hier näher erläutert. ](https://docs.goobi.io/goobi-workflow-plugins-en/workflow-plugins/goobi-plugin-workflow-excelimport#general-configuration-of-the-plugin)Sie ist folgendermaßen aufgebaut:
+Die Konfiguration des Plugins basiert auf derjenigen des Excel-Plugins mit Anzeige von Validierungsergebnissen. [Ihr Aufbau wird hier näher erläutert. ](https://docs.goobi.io/goobi-workflow-plugins-de/workflow-plugins/goobi-plugin-workflow-excelimport#general-configuration-of-the-plugin)Sie ist folgendermaßen aufgebaut:
 
 ```markup
 <config_plugin>
