@@ -109,11 +109,11 @@ Innerhalb der Metadaten liegen wenige Informationen über Erscheinungsorte vor. 
 
 ![Der Erscheinungsort London ist in einer besonderen Schreibweise in den Metadaten vorhanden](../.gitbook/assets/intranda_step_metadata_replacement5.png)
 
-Innerhalb eines Vokabulars können Orte mit zugehörigen Daten gepflegt werden. Hier kann unter anderem angegeben werden, welche Ortsnamen durch welche Ortsnamen ersetzt werden sollen. Außerdem kann hier definiert werden, welche Verlinkung zu einer Normdatenbank wie GeoNames oder VIAF erzeugt werden soll.
+Innerhalb eines Vokabulars können Orte mit zugehörigen Daten gepflegt werden. Hier kann unter anderem angegeben werden, welche Ortsnamen durch welche Ortsnamen ersetzt werden sollen. Außerdem kann hier definiert werden, welche Verlinkung zu einer Normdatenbank wie `GeoNames` oder `VIAF` erzeugt werden soll.
 
 ![In einem eigenen Vokabular f&#xFC;r Ortsnamen k&#xF6;nnen individuelle Daten f&#xFC;r eine Anreicherung gepflegt werden](../.gitbook/assets/intranda_step_metadata_replacement3.png)
 
-Innerhalb des Workflows von Goobi können die vorliegenden Metadaten innerhalb der METS-Datei eines Goobi-Vorgangs basierend auf einer Konfiguration wie oben angegeben automatisiert mit Daten aus dem Vokabular angereichert werden. Im Falle des Erscheinungsorts London kann so beispielsweise die  gewünschte Schreibweise zusammen mit den Normdaten aus GeoNames in ein zusätzliches Feld überführt werden. 
+Innerhalb des Workflows von Goobi können die vorliegenden Metadaten innerhalb der METS-Datei eines Goobi-Vorgangs basierend auf einer Konfiguration wie oben angegeben automatisiert mit Daten aus dem Vokabular angereichert werden. Im Falle des Erscheinungsorts London kann so beispielsweise die  gewünschte Schreibweise zusammen mit den Normdaten aus `GeoNames` in ein zusätzliches Feld überführt werden. 
 
 ![Der Erscheinungsort London ist nun in einem eigenen Feld mit korrekter Schreibweise und Normdaten vorhanden](../.gitbook/assets/intranda_step_metadata_replacement4.png)
 
