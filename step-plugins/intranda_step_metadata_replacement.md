@@ -10,8 +10,6 @@ description: >-
 
 Dieses Plugin erlaubt eine automatische Anreicherung von Metadaten innerhalb der METS-Dateien von Goobi workflow mit Inhalten aus innerhalb von Goobi verwalteten kontrollierten Vokabularen.
 
-## Übersicht
-
 | Details |  |
 | :--- | :--- |
 | Version | 1.0.0 |

@@ -10,8 +10,6 @@ description: >-
 
 Diese Plugin dient zur Validierung von Bildern im Format `TIF` innerhalb von definierbaren Verzeichnissen. Die Validierung erfolgt dabei unter Zuhilfenahme der [Open-Source-Softwarebibliothek JHove ](https://jhove.openpreservation.org/)und ist weitreichend konfigurierbar.
 
-## Übersicht
-
 | Details |  |
 | :--- | :--- |
 | Version | 1.0.0 |
