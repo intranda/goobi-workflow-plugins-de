@@ -126,7 +126,7 @@ Die Parameter innerhalb dieser Konfigurationsdatei haben folgende Bedeutungen:
 
 ## Integration des Plugins in den Workflow
 
-Zur Inbetriebnahme des Plugins muss dieses für einen oder mehrere gewünschte Aufgaben im Workflow aktiviert werden. Dies erfolgt wie im folgenden Screenshot aufgezeigt durch Auswahl des Plugins `intranda_step_metadata_yerusha_validation` aus der Liste der installierten Plugins.
+Zur Inbetriebnahme des Plugins muss dieses für einen oder mehrere gewünschte Aufgaben im Workflow aktiviert werden. Dies erfolgt wie im folgenden Screenshot aufgezeigt durch Auswahl des Plugins `intranda_step_imageQA` aus der Liste der installierten Plugins.
 
 ![Zuweisung des Plugins zu einer bestimmten Aufgabe](../.gitbook/assets/intranda_step_imageqa1.png)
 
