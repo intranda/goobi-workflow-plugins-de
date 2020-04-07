@@ -29,10 +29,117 @@ Innerhalb dieser Konfigurationsdatei wird der Pfad zur eigentlichen zentralen Ko
 ```markup
 <!-- Goobi Plugin configuration file -->
 <config_plugin>
-        <layout-wizzard-config-path>
-                /opt/digiverso/intranda/LayoutWizzard/layoutwizzard_config.xml
-        </layout-wizzard-config-path>
+	<config>
+		<!-- which projects to use for (can be more then one, otherwise use *) -->
+        <project>*</project>
+        <!-- which steps to use for (can be more then one, otherwise use *) -->
+        <step>*</step>
+        
+        <!-- The absolute path to the layoutwizzard_config.xml to use -->
+	    <layout-wizzard-config-path>
+	        /opt/digiverso/LayoutWizzard/layoutwizzard_config.xml
+	    </layout-wizzard-config-path>
+	    
+	    <!-- The initial view of the LayoutWizzard Plugin. Can be one of
+	    	* PREVIEW: The preview page of the plugin, displaying all pages in a vertical list
+	    	* SINGLEVIEW: The single view page of the plugin, displaying all settings and the first page
+	    	* SIMPLECROP: A zoomable cropping view for processes with few large images. Does not support spne cropping-->
+	    <startPage>PREVIEW</startPage>
+	    
+	    <!-- The initial viewing mode if the PREVIEW view. One of 
+	    	* ALTERNATING to see only left/right images per page
+	        * DOUBLE_PAGE to see opposite pages next to each other -->
+	    <previewMode>ALTERNATING</previewMode>
+	    
+	    <!-- Config for appearance of single/large image -->
+		<singleImage>
+			<!-- Config for frame around the crop area -->
+			<cropFrame>
+				<!-- Thickness of frame -->
+				<linewidth>2</linewidth>
+				<!-- Color of frame -->
+				<linecolor>#00fa9a</linecolor>
+				<!-- Radius around the frame in which the frame can be selected for drag/resize -->
+				<clickradius>20</clickradius>
+				<!-- The color filling the area outside the crop frame in the Save View -->
+				<fillcolor>#ffffff</fillcolor>
+			</cropFrame>
+			<!-- Config for line marking the spine position -->
+			<spineMarker>
+				<!-- Thickness of line -->
+				<linewidth>2</linewidth>
+				<!-- Color of line -->
+				<linecolor>#ff0000</linecolor>
+				<!-- Radius around the line in which the line can be selected for dragging -->
+				<clickradius>20</clickradius>
+			</spineMarker>
+		</singleImage>
+	    <!-- Config for appearance of images in preview mode -->
+		<preview>
+			<!-- Config for frame around the crop area -->
+			<cropFrame>
+				<!-- Thickness of frame -->
+				<linewidth>2</linewidth>
+				<!-- Color of frame -->
+				<linecolor>#00fa9a</linecolor>
+				<!-- Radius around the frame in which the frame can be selected for drag/resize -->
+				<clickradius>20</clickradius>
+				<!-- The color filling the area outside the crop frame in the Save View -->
+				<fillcolor>#f1f2f3</fillcolor>
+			</cropFrame>
+			<!-- Config for line marking the spine position -->
+			<spineMarker>
+				<!-- Thickness of line -->
+				<linewidth>2</linewidth>
+				<!-- Color of line -->
+				<linecolor>#ff0000</linecolor>
+				<!-- Radius around the line in which the line can be selected for dragging -->
+				<clickradius>20</clickradius>
+			</spineMarker>
+		</preview>
+		
+		<!-- Display cropping control elements in preview mode -->
+	    <previewCroppingOptions>
+	        <show>true</show>
+	    </previewCroppingOptions>
+	    
+	    <!-- Display the option to select page orientation in preview mode (may be prone to errors) -->
+	    <previewOrientationSelect>
+	        <show>false</show>
+	    </previewOrientationSelect>
+	    
+	    <!-- Options for Global cropping options  -->
+	    <globalCroppingOptions>
+	    	<!-- Display Global cropping options in single page mode -->
+	        <show>true</show>
+	        <!-- Unit to display crop frame coordinates in. One of
+	        	* μm
+	        	* mm
+	        	* cm
+	        	* in -->
+	        <unit>mm</unit>
+	        <!-- Settings for keyboard controls of crop frame. set use="true" to allow changing crop frame using keyboard shortcuts -->
+	        <keyboardControls use="true">
+	        	<!-- Key(s) to keep pressed when moving the frame. Can be SHIFT, CTRL or ALT -->
+	            <moveMaskKey>SHIFT</moveMaskKey>
+	            <moveMaskKey>CTRL</moveMaskKey>
+	        	<!-- Key(s) to keep pressed when resizing the frame. Can be SHIFT, CTRL or ALT -->
+	            <resizeMaskKey>SHIFT</resizeMaskKey>
+	            <!-- Amount of units (see above) to move the frame for each key press event -->
+	            <stepSize>0.1</stepSize>
+	        </keyboardControls>
+	    </globalCroppingOptions>
+	    
+	    <!-- Display information about the the cropping/deskewing value of the current step -->
+	    <info show="true">
+	    	<!-- Display format for spine location. {f} is a floating number, {u} the appropriate unit -->
+	        <spine>
+	            <format>Falz: {f}{u}</format>
+	        </spine>
+	    </info>
+    </config>
 </config_plugin>
+
 ```
 {% endtab %}
 {% endtabs %}
