@@ -37,88 +37,82 @@ Daneben gibt es eine Konfigurationsdatei, die an folgender Stelle liegen muss:
 Die Konfiguration erfolgt über die Datei `plugin_intranda_import_excel_read_headerdata.xml`. Diese Datei kann im laufenden Betrieb angepasst werden.
 
 ```markup
-<?xml version="1.0" encoding="UTF-8"?>
 <config_plugin>
-    <config>
-        <!-- which workflow template shall be used -->
-        <template>*</template>
- 
-        <!-- which digital collection to use -->
-        <collection>Example collection</collection>
- 
-        <!-- define if an opac request is made -->
-        <useOpac>true</useOpac>
-        <!-- name of the configured catalogue -->
-        <opacName>K10Plus</opacName>
-        <!-- field to search in -->
-        <searchField>12</searchField>
- 
-        <!-- publication type to create -->
-        <publicationType>Monograph</publicationType>
- 
-        <!-- define in which row the header is written, usually 1 -->
-        <rowHeader>1</rowHeader>
-        <!-- define in which row the data starts, usually 2 -->
-        <rowDataStart>2</rowDataStart>
-        <!-- define in which row the data ends, usually 20000 -->
-        <rowDataEnd>20000</rowDataEnd>
- 
-        <!-- define which column is the one to use for catalogue requests and to identify the row during the import -->
-        <identifierHeaderName>Identifier</identifierHeaderName>
- 
+	<config>
+		<!-- which workflow template shall be used -->
+		<template>*</template>
+
+		<!-- publication type to create -->
+		<publicationType>Monograph</publicationType>
+
+		<!-- which digital collection to use -->
+		<collection>archive#100uaghgw#040volkskundearchivk#040#</collection>
+		
+		<useOpac>true</useOpac>
+		<opacName>GBV PICA</opacName>
+		<searchField>12</searchField>
+
+		<!-- define in which row the header is written, usually 1 -->
+		<rowHeader>1</rowHeader>
+		<!-- define in which row the data starts, usually 2 -->
+		<rowDataStart>2</rowDataStart>
+		<!-- define in which row the data ends, usually 20000 -->
+		<rowDataEnd>20000</rowDataEnd>
+
+		<!-- define which column is the one to use for catalogue requests -->
+		<identifierHeaderName>PPN-A</identifierHeaderName>
+
         <!-- Rules to generate the process title, the same syntax as in goobi_projects.xml can be used. 
             Use the column names to get the right metadata values. 
-            If the field is missing or empty, the value of the identifier column is used.
+            If the field is missing or empty, the value of CatalogIDDigital is used.
          -->
-        <processTitleRule>'StaticPrefix_'+Identifier</processTitleRule>
- 
+        <processTitleRule>2-Titel+'_'+PPN-O</processTitleRule>
+        
+        <!-- prefix path to the image folder. Can be empty or missing if the import doesn't contain images or if the excel field contains absolute path  -->
+        <imageFolderPath>/opt/digiverso/images/</imageFolderPath>
         <!-- define which column contains the image folder name. Can be combined with <imageFolderPath> prefix or an absolute path. 
         If the field is missing, empty or does not contain an existing directory, no images will be imported -->
-        <imageFolderHeaderName>image folder</imageFolderHeaderName>
-        <!-- prefix path to the image folder. Can be empty or missing if the import doesn't contain images or if the excel field contains absolute path  -->
-        <imageFolderPath>/mnt/images/</imageFolderPath>
- 
+        <imageFolderHeaderName>images</imageFolderHeaderName>
+
         <!-- defines, if images are moved from the source folder to the destination (true) or copied (false) -->
         <moveImages>true</moveImages>
- 
+
         <!-- Run the import as GoobiScript -->
         <runAsGoobiScript>true</runAsGoobiScript>
- 
-        <!-- define which columns shall be mapped to which ugh metadata 
-            ugh: name of the metadata to use 
-            headerName: title inside of the header column
-            name: name of the process property. if it is empty or missing, no process property gets generated
-            normdataHeaderName: title of the header column to use for a gnd authority identifier
-            docType: define if the metadata should be added to the anchor or child element. Gets ignored, when the record is no multivolume. Default is 'child', valid values are 'child' and 'anchor'
-             -->
- 
-        <metadata ugh="TitleDocMain"  headerName="Haupttitel" />
-        <metadata name="Schrifttyp" headerName="Schrifttyp" />
-        <metadata ugh="PlaceOfPublication" name="Ort" normdataHeaderName="Ort-GND" headerName="Ort" docType="anchor" />
- 
-        <!-- a configuration for a person might look like this -->
-        <person ugh="Author" normdataHeaderName="Person-GND" docType="child">
+
+		<!-- define here which columns shall be mapped to which ugh metadata 
+				ugh: name of the metadata to use. if it is empty or missing, no metadata is generated
+				headerName: title inside of the header column
+        property: name of the process property. if it is empty or missing, no process property gets generated
+        normdataHeaderName: title of the header column to use for a gnd authority identifier
+        docType: define if the metadata should be added to the anchor or child element. Gets ignored, when the record is no multivolume. Default is 'child', valid values are 'child' and 'anchor'
+    -->
+		<metadata ugh="CatalogIDSource" headerName="PPN-A" />
+		<metadata ugh="CatalogIDDigital" headerName="PPN-O" />
+		<metadata ugh="TitleDocMain" headerName="2-Titel" />
+		<metadata ugh="PlaceOfPublication" property="Ort" normdataHeaderName="4-GND-ORT" headerName="3-Ort" docType="anchor" />
+		<metadata ugh="DocLanguage" headerName="10-DocLanguage" />
+
+		<!-- a configuration for a person might look like this -->
+		<person ugh="Author" normdataHeaderName="7-GND-Person" docType="child">
             <!-- use this field if the column contains the complete name -->
-            <nameFieldHeader>Person</nameFieldHeader>
-            <!-- set this field to true, if the name must be splitted into first- and lastname. The complete name gets written into lastname -->
-            <splitName>true</splitName>
-            <!-- define at which character the name is separated. @firstNameIsFirstPart defines, if the firstname is the first or last part of the name -->
-            <splitChar firstNameIsFirstPart="false">\, </splitChar>
-        </person>
-        <person ugh="Author" docType="child">
+			<nameFieldHeader>11-Person</nameFieldHeader>
+			<!-- set this field to true, if the name must be splitted into first- and lastname. The complete name gets written into lastname -->
+			<splitName>true</splitName>
+			<!-- define at which character the name is separated. @firstNameIsFirstPart defines, if the firstname is the first or last part of the name -->
+			<splitChar firstNameIsFirstPart="false">\, </splitChar>
+
             <!-- use this fields, if the firstname and lastname are in different columns -->
-            <firstname>Vorname</firstname>
-            <lastname>Nachname</lastname>
-        </person>
- 
-        <!-- a metadata group can contain sub configurations for the metadata and persons within this group -->
-        <group ugh="Publishing" docType="child">
-            <metadata ugh="Publisher"  headerName="Verlag" />
-            <metadata ugh="PlaceOfPublication"  headerName="Ort" />
-            <metadata ugh="PublicationYear"  headerName="Jahr" />
-        </group>
-    </config>
+            <!-- 
+            <firstname>5-Vorname</firstname>
+            <lastname>6-Nachname</lastname>
+             -->
+
+		</person>
+		
+	</config>
 </config_plugin>
+
 ```
 
 ### Individuelle Konfigurierbarkeit
@@ -244,7 +238,7 @@ Mit dem Element `metadata` werden deskriptive Metadaten erzeugt.
 | :--- | :--- | :--- |
 | `headerName` | Attribut | Spaltentitel in der Exceldatei |
 | `ugh` | Attribut | Name des Metadatums |
-| `name` | Attribut | Name der Eigenschaft |
+| `property` | Attribut | Name der Eigenschaft |
 | `docType` | Attribut | `anchor` oder `child` |
 | `normdataHeaderName` | Attribut | Spaltentitel einer Spalte mit dazugehörigen Identifiern |
 
