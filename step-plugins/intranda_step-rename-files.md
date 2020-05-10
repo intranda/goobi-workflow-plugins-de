@@ -43,6 +43,7 @@ Dabei sieht der Inhalt dieser Konfigurationsdatei beispielhaft wie folgt aus:
         <project>Monographs 1900-1950</project>
         <project>Monographs 1950-2000</project>
         <step>Automatic renaming</step>
+        <startValue>1</startValue>
         <namepart type="counter">00000</namepart>
         <namepart type="static">-</namepart>
         <namepart type="variable">{projectid}</namepart>
@@ -51,6 +52,7 @@ Dabei sieht der Inhalt dieser Konfigurationsdatei beispielhaft wie folgt aus:
     <config>
         <project>*</project>
         <step>*</step>
+        <startValue>1</startValue>
         <namepart type="variable">{processtitle}</namepart>
         <namepart type="static">_</namepart>
         <namepart type="counter">00000</namepart>
@@ -84,6 +86,12 @@ Die Konfiguration des Plugins erfolgt innerhalb der bereits erwähnten Konfigura
       <td style="text-align:left">Dieser Parameter steuert, f&#xFC;r welche Arbeitsschritte der Block <code>&lt;config&gt;</code> gelten
         soll. Verwendet wird hier der Name des Arbeitsschritts. Dieser Parameter
         kann mehrfach pro <code>&lt;config&gt;</code> Block vorkommen.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>startValue</code>
+      </td>
+      <td style="text-align:left">Dieser Wert steuert, mit welchem Startwert der hochz&#xE4;hlende Counter
+        beginnen soll.</td>
     </tr>
     <tr>
       <td style="text-align:left"><code>namepart</code>
