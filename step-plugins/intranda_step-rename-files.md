@@ -90,8 +90,8 @@ Die Konfiguration des Plugins erfolgt innerhalb der bereits erwähnten Konfigura
     <tr>
       <td style="text-align:left"><code>startValue</code>
       </td>
-      <td style="text-align:left">Dieser Wert steuert, mit welchem Startwert der hochz&#xE4;hlende Counter
-        beginnen soll.</td>
+      <td style="text-align:left">Dieser Wert steuert, mit welchem Startwert der hochz&#xE4;hlende <code>counter</code> beginnen
+        soll.</td>
     </tr>
     <tr>
       <td style="text-align:left"><code>namepart</code>
