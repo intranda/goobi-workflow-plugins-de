@@ -62,6 +62,12 @@ Die Konfiguration des Plugins ist folgendermaßen aufgebaut:
         <!-- which image sizes to use for the big image -->
         <thumbnailFormat>jpg</thumbnailFormat>
         <mainImageFormat>jpg</mainImageFormat>
+        <!-- use new (faster) fullscreen mode - doesn't support 3D objects yet -->
+        <useJSFullscreen>false</useJSFullscreen>
+        <!-- no shortcut prefix for JS fullscreen. Allows navigating with arrow keys only -->
+        <noShortcutPrefix>false</noShortcutPrefix>
+        <!-- Don't show a big image - thumbnails only -->
+        <thumbnailsOnly>false</thumbnailsOnly>
 
         <imagesize>800</imagesize>
         <imagesize>1800</imagesize>
