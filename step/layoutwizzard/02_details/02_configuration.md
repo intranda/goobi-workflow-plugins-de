@@ -198,7 +198,9 @@ Die folgende Liste an allgemeinen Konfigurationspfaden ist nicht vollständig. S
         lassen, solange diese Einstellung nicht explizit ben&#xF6;tigt wird.</td>
     </tr>
   </tbody>
-</table>## Analysis-Konfiguration
+</table>
+
+## Analysis-Konfiguration
 
 Jeder `<analysis>` Block hat ein Attribut `id`, das regelt, welcher Block für eine bestimmte Analyse verwendet wird. Der letzte Block muss die `id="default"` haben. Einstellungen aus diesem Block werden immer verwendet, wenn einem Analyseaufruf keinen Analyse-Id übergeben wird, oder wenn eine Einstellung nicht im eigentlich verwendeten Block konfiguriert ist. Alle anderen Blöcke bestehen entsprechend aus der Teilmenge an Konfigurationen, die von der `default`-Konfiguration abweichen.
 
@@ -277,7 +279,9 @@ Folgende Einstellungen können in jedem `<analysis>` Block existieren:
         gesamten Analyse festgelegt.</td>
     </tr>
   </tbody>
-</table>Die Einstellungen in den `<analysisStep>` Blöcken betreffen spezifische Parameter der Analyse-Algorithmen. Sie werden hier nicht weiter beschrieben. Benutzer können jedoch in der Oberfläche potentiell jeden Parameter anpassen. Sollten sich so vorgenommene Einstellungen genug bewähren, um in die Konfiguration übernommen zu werden, kann der entsprechende Block in der Konfigurationsdatei auf den neuen Wert gesetzt werden. Der passende Parameter-Block kann hierbei ermittelt werden, indem der `<analysisStep>` zum jeweiligen Analyse-Schritt in der Konfigurationsdatei herausgefunden  und dort der Block mit dem internen Parameternamen geändert wird. Der interne Parametername wird in der Oberfläche als Tooltip angezeigt, wenn der Mauszeiger über das Label des veränderten Parameters gehalten wird.
+</table>
+
+Die Einstellungen in den `<analysisStep>` Blöcken betreffen spezifische Parameter der Analyse-Algorithmen. Sie werden hier nicht weiter beschrieben. Benutzer können jedoch in der Oberfläche potentiell jeden Parameter anpassen. Sollten sich so vorgenommene Einstellungen genug bewähren, um in die Konfiguration übernommen zu werden, kann der entsprechende Block in der Konfigurationsdatei auf den neuen Wert gesetzt werden. Der passende Parameter-Block kann hierbei ermittelt werden, indem der `<analysisStep>` zum jeweiligen Analyse-Schritt in der Konfigurationsdatei herausgefunden  und dort der Block mit dem internen Parameternamen geändert wird. Der interne Parametername wird in der Oberfläche als Tooltip angezeigt, wenn der Mauszeiger über das Label des veränderten Parameters gehalten wird.
 
 Zusätzlich können alle Analyse-Parameter-Blöcke das Attribut `visibility` besitzen, das die Sichtbarkeit des Parameters in der Oberfläche regelt. Fehlt dieses Attribut wird der default-Wert `HIDDEN` verwendet.
 

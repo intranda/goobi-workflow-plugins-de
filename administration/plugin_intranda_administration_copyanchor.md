@@ -1,19 +1,20 @@
 ---
 description: >-
-  Goobi Administration Plugin für das Kopieren einer Anchor-Datei zu allen zugehörigen Bänden
+  Goobi Administration Plugin für das Kopieren einer Anchor-Datei zu allen
+  zugehörigen Bänden
 ---
 
 # Copy Master-Anchor
 
 ## Einführung
 
-Die vorliegende Dokumentation beschreibt die Installation, die Konfiguration und den Einsatz des Administration Plugins für die automatisierte Übernahme einer zentralen Anchor-Datei eines Bandes (z.B. von Zeitschriften oder Mehrbändigen Werken) zu anderen Bänden innerhalb von Goobi workflow.
+Die vorliegende Dokumentation beschreibt die Installation, die Konfiguration und den Einsatz des Administration Plugins für die automatisierte Übernahme einer zentralen Anchor-Datei eines Bandes \(z.B. von Zeitschriften oder Mehrbändigen Werken\) zu anderen Bänden innerhalb von Goobi workflow.
 
 | Details |  |
 | :--- | :--- |
 | Version | 1.0.0 |
 | Identifier | plugin\_administration\_copymasteranchor |
-| Source code | https://github.com/intranda/goobi-plugin-administration-copyanchor |
+| Source code | [https://github.com/intranda/goobi-plugin-administration-copyanchor](https://github.com/intranda/goobi-plugin-administration-copyanchor) |
 | Kompatibilität | Goobi workflow 2020.05 |
 | Dokumentationsdatum | 05.06.2020 |
 
@@ -64,6 +65,7 @@ Dieses Metadatum muss nun innerhalb der Definition der Bände erlaubt werden. An
   <metadata num="*">InternalNote</metadata>
 </DocStrctType>
 ```
+
 Mittels dieser Anpassung am Regelsatz sind die Vorbereitungen für die Verwendung des Plugins bereits abgeschlossen.
 
 ## Nutzung des Plugins innerhalb von Goobi
@@ -74,9 +76,9 @@ Nach der vollständigen Konfiguration des Plugins kann dieses verwendet werden. 
 
 ![Dem Zeitschriftenband wurde Metadatum InternalNote mit dem Wert AnchorMaster zugewiesen](../.gitbook/assets/copy_anchor_01.png)
 
-Der somit angepasste Zeitschriftenband wurde mit dieser Änderung als Master definiert. Von nun an dienen die dort verwendeten Metadaten des übergeordneten Werkes (z.B. der Zeitschrift) als Vorgabe für alle anderen zugehörigen Bände. Änderungen, die für alle Bände innerhalb der Anchor-Dateien vorgenommen werden sollen, erfolgen daher von nun an innerhalb dieses Datensatzes.
+Der somit angepasste Zeitschriftenband wurde mit dieser Änderung als Master definiert. Von nun an dienen die dort verwendeten Metadaten des übergeordneten Werkes \(z.B. der Zeitschrift\) als Vorgabe für alle anderen zugehörigen Bände. Änderungen, die für alle Bände innerhalb der Anchor-Dateien vorgenommen werden sollen, erfolgen daher von nun an innerhalb dieses Datensatzes.
 
-![Anpassungen an diesem Anchor können mit dem Plugin von nun an für alle zugehörigen Bände übernommen werden](../.gitbook/assets/copy_anchor_02.png)
+![Anpassungen an diesem Anchor k&#xF6;nnen mit dem Plugin von nun an f&#xFC;r alle zugeh&#xF6;rigen B&#xE4;nde &#xFC;bernommen werden](../.gitbook/assets/copy_anchor_02.png)
 
 ### Übernahme der Metadaten für alle zugehörigen Bände
 
@@ -84,8 +86,9 @@ Sowie innerhalb eines Goobi-Vorgangs ein Band als Master festgelegt wurde, kann 
 
 Öffnen Sie zunächst das Plugin mittels des Menüs `Administration` und darin des Menüpunktes `Kopieren von Master-Anchor Daten`.
 
-![Öffnen des Plugins über das Menü Administration](../.gitbook/assets/copy_anchor_03.png)
+![&#xD6;ffnen des Plugins &#xFC;ber das Men&#xFC; Administration](../.gitbook/assets/copy_anchor_03.png)
 
-Geben Sie in dem Inputfeld des Plugins den Katalog-Identifier des übergeordneten Werkes ein (z.B. die ID der Zeitschrift) und klicken sie anschließend auf den Butten `Kopiervorgang starten`. Hiermit wird der Kopiervorgang aufgerufen, der die Metadaten des Master-Anchor-Datensatzes automatisch in alle zugehörigen Bände (z.B. alle Bände der Zeitschrift) übernimmt.
+Geben Sie in dem Inputfeld des Plugins den Katalog-Identifier des übergeordneten Werkes ein \(z.B. die ID der Zeitschrift\) und klicken sie anschließend auf den Butten `Kopiervorgang starten`. Hiermit wird der Kopiervorgang aufgerufen, der die Metadaten des Master-Anchor-Datensatzes automatisch in alle zugehörigen Bände \(z.B. alle Bände der Zeitschrift\) übernimmt.
 
-![Ausführen des Kopiervorgangs](../.gitbook/assets/copy_anchor_04.png)
+![Ausf&#xFC;hren des Kopiervorgangs](../.gitbook/assets/copy_anchor_04.png)
+

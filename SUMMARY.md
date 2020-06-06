@@ -2,12 +2,12 @@
 
 * [Übersicht](README.md)
 
-## Administration Plugins
+## Administration Plugins <a id="administration"></a>
 
 * [Catalogue Poller](administration/plugin_intranda_administration_catalogue_poller.md)
 * [Copy Master-Anchor](administration/plugin_intranda_administration_copyanchor.md)
 
-## Step Plugins
+## Step Plugins <a id="step"></a>
 
 * [Automatisches Setzen des Repräsentanten](step/representativecreation.md)
 * [Elektronische Publikationen](step/intranda_step_pdfupload.md)
@@ -44,23 +44,23 @@
 * [Automatische Anreicherung von Metadaten aus eigenen Vokabularen](step/intranda_step_metadata_replacement.md)
 * [Qualitätskontrolle von Bildern](step/intranda_step_imageqa.md)
 
-## Opac Plugins
+## Opac Plugins <a id="opac"></a>
 
 * [EAD Datenübernahme](opac/goobi-plugin-opac-ead.md)
 * [Generischer XML Import](opac/goobi-plugin-opac-generic-xml.md)
 
-## IMPORT PLUGINS
+## Import Plugins <a id="import"></a>
 
 * [Import für Zeitschriftenartikel aus einem Endnote Export](import/intranda_import_endnote.md)
 * [Import von Datensätzen aus einer Excel-Datei](import/intranda_import_excel_read_headerdata.md)
 
-## Export Plugins
+## Export Plugins <a id="export"></a>
 
 * [Fedora Export](export/plugin_intranda_export_fedora.md)
 * [Fedora Export PROV](export/plugin_intranda_export_fedora_prov.md)
 * [HAAB Export](export/haabexport.md)
 
-## Workflow Plugins
+## Workflow Plugins <a id="workflow"></a>
 
 * [Generisches Import Plugin für Excel-Dateien inklusive Validierung](workflow/goobi-plugin-workflow-excelimport.md)
 * [Barcode Generator](workflow/plugin-workflow-barcode-generator.md)
@@ -68,3 +68,4 @@
 ## Sonstiges <a id="other"></a>
 
 * [Counterscript Application](other/counterscript-application.md)
+
