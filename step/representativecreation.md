@@ -9,7 +9,7 @@ description: >-
 
 ## Einführung
 
-Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den Einsatz eines Plugins zum Setzen des Repräsentanten innerhalb von METS-Dateien in Goobi. 
+Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den Einsatz eines Plugins zum Setzen des Repräsentanten innerhalb von METS-Dateien in Goobi.
 
 Mit Hilfe dieses Plugins können METS Dateien automatisch aufbereitet und der Repräsentant eines Werkes gesetzt werden.
 
@@ -17,7 +17,8 @@ Mit Hilfe dieses Plugins können METS Dateien automatisch aufbereitet und der Re
 | :--- | :--- |
 | Version | 1.0.0 |
 | Identifier | RepresentativeCreation |
-| Source code | - noch nicht öffentlich verfügbar - |
+| Source code | https://github.com/intranda/goobi-plugin-step-representative-creation |
+| Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 2.2  |
 | Dokumentationsdatum | 28.04.2017 |
 
@@ -46,7 +47,7 @@ Die Datei `plugin_RepresentativeCreationPlugin.xml` muss ebenfalls für den tomc
 /opt/digiverso/goobi/config/
 ```
 
-Folgende Datei dient zur Konfiguration des Plugins und muss wie folgt aufgebaut sein: 
+Folgende Datei dient zur Konfiguration des Plugins und muss wie folgt aufgebaut sein:
 
 {% code title="plugin\_RepresentativeCreationPlugin.xml" %}
 ```markup
@@ -66,18 +67,17 @@ Mit `<StepName>` kann definiert werden, zu welchem Schritt der Vorgang zurückge
 
 ## Einstellungen in Goobi
 
-Nachdem das Plugin installiert und konfiguriert wurde, kann es innerhalb eines Arbeitsschrittes von Goobi genutzt werden. 
+Nachdem das Plugin installiert und konfiguriert wurde, kann es innerhalb eines Arbeitsschrittes von Goobi genutzt werden.
 
-Dazu muss innerhalb der gewünschten Aufgabe das Plugin `RepresentativeCreation` eingetragen werden. Des Weiteren muss die Checkbox `Automatische Aufgabe` gesetzt sein. 
+Dazu muss innerhalb der gewünschten Aufgabe das Plugin `RepresentativeCreation` eingetragen werden. Des Weiteren muss die Checkbox `Automatische Aufgabe` gesetzt sein.
 
 ## Arbeitsweise
 
 Die Arbeitsweise des Plugins innerhalb des korrekt konfigurierten Workflows sieht folgendermaßen aus:
 
-1. Wenn das Plugin innerhalb des Workflows aufgerufen wurde, öffnet es die METS-Datei und prüft als erstes, ob bereits ein Repräsentant definiert wurde. 
-2. Wenn dies der Fall ist, wird der Schritt abgeschlossen. 
+1. Wenn das Plugin innerhalb des Workflows aufgerufen wurde, öffnet es die METS-Datei und prüft als erstes, ob bereits ein Repräsentant definiert wurde.
+2. Wenn dies der Fall ist, wird der Schritt abgeschlossen.
 3. Ist dies hingegen nicht der Fall, wird nach dem ersten Strukturelement gesucht, das dem konfigurierten Namen entspricht.
-4. Von diesem Element wird das erste zugeordnete Bild als Repräsentant gesetzt. 
-5. Sollte kein Strukturelement mit diesem Namen gefunden werden oder der Datensatz enthält keine Stukturelemente, kann eine Fehlermeldung in das Vorgangslog geschrieben und der Workflow auf einen vorherigen Arbeitsschritt zurückgesetzt werden. 
+4. Von diesem Element wird das erste zugeordnete Bild als Repräsentant gesetzt.
+5. Sollte kein Strukturelement mit diesem Namen gefunden werden oder der Datensatz enthält keine Stukturelemente, kann eine Fehlermeldung in das Vorgangslog geschrieben und der Workflow auf einen vorherigen Arbeitsschritt zurückgesetzt werden.
 6. Dies ist jedoch nur dann möglich, wenn ein Text für die Fehlermeldung und der Name des Schrittes konfiguriert wurden.
-
