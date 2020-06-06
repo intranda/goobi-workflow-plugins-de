@@ -14,7 +14,8 @@ Die vorliegende Dokumentation beschreibt die Installation, die Konfiguration und
 | :--- | :--- |
 | Version | 1.0.0 |
 | Identifier | plugin\_intranda\_administration\_catalogue\_poller |
-| Source code | - Quellcode noch nicht öffentlich verfügbar - |
+| Source code | https://github.com/intranda/goobi-plugin-administration-catalogue-poller |
+| Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 3.0.4 und neuer |
 | Dokumentationsdatum | 05.03.2019 |
 
@@ -48,39 +49,39 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 ```markup
 <?xml version="1.0" encoding="UTF-8"?>
 <config_plugin>
-   
+
    <!-- multiple different rules can be defined for individual use cases -->
    <rule title="SampleProject">
-        
+
         <!-- filter which items to run through (can be more then one, otherwise use *)
 		please notice that blanks inside of the filter query need to be surrounded by quotation marks -->
 		<filter>project:SampleProject</filter>
 		<filter>"project:Manuscript items"</filter>
-        
+
         <!-- which catalogue to use (GBV, Wiener, CBL Adlib ...) -->
         <catalogue>Wiener</catalogue>
-        
-        <!-- which identifier to use for the catalogue request (use 
+
+        <!-- which identifier to use for the catalogue request (use
         standard variable replacer compatible value here) -->
         <catalogueIdentifier>$(meta.CatalogIDDigital)</catalogueIdentifier>
-        
-        <!-- define if existing structure subelements shall be kept (true), 
-        otherwise a complete new mets file is created and overwrites the 
+
+        <!-- define if existing structure subelements shall be kept (true),
+        otherwise a complete new mets file is created and overwrites the
         existing one (false) -->
         <mergeRecords>true</mergeRecords>
-        
-        <!-- execute an automatic export of updated records; 
+
+        <!-- execute an automatic export of updated records;
         this is only executed if mergeRecords is set to true -->
 		<exportUpdatedRecords>false</exportUpdatedRecords>
-        
-        <!-- if records shall be merged: which existing fields shall not 
+
+        <!-- if records shall be merged: which existing fields shall not
         be replace with new values? (use the metadatatypes from ruleset)-->
         <skipField>viewerinstance</skipField>
         <skipField>singleDigCollection</skipField>    
-        <skipField>pathimagefiles</skipField> 
-        
+        <skipField>pathimagefiles</skipField>
+
     </rule>
-   
+
    <!-- internal timestamp for the plugin to know when it was last executed -->
    <lastRun>1551731078691</lastRun>
 </config_plugin>
@@ -181,7 +182,7 @@ Das Catalogue Poller Plugin wird durch Goobi automatisch aktiviert. Seine Laufze
 Möchte ein Nutzer zusätzlich zu dieser Automatik ebenfalls Zugriff auf die Nutzeroberfläche des Plugins haben, so muss er einer Benutzergruppe angehören, die hierfür das folgende Plugin-spezifische Recht erhalten hat:
 
 ```text
-Plugin_Goobi_CataloguePoller 
+Plugin_Goobi_CataloguePoller
 ```
 
 Um dieses Recht zuzuweisen, muss der gewünschten Nutzergruppe zunächst die Berechtigung im rechten Bereich eingetragen werden.
@@ -202,9 +203,6 @@ Sollte das Plugin für einen Vorgang aktualisierte Metadaten finden und daher di
 
 ## Logging innerhalb des Vorgangslogs
 
-Die Updates der Metadaten durch das Plugin finden üblicherweise vollautomatisch im Hintergrund statt. Um dennoch jederzeit für einen Datensatz nachvollziehen zu können, was mit diesem zwischenzeitlich passierte, werden die Ereignisse geloggt. Zu jedem Vorgang, für den es Änderung aus diesem Plugin gab, werden daher automatisch detaillierte Einträge innerhalb des `Vorgangslogs` eingefügt. Diese enthalten neben dem Zeitstempel unter anderem eine genaue Auflistung der geänderten Metadatenfelder samt der Inhalte. Somit ist es jederzeit möglich auch den vorherigen bzw. den neuen Wert nachvollziehen zu können. 
+Die Updates der Metadaten durch das Plugin finden üblicherweise vollautomatisch im Hintergrund statt. Um dennoch jederzeit für einen Datensatz nachvollziehen zu können, was mit diesem zwischenzeitlich passierte, werden die Ereignisse geloggt. Zu jedem Vorgang, für den es Änderung aus diesem Plugin gab, werden daher automatisch detaillierte Einträge innerhalb des `Vorgangslogs` eingefügt. Diese enthalten neben dem Zeitstempel unter anderem eine genaue Auflistung der geänderten Metadatenfelder samt der Inhalte. Somit ist es jederzeit möglich auch den vorherigen bzw. den neuen Wert nachvollziehen zu können.
 
 ![Innerhalb des Vorgangslogs sind die &#xC4;nderungen des Catalogue Pollers nachvollziehbar](../.gitbook/assets/catalogue_poller_05.png)
-
-
-
