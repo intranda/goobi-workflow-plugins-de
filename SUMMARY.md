@@ -4,66 +4,66 @@
 
 ## Administration Plugins
 
-* [Catalogue Poller](administration-plugins/plugin_intranda_administration_catalogue_poller.md)
-* [Copy Master-Anchor](administration-plugins/plugin_intranda_administration_copyanchor.md)
+* [Catalogue Poller](administration/plugin_intranda_administration_catalogue_poller.md)
+* [Copy Master-Anchor](administration/plugin_intranda_administration_copyanchor.md)
 
 ## Step Plugins
 
-* [Automatisches Setzen des Repräsentanten](step-plugins/representativecreation.md)
-* [Elektronische Publikationen](step-plugins/intranda_step_pdfupload.md)
-* [LayoutWizzard](step-plugins/layoutwizzard/README.md)
-  * [Verwendung des Plugins](step-plugins/layoutwizzard/01_use/README.md)
-    * [Vorschauansicht](step-plugins/layoutwizzard/01_use/01_preview/README.md)
-      * [Bildbereich](step-plugins/layoutwizzard/01_use/01_preview/01_image.md)
-      * [Anzeige- und Navigationsoptionen](step-plugins/layoutwizzard/01_use/01_preview/02_navigation.md)
-    * [Einzelseitenansicht](step-plugins/layoutwizzard/01_use/02_imageview/README.md)
-      * [Ordner- und Dateioptionen](step-plugins/layoutwizzard/01_use/02_imageview/01_folders.md)
-      * [Aktuelles Bild](step-plugins/layoutwizzard/01_use/02_imageview/02_image.md)
-      * [Allgemeine Einstellungen](step-plugins/layoutwizzard/01_use/02_imageview/03_general.md)
-      * [Dateiliste](step-plugins/layoutwizzard/01_use/02_imageview/04_filelist.md)
-      * [Speicheransicht](step-plugins/layoutwizzard/01_use/02_imageview/05_saveview.md)
-      * [Arbeitsschritte](step-plugins/layoutwizzard/01_use/02_imageview/06_steps.md)
-      * [Ausgewählter Analyseschritt](step-plugins/layoutwizzard/01_use/02_imageview/07_analysestep.md)
-      * [Globale Zuschneideoptionen](step-plugins/layoutwizzard/01_use/02_imageview/08_cropping.md)
-  * [Technische Details](step-plugins/layoutwizzard/02_details/README.md)
-    * [Installation](step-plugins/layoutwizzard/02_details/01_installation.md)
-    * [Konfiguration des LayoutWizzards](step-plugins/layoutwizzard/02_details/02_configuration.md)
-    * [Konfiguration der Nutzeroberfläche](step-plugins/layoutwizzard/02_details/03_ui.md)
-    * [Workflow](step-plugins/layoutwizzard/02_details/04_workflow.md)
-* [OCR Seitenauswahl](step-plugins/intranda_step_ocrselector.md)
-* [OCR-Durchführung mit gemischten Schrifttypen](step-plugins/intranda_step_mixedocr.md)
-* [Schreiben von XMP Metadaten in Bilddateien](step-plugins/intranda_step_xmp.md)
-* [PDFs aufsplitten, Volltext extrahieren und Inhaltsverzeichnis auslesen](step-plugins/intranda_step_pdf-extraction.md)
-* [Ändern des Workflows auf Grundlage von Vorgangseigenschaften](step-plugins/intranda_step_changeworkflow.md)
-* [Anzeige von Metadaten in einer Aufgabe](step-plugins/intranda_step_displaymetadata.md)
-* [Automatische Paginierung auf Basis der Dateinamen](step-plugins/intranda_step_imagename_analyse.md)
-* [EWIG Langzeitarchivierung](step-plugins/ewig-langzeitarchivierung.md)
-* [Umbenennung von Dateien](step-plugins/intranda_step-rename-files.md)
-* [Tif-Validierung](step-plugins/intranda_step_jhove-validation.md)
-* [Metadaten-Validierung innerhalb einer Aufgabe](step-plugins/intranda_step_metadata_yerusha_validation.md)
-* [Automatische Anreicherung von Metadaten aus eigenen Vokabularen](step-plugins/intranda_step_metadata_replacement.md)
-* [Qualitätskontrolle von Bildern](step-plugins/intranda_step_imageqa.md)
+* [Automatisches Setzen des Repräsentanten](step/representativecreation.md)
+* [Elektronische Publikationen](step/intranda_step_pdfupload.md)
+* [LayoutWizzard](step/layoutwizzard/README.md)
+  * [Verwendung des Plugins](step/layoutwizzard/01_use/README.md)
+    * [Vorschauansicht](step/layoutwizzard/01_use/01_preview/README.md)
+      * [Bildbereich](step/layoutwizzard/01_use/01_preview/01_image.md)
+      * [Anzeige- und Navigationsoptionen](step/layoutwizzard/01_use/01_preview/02_navigation.md)
+    * [Einzelseitenansicht](step/layoutwizzard/01_use/02_imageview/README.md)
+      * [Ordner- und Dateioptionen](step/layoutwizzard/01_use/02_imageview/01_folders.md)
+      * [Aktuelles Bild](step/layoutwizzard/01_use/02_imageview/02_image.md)
+      * [Allgemeine Einstellungen](step/layoutwizzard/01_use/02_imageview/03_general.md)
+      * [Dateiliste](step/layoutwizzard/01_use/02_imageview/04_filelist.md)
+      * [Speicheransicht](step/layoutwizzard/01_use/02_imageview/05_saveview.md)
+      * [Arbeitsschritte](step/layoutwizzard/01_use/02_imageview/06_steps.md)
+      * [Ausgewählter Analyseschritt](step/layoutwizzard/01_use/02_imageview/07_analysestep.md)
+      * [Globale Zuschneideoptionen](step/layoutwizzard/01_use/02_imageview/08_cropping.md)
+  * [Technische Details](step/layoutwizzard/02_details/README.md)
+    * [Installation](step/layoutwizzard/02_details/01_installation.md)
+    * [Konfiguration des LayoutWizzards](step/layoutwizzard/02_details/02_configuration.md)
+    * [Konfiguration der Nutzeroberfläche](step/layoutwizzard/02_details/03_ui.md)
+    * [Workflow](step/layoutwizzard/02_details/04_workflow.md)
+* [OCR Seitenauswahl](step/intranda_step_ocrselector.md)
+* [OCR-Durchführung mit gemischten Schrifttypen](step/intranda_step_mixedocr.md)
+* [Schreiben von XMP Metadaten in Bilddateien](step/intranda_step_xmp.md)
+* [PDFs aufsplitten, Volltext extrahieren und Inhaltsverzeichnis auslesen](step/intranda_step_pdf-extraction.md)
+* [Ändern des Workflows auf Grundlage von Vorgangseigenschaften](step/intranda_step_changeworkflow.md)
+* [Anzeige von Metadaten in einer Aufgabe](step/intranda_step_displaymetadata.md)
+* [Automatische Paginierung auf Basis der Dateinamen](step/intranda_step_imagename_analyse.md)
+* [EWIG Langzeitarchivierung](step/ewig-langzeitarchivierung.md)
+* [Umbenennung von Dateien](step/intranda_step-rename-files.md)
+* [Tif-Validierung](step/intranda_step_jhove-validation.md)
+* [Metadaten-Validierung innerhalb einer Aufgabe](step/intranda_step_metadata_yerusha_validation.md)
+* [Automatische Anreicherung von Metadaten aus eigenen Vokabularen](step/intranda_step_metadata_replacement.md)
+* [Qualitätskontrolle von Bildern](step/intranda_step_imageqa.md)
 
 ## Opac Plugins
 
-* [EAD Datenübernahme](opac-plugins/goobi-plugin-opac-ead.md)
-* [Generischer XML Import](opac-plugins/goobi-plugin-opac-generic-xml.md)
+* [EAD Datenübernahme](opac/goobi-plugin-opac-ead.md)
+* [Generischer XML Import](opac/goobi-plugin-opac-generic-xml.md)
 
 ## IMPORT PLUGINS
 
-* [Import für Zeitschriftenartikel aus einem Endnote Export](import-plugins/intranda_import_endnote.md)
-* [Import von Datensätzen aus einer Excel-Datei](import-plugins/intranda_import_excel_read_headerdata.md)
+* [Import für Zeitschriftenartikel aus einem Endnote Export](import/intranda_import_endnote.md)
+* [Import von Datensätzen aus einer Excel-Datei](import/intranda_import_excel_read_headerdata.md)
 
 ## Export Plugins
 
-* [Fedora Export](export-plugins/plugin_intranda_export_fedora.md)
-* [Fedora Export PROV](export-plugins/plugin_intranda_export_fedora_prov.md)
-* [HAAB Export](export-plugins/haabexport.md)
+* [Fedora Export](export/plugin_intranda_export_fedora.md)
+* [Fedora Export PROV](export/plugin_intranda_export_fedora_prov.md)
+* [HAAB Export](export/haabexport.md)
 
 ## Workflow Plugins
 
-* [Generisches Import Plugin für Excel-Dateien inklusive Validierung](workflow-plugins/goobi-plugin-workflow-excelimport.md)
-* [Barcode Generator](workflow-plugins/plugin-workflow-barcode-generator.md)
+* [Generisches Import Plugin für Excel-Dateien inklusive Validierung](workflow/goobi-plugin-workflow-excelimport.md)
+* [Barcode Generator](workflow/plugin-workflow-barcode-generator.md)
 
 ## Sonstiges <a id="other"></a>
 
