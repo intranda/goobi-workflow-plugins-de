@@ -16,7 +16,7 @@ Mit Hilfe dieses Export-Plugins für Goobi können die Goobi-Vorgänge innerhalb
 | :--- | :--- |
 | Version | 1.0.0 |
 | Identifier | HaabExport |
-| Source code | - Quellcode noch nicht öffentlich verfügbar - |
+| Source code | [https://github.com/intranda/goobi-plugin-export-haab](https://github.com/intranda/goobi-plugin-export-haab) |
 | Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 2.1 und neuer |
 | Dokumentationsdatum | 17.06.2015 |

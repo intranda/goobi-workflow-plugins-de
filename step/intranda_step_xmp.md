@@ -14,7 +14,7 @@ Die vorliegende Dokumentation beschreibt die Installation, die Konfiguration und
 | :--- | :--- |
 | Version | 1.0.0 |
 | Identifier | intranda\_step\_xmp |
-| Source code | - Quellcode noch nicht öffentlich verfügbar - |
+| Source code | [https://github.com/intranda/goobi-plugin-step-xmpheader](https://github.com/intranda/goobi-plugin-step-xmpheader) |
 | Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 3.0.5 |
 | Dokumentationsdatum | 05.04.2019 |

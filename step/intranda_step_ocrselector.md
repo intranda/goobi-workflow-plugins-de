@@ -14,7 +14,7 @@ Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den
 | :--- | :--- |
 | Version | 1.0.0 |
 | Identifier | intranda\_step\_ocrselector |
-| Source code | - Quellcode noch nicht öffentlich verfügbar - |
+| Source code | [https://github.com/intranda/goobi-plugin-step-ocrselector](https://github.com/intranda/goobi-plugin-step-ocrselector) |
 | Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 3.0.4 |
 | Dokumentationsdatum | 04.03.2019 |

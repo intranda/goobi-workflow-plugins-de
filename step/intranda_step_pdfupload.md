@@ -14,7 +14,7 @@ Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den
 | :--- | :--- |
 | Version | 1.0.0 |
 | Identifier | intranda\_step\_pdfUpload |
-| Source code | - Quellcode noch nicht öffentlich verfügbar - |
+| Source code | [https://github.com/intranda/goobi-plugin-step-pdfupload](https://github.com/intranda/goobi-plugin-step-pdfupload) |
 | Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 2.1 |
 | Dokumentationsdatum | 04.02.2016 |

@@ -37,7 +37,7 @@
 * [Ändern des Workflows auf Grundlage von Vorgangseigenschaften](step/intranda_step_changeworkflow.md)
 * [Anzeige von Metadaten in einer Aufgabe](step/intranda_step_displaymetadata.md)
 * [Automatische Paginierung auf Basis der Dateinamen](step/intranda_step_imagename_analyse.md)
-* [EWIG Langzeitarchivierung](step/ewig-langzeitarchivierung.md)
+* [EWIG Langzeitarchivierung](step/intranda_step_lza_ewig.md)
 * [Umbenennung von Dateien](step/intranda_step-rename-files.md)
 * [Tif-Validierung](step/intranda_step_jhove-validation.md)
 * [Metadaten-Validierung innerhalb einer Aufgabe](step/intranda_step_metadata_yerusha_validation.md)
@@ -58,7 +58,7 @@
 
 * [Fedora Export](export/plugin_intranda_export_fedora.md)
 * [Fedora Export PROV](export/plugin_intranda_export_fedora_prov.md)
-* [HAAB Export](export/haabexport.md)
+* [HAAB Export](export/plugin-intranda-export-haab.md)
 
 ## Workflow Plugins <a id="workflow"></a>
 

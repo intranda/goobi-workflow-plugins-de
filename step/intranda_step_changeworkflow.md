@@ -14,7 +14,7 @@ Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den
 | :--- | :--- |
 | Version | 1.0.0 |
 | Identifier | intranda\_step\_changeWorkflow |
-| Source code | - Quellcode noch nicht öffentlich verfügbar - |
+| Source code | [https://github.com/intranda/goobi-plugin-step-change-workflow](https://github.com/intranda/goobi-plugin-step-change-workflow) |
 | Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi Workflow 3.0.0 |
 | Dokumentationsdatum | 29.04.2019 |
