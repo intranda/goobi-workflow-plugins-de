@@ -16,7 +16,7 @@ Dieses Plugin dient zu bedingen Umbenennung von Dateien innerhalb der verschiede
 | :--- | :--- |
 | Version | 1.0.0 |
 | Identifier | intranda\_step\_rename-files |
-| Source code | - Source code not yet publicly available - |
+| Source code | [https://github.com/intranda/goobi-plugin-step-rename-files](https://github.com/intranda/goobi-plugin-step-rename-files) |
 | Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 2020.02 |
 | Dokumentationsdatum | 10.05.2020 |

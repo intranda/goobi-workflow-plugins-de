@@ -14,7 +14,7 @@ Diese Plugin dient zur Validierung von Bildern im Format `TIF` innerhalb von def
 | :--- | :--- |
 | Version | 1.0.0 |
 | Identifier | intranda\_step\_jhove-validation |
-| Source code | - Source code not yet publicly available - |
+| Source code | [https://github.com/intranda/goobi-plugin-step-tif-validation](https://github.com/intranda/goobi-plugin-step-tif-validation) |
 | Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 2020.02 |
 | Dokumentationsdatum | 04.03.2020 |
