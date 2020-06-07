@@ -14,7 +14,7 @@ Dieses Plugin erlaubt eine automatische Anreicherung von Metadaten innerhalb der
 | :--- | :--- |
 | Version | 1.0.0 |
 | Identifier | intranda\_step\_metadata\_replacement |
-| Source code | - Source code not yet publicly available - |
+| Source code | [https://github.com/intranda/goobi-plugin-step-yerusha-metadatareplacement](https://github.com/intranda/goobi-plugin-step-yerusha-metadatareplacement) |
 | Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 2020.03 |
 | Dokumentationsdatum | 02.04.2020 |
@@ -119,4 +119,3 @@ Innerhalb des Workflows von Goobi können die vorliegenden Metadaten innerhalb d
 ![Der Erscheinungsort London ist nun in einem eigenen Feld mit korrekter Schreibweise und Normdaten vorhanden](../.gitbook/assets/intranda_step_metadata_replacement4.png)
 
 Die konstante Pflege des Vokabulars und die Integrierbarkeit in einen Workflow auch an mehreren Stellen innerhalb von Aufgaben erlaubt, dass die Inhalte auch künftig aktualisiert und veröffentlicht werden können.
-
