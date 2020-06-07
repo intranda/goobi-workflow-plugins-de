@@ -9,7 +9,7 @@
 
 ## Step Plugins <a id="step"></a>
 
-* [Automatisches Setzen des Repräsentanten](step/representativecreation.md)
+* [Automatisches Setzen des Repräsentanten](step/intranda-step-representative-creation.md)
 * [Elektronische Publikationen](step/intranda_step_pdfupload.md)
 * [LayoutWizzard](step/layoutwizzard/README.md)
   * [Verwendung des Plugins](step/layoutwizzard/01_use/README.md)
@@ -68,4 +68,3 @@
 ## Sonstiges <a id="other"></a>
 
 * [Counterscript Application](other/counterscript-application.md)
-
