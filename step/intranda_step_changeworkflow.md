@@ -42,11 +42,11 @@ Es folgt eine kommentierte Beispielkonfiguration:
 ```markup
 <config_plugin>
     <!--
-    	order of configuration is:
-	    1.) project name and step name matches
-	    2.) step name matches and project is *
-	    3.) project name matches and step name is *
-	    4.) project name and step name are *
+        order of configuration is:
+        1.) project name and step name matches
+        2.) step name matches and project is *
+        3.) project name matches and step name is *
+        4.) project name and step name are *
     -->
 
     <config>
@@ -118,7 +118,7 @@ Jeder `<config>`-Block ist hier für ein bestimmtes Projekt und einen bestimmten
 </config>
 ```
 
-In jedem `<config>`-Element wird dann konfiguriert, welche Prozesseigenschaft überprüft wird \(`<propertyName>`\) und welcher Wert erwartet wird \(`<propertyValue>`\).  Alle folgenden `<step>`-Elemente beschreiben dann eine Aktion, die ausgeführt wird, wenn die vorher konfigurierte Eigenschaft dem erwarteten Wert entspricht. Schritte können geöffnet `type="open"`, deaktiviert `type="deactivate"`, geschlossen `type="close"` und gesperrt `type="lock"` werden.
+In jedem `<config>`-Element wird dann konfiguriert, welche Prozesseigenschaft überprüft wird \(`<propertyName>`\) und welcher Wert erwartet wird \(`<propertyValue>`\). Alle folgenden `<step>`-Elemente beschreiben dann eine Aktion, die ausgeführt wird, wenn die vorher konfigurierte Eigenschaft dem erwarteten Wert entspricht. Schritte können geöffnet `type="open"`, deaktiviert `type="deactivate"`, geschlossen `type="close"` und gesperrt `type="lock"` werden.
 
 ## Einstellungen in Goobi
 
@@ -129,3 +129,4 @@ Nachdem das Plugin installiert und konfiguriert wurde, kann es in der Nutzerober
 ## Nutzung
 
 Da das Plugin vollautomatisch laufen sollte, ist für die Nutzung nichts weiter zu beachten.
+

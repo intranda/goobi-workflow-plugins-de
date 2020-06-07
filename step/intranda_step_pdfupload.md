@@ -50,7 +50,7 @@ Der Inhalt der Konfigurationsdatei `plugin_PdfUploadPlugin.xml` muss folgenderma
 ```
 {% endcode %}
 
-In `<folder>` wird festgelegt, in welchem Ordner die hochgeladenen Dateien gespeichert werden. Dabei können die Werte  `master`, `source` und `derivate` verwendet werden.
+In `<folder>` wird festgelegt, in welchem Ordner die hochgeladenen Dateien gespeichert werden. Dabei können die Werte `master`, `source` und `derivate` verwendet werden.
 
 Anschließend müssen noch die erlaubten Dateiendungen konfiguriert werden. Hierbei muss darauf geachtet werden, dass die Überprüfung case sensitive ist. Will man Groß- und Kleinschreibung erlauben, müssen beide Schreibweisen definiert werden.
 
@@ -101,3 +101,4 @@ Wird eine Datei hochgeladen, werden die Informationen dazu in der METS Datei ges
 Durch das Übernehmen in die METS-Datei ist sichergestellt, dass die Reihenfolge der hochgeladenen Dateien persistent gespeichert wird.
 
 Wird die Aufgabe anschließend erneut geöffnet, werden die Informationen zu den hochgeladenen Dateien aus der METS-Datei entnommen und ebenfalls angezeigt.
+

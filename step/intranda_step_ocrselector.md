@@ -21,7 +21,7 @@ Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den
 
 ## Voraussetzung
 
-Voraussetzung für die Verwendung des Plugins ist der Einsatz von Goobi workflow in Version 3.0.4 oder höher, die korrekte Installation und Konfiguration des Plugins sowie die korrekte Einbindung des Plugins in die gewünschten Arbeitsschritte des Workflows. Zusätzlich wird noch ein [Plugin für die eigentliche Durchführung der OCR und Zusammenführung der Ergebnisse](intranda_step_mixedocr.md)  benötigt.
+Voraussetzung für die Verwendung des Plugins ist der Einsatz von Goobi workflow in Version 3.0.4 oder höher, die korrekte Installation und Konfiguration des Plugins sowie die korrekte Einbindung des Plugins in die gewünschten Arbeitsschritte des Workflows. Zusätzlich wird noch ein [Plugin für die eigentliche Durchführung der OCR und Zusammenführung der Ergebnisse](intranda_step_mixedocr.md) benötigt.
 
 ## Installation und Konfiguration
 
@@ -67,3 +67,4 @@ Hier stehen die drei Auswahlmöglichkeiten `antiqua`, `fraktur` und `keine OCR` 
 ![Aktualisiert - keine OCR f&#xFC;r Einband und leere Seiten](../.gitbook/assets/updated.png)
 
 Das Plugin kann nach erfolgter Markierung per Klick auf `Plugin verlassen` verlassen werden. Dabei wird auch automatisch noch einmal gespeichert. Die Schaltfläche `Speichern` kann für zwischenzeitliches Speichern benutzt werden.
+

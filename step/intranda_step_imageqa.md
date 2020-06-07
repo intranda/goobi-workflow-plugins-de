@@ -160,3 +160,4 @@ Neben der reinen Bildanzeige kann das Plugin ebenfalls mit anderen Objekttypen u
 Je nach individueller Konfiguration erlaubt das Plugin noch viele weitere Funktionen, die zumeist innerhalb der Thumbnaildarstellung sichtbar werden. Wurden diese Funktionen in der oben beschriebenen Konfigurationsdatei konfiguriert, so lassen sich diese zum Beispiel für einen Download von PDF-Dateien, Bilddateien, Rotationen, Löschungen und andere Operationen nutzen.
 
 ![Aktivierte Zusatzfunktionen innerhalb der Thumbnaildarstellung](../.gitbook/assets/intranda_step_imageqa6.png)
+

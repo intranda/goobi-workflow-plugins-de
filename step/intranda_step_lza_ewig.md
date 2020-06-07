@@ -86,7 +86,7 @@ name="endpoint">https://goobi.example.com/api/endpoint/wi</manifestParameter>
 </config_plugin>
 ```
 
-Der `<config>` Block ist wiederholbar und kann so in unterschiedlichen Projekten verschiedene Parameter definieren. Die Unterelemente `<project>` und `<step>` werden zur Prüfung genutzt, ob der vorliegende Block für den aktuellen Schritt genutzt werden soll. Dabei wird zuerst geprüft, ob es einen Eintrag gibt, der sowohl den Projektnamen als auch den Schrittenamen enthält. Ist dies nicht der Fall, wird nach einem Eintrag für durch den  _gekennzeichnete, beliebige Projekte und dem verwendeten Schrittenamen gesucht. Wenn dazu ebenfalls kein Eintrag gefunden wurde, erfolgt eine Suche nach dem Projektnamen und beliebigen Schritten, ansonsten greift der default Block, bei dem sowohl `<project>` als auch `<step>`_  enthalten.
+Der `<config>` Block ist wiederholbar und kann so in unterschiedlichen Projekten verschiedene Parameter definieren. Die Unterelemente `<project>` und `<step>` werden zur Prüfung genutzt, ob der vorliegende Block für den aktuellen Schritt genutzt werden soll. Dabei wird zuerst geprüft, ob es einen Eintrag gibt, der sowohl den Projektnamen als auch den Schrittenamen enthält. Ist dies nicht der Fall, wird nach einem Eintrag für durch den _gekennzeichnete, beliebige Projekte und dem verwendeten Schrittenamen gesucht. Wenn dazu ebenfalls kein Eintrag gefunden wurde, erfolgt eine Suche nach dem Projektnamen und beliebigen Schritten, ansonsten greift der default Block, bei dem sowohl `<project>` als auch `<step>`_ enthalten.
 
 Im Element `<exportFolder>` wird dabei festgelegt an welcher Stelle im Dateisystem die exportierten METS Dateien abgelegt werden.
 
@@ -109,3 +109,4 @@ Nachdem das Plugin installiert und konfiguriert wurde, kann es innerhalb eines A
 ## Sonstiges
 
 Der Arbeitsschritt innerhalb von Goobi workflow exportiert alle notwendigen Dateien für den EWIG Ingest. Der Upload selbst erfolgt über den intranda TaskManager. Dies ist sinnvoll, um zu vermeiden, das mehrere parallel laufende Uploadvorgänge Konflikte mit einander haben und das System verlangsamen. ​ Für den Upload siehe [Kapitel 4.17](https://docs.intranda.com/intranda-taskmanager-de/4/4.17-upload-von-dateien-in-das-ewig-langzeitarchiv) in der intranda TaskManager Dokumentation.
+

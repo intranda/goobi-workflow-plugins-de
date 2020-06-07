@@ -39,43 +39,43 @@ Die Konfiguration des Plugins ist folgendermaßen aufgebaut:
 
 ```markup
 <config_plugin>
-	<config>
-		<project>*</project>
-		<step>*</step>
-		<entry>
+    <config>
+        <project>*</project>
+        <step>*</step>
+        <entry>
 
-			<!-- from which field inside of the METS file shall the content be used -->
-			<fieldFrom>originalAccessLocations</fieldFrom>
+            <!-- from which field inside of the METS file shall the content be used -->
+            <fieldFrom>originalAccessLocations</fieldFrom>
 
-			<!-- into which fields in the METS shall the new content be written -->
-			<fieldTo>AccessLocations</fieldTo>
+            <!-- into which fields in the METS shall the new content be written -->
+            <fieldTo>AccessLocations</fieldTo>
 
-			<!-- if the fieldTo is named inside of the vocabulary entry itself: in
-				which vocabulary field of the entry is the METS metadata name defined to
-				be used? Please notice: if the entry cannot be found (as fieldFrom is not
-				found there) and that's why no fieldToDynamic can be read from the entry
-				the value of element fieldTo defined will be used to simply copy the original
-				metadata unchanged -->
-			<fieldToDynamic>type</fieldToDynamic>
+            <!-- if the fieldTo is named inside of the vocabulary entry itself: in
+                which vocabulary field of the entry is the METS metadata name defined to
+                be used? Please notice: if the entry cannot be found (as fieldFrom is not
+                found there) and that's why no fieldToDynamic can be read from the entry
+                the value of element fieldTo defined will be used to simply copy the original
+                metadata unchanged -->
+            <fieldToDynamic>type</fieldToDynamic>
 
-			<!-- what is the name of the vocabulary to use -->
-			<vocabulary>Subject terms</vocabulary>
+            <!-- what is the name of the vocabulary to use -->
+            <vocabulary>Subject terms</vocabulary>
 
-			<!-- the content in which vocabulary field has to be the same as in fieldFrom -->
-			<contentSearch>original value</contentSearch>
+            <!-- the content in which vocabulary field has to be the same as in fieldFrom -->
+            <contentSearch>original value</contentSearch>
 
-			<!-- the content in which vocabulary field shall be taken to write it
-				into fieldTo -->
-			<contentReplace>corrected value</contentReplace>
+            <!-- the content in which vocabulary field shall be taken to write it
+                into fieldTo -->
+            <contentReplace>corrected value</contentReplace>
 
-			<!-- the content in which vocabulary fields shall be taken to fill the
-				authority information for the replaced record -->
-			<contentAuthority>authority</contentAuthority>
-			<contentAuthorityUri>authorityURI</contentAuthorityUri>
-			<contentAuthorityValueUri>valueURI</contentAuthorityValueUri>
+            <!-- the content in which vocabulary fields shall be taken to fill the
+                authority information for the replaced record -->
+            <contentAuthority>authority</contentAuthority>
+            <contentAuthorityUri>authorityURI</contentAuthorityUri>
+            <contentAuthorityValueUri>valueURI</contentAuthorityValueUri>
 
-		</entry>
-	</config>
+        </entry>
+    </config>
 </config_plugin>
 ```
 
@@ -114,8 +114,9 @@ Innerhalb eines Vokabulars können Orte mit zugehörigen Daten gepflegt werden. 
 
 ![In einem eigenen Vokabular f&#xFC;r Ortsnamen k&#xF6;nnen individuelle Daten f&#xFC;r eine Anreicherung gepflegt werden](../.gitbook/assets/intranda_step_metadata_replacement3.png)
 
-Innerhalb des Workflows von Goobi können die vorliegenden Metadaten innerhalb der METS-Datei eines Goobi-Vorgangs basierend auf einer Konfiguration wie oben angegeben automatisiert mit Daten aus dem Vokabular angereichert werden. Im Falle des Erscheinungsorts London kann so beispielsweise die  gewünschte Schreibweise zusammen mit den Normdaten aus `GeoNames` in ein zusätzliches Feld überführt werden.
+Innerhalb des Workflows von Goobi können die vorliegenden Metadaten innerhalb der METS-Datei eines Goobi-Vorgangs basierend auf einer Konfiguration wie oben angegeben automatisiert mit Daten aus dem Vokabular angereichert werden. Im Falle des Erscheinungsorts London kann so beispielsweise die gewünschte Schreibweise zusammen mit den Normdaten aus `GeoNames` in ein zusätzliches Feld überführt werden.
 
 ![Der Erscheinungsort London ist nun in einem eigenen Feld mit korrekter Schreibweise und Normdaten vorhanden](../.gitbook/assets/intranda_step_metadata_replacement4.png)
 
 Die konstante Pflege des Vokabulars und die Integrierbarkeit in einen Workflow auch an mehreren Stellen innerhalb von Aufgaben erlaubt, dass die Inhalte auch künftig aktualisiert und veröffentlicht werden können.
+

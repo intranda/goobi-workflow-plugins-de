@@ -57,7 +57,6 @@ Diese hat folgenden Aufbau:
 
 {% code title="basexhttp.service" %}
 ```ruby
-
 [Unit]
 Description=BaseX HTTP server
 
@@ -111,7 +110,7 @@ Anschließend kann eine neue Datenbank für die EAD Dateien erzeugt werden. Dazu
 
 ### Dateien hinzufügen und löschen
 
-Nachdem die Datenbank erstellt wurde, können nun EAD-XML-Dokumente hinzugefügt werden. Dazu kann unter `Databases` die erstellte Datenbank ausgewählt werden. Daraufhin öffnet sich ein Fenster, in dem die zur Datenbank gehörenden Dateien verwaltet werden können. Neue Dateien lassen sich über den Dialog `Add` auswählen und hochladen. Hier kann im Feld `Input`  eine EAD-Datei ausgewählt werden. Mittels `Add` wird die Datei hinzugefügt und die Übersichtsseite geladen. Hier können auch Dateien entfernt werden. Dazu müssen sie mittels Checkbox markiert und dann über `Delete` gelöscht werden. Das Aktualisieren einer EAD-Datei ist nur über Löschen und erneutes Hinzufügen möglich.
+Nachdem die Datenbank erstellt wurde, können nun EAD-XML-Dokumente hinzugefügt werden. Dazu kann unter `Databases` die erstellte Datenbank ausgewählt werden. Daraufhin öffnet sich ein Fenster, in dem die zur Datenbank gehörenden Dateien verwaltet werden können. Neue Dateien lassen sich über den Dialog `Add` auswählen und hochladen. Hier kann im Feld `Input` eine EAD-Datei ausgewählt werden. Mittels `Add` wird die Datei hinzugefügt und die Übersichtsseite geladen. Hier können auch Dateien entfernt werden. Dazu müssen sie mittels Checkbox markiert und dann über `Delete` gelöscht werden. Das Aktualisieren einer EAD-Datei ist nur über Löschen und erneutes Hinzufügen möglich.
 
 ### Definition der Suchanfrage
 
@@ -288,3 +287,4 @@ Die Datei `goobi_projects.xml` benötigt eine neue Definition für den Publikati
 {% endcode %}
 
 Nachdem diese Konfiguration abgeschlossen wurde, steht innerhalb von Goobi eine neue Datenquelle innerhalb der Anlegemaske für Vorgänge zur Verfügung. Diese kann nun mittels der Identifier in gleicher Weise abgefragt werden wie andere Datenquellen und Kataloge auch.
+

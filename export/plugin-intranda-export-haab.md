@@ -52,6 +52,7 @@ Der Inhalt dieser Konfigurationsdatei ist folgendermaßen aufgebaut:
 
 Mit Hilfe der Auflistung `<exportFolder>` können verschiedene Orte definiert werden, in die der Export erfolgen soll. Hierbei können beliebig viele Ordner definiert werden. Mindestens muss jedoch ein Ordner an dieser Stelle definiert sein.
 
-Um das Export-Plugin nach der erfolgreichen Installation innerhalb des Workflows nutzen zu können, muss ein Arbeitsschritt definiert werden, bei dem  die Funktion Export DMS aktiviert wurde. Darüber hinaus muss als Schritt-Plugin der Wert `HaabExport` eingetragen werden.
+Um das Export-Plugin nach der erfolgreichen Installation innerhalb des Workflows nutzen zu können, muss ein Arbeitsschritt definiert werden, bei dem die Funktion Export DMS aktiviert wurde. Darüber hinaus muss als Schritt-Plugin der Wert `HaabExport` eingetragen werden.
 
 ![](../.gitbook/assets/haabexport-01.png)
+

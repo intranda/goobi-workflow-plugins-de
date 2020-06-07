@@ -39,22 +39,22 @@ Die Konfiguration erfolgt über die Konfigurationsdatei `intranda_export_fedora.
 <config_plugin>
 
     <!-- fedoraUrl: REST endpoint of the target Fedora application. -->
-	<fedoraUrl>http://localhost:8888/fedora/rest</fedoraUrl>
+    <fedoraUrl>http://localhost:8888/fedora/rest</fedoraUrl>
 
-	<!-- useVersioning: If true, for each run of the export step, a new revision of the process will be created. Default is true. -->
-	<useVersioning>true</useVersioning>
+    <!-- useVersioning: If true, for each run of the export step, a new revision of the process will be created. Default is true. -->
+    <useVersioning>true</useVersioning>
 
-	<!-- ingestMasterImages: If true, master images of the Goobi process will be ingested into the container /master. Default is true. -->
-	<ingestMasterImages>true</ingestMasterImages>
+    <!-- ingestMasterImages: If true, master images of the Goobi process will be ingested into the container /master. Default is true. -->
+    <ingestMasterImages>true</ingestMasterImages>
 
-	<!-- ingestMediaImages: If true, derivate images of the Goobi process will be ingested into the container /media. Default is true. -->
-	<ingestMediaImages>true</ingestMediaImages>
+    <!-- ingestMediaImages: If true, derivate images of the Goobi process will be ingested into the container /media. Default is true. -->
+    <ingestMediaImages>true</ingestMediaImages>
 
-	<!-- ingestMetsFile: If true, a METS/MODS file will be generated and ingested. Default is true. -->
-	<ingestMetsFile>true</ingestMetsFile>
+    <!-- ingestMetsFile: If true, a METS/MODS file will be generated and ingested. Default is true. -->
+    <ingestMetsFile>true</ingestMetsFile>
 
-	<!-- exportMetsFile: If true, the METS/MODS file will be exported into the given destination folder. Default is true. -->
-	<exportMetsFile>true</exportMetsFile>
+    <!-- exportMetsFile: If true, the METS/MODS file will be exported into the given destination folder. Default is true. -->
+    <exportMetsFile>true</exportMetsFile>
 
 </config_plugin>
 ```
@@ -101,3 +101,4 @@ http(s)://<Fedora REST endpoint>/records/&lt;CatalogIdDigital>/
 ### URL für die Derivate der Bilder
 
 [http://localhost:8888/fedora/rest/records/PPN123456789/media/00000001.tif](http://localhost:8888/fedora/rest/records/PPN123456789/media/00000001.tif) [http://localhost:8888/fedora/rest/records/PPN123456789/media/00000002.tif](http://localhost:8888/fedora/rest/records/PPN123456789/media/00000002.tif) [http://localhost:8888/fedora/rest/records/PPN123456789/media/00000003.tif](http://localhost:8888/fedora/rest/records/PPN123456789/media/00000003.tif)
+

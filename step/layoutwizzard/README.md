@@ -39,8 +39,6 @@ Die Bildanalyse des LayoutWizzard arbeitet in mehreren Phasen, um ausgehend von 
 
 ![Analysephasen des LayoutWizzards](../../.gitbook/assets/layoutwizzard_diagramm_de.png)
 
-
-
 <table>
   <thead>
     <tr>
@@ -56,7 +54,6 @@ Die Bildanalyse des LayoutWizzard arbeitet in mehreren Phasen, um ausgehend von 
       <td style="text-align:left">
         <p><b>Start</b>
         </p>
-        <p></p>
         <p>Das originale Bild (Master-Scan) ist oft etwas verdreht und enth&#xE4;lt
           h&#xE4;ufig einen sichtbarem Bereich der gegen&#xFC;berliegenden Buchseite.</p>
       </td>
@@ -68,7 +65,6 @@ Die Bildanalyse des LayoutWizzard arbeitet in mehreren Phasen, um ausgehend von 
       <td style="text-align:left">
         <p><b>1. Phase: Seite ausrichten</b>
         </p>
-        <p></p>
         <p>In der ersten Phase erfolgt die Erkennung der Ausrichtung der Seite und
           deren Rotation gegen&#xFC;ber einer waagerechten Leserichtung. Diese Rotation
           wird beim Speichern herausgerechnet, so dass die Seite idealerweise waagerecht
@@ -82,7 +78,6 @@ Die Bildanalyse des LayoutWizzard arbeitet in mehreren Phasen, um ausgehend von 
       <td style="text-align:left">
         <p><b>2. Phase: Seite zuschneiden</b>
         </p>
-        <p></p>
         <p>In der zweiten Phase findet die Erkennung des erfassten Objektes statt,
           &#xFC;blicherweise z.B. das Buch. Um das ermittelte Objekt wird hierbei
           ein rechteckiger Zuschneiderahmen berechnet, der das Objekt vollst&#xE4;ndig
@@ -100,7 +95,6 @@ Die Bildanalyse des LayoutWizzard arbeitet in mehreren Phasen, um ausgehend von 
       <td style="text-align:left">
         <p><b>3. Phase: Falz erkennen</b>
         </p>
-        <p></p>
         <p>In der dritten Phase erfolgt die Ermittlung der Buchfalz. Diese ist nur
           notwendig, wenn die Buchfalz tats&#xE4;chlich teil des Bildes ist und an
           diesem Bild entlang der Falz geschnitten werden soll, um den Teil der gegen&#xFC;berliegenden
@@ -118,10 +112,10 @@ Die Bildanalyse des LayoutWizzard arbeitet in mehreren Phasen, um ausgehend von 
       <td style="text-align:left">
         <p><b>Ende</b>
         </p>
-        <p></p>
         <p>Der Vorschlag des LayoutWizzards wird dem Nutzer nach dem Durchlaufen
           aller Analysephasen zur Pr&#xFC;fung &#xFC;bergeben und dort ggf. angepasst.</p>
       </td>
     </tr>
   </tbody>
 </table>
+

@@ -56,7 +56,7 @@ Diese Konfigurationsdatei kann im laufenden Betrieb angepasst werden. Eine Beisp
         <!-- call this command to write the metadata into the image-->
         <command>/usr/bin/exiftool</command>
         <!-- Each parameter is comma separated, double quotation " can be used.
-	    {PARAM} is replaced by the list of fields, {FILE} is replaced with the current file -->
+        {PARAM} is replaced by the list of fields, {FILE} is replaced with the current file -->
         <parameter>-overwrite_original, -q, -q, -m, -sep, {PARAM}, {FILE}</parameter>
         <!-- @name - xmp field name -->
         <imageMetadataField name="-xmp:Location">
@@ -375,3 +375,4 @@ XMP-Header ermöglichen das Schreiben des vollständigen Dublin-Core Metadatensa
     </config>
 </config_plugin>
 ```
+

@@ -48,32 +48,30 @@ Der Inhalt de Konfigurationsdatei `plugin_intranda_step_mixedocr.xml` muss folge
           4.) project name and step name are *
 -->
     <config>
-		<!-- which projects to use for (can be more then one, otherwise use *) -->
+        <!-- which projects to use for (can be more then one, otherwise use *) -->
         <project>*</project>
         <step>*</step>
 
         <template>template.xml</template>
-		<itmUrl>http://localhost:8080/itm/service</itmUrl>
-		<!--  this must be without a trailing slash -->
-		<callbackBaseUrl>http://localhost:8080/goobi</callbackBaseUrl>
-		<useOrigDir>false</useOrigDir>
-		<serverType>intranda-tesseract</serverType>
+        <itmUrl>http://localhost:8080/itm/service</itmUrl>
+        <!--  this must be without a trailing slash -->
+        <callbackBaseUrl>http://localhost:8080/goobi</callbackBaseUrl>
+        <useOrigDir>false</useOrigDir>
+        <serverType>intranda-tesseract</serverType>
     </config>
 
     <config>
-		<!-- which projects to use for (can be more then one, otherwise use *) -->
+        <!-- which projects to use for (can be more then one, otherwise use *) -->
         <project>My special project</project>
         <project>Archive_Project</project>
         <step>OCR</step>
 
-		<template>template_pdfonly.xml</template>
-		<itmUrl>https://itm.mydomain.tld/itm/service</itmUrl>
-		<callbackBaseUrl>https://goobi.mydomain.tld/goobi</callbackBaseUrl>
-		<useOrigDir>true</useOrigDir>
-		<serverType>intranda-tesseract</serverType>
+        <template>template_pdfonly.xml</template>
+        <itmUrl>https://itm.mydomain.tld/itm/service</itmUrl>
+        <callbackBaseUrl>https://goobi.mydomain.tld/goobi</callbackBaseUrl>
+        <useOrigDir>true</useOrigDir>
+        <serverType>intranda-tesseract</serverType>
     </config>
-
-
 ```
 {% endcode %}
 
@@ -100,3 +98,4 @@ Nachdem das Plugin installiert und Konfiguriert wurde, muss es noch in Goobi wor
 ![Konfiguration des Schritts in Goobi Workflow](../.gitbook/assets/config_gui.png)
 
 Das Plugin wird üblicherweise automatisch ausgeführt, deshalb sollte der Haken bei `Automatische Aufgabe` gesetzt sein. Außerdem muss das Plugin `intranda_step_mixedocr` unter `Plugin für Arbeitsschritt` ausgewählt werden.
+
