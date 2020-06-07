@@ -15,6 +15,7 @@ Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den
 | Version | 1.0.0 |
 | Identifier | intranda\_step\_pdfUpload |
 | Source code | - Quellcode noch nicht öffentlich verfügbar - |
+| Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 2.1 |
 | Dokumentationsdatum | 04.02.2016 |
 
@@ -34,7 +35,7 @@ Zur Nutzung des Plugins müssen folgende drei Dateien installiert werden:
 
 Die erste Datei enthält die eigentliche Programmlogik, die zweite Datei stellt die grafische Oberfläche für die Anzeige zur Verfügung und die dritte Datei dient zur Konfiguration des Plugins.
 
-Der Inhalt der Konfigurationsdatei `plugin_PdfUploadPlugin.xml` muss folgendermaßen aufgebaut sein: 
+Der Inhalt der Konfigurationsdatei `plugin_PdfUploadPlugin.xml` muss folgendermaßen aufgebaut sein:
 
 {% code title="plugin\_PdfUploadPlugin.xml" %}
 ```markup
@@ -100,6 +101,3 @@ Wird eine Datei hochgeladen, werden die Informationen dazu in der METS Datei ges
 Durch das Übernehmen in die METS-Datei ist sichergestellt, dass die Reihenfolge der hochgeladenen Dateien persistent gespeichert wird.
 
 Wird die Aufgabe anschließend erneut geöffnet, werden die Informationen zu den hochgeladenen Dateien aus der METS-Datei entnommen und ebenfalls angezeigt.
-
-
-

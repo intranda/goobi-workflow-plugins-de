@@ -8,7 +8,7 @@ description: >-
 
 ## Einführung
 
-Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den Einsatz eines Export-Plugins in Goobi, wie es für die Klassik Stiftung Weimar innerhalb des Digitalisierungsprojektes benötigt wird. 
+Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den Einsatz eines Export-Plugins in Goobi, wie es für die Klassik Stiftung Weimar innerhalb des Digitalisierungsprojektes benötigt wird.
 
 Mit Hilfe dieses Export-Plugins für Goobi können die Goobi-Vorgänge innerhalb eines Arbeitsschrittes gleichzeitig an mehrere Orte exportiert werden. Dabei bleiben die Besonderheiten der Klassik Stiftung Weimar, wie die Nutzung der EPNs als Identifier sowie das Zusammenführen von Einbänden und Blattschnitten zu einem gemeinsamen Strukturelement, bestehen.
 
@@ -17,6 +17,7 @@ Mit Hilfe dieses Export-Plugins für Goobi können die Goobi-Vorgänge innerhalb
 | Version | 1.0.0 |
 | Identifier | HaabExport |
 | Source code | - Quellcode noch nicht öffentlich verfügbar - |
+| Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 2.1 und neuer |
 | Dokumentationsdatum | 17.06.2015 |
 
@@ -54,6 +55,3 @@ Mit Hilfe der Auflistung `<exportFolder>` können verschiedene Orte definiert we
 Um das Export-Plugin nach der erfolgreichen Installation innerhalb des Workflows nutzen zu können, muss ein Arbeitsschritt definiert werden, bei dem  die Funktion Export DMS aktiviert wurde. Darüber hinaus muss als Schritt-Plugin der Wert `HaabExport` eingetragen werden.
 
 ![](../.gitbook/assets/haabexport-01.png)
-
-
-

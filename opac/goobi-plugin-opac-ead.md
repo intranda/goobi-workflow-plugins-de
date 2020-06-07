@@ -15,24 +15,25 @@ Die vorliegende Dokumentation beschreibt die Installation, die Konfiguration und
 | Version | 1.0.0 |
 | Identifier | goobi-plugin-opac-ead |
 | Source code | - Quellcode noch nicht öffentlich verfügbar - |
+| Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 3.0 und neuer |
 | Dokumentationsdatum | 28.02.2019 |
 
 ## Vorbereitung des EAD-Speichers
 
-Als technische Lösung für die Datenübernahme von EAD-Dateien wurde das Konzept eines EAD-Speichers gewählt. Dabei handelt es sich um eine XML-Datenbank, die wiederholt mit mehreren aktualisierten EAD-Dateien beliefert werden kann und anschließend ähnlich zu einem abfragbaren Katalog als Datenquelle dient, die sowohl von Goobi workflow als auch vom Goobi viewer abgefragt werden kann, um neben Detailinformationen eines Datensatzes ebenfalls Informationen über die Tektonik abfragen zu können. 
+Als technische Lösung für die Datenübernahme von EAD-Dateien wurde das Konzept eines EAD-Speichers gewählt. Dabei handelt es sich um eine XML-Datenbank, die wiederholt mit mehreren aktualisierten EAD-Dateien beliefert werden kann und anschließend ähnlich zu einem abfragbaren Katalog als Datenquelle dient, die sowohl von Goobi workflow als auch vom Goobi viewer abgefragt werden kann, um neben Detailinformationen eines Datensatzes ebenfalls Informationen über die Tektonik abfragen zu können.
 
 Durch die Zwischenschaltung dieses EAD-Speichers ist sichergestellt, dass auch die EAD-Dateien jederzeit aktualisiert werden können und die einzelnen Datensätze daraus stets mit aktuellem Kontext angezeigt werden, auch wenn dieser sich seit der ersten Datenübernahme zwischenzeitlich geändert haben sollte.
 
 ### Installation der XML-Datenbank BaseX
 
-BaseX ist eine XML-Datenbank, in der die EAD Dateien verwaltet, analysiert und abgefragt werden können. Voraussetzung für die Installation von BaseX ist Java 1.8. 
+BaseX ist eine XML-Datenbank, in der die EAD Dateien verwaltet, analysiert und abgefragt werden können. Voraussetzung für die Installation von BaseX ist Java 1.8.
 
 Zunächst muss der Download der Datenbank erfolgen:
 
 [http://basex.org/download/](http://basex.org/download/)
 
-Für die Installation von BaseX auf einem Linux System muss zunächst die zip Datei herunterladen und auf dem Server installiert werden. Dies könnte beispielsweise in diesem Pfad erfolgen: 
+Für die Installation von BaseX auf einem Linux System muss zunächst die zip Datei herunterladen und auf dem Server installiert werden. Dies könnte beispielsweise in diesem Pfad erfolgen:
 
 ```text
 /opt/digiverso/basex
@@ -91,7 +92,7 @@ Damit das Admin-Interface auch von extern erreichbar ist, kann dieses im `Apache
     </Location>
 ```
 
-Im Anschluß daran muss noch das Apache Modul `proxy_http` aktiviert und der Apache neu gestartet werden, damit die Anpassungen wirksam werden: 
+Im Anschluß daran muss noch das Apache Modul `proxy_http` aktiviert und der Apache neu gestartet werden, damit die Anpassungen wirksam werden:
 
 ```markup
 a2enmod proxy_http
@@ -287,4 +288,3 @@ Die Datei `goobi_projects.xml` benötigt eine neue Definition für den Publikati
 {% endcode %}
 
 Nachdem diese Konfiguration abgeschlossen wurde, steht innerhalb von Goobi eine neue Datenquelle innerhalb der Anlegemaske für Vorgänge zur Verfügung. Diese kann nun mittels der Identifier in gleicher Weise abgefragt werden wie andere Datenquellen und Kataloge auch.
-

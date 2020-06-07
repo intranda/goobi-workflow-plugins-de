@@ -15,6 +15,7 @@ Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den
 | Version | 1.0.0 |
 | Identifier | intranda\_step\_changeWorkflow |
 | Source code | - Quellcode noch nicht öffentlich verfügbar - |
+| Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi Workflow 3.0.0 |
 | Dokumentationsdatum | 29.04.2019 |
 
@@ -41,13 +42,13 @@ Es folgt eine kommentierte Beispielkonfiguration:
 ```markup
 <config_plugin>
     <!--
-    	order of configuration is: 
-	    1.) project name and step name matches 
-	    2.) step name matches and project is * 
-	    3.) project name matches and step name is * 
-	    4.) project name and step name are * 
+    	order of configuration is:
+	    1.) project name and step name matches
+	    2.) step name matches and project is *
+	    3.) project name matches and step name is *
+	    4.) project name and step name are *
     -->
-    
+
     <config>
         <!-- which projects to use for (can be more than one, otherwise use *) -->
         <project>Register</project>
@@ -74,7 +75,7 @@ Es folgt eine kommentierte Beispielkonfiguration:
             <title>Automatic export to Islandora</title>
         </steps>
     </config>
-   
+
     <config>
         <!-- which projects to use for (can be more than one, otherwise use *) -->
         <project>*</project>
@@ -103,7 +104,7 @@ Es folgt eine kommentierte Beispielkonfiguration:
             <title>Ingest into DigiTool</title>
         </steps>
     </config>
-    
+
 </config_plugin>
 ```
 
@@ -128,4 +129,3 @@ Nachdem das Plugin installiert und konfiguriert wurde, kann es in der Nutzerober
 ## Nutzung
 
 Da das Plugin vollautomatisch laufen sollte, ist für die Nutzung nichts weiter zu beachten.
-

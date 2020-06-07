@@ -8,13 +8,14 @@ description: >-
 
 ## Einführung
 
-Die vorliegende Dokumentation beschreibt die Installation, die Konfiguration und den Einsatz des XMP-Metadaten Plugins in Goobi. Dieses Plugin ermöglicht es, verschiedenste Metadaten aus Goobi in die XMP-Header von Bilddateien zu schreiben. Dabei können sowohl Metadaten auf Werk-Ebene als auch Metadaten auf Bild-Ebene \(wie zum Beispiel Zugehörigkeit zu Strukturelementen\) geschrieben werden. 
+Die vorliegende Dokumentation beschreibt die Installation, die Konfiguration und den Einsatz des XMP-Metadaten Plugins in Goobi. Dieses Plugin ermöglicht es, verschiedenste Metadaten aus Goobi in die XMP-Header von Bilddateien zu schreiben. Dabei können sowohl Metadaten auf Werk-Ebene als auch Metadaten auf Bild-Ebene \(wie zum Beispiel Zugehörigkeit zu Strukturelementen\) geschrieben werden.
 
 | Details |  |
 | :--- | :--- |
 | Version | 1.0.0 |
 | Identifier | intranda\_step\_xmp |
 | Source code | - Quellcode noch nicht öffentlich verfügbar - |
+| Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 3.0.5 |
 | Dokumentationsdatum | 05.04.2019 |
 
@@ -307,7 +308,7 @@ XMP-Header ermöglichen das Schreiben des vollständigen Dublin-Core Metadatensa
                 <separator>;\u0020</separator>
             </goobiField>
         </imageMetadataField>
-        
+
         <!-- some additional metadata to identify the document -->
         <imageMetadataField name="-xmp-dc:Source">
             <separator>;\u0020</separator>
@@ -374,6 +375,3 @@ XMP-Header ermöglichen das Schreiben des vollständigen Dublin-Core Metadatensa
     </config>
 </config_plugin>
 ```
-
-
-

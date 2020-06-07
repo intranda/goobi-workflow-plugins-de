@@ -17,6 +17,7 @@ Dieses Workflow-Plugin wurde implementiert, um neben der reinen Importroutine eb
 | Version des Plugins | 1.0.0 |
 | Identifier | goobi-plugin-workflow-excelimport |
 | Source code | - Source code not yet publicly available - |
+| Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 2019.11 |
 | Dokumentation vom | 29.11.2019 |
 
@@ -62,7 +63,7 @@ Der Inhalt dieser Konfigurationsdatei sieht wie folgt aus:
 
         Further there are a variety of possible validation criteria:
             - required: if this is set to true every cell of this metadatum will be expected to have some content
-            - pattern: the contents of this attribute are interpreted as a regular expression, every cell of this metadatum is checked against it, note that in these regular expressions "," and "\" have to be escaped by "\", e.g. the expression for a single digit would be "\\d" 
+            - pattern: the contents of this attribute are interpreted as a regular expression, every cell of this metadatum is checked against it, note that in these regular expressions "," and "\" have to be escaped by "\", e.g. the expression for a single digit would be "\\d"
             - list: content of this attribute is expected to be the path to a plain text file with one expression per line, cells of this metadatum are checked to match one line of this file, cells may contain several elements of the list separated by "; "
             - either: checks that either this metadatum or the one provided by its identifier in this attribute have content
             - requiredFields: allows to configure fields that must have content before this metadatum is allowed to have content, takes a list of identifiers separated by "; "
@@ -150,4 +151,3 @@ Für jedes einzelne Metadatum kann festgelegt werden, wie dieses importiert werd
 {% hint style="info" %}
 **Achtung:** Bitte beachten Sie, dass Spalten, die nicht in der Excel-Datei vorhanden sind \(z.B. `14d`\), vom Plugin ignoriert werden, aber hier konfiguriert werden müssen.
 {% endhint %}
-

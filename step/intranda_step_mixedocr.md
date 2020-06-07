@@ -15,7 +15,7 @@ Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den
 | :--- | :--- |
 | Version | 1.0.0 |
 | Identifier | intranda\_step\_mixedocr |
-| Source code | - Quellcode noch nicht öffentlich verfügbar - |
+| Source code | https://github.com/intranda/goobi-plugin-step-mixedocr |
 | Kompatibilität | Goobi workflow 3.0.4 |
 | Dokumentationsdatum | 04.03.2019 |
 
@@ -32,7 +32,7 @@ Zur Nutzung des Plugins müssen folgende Dateien installiert sein:
 /opt/digiverso/goobi/config/plugin_intranda_step_mixedocr.xml
 ```
 
-Die erste Datei enthält das eigentliche Plugin. Die zweite Datei ist die Konfigurationsdatei des Plugins. 
+Die erste Datei enthält das eigentliche Plugin. Die zweite Datei ist die Konfigurationsdatei des Plugins.
 
 Der Inhalt de Konfigurationsdatei `plugin_intranda_step_mixedocr.xml` muss folgendermaßen aufgebaut sein:
 
@@ -50,7 +50,7 @@ Der Inhalt de Konfigurationsdatei `plugin_intranda_step_mixedocr.xml` muss folge
 		<!-- which projects to use for (can be more then one, otherwise use *) -->
         <project>*</project>
         <step>*</step>
-        
+
         <template>template.xml</template>
 		<itmUrl>http://localhost:8080/itm/service</itmUrl>
 		<!--  this must be without a trailing slash -->
@@ -64,21 +64,21 @@ Der Inhalt de Konfigurationsdatei `plugin_intranda_step_mixedocr.xml` muss folge
         <project>My special project</project>
         <project>Archive_Project</project>
         <step>OCR</step>
-		
+
 		<template>template_pdfonly.xml</template>
 		<itmUrl>https://itm.mydomain.tld/itm/service</itmUrl>
 		<callbackBaseUrl>https://goobi.mydomain.tld/goobi</callbackBaseUrl>
 		<useOrigDir>true</useOrigDir>
 		<serverType>intranda-tesseract</serverType>
     </config>
-    
-    
+
+
 ```
 {% endcode %}
 
-Es sind mehrere Konfigurationen für verschiedene Projekte und Schitte möglich. Diese werden per `<project>` und `<step>` festgelegt. Es ist auch die Wildcard `*` möglich, die für alle Schritte bzw. Projekte greift. Die eigentliche Konfiguration findet dann innerhalb der `<config>` Elemente statt. 
+Es sind mehrere Konfigurationen für verschiedene Projekte und Schitte möglich. Diese werden per `<project>` und `<step>` festgelegt. Es ist auch die Wildcard `*` möglich, die für alle Schritte bzw. Projekte greift. Die eigentliche Konfiguration findet dann innerhalb der `<config>` Elemente statt.
 
-Das `<template>` ist das Template, das der TaskManager benutzen soll, die `<itmUrl>` ist die URL zum Endpoint des TaskManagers, der neue Jobs annimmt. Die `<callbackBaseUrl>` muss eine URL sein, die vom TaskManager aus erreicht werden kann und zur Goobi-Installation zeigt, in der das Plugin installiert ist. Sie wird benötigt, um den Schritt nach der erfolgreichen OCR wieder zu schließen. Das Element `<useOrigDir>` bestimmt, ob für die OCR die Masterbilder oder die Derivate genutzt werden sollen. Der Eintrag `<serverType>` ist der im intranda LizenzServer eingetragene Wert für den Server, über den die OCR durchgeführt werden soll. Dieser Wert kann bei intranda angefragt werden oder bei der Nutzung eines anderen OCR Providers ausgelassen werden. 
+Das `<template>` ist das Template, das der TaskManager benutzen soll, die `<itmUrl>` ist die URL zum Endpoint des TaskManagers, der neue Jobs annimmt. Die `<callbackBaseUrl>` muss eine URL sein, die vom TaskManager aus erreicht werden kann und zur Goobi-Installation zeigt, in der das Plugin installiert ist. Sie wird benötigt, um den Schritt nach der erfolgreichen OCR wieder zu schließen. Das Element `<useOrigDir>` bestimmt, ob für die OCR die Masterbilder oder die Derivate genutzt werden sollen. Der Eintrag `<serverType>` ist der im intranda LizenzServer eingetragene Wert für den Server, über den die OCR durchgeführt werden soll. Dieser Wert kann bei intranda angefragt werden oder bei der Nutzung eines anderen OCR Providers ausgelassen werden.
 
 Zusätzlich zu dieser Plugin-spezifischen Konfiguration muss noch eine Freigabe in der Datei `/opt/digiverso/goobi/config/goobi_rest.xml` erfolgen, damit der TaskManager dem Plugin die erfolgreiche Abarbeitung der Jobs melden kann:
 
@@ -94,9 +94,8 @@ Zusätzlich zu dieser Plugin-spezifischen Konfiguration muss noch eine Freigabe 
 
 ## Einstellungen in Goobi
 
-Nachdem das Plugin installiert und Konfiguriert wurde, muss es noch in Goobi workflow zu einem Arbeitsschritt hinzugefügt werden. 
+Nachdem das Plugin installiert und Konfiguriert wurde, muss es noch in Goobi workflow zu einem Arbeitsschritt hinzugefügt werden.
 
 ![Konfiguration des Schritts in Goobi Workflow](../.gitbook/assets/config_gui.png)
 
-Das Plugin wird üblicherweise automatisch ausgeführt, deshalb sollte der Haken bei `Automatische Aufgabe` gesetzt sein. Außerdem muss das Plugin `intranda_step_mixedocr` unter `Plugin für Arbeitsschritt` ausgewählt werden. 
-
+Das Plugin wird üblicherweise automatisch ausgeführt, deshalb sollte der Haken bei `Automatische Aufgabe` gesetzt sein. Außerdem muss das Plugin `intranda_step_mixedocr` unter `Plugin für Arbeitsschritt` ausgewählt werden.

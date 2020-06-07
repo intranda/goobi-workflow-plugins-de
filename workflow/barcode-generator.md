@@ -17,6 +17,7 @@ Dieses Workflow-Plugin dient zur flexiblen Generierung von Barcodes in einer meh
 | Version des Plugins | 1.0.0 |
 | Identifier | goobi-plugin-workflow-barcode-generator |
 | Source code | - Source code not yet publicly available - |
+| Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 2020.02 |
 | Dokumentation vom | 15.02.2020 |
 
@@ -39,23 +40,23 @@ Der Inhalt dieser Konfigurationsdatei sieht wie folgt aus:
 
 ```markup
 <config_plugin>
-	
+
 	<!--  default value for the number format -->
 	<format>00000</format>
 
 	<!--  default value for the amount of barcodes to be generated -->
 	<amount>200</amount>
-	
+
 	<!--  default value the first barcode number -->
 	<start>1</start>
-	
+
 	<!--  default value the first barcode number -->
 	<prefix></prefix>
 
-	<!-- path to xslt file for barcode generation, 
+	<!-- path to xslt file for barcode generation,
 	this value can exist multiple times and gets displayed as dropdown list -->
 	<xslt-path>/opt/digiverso/goobi/xslt/barcodes.xsl</xslt-path>
-	
+
 </config_plugin>
 ```
 
@@ -71,5 +72,4 @@ Einige Konfigurationen des Plugins gelten allgemein für alle zu importierenden 
 | `prefix` | Dieser Parameter definiert einen Präfix, der dem Zähler mit einem Unterstrich `_` vorangestellt wird. |
 | `xslt-path` | Der Parameter `xslt-path` erlaubt die Definition beliebig vieler xsl-Dateien. Die hier konfigurierten Dateien werden dem Nutzer anschließend innerhalb der Nutzeroberfläche zur Auswahl angeboten. |
 
-## 
-
+##

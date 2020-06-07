@@ -15,6 +15,7 @@ Diese Plugin dient zur visuellen Prüfung der Qualität von Bildern. Es erlaubt 
 | Version | 1.0.0 |
 | Identifier | intranda\_step\_imageQA |
 | Source code | [https://github.com/intranda/goobi-plugin-step-imageqa](https://github.com/intranda/goobi-plugin-step-imageqa) |
+| Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 2020.03 |
 | Dokumentationsdatum | 25.05.2020 |
 
@@ -48,7 +49,7 @@ Die Konfiguration des Plugins ist folgendermaßen aufgebaut:
     -->
     <config>
         <!-- define plugin type in which screen the plugin is displayed, allowed values are 'part', 'full' (default) or 'both' -->
-        <guiType>full</guiType> 
+        <guiType>full</guiType>
         <!-- which projects to use for (can be more then one, otherwise use *) -->
         <project>*</project>
         <step>*</step>
@@ -159,4 +160,3 @@ Neben der reinen Bildanzeige kann das Plugin ebenfalls mit anderen Objekttypen u
 Je nach individueller Konfiguration erlaubt das Plugin noch viele weitere Funktionen, die zumeist innerhalb der Thumbnaildarstellung sichtbar werden. Wurden diese Funktionen in der oben beschriebenen Konfigurationsdatei konfiguriert, so lassen sich diese zum Beispiel für einen Download von PDF-Dateien, Bilddateien, Rotationen, Löschungen und andere Operationen nutzen.
 
 ![Aktivierte Zusatzfunktionen innerhalb der Thumbnaildarstellung](../.gitbook/assets/intranda_step_imageqa6.png)
-

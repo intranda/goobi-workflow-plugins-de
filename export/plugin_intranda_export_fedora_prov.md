@@ -15,6 +15,7 @@ Die vorliegende Dokumentation beschreibt die Installation, die Konfiguration und
 | Version | 1.0.3 |
 | Identifier | plugin\_intranda\_export\_fedora\_prov |
 | Source code | [https://gitea.intranda.com/goobi-workflow/goobi-plugin-export-fedora-prov](https://gitea.intranda.com/goobi-workflow/goobi-plugin-export-fedora-prov) |
+| Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 3.0 und neuer |
 | Dokumentationsdatum | 18.12.2019 |
 
@@ -41,14 +42,14 @@ Die Konfiguration erfolgt über die Konfigurationsdatei `intranda_export_fedora.
         <ingestMedia>false</ingestMedia>
         <ingestJp2>false</ingestJp2>
         <ingestPdf>false</ingestPdf>
-        
+
         <!-- command for specific property including the parameter for Barcode and for the unit-or-item-type -->
         <externalLinkContent>
-            PREFIX crm: &lt;http://www.cidoc-crm.org/cidoc-crm/&gt; 
-            INSERT { &lt;&gt; crm:P70_documents &lt;http://example.com/code=[UNIT_ITEM_CODE]&amp;entityId=[BARCODE]#&gt; } 
+            PREFIX crm: &lt;http://www.cidoc-crm.org/cidoc-crm/&gt;
+            INSERT { &lt;&gt; crm:P70_documents &lt;http://example.com/code=[UNIT_ITEM_CODE]&amp;entityId=[BARCODE]#&gt; }
             WHERE { }
         </externalLinkContent>
-        
+
         <!-- command for specific property including the parameter for PID -->
         <externalLinkContentPID>
             PREFIX crm:&lt;http://www.cidoc-crm.org/cidoc-crm/&gt;
@@ -58,56 +59,56 @@ Die Konfiguration erfolgt über die Konfigurationsdatei `intranda_export_fedora.
 
         <!-- command for specific property including the parameter for full_partial -->
         <fullPartialContent>
-            PREFIX crm: &lt;http://www.cidoc-crm.org/cidoc-crm/&gt; 
-            INSERT { &lt;&gt; crm:P3_has_note "[FULL_PARTIAL]" } 
+            PREFIX crm: &lt;http://www.cidoc-crm.org/cidoc-crm/&gt;
+            INSERT { &lt;&gt; crm:P3_has_note "[FULL_PARTIAL]" }
             WHERE { }
         </fullPartialContent>
-        
+
         <!-- Property containing the public release date (optional)-->
         <availableMetadataQuery>
-            PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt; 
+            PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;
             INSERT {
                 &lt;&gt; dcterms:available "[DATE_AVAILABLE]" .
             }
             WHERE { }
         </availableMetadataQuery>
-        
+
         <!-- Properties query for the /images container -->
         <imagesContainerMetadataQuery>
-            PREFIX ldp: &lt;http://www.w3.org/ns/ldp#&gt; 
+            PREFIX ldp: &lt;http://www.w3.org/ns/ldp#&gt;
             PREFIX pcdm: &lt;http://pcdm.org/models#&gt;
             INSERT {
                 &lt;&gt; a ldp:DirectContainer\,pcdm:Object ;
                 ldp:membershipResource &lt;[URL]&gt; ;
                 ldp:hasMemberRelation pcdm:hasMember .
-            } 
+            }
             WHERE { }
         </imagesContainerMetadataQuery>
-        
+
         <!-- Properties query for the /files container -->
         <filesContainerMetadataQuery>
-            PREFIX ldp: &lt;http://www.w3.org/ns/ldp#&gt; 
+            PREFIX ldp: &lt;http://www.w3.org/ns/ldp#&gt;
             PREFIX pcdm: &lt;http://pcdm.org/models#&gt;
             INSERT {
                 &lt;&gt; a ldp:DirectContainer\,pcdm:Object ;
                 ldp:membershipResource &lt;[URL]&gt; ;
                 ldp:hasMemberRelation pcdm:hasFile .
-            } 
+            }
             WHERE { }
         </filesContainerMetadataQuery>
-        
+
         <!-- Properties query for the /fcr:metadata part of a file -->
         <imageFileMetadataQuery>
-            PREFIX exif: &lt;https://www.w3.org/2003/12/exif/ns#&gt; 
+            PREFIX exif: &lt;https://www.w3.org/2003/12/exif/ns#&gt;
             INSERT {
                 &lt;&gt;  exif:imageLength [HEIGHT] ;
                 exif:imageWidth [WIDTH] .
-            } 
+            }
             WHERE { }
         </imageFileMetadataQuery>
 
     </config>
-    
+
     <config>
         <!-- which workflow to use for (can be more then one, otherwise use *) -->
         <workflow>My_special_workflow</workflow>
@@ -198,4 +199,3 @@ http(s)://<Fedora REST endpoint>/records/<barcode.substring(0,4)>/<barcode.sunst
 [http://localhost:8888/fedora/rest/records/](http://localhost:8888/fedora/rest/records/barc/ode1/234/images/1/files/00000001.jp2)[DB/00/27/DB/-F83B-11E9-AE98-A392051B17E6](https://dev-content.prov.vic.gov.au/rest/records/DB/00/27/DB/F83B11E9AE98A392051B17E6)[/images/1/files/00000001.jp2](http://localhost:8888/fedora/rest/records/barc/ode1/234/images/1/files/00000001.jp2)  
 [http://localhost:8888/fedora/rest/records/](http://localhost:8888/fedora/rest/records/barc/ode1/234/images/2/files/00000002.jp2)[DB/00/27/DB/-F83B-11E9-AE98-A392051B17E6](https://dev-content.prov.vic.gov.au/rest/records/DB/00/27/DB/F83B11E9AE98A392051B17E6)[/images/2/files/00000002.jp2  
 ](http://localhost:8888/fedora/rest/records/barc/ode1/234/images/2/files/00000002.jp2)[http://localhost:8888/fedora/rest/records/](http://localhost:8888/fedora/rest/records/barc/ode1/234/images/3/files/00000003.jp2)[DB/00/27/DB/-F83B-11E9-AE98-A392051B17E6](https://dev-content.prov.vic.gov.au/rest/records/DB/00/27/DB/F83B11E9AE98A392051B17E6)[/images/3/files/00000003.jp2](http://localhost:8888/fedora/rest/records/barc/ode1/234/images/3/files/00000003.jp2)
-

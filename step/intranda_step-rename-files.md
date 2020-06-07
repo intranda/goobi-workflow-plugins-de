@@ -17,6 +17,7 @@ Dieses Plugin dient zu bedingen Umbenennung von Dateien innerhalb der verschiede
 | Version | 1.0.0 |
 | Identifier | intranda\_step\_rename-files |
 | Source code | - Source code not yet publicly available - |
+| Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 2020.02 |
 | Dokumentationsdatum | 10.05.2020 |
 
@@ -38,7 +39,7 @@ Dabei sieht der Inhalt dieser Konfigurationsdatei beispielhaft wie folgt aus:
 
 ```markup
 <config_plugin>
-    
+
     <config>
         <project>Monographs 1900-1950</project>
         <project>Monographs 1950-2000</project>
@@ -48,7 +49,7 @@ Dabei sieht der Inhalt dieser Konfigurationsdatei beispielhaft wie folgt aus:
         <namepart type="static">-</namepart>
         <namepart type="variable">{projectid}</namepart>
     </config>
-    
+
     <config>
         <project>*</project>
         <step>*</step>
@@ -57,7 +58,7 @@ Dabei sieht der Inhalt dieser Konfigurationsdatei beispielhaft wie folgt aus:
         <namepart type="static">_</namepart>
         <namepart type="counter">00000</namepart>
     </config>
-    
+
 </config_plugin>
 ```
 
@@ -135,4 +136,3 @@ Das Plugin berücksichtigt für die Benennung die Dateien innerhalb der folgende
 Dieses Plugin wird in den Workflow so integriert, dass es automatisch ausgeführt wird. Eine manuelle Interaktion mit dem Plugin ist nicht notwendig. Zur Verwendung innerhalb eines Arbeitsschrittes des Workflows sollte es wie im nachfolgenden Screenshot konfiguriert werden.
 
 ![Integration des Plugins in den Workflow](../.gitbook/assets/intranda_step_rename-files.png)
-
