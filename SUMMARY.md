@@ -46,6 +46,8 @@
 
 ## Opac Plugins <a id="opac"></a>
 
+* [PICA Import](opac/goobi-plugin-opac-pica.md)
+* [MARC Import](opac/goobi-plugin-opac-marc.md)
 * [EAD Datenübernahme](opac/goobi-plugin-opac-ead.md)
 * [Generischer XML Import](opac/goobi-plugin-opac-generic-xml.md)
 * [Generischer JSON Import](opac/goobi-plugin-opac-json.md)
