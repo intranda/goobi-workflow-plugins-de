@@ -103,7 +103,7 @@ Feldtyp                  | Beschreibung
 
 Das Element `recordType` enthält die Attribute `field`, `docType` und `anchorType`. In `field` wird ein JSONPath-Ausdruck angegeben, der auf den Datensatz angewendet wird. Falls es sich bei dem Typ um ein mehrbändiges Werk oder eine Zeitung/Zeitschrift handelt, muss der zu nutzende `anchor` Typ im Feld `anchorType` angegeben werden. Existiert ein Feld mit so einem Ausdruck, wird der in `docType` definierte Dokumententyp erstellt. Wenn nicht, wird der nächste konfigurierte `recordType` überprüft.
 
-Dabei gibt es eine Reihe von Zeichen, die in dieser Datei maskiert sind. Das betrifft zum einen Zeichen wie `< > & "`, die in XML eine besondere Bedeutung haben und daher als `&lt; &gt; &amp; &quot;` angegeben werden müssen. Daneben ist noch das Komma betroffen, das mittels Backslash ebenfalls als `\,` maskiert werden muss.
+Dabei gibt es eine Reihe von Zeichen, die in dieser Datei maskiert sind. Das betrifft zum einen Zeichen wie `< > & "`, die in XML eine besondere Bedeutung haben und daher als `&lt; &gt; &amp; &quot;` angegeben werden müssen. Daneben ist noch das `Komma` betroffen, das mittels Backslash ebenfalls als `\,` maskiert werden muss.
 
 ### Feldtyp: defaultPublicationType
 Wenn keine der Definitionen zutreffen, kann ein Dokument mit dem Typ aus `defaultPublicationType` erzeugt werden. Wenn dieses Feld fehlt oder leer ist, wird stattdessen kein Datensatz angelegt.
