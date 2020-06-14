@@ -43,7 +43,7 @@
 * [Metadaten-Validierung innerhalb einer Aufgabe](step/intranda_step_metadata_yerusha_validation.md)
 * [Automatische Anreicherung von Metadaten aus eigenen Vokabularen](step/intranda_step_metadata_replacement.md)
 * [Qualitätskontrolle von Bildern](step/intranda_step_imageqa.md)
-* [Generierung von Platzhalterbilder](step/intranda_step_placeholder-creation.md)
+* [Generierung von Platzhalterbildern](step/intranda_step_placeholder-creation.md)
 
 ## Opac Plugins <a id="opac"></a>
 
