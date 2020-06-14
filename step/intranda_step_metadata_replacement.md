@@ -74,6 +74,10 @@ Die Konfiguration des Plugins ist folgendermaßen aufgebaut:
             <contentAuthorityUri>authorityURI</contentAuthorityUri>
             <contentAuthorityValueUri>valueURI</contentAuthorityValueUri>
 
+            <!-- if the content for fieldFrom cannot be found in the vocabulary to be replaced,
+      				  shall the original value be duplicated then? -->
+      			<duplicateIfMissing>false</duplicateIfMissing>
+
         </entry>
     </config>
 </config_plugin>
@@ -95,6 +99,7 @@ Die Parameter innerhalb dieser Konfigurationsdatei haben folgende Bedeutungen:
 | `contentAuthority` | Sollen Normdaten übernommen werden, kann hier das Feld innerhalb des Vokabulars für die Authority festgelegt werden. |
 | `contentAuthorityUri` | Sollen Normdaten übernommen werden, kann hier das Feld innerhalb des Vokabulars für die Authority URI festgelegt werden. |
 | `contentAuthorityValueUri` | Sollen Normdaten übernommen werden, kann hier das Feld innerhalb des Vokabulars für den Datensatz festgelegt werden. |
+|`duplicateIfMissing` | Soll der originale Wert übernommen werden, wenn innerhalb des Vokabulars keine Entsprechung gefunden wurde, muss dieser Wert auf `true` gesetzt werden.  |
 
 Zur Inbetriebnahme des Plugins muss dieses für einen oder mehrere gewünschte Aufgaben im Workflow aktiviert werden. Dies erfolgt wie im folgenden Screenshot aufgezeigt durch Auswahl des Plugins `intranda_step_metadata_replacement` aus der Liste der installierten Plugins.
 
@@ -119,4 +124,3 @@ Innerhalb des Workflows von Goobi können die vorliegenden Metadaten innerhalb d
 ![Der Erscheinungsort London ist nun in einem eigenen Feld mit korrekter Schreibweise und Normdaten vorhanden](../.gitbook/assets/intranda_step_metadata_replacement4.png)
 
 Die konstante Pflege des Vokabulars und die Integrierbarkeit in einen Workflow auch an mehreren Stellen innerhalb von Aufgaben erlaubt, dass die Inhalte auch künftig aktualisiert und veröffentlicht werden können.
-
