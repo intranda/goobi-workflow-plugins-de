@@ -27,6 +27,8 @@ Dieses Plugin wird als `tar`-Archiv ausgeliefert. Um es zu installieren, muss da
 tar -C /opt/digiverso/goobi/ -xf plugin_intranda_step_replace-images.tar --exclude="pom.xml"
 ```
 
+Dieses Plugin hat keine Konfigurationsdatei und ist daher nicht konfigurierbar.
+
 ## Bedienung des Plugins
 
 Dieses Plugin wird in den Workflow so integriert, dass es für eine ausgewählte Aufgabe zur Verfügung steht. Nach dem Annehmen der Aufgabe, kann der Nutzer das Plugin betreten.
