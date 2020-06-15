@@ -1,6 +1,7 @@
 ---
 description: >-
-  Dieses Step Plugin für Goobi workflow dient zum Ersetzen von Platzhalterbildern innerhalb des Master-Ordners.
+  Dieses Step Plugin für Goobi workflow dient zum Ersetzen von
+  Platzhalterbildern innerhalb des Master-Ordners.
 ---
 
 # Ersetzen von Bildern
@@ -20,25 +21,11 @@ Dieses Plugin dient zum Ersetzen von zuvor eingespielten Platzhalterbildern inne
 
 ## Installation
 
-Zur Nutzung des Plugins muss die Plugin-Datei `plugin_intranda_step_replace-images` an den folgenden Ort kopiert werden:
+Dieses Plugin wird als `tar`-Archiv ausgeliefert. Um es zu installieren, muss das Archiv `plugin_intranda_step_replace-images.tar` in den Goobi-Ordner entpackt werden:
 
 ```bash
-/opt/digiverso/goobi/plugins/step/plugin_intranda_step_replace-images.jar
+tar -C /opt/digiverso/goobi/ -xf plugin_intranda_step_replace-images.tar --exclude="pom.xml"
 ```
-
-Die Bedienelemente des Plugins finden sich innerhalb des Ordners `frontend` die in den Ordner `static_assets` kopiert werden müssen. Nach der Installation sollte dieser Ordner entsprechend folgenden Aufbau für das Plugin aufweisen:
-
-```bash
-/opt/digiverso/goobi/static_assets
-└── plugins
-    └── intranda_step_replace-images
-        ├── css
-        │   └── style.css
-        └── js
-            └── app.js
-```
-
-Dieses Plugin verfügt über keine Konfigurationsdatei und ist entsprechend nicht weitergehend konfigurierbar.
 
 ## Bedienung des Plugins
 
@@ -48,4 +35,5 @@ Dieses Plugin wird in den Workflow so integriert, dass es für eine ausgewählte
 
 Somit erhält der Nutzer Zugriff auf die Nutzeroberfläche des Plugins, wo ihm der derzeitige Inhalt des Master-Ordners aufgelistet wird. Hier können nun gezielt einzelne oder auch viele Bilder per Drag & Drop an diejenige Stelle kopiert werden, ab der die einzufügenden Bilder die vorhandenen Platzhalterbilder ersetzen sollen. Das Plugin stellt während des Uploads zugleich sicher, dass die neu hochgeladenen Dateien korrekt umbenannt werden.
 
-![Nutzeroberfläche zum Ersetzen der vorhandenen Platzhalterbilder](../.gitbook/assets/intranda_step_replace-images-2_de.png)
+![Nutzeroberfl&#xE4;che zum Ersetzen der vorhandenen Platzhalterbilder](../.gitbook/assets/intranda_step_replace-images-2_de.png)
+

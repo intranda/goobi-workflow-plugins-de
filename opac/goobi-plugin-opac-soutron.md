@@ -49,7 +49,7 @@ plugin_intranda_opac_soutron.xml
 
 In der Datei `goobi_opac.xml` muss die Schnittstelle zum gewünschten Katalogsystem bekannt gemacht werden. Dies geschieht durch einen Eintrag, der wie folgt aussieht:
 
-```xml
+```markup
 <catalogue title="Soutron">
     <config description="Soutron Library System"
       address="https://example.com/Library/WebServices/SoutronAPI.svc/GetCatalogue"
@@ -66,7 +66,7 @@ Es ist nur eine Suche nach einem Identifier möglich, daher können die anderen 
 
 Das Mapping der Inhalte des Soutron Datensatzes zu den Metadaten in Goobi geschieht in der Datei `plugin_intranda_opac_soutron.xml`:
 
-```xml
+```markup
 <config_plugin>
     <docstructs>
         <docstruct soutron="Item" ruleset="Item" />
@@ -115,3 +115,4 @@ Sofern hier ein gültiger Datensatz gefunden wird, wird der Datensatz nach dem F
 Im Anschluß werden die konfigurierten XPath-Ausdrücke ausgewertet, die für `<metadata>` und `<person>` konfiguriert wurden.
 
 Die Ausdrücke gelten für das Element `/soutron/catalogs_view/ct/`. Sofern mit einem Ausdruck Daten gefunden werden, wird das entsprechend angegebene Metadatum erzeugt. Bei Personen wird geprüft, ob der Wert ein Komma enthält. In dem Fall werden Vor- und Nachname am Komma getrennt, ansonsten wird der Wert als Nachname interpretiert.
+
