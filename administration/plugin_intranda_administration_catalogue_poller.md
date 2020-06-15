@@ -13,7 +13,7 @@ Die vorliegende Dokumentation beschreibt die Installation, die Konfiguration und
 | Details |  |
 | :--- | :--- |
 | Version | 1.0.0 |
-| Identifier | plugin\_intranda\_administration\_catalogue\_poller |
+| Identifier | intranda\_administration\_catalogue\_poller |
 | Source code | [https://github.com/intranda/goobi-plugin-administration-catalogue-poller](https://github.com/intranda/goobi-plugin-administration-catalogue-poller) |
 | Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 3.0.4 und neuer |

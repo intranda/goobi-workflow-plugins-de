@@ -11,7 +11,7 @@ Die vorliegende Dokumentation beschreibt die Installation, die Konfiguration und
 | Details |  |
 | :--- | :--- |
 | Version | 1.0.0 |
-| Identifier | plugin\_intranda\_export\_fedora |
+| Identifier | intranda\_export\_fedora |
 | Source code | [https://github.com/intranda/goobi-plugin-export-fedora](https://github.com/intranda/goobi-plugin-export-fedora) |
 | Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 3.0 und neuer |
