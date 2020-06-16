@@ -69,6 +69,8 @@ Die Konfiguration des Plugins ist folgendermaßen aufgebaut:
         <noShortcutPrefix>false</noShortcutPrefix>
         <!-- Don't show a big image - thumbnails only -->
         <thumbnailsOnly>false</thumbnailsOnly>
+        <!-- use the high speed JavaScript fullscreen view -->
+        <useJSFullscreen>false</useJSFullscreen>
 
         <imagesize>800</imagesize>
         <imagesize>1800</imagesize>
@@ -130,6 +132,7 @@ Die Parameter innerhalb dieser Konfigurationsdatei haben folgende Bedeutungen:
 | `allowDownloadAsPdf` | Hiermit läßt sich festlegen, ob ein Download der ausgewählten Seiten als eine große PDF-Datei erlaubt sein soll. |
 | `allowTaskFinishButtons` | Mit diesem Parameter kann ermöglicht werden, dass in der regulären Plugin-Oberfläche bereits Buttons zum Abschließen der Aufgabe angezeigt werden sollen, so dass das Plugin nicht zunächst verlassen werden muss. |
 | `displayocr` | Hier kann festgelegt werden, ob der Button für die Anzeige von Volltextergebnissen aktiviert werden soll. |
+| `useJSFullscreen` | Mit diesem Parameter kann festgelegt werden, dass die Vollbildanzeige allein mittels JavaScript erfolgen soll. Diese Anzeige ist deutlich performanter, erlaubt jedoch keine Anzeige des Volltextes parallel zum Bild. |
 
 ## Integration des Plugins in den Workflow
 
