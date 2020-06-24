@@ -15,7 +15,7 @@ Dieses Workflow-Plugin wurde implementiert, um neben der reinen Importroutine eb
 | Details |  |
 | :--- | :--- |
 | Version | 1.0.0 |
-| Identifier | intranda_workflow_excelimport |
+| Identifier | intranda\_workflow\_excelimport |
 | Source code | [https://github.com/intranda/goobi-plugin-workflow-excelimport](https://github.com/intranda/goobi-plugin-workflow-excelimport) |
 | Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 2019.11 |

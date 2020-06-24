@@ -13,7 +13,7 @@ Die vorliegende Dokumentation beschreibt die Installation, die Konfiguration und
 | Details |  |
 | :--- | :--- |
 | Version | 1.0.0 |
-| Identifier | intranda_opac_ead |
+| Identifier | intranda\_opac\_ead |
 | Source code | [https://github.com/intranda/goobi-plugin-opac-ead](https://github.com/intranda/goobi-plugin-opac-ead) |
 | Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 3.0 und neuer |

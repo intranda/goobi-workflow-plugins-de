@@ -6,6 +6,11 @@
 
 * [Catalogue Poller](administration/plugin_intranda_administration_catalogue_poller.md)
 * [Copy Master-Anchor](administration/plugin_intranda_administration_copyanchor.md)
+* [Goobi-to-Goobi](administration/goobi-to-goobi/README.md)
+  * [Installation und Konfiguration](administration/goobi-to-goobi/installation-und-konfiguration.md)
+  * [Erzeugung der Export-Verzeichnisse](administration/goobi-to-goobi/erzeugung-der-export-verzeichnisse.md)
+  * [Transfer der Export-Verzeichnisse](administration/goobi-to-goobi/transfer-der-export-verzeichnisse.md)
+  * [Einspielen der Export-Verzeichnisse](administration/goobi-to-goobi/einspielen-der-export-verzeichnisse.md)
 
 ## Step Plugins <a id="step"></a>
 

@@ -13,7 +13,7 @@ Die vorliegende Dokumentation beschreibt die Installation, die Konfiguration und
 | Details |  |
 | :--- | :--- |
 | Version | 1.0.3 |
-| Identifier | prov_export\_fedora |
+| Identifier | prov\_export\_fedora |
 | Source code | [https://gitea.intranda.com/goobi-workflow/goobi-plugin-export-fedora-prov](https://gitea.intranda.com/goobi-workflow/goobi-plugin-export-fedora-prov) |
 | Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 3.0 und neuer |
