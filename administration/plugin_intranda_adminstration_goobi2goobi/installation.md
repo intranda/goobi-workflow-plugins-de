@@ -21,14 +21,14 @@ Zu beachten ist hierbei, dass diese Dateien für den Nutzer `tomcat` lesbar sein
 
 Um dem Nutzer zu ermöglichen, dass dieser einen Export der Daten durchführen kann, muss dieser über die folgenden Rollen verfügen:
 
-```
+```text
 Datenbankdetails exportieren
 Plugin_goobi2goobi_export
 ```
 
 Diese Rollen können innerhalb der Benutzergruppen von Goobi workflow konfiguriert werden. Wählen Sie dazu einfach die Rollen auf der rechten Seite aus oder tragen diese in das Eingabefeld und Klicken anschließend auf das Plus-Icon.
 
-![Hinzufügen der benötigten Export-Rechte zur Benutzergruppe](../../.gitbook/assets/goobi-to-goobi-roles1_de.png)
+![Hinzuf&#xFC;gen der ben&#xF6;tigten Export-Rechte zur Benutzergruppe](../../.gitbook/assets/goobi-to-goobi-roles1_de.png)
 
 Mit dieser Konfiguration ist die Vorbereitung auf Seiten des Ausgangssystem bereits abgeschlossen.
 
@@ -58,19 +58,19 @@ Auch hier ist wieder zu beachten, dass die installierten Dateien alle für den N
 
 Um einem Nutzer die Durchführung des Imports zu ermöglichen, muss dieser über die folgende Rolle verfügen:
 
-```
+```text
 Plugin_goobi2goobi_import
 ```
 
 Diese Rolle kann innerhalb der Benutzergruppen von Goobi workflow konfiguriert werden, indem sie auf der rechten Seite in das Eingabefeld eingetragen und mittels Klick auf das Plus-Icon übernommen wird.
 
-![Hinzufügen der benötigten Import-Rechte zur Benutzergruppe](../../.gitbook/assets/goobi-to-goobi-roles2_de.png)
+![Hinzuf&#xFC;gen der ben&#xF6;tigten Import-Rechte zur Benutzergruppe](../../.gitbook/assets/goobi-to-goobi-roles2_de.png)
 
 ### 2.3. Konfiguration für den Import der Infrastruktur
 
 Um während des Imports der Infrastruktr Einfluss auf die zu importierenden Daten zu nehmen, kann eine Anpassung der Konfigurationsdatei `plugin_intranda_administration_goobi2goobi_import_infrastructure.xml` erfolgen. Diese Konfiguration kann beispielhaft wie folgt aussehen:
 
-```xml
+```markup
 <config_plugin>
     <config>
         <project name="intranda test project">
@@ -127,7 +127,7 @@ In der dieser Konfigurationsdatei sind sämtliche Felder optional. Fehlt ein Fel
 
 Für den Import der Daten auf dem Zielsystem kann in der Konfigurationsdatei `plugin_intranda_administration_goobi2goobi_import_infrastructure.xml` festgelegt werden, wo sich Daten befinden und wie diese während des Imports verarbeitet werden sollen. Diese Konfiguration kann beispielhaft wie folgt aussehen:
 
-```xml
+```markup
 <?xml version="1.0"?>
 <config_plugin>
     <globalConfig>
@@ -197,7 +197,7 @@ Im oberen Bereich der Datei werden einige generelle Einstellungen vorgenommen, d
 #### Allgemeine Einstellungen: globalConfig
 
 | Element | Beispiel | Bedeutung |
-|--- |--- |--- |
+| :--- | :--- | :--- |
 | `dbExportPrefix` | `import/` | Diese Angabe wird benötigt, wenn die zu importierenden Datenbankinformationen nicht als xml-Dateien im jeweiligen Vorgangsordner liegen. Die Angabe enthält den Pfad zu den Datenbankinformationen innerhalb eines s3-Buckets und wird bei Importen in ein lokales Dateisystem nicht benötigt. |
 | `importPath` | `/opt/digiverso/goobi/metadata/` | Zielverzeichnis, in das die Daten importiert werden sollen. |
 | `bucket` | `example-workflow-data` | Name des s3-Buckets, in dem die zu importierenden Daten liegen. Dieser Wert wird bei Importen in ein lokales Dateisystem nicht benötigt. |
@@ -211,25 +211,25 @@ Die einzelnen Regeln für die Importdurchführungen werden innerhalb des `<confi
 Mittels `<step>` lassen sich einzelne Schritte des Vorgangs manipulieren. Alle Felder sind optional. Wenn sie nicht angegeben wurden, wird der originale Wert genutzt. Andernfalls wird das Feld mit dem konfigurierten Feldinhalt überschrieben. Wenn das Feld vom Typ String ist, kann es auch leer angegeben werden, um es zu leeren.
 
 | Element | Beispiel | Bedeutung |
-|--- |--- |--- |
+| :--- | :--- | :--- |
 | `@name` | `Example task` | Enthält den Namen des zu ändernden Schrittes. |
-| `@type` | `delete` |Dieser Wert enthält den Typ der Manipulation. Als Werte sind `delete`, `change`, `insertBefore`, `insertAfter` möglich.|
+| `@type` | `delete` | Dieser Wert enthält den Typ der Manipulation. Als Werte sind `delete`, `change`, `insertBefore`, `insertAfter` möglich. |
 | `newStepName` | `new step name` | Neuer Name des Schrittes. |
 | `priority` | `5` | Neue Priorität des Schrittes. |
 | `order` | `10` | Reihenfolge des Schrittes. |
 | `useHomeDirectory` | `0` | Steuert, ob in das Homeverzeichnis des Nutzers verlinkt werden soll. |
-| `stepStatus` | `0` | Setzt den Schrittstatus. Erlaubte Werte sind `0` (locked), `1` (open), `2` (inwork), `3` (done), `4` (error) und `5` (deactivated). |
+| `stepStatus` | `0` | Setzt den Schrittstatus. Erlaubte Werte sind `0` \(locked\), `1` \(open\), `2` \(inwork\), `3` \(done\), `4` \(error\) und `5` \(deactivated\). |
 | `types` | `automatic="true"` | Enthält in Attributen die verschiedenen Einstellungen eines Schrittes. |
 | `scriptStep` | `scriptStep="true" scriptName1="script 1" scriptPath1="/bin/true"` | Definiert Skripte für die Arbeitsschritte. |
 | `httpStep` | `httpStep="true" httpMethod="POST" httpUrl="http://itm.example.com/itm/service"` | Definiert die Konfiguration des HTTP Aufrufs für den Schritt. |
-| `usergroup` | `Administration` | Name der zugewiesenen Benutzergruppe. Dieser Wert ist wiederholbar, um mehrere Nutzergruppen zu definieren.|
+| `usergroup` | `Administration` | Name der zugewiesenen Benutzergruppe. Dieser Wert ist wiederholbar, um mehrere Nutzergruppen zu definieren. |
 
 ### Laufzettel: docket
 
 In diesem Element kann der zugewiesene Laufzettel ersetzt werden. Die zu nutzende xsl-Datei muss auf dem Server existieren. Wenn bereits ein Docket mit den neuen Angaben definiert wurde, wird dieses verwendet, andernfalls wird ein neues Docket definiert und in der Datenbank gespeichert.
 
 | Element | Beispiel | Bedeutung |
-|--- |--- |--- |
+| :--- | :--- | :--- |
 | `@name` | `Default docket` | Name des bisher verwendeten Laufzettels. Die Änderung findet nur statt, wenn der Vorgang bisher einen Laufzettel mit diesem Namen verwendet hat. |
 | `newDocketName` | `docket` | Neuer Name des Laufzettels. |
 | `newFileName` | `docket.xsl` | Neuer Dateiname für den Laufzettel. |
@@ -239,27 +239,27 @@ In diesem Element kann der zugewiesene Laufzettel ersetzt werden. Die zu nutzend
 Mit dieser Regel kann das zugewiesene Projekt geändert werden. Das Projekt muss bereits existieren. Änderungen an den Projekten selbst können über `Infrastruktur importieren` vorgenommen werden.
 
 | Element | Beispiel | Bedeutung |
-|--- |--- |--- |
+| :--- | :--- | :--- |
 | `@name` | `Project A` | Altes Projekt |
-| `newProjectName` | `Project B` | Neues Projekt|
+| `newProjectName` | `Project B` | Neues Projekt |
 
 ### Eigenschaften: property
 
 Diese Regel dient zur Manipulation von Vorgangseigenschaften.
 
 | Element | Beispiel | Bedeutung |
-|--- |--- |--- |
+| :--- | :--- | :--- |
 | `@name` | `CollectionName` | Name der anzupassenden Eigenschaft. |
 | `oldPropertyValue` | `Digitised` | Wert der anzupassenden Eigenschaft. Wenn ein Wert angegeben wird, muss die Eigenschaft diesen Wert enthalten. |
 | `newPropertyName` | `Collection` | Neuer Name der Eigenschaft. Optional. |
-| `newPropertyValue` | `default collection` | Neuer Wert der Eigenschaft. Optional.|
+| `newPropertyValue` | `default collection` | Neuer Wert der Eigenschaft. Optional. |
 
 ### Regelsatz: ruleset
 
 Mit dieser Regel kann der zugewiesene Regelsatz geändert werden. Falls der Regelsatz noch nicht existiert, wird er neu angelegt und in der Datenbank gespeichert. Die Datei muss auf dem Server existieren.
 
 | Element | Beispiel | Bedeutung |
-|--- |--- |--- |
+| :--- | :--- | :--- |
 | `@name` | `Default` | Name des bisher verwendeten Regelsatzes. |
 | `newRulesetName` | `default ruleset` | Neuer Name für den Regelsatz. |
 | `newFileName` | `ruleset.xml` | Neuer Dateiname für den Regelsatz. Dieser muss auf dem Zielsystem existieren. |
@@ -269,9 +269,10 @@ Mit dieser Regel kann der zugewiesene Regelsatz geändert werden. Falls der Rege
 Mit dieser Regel können die Metadaten verändert werden. Dabei können Werte von vorhandenen Metadaten geändert, neue hinzugefügt oder existierende Metadaten gelöscht werden.
 
 | Element | Beispiel | Bedeutung |
-|--- |--- |--- |
+| :--- | :--- | :--- |
 | `@name` | `CatalogIDDigital` | Interner Name des Metadatums. |
 | `@type` | `change` | Art der Änderung. Erlaubte Werte sind `add`, `change` und `delete`. |
 | `position` | `top` | Beschreibt die Stelle, an der die Änderung durchgeführt werden soll. Erlaubte Werte sind `all`, `anchor`, `top` und `physical`. |
 | `valueConditionRegex` | `/PPN\d+\w?(?:_\d+)?/` | Dieser reguläre Ausdruck prüft, ob der bisherige Feldinhalt einem definierten Wert entspricht. Bei dieser Angabe kann es sich um einen festen Wert oder einen regulären Ausdruck handeln. |
 | `valueReplacementRegex` | `s/^PPN(.+)$/$1/g` | Wurde als `@type` der Wert `change` verwendet, enthält dieser Parameter einen regulären Ausdruck für die Manipulation des bisherigen Metadatums. Wurde als `@type` hingegen `add` gewählt, wird der Feldinhalt als Wert des Metadatums verwendet. |
+
