@@ -13,7 +13,7 @@ Mit den beiden hier beschriebenen Plugins ist ein Datentransfer von einem Goobi 
 | Details |  |
 | :--- | :--- |
 | Version | 1.0.0 |
-| Identifier | intranda\_administration\_goobi2goobi\_export   intranda\_administration\_goobi2goobi\_import\_infrastructure   intranda\_administration\_goobi2goobi\_import\_data |
+| Identifier | intranda\_administration\_goobi2goobi\_export  intranda\_administration\_goobi2goobi\_import\_infrastructure  intranda\_administration\_goobi2goobi\_import\_data |
 | Source code | [https://github.com/intranda/goobi-plugin-administration-dataexport](https://github.com/intranda/goobi-plugin-administration-dataexport)  [https://github.com/intranda/goobi-plugin-administration-dataimport](https://github.com/intranda/goobi-plugin-administration-dataimport) |
 | Licence | GPL 2.0 oder neuer |
 | Kompatibilität | 2020.06 |
