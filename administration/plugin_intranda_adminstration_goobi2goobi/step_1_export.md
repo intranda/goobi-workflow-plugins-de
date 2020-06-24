@@ -56,17 +56,17 @@ Sollen neben den eigentlichen Goobi-Vorgängen auch weitergehende Informationen 
 
 Option                         | Bedeutung
 -------------------------------|------------------
-LDAP Gruppen                   | Exportiert die vorhandenen LDAP Gruppen
-Benutzer                       | Export der aktiven Nutzer
-Deaktivierte Nutzer berücksichtigen | Zusätzlich zu den aktiven Nutzern ebenso die deaktivierten Nutzer mit exportieren
-Erzeuge neue Passwörter       | Festlegung, ob die bestehenden Passwörter der Nutzer mit exportiert werden sollen. In dem Fall, dass die Checkbox gesetzt ist, müssen auf dem Zielsystem nach dem Import für die importierten Nutzer neue Passwörter gesetzt werden.
-Benutzergruppen                | Export der Nutzergruppen, Berechtigungen und zusätzlichen Rollen
-Zuweisung zu Benutzergruppen | Export aller dem Nutzer zugewiesenen Gruppen
-Projekte                       | Export der Projekte
-Zuweisung zu Projekten         | Export aller dem Nutzer zugewiesenen Projekte
-Regelsätze                     | Export der Regelsatzinformationen
-Laufzettel                     | Export der Laufzettelinformationen
-Inklusive der Dateien              | Festlegung ob die exportierte zip-Datei die Regelsätze und Laufzettel beinhalten soll
+`LDAP Gruppen`                   | Exportiert die vorhandenen LDAP Gruppen
+`Benutzer`                  | Export der aktiven Nutzer
+`Deaktivierte Nutzer berücksichtigen` | Zusätzlich zu den aktiven Nutzern ebenso die deaktivierten Nutzer mit exportieren
+`Erzeuge neue Passwörter`       | Festlegung, ob die bestehenden Passwörter der Nutzer mit exportiert werden sollen. In dem Fall, dass die Checkbox gesetzt ist, müssen auf dem Zielsystem nach dem Import für die importierten Nutzer neue Passwörter gesetzt werden.
+`Benutzergruppen`                | Export der Nutzergruppen, Berechtigungen und zusätzlichen Rollen
+`Zuweisung zu Benutzergruppen` | Export aller dem Nutzer zugewiesenen Gruppen
+`Projekte`                       | Export der Projekte
+`Zuweisung zu Projekten`         | Export aller dem Nutzer zugewiesenen Projekte
+`Regelsätze`                     | Export der Regelsatzinformationen
+`Laufzettel`                     | Export der Laufzettelinformationen
+`Inklusive der Dateien`              | Festlegung ob die exportierte zip-Datei die Regelsätze und Laufzettel beinhalten soll
 
 Nach der Auswahl der gewünschten Informationen und dem Klick auf den Button `Download der Infrastruktur als zip-Datei` erzeugt Goobi eine zip-Datei und bietet diese mit dem Namen `goobi-to-goobi-export.zip` zum Download an. Diese zip-Datei enthält nun sämtliche ausgewählten Informationen aus der Goobi-Datenbank für den Transfer zu dem Zielsystem.
 
