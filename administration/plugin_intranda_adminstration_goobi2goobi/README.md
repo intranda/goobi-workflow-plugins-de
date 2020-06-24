@@ -1,6 +1,6 @@
 ---
 description: >-
-  Administration Plugins für eine Migration von einem Goobi worklow System zu
+  Administration Plugins für eine Migration von einem Goobi workflow System zu
   einem anderen Goobi workflow System
 ---
 
@@ -15,7 +15,7 @@ Mit den beiden hier beschriebenen Plugins ist ein Datentransfer von einem Goobi 
 | Version | 1.0.0 |
 | Identifier | intranda\_administration\_goobi2goobi\_export  intranda\_administration\_goobi2goobi\_import\_infrastructure  intranda\_administration\_goobi2goobi\_import\_data |
 | Source code | [https://github.com/intranda/goobi-plugin-administration-goobi2goobi-export](https://github.com/intranda/goobi-plugin-administration-goobi2goobi-export)  [https://github.com/intranda/goobi-plugin-administration-goobi2goobi-import](https://github.com/intranda/goobi-plugin-administration-goobi2goobi-import) |
-| Licence | GPL 2.0 oder neuer |
+| Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | 2020.06 |
 | Dokumentationsdatum | 24.06.2020 |
 
