@@ -10,11 +10,11 @@ Nach der erfolgreichen Installation, kann mit dem eigentlichen Import fortgefahr
 
 Im Bereich für den Import der Infrastruktur kann die zuvor exportierte Infrastruktur des Ausgangssystems eingespielt werden. Öffnen Sie hierfür zunächst das Plugin `Goobi-to-Goobi Import - Infrastruktur` im Menü `Administration`.
 
-![Nutzeroberfläche für das Hochladen einer Infrastruktur auf dem Zielsystem](images/goobi-to-goobi-import3_de.png)
+![Nutzeroberfläche für das Hochladen einer Infrastruktur auf dem Zielsystem](../../.gitbook/assets/goobi-to-goobi-import3_de.png)
 
 An dieser Stelle läßt sich nun eine zip-Datei hochladen, die zuvor auf dem Ausgangssystem erzeugt wurde. Nach dem erfolgreichen Upload wird die Datei auf dem Server entpackt und analysiert. Der Nutzer erhält anschließend eine Zusammenfassung über die zu importierenden Daten.
 
-![Anzeige der analysierten Daten aus der zu importierenden Infrastruktur](images/goobi-to-goobi-import4_de.png)
+![Anzeige der analysierten Daten aus der zu importierenden Infrastruktur](../../.gitbook/assets/goobi-to-goobi-import4_de.png)
 
 Wenn bereits Nutzer, Projekte, Gruppen etc. im Zielsystem existieren, die den gleichen Namen wie die zu importierenden Daten besitzen, zählen sie nicht zu den neu zu importierenden Daten und können nicht überschrieben werden. Nach der Auswahl der importierenden Daten kann der Import mit einem Klick auf `Import der Infrastruktur durchführen` gestartet werden.
 
@@ -30,11 +30,11 @@ Um die Vorgänge von dem Ausgangssystem importieren zu können, müssen diese zu
 
 Nach dem vollständigen Transfer der Daten zum Zielsystem können Sie den Import der Daten starten. Dazu öffnen Sie im Menü `Administration` das Plugin `Goobi-to-Goobi Import - Daten`. Dort werden im oberen Bereich der Nutzeroberfläche die konfigurierten Regeln für den Import angezeigt. Werden diese Regeln auf dem Zielsystem bearbeitet, so können Sie jederzeit durch einen Klick auf den Button `Regeln neu einlesen` neu geladen werden.
 
-![Nutzeroberfläche für die Auswahl der zu exportierenden Daten](images/goobi-to-goobi-import1_de.png)
+![Nutzeroberfläche für die Auswahl der zu exportierenden Daten](../../.gitbook/assets/goobi-to-goobi-import1_de.png)
 
 Im unteren Bereich der Nutzeroberfläche findet der eigentliche Import statt. Dort kann der Nutzer als erstes durch einen Klick auf `Dateien neu einlesen` nach den zu importierenden Daten suchen. Wenn diese Suche aufgrund der großen Datenmenge länger als 10 Sekunden dauert, findet die weitere Suche im Hintergrund statt und der Nutzer bekommt die Rückmeldung, dass er die Seite bitte nach einiger Zeit noch einmal aktualisieren soll.
 
-![Nutzeroberfläche für die Auswahl der zu exportierenden Daten](images/goobi-to-goobi-import2_de.png)
+![Nutzeroberfläche für die Auswahl der zu exportierenden Daten](../../.gitbook/assets/goobi-to-goobi-import2_de.png)
 
 Wenn nach der Suche der zu importierenden Daten erfolgreich Dateien aufgelistet werden, können diese nun ausgewählt werden. Dazu können sie entweder einzeln markiert werden, oder man lässt Goobi durch einen Klick auf `Select all` alle auswählen. Dazu muss die Regel ausgewählt werden, die für den Import angewendet werden soll. Diese lässt sich entweder direkt auswählen oder kann mittels `Autodetect rule` ermittelt werden. In diesem Fall wird geprüft, ob es eine Regel gibt, die dem Namen des Projektes entspricht, dem der Vorgang zugeordnet wurde.
 
