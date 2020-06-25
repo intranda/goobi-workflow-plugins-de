@@ -50,6 +50,7 @@
 * [Qualitätskontrolle von Bildern](step/intranda_step_imageqa.md)
 * [Generierung von Platzhalterbildern](step/intranda_step_placeholder-creation.md)
 * [Ersetzen von Bildern](step/intranda_step_replace-images.md)
+* [Upload von Dateien](step/intranda_step_fileUpload.md)
 
 ## Opac Plugins <a id="opac"></a>
 
@@ -79,4 +80,3 @@
 ## Sonstiges <a id="other"></a>
 
 * [Counterscript Application](other/counterscript-application.md)
-
