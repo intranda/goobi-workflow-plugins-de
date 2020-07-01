@@ -188,6 +188,8 @@ Für den Import der Daten auf dem Zielsystem kann in der Konfigurationsdatei `pl
             <valueReplacementRegex>example text</valueReplacementRegex>
             <position>top</position>
         </metadata>
+        <skipProcesslog>true</skipProcesslog>
+        <skipUserImport>true</skipUserImport>
     </config>
 </config_plugin>
 ```
@@ -256,7 +258,7 @@ Diese Regel dient zur Manipulation von Vorgangseigenschaften.
 
 ### Regelsatz: ruleset
 
-Mit dieser Regel kann der zugewiesene Regelsatz geändert werden. Falls der Regelsatz noch nicht existiert, wird er neu angelegt und in der Datenbank gespeichert. Die Datei muss auf dem Server existieren.
+Mit dieser Regel kann der zugewiesene Regelsatz geändert werden. Falls der Regelsatz noch nicht existiert, wird er neu angelegt und in der Datenbank gespeichert. Die xml-Datei des Regelsatzes selbst muss auf dem Server existieren.
 
 | Element | Beispiel | Bedeutung |
 | :--- | :--- | :--- |
@@ -276,3 +278,11 @@ Mit dieser Regel können die Metadaten verändert werden. Dabei können Werte vo
 | `valueConditionRegex` | `/PPN\d+\w?(?:_\d+)?/` | Dieser reguläre Ausdruck prüft, ob der bisherige Feldinhalt einem definierten Wert entspricht. Bei dieser Angabe kann es sich um einen festen Wert oder einen regulären Ausdruck handeln. |
 | `valueReplacementRegex` | `s/^PPN(.+)$/$1/g` | Wurde als `@type` der Wert `change` verwendet, enthält dieser Parameter einen regulären Ausdruck für die Manipulation des bisherigen Metadatums. Wurde als `@type` hingegen `add` gewählt, wird der Feldinhalt als Wert des Metadatums verwendet. |
 
+### Weitere Konfigurationen
+
+Innerhalb einer Regel können weitere allgemeine Einstellungen festgelegt werden.
+
+| Element | Beispiel | Bedeutung |
+| :--- | :--- | :--- |
+| `skipProcesslog` | `true` | Festlegung, ob das Vorgangslog des Ausgangssystem übernommen werden soll (`false`) oder ob es ignoriert werden soll (`true`). |
+| `skipUserImport` | `true` | Festlegung, ob die Benutzer von importierten Aufgaben eines Workflows innerhalb von Goobi als gelöschte Nutzer angelegt werden sollen (`false`) oder ob die Informationen über die Ausführung durch konkrete Personen ignoriert werden und so anonymisiert werden sollen. (`true`). |
