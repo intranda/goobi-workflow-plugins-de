@@ -8,7 +8,7 @@ description: >-
 
 ## Einführung
 
-Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den Einsatz eines Plugins zum Upload von Dokumenten in Goobi. Mit diesem Plugin kann auf Einzelseiten-Basis festgelegt werden, welche Bilder aus einem Vorgang mit welchem Schrifttyp zur OCR gesendet werden.
+Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den Einsatz eines Plugins zur Seitenauswahl für eine nachgelagerte OCR Durchführung. Mit diesem Plugin kann auf Einzelseiten-Basis festgelegt werden, welche Bilder aus einem Vorgang mit welchem Schrifttyp zur OCR gesendet werden.
 
 | Details |  |
 | :--- | :--- |

@@ -1,6 +1,7 @@
 ---
 description: >-
-  Dieses Step Plugin erlaubt den Upload verschiedener Dateien innerhalb von Aufgaben in der Weboberfläche.
+  Dieses Step Plugin erlaubt den Upload verschiedener Dateien innerhalb von
+  Aufgaben in der Weboberfläche.
 ---
 
 # Upload von Dateien
@@ -42,23 +43,23 @@ Die Konfiguration des Plugins ist folgendermaßen aufgebaut:
 ```markup
 <config_plugin>
 
-	<config>
-		<!-- which projects to use for (can be more than one, otherwise use *) -->
-		<project>*</project>
-		<step>*</step>
-		<!-- which file types to allow -->
-		<regex>/(\\.|\\/)(gif|jpe?g|png|tiff?|jp2|pdf)$/</regex>
-		<!-- which folder to use (master or media) -->
-		<folder>master</folder>
-	</config>
+    <config>
+        <!-- which projects to use for (can be more than one, otherwise use *) -->
+        <project>*</project>
+        <step>*</step>
+        <!-- which file types to allow -->
+        <regex>/(\\.|\\/)(gif|jpe?g|png|tiff?|jp2|pdf)$/</regex>
+        <!-- which folder to use (master or media) -->
+        <folder>master</folder>
+    </config>
 
-	<config>
-		<project>My special project</project>
-		<project>Archive_Project</project>
-		<step>Upload derivatives</step>
-		<regex>/(\\.|\\/)(gif|jpe?g|png|tiff?|jp2|pdf)$/</regex>
-		<folder>media</folder>
-	</config>
+    <config>
+        <project>My special project</project>
+        <project>Archive_Project</project>
+        <step>Upload derivatives</step>
+        <regex>/(\\.|\\/)(gif|jpe?g|png|tiff?|jp2|pdf)$/</regex>
+        <folder>media</folder>
+    </config>
 
 </config_plugin>
 ```
@@ -88,4 +89,5 @@ Dateien können entweder per Drag & Drop in diesen Bereich hochgeladen werden od
 
 Soll nach dem erfolgten Upload geprüft werden, welche Dateien in dem Ordner bereits vorhanden sind, so kann im rechten obereren Bereich die Anzeige umgeschaltet werden. Damit ist es dem Nutzer möglich, alle bereits vorhandenen Dateien in dem Ordner aufzulisten, einzelne Dateien herunterzuladen oder diese zu löschen.
 
-![Anzeige der Übersicht über alle bereits vorhandenen Dateeien des Ordners](../.gitbook/assets/intranda_step_fileUpload3_de.png)
+![Anzeige der &#xDC;bersicht &#xFC;ber alle bereits vorhandenen Dateeien des Ordners](../.gitbook/assets/intranda_step_fileUpload3_de.png)
+

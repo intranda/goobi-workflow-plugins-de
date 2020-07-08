@@ -284,5 +284,6 @@ Innerhalb einer Regel können weitere allgemeine Einstellungen festgelegt werden
 
 | Element | Beispiel | Bedeutung |
 | :--- | :--- | :--- |
-| `skipProcesslog` | `true` | Festlegung, ob das Vorgangslog des Ausgangssystem übernommen werden soll (`false`) oder ob es ignoriert werden soll (`true`). |
-| `skipUserImport` | `true` | Festlegung, ob die Benutzer von importierten Aufgaben eines Workflows innerhalb von Goobi als gelöschte Nutzer angelegt werden sollen (`false`) oder ob die Informationen über die Ausführung durch konkrete Personen ignoriert werden und so anonymisiert werden sollen. (`true`). |
+| `skipProcesslog` | `true` | Festlegung, ob das Vorgangslog des Ausgangssystem übernommen werden soll \(`false`\) oder ob es ignoriert werden soll \(`true`\). |
+| `skipUserImport` | `true` | Festlegung, ob die Benutzer von importierten Aufgaben eines Workflows innerhalb von Goobi als gelöschte Nutzer angelegt werden sollen \(`false`\) oder ob die Informationen über die Ausführung durch konkrete Personen ignoriert werden und so anonymisiert werden sollen. \(`true`\). |
+
