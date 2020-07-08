@@ -46,15 +46,15 @@ Die Konfiguration des Plugins ist folgendermaßen aufgebaut:
           2.) step name matches and project is *
           3.) project name matches and step name is *
           4.) project name and step name are *
-    -->
+-->
     <config>
         <!-- define plugin type in which screen the plugin is displayed, allowed values are 'part', 'full' (default) or 'both' -->
-        <guiType>full</guiType>
+        <guiType>full</guiType> 
         <!-- which projects to use for (can be more then one, otherwise use *) -->
         <project>*</project>
         <step>*</step>
-        <!-- which images to use -->
-        <useOrigFolder>true</useOrigFolder>
+        <!-- which images to use , possible values are master|main|jpeg|source|... -->
+        <foldername>master</foldername>
         <!-- how to display the thumbnails -->
         <numberOfImagesPerPage>12</numberOfImagesPerPage>
         <thumbnailsize>200</thumbnailsize>
@@ -63,12 +63,6 @@ Die Konfiguration des Plugins ist folgendermaßen aufgebaut:
         <!-- which image sizes to use for the big image -->
         <thumbnailFormat>jpg</thumbnailFormat>
         <mainImageFormat>jpg</mainImageFormat>
-        <!-- use new (faster) fullscreen mode - doesn't support 3D objects yet -->
-        <useJSFullscreen>false</useJSFullscreen>
-        <!-- no shortcut prefix for JS fullscreen. Allows navigating with arrow keys only -->
-        <noShortcutPrefix>false</noShortcutPrefix>
-        <!-- Don't show a big image - thumbnails only -->
-        <thumbnailsOnly>false</thumbnailsOnly>
         <!-- use the high speed JavaScript fullscreen view -->
         <useJSFullscreen>false</useJSFullscreen>
 
@@ -80,6 +74,8 @@ Die Konfiguration des Plugins ist folgendermaßen aufgebaut:
         <scaleFactors>32</scaleFactors>
         <useTiles>false</useTiles>
         <useTilesFullscreen>true</useTilesFullscreen>
+        <noShortcutPrefix>false</noShortcutPrefix>
+        <thumbnailsOnly>false</thumbnailsOnly>
 
         <!-- allow deletion of images -->
         <allowDeletion>false</allowDeletion>
@@ -102,6 +98,64 @@ Die Konfiguration des Plugins ist folgendermaßen aufgebaut:
         <!-- configure button to display ocr -->
         <displayocr>true</displayocr>
     </config>
+
+    <config>
+        <!-- which projects to use for (can be more then one, otherwise use *) -->
+        <project>My special project</project>
+        <project>Archive_Project</project>
+        <step>MasterQA</step>
+        <step>DerivateQA</step>
+        <!-- which images to use -->
+        <foldername>master</foldername>
+        <foldername>main</foldername>
+        <!-- how to display the thumbnails -->
+        <numberOfImagesPerPage>12</numberOfImagesPerPage>
+        <thumbnailsize>200</thumbnailsize>
+        <!-- which image sizes to use for the big image -->
+        <imagesize>800</imagesize>
+        <imagesize>3000</imagesize>
+        <!-- allow deletion of images -->
+        <allowDeletion>false</allowDeletion>
+        <deletionCommand>/opt/digiverso/goobi/scripts/deleteImage.sh IMAGE_FOLDER IMAGE_FILE</deletionCommand>
+        <!-- allow rotation of images -->
+        <allowRotation>false</allowRotation>
+        <rotationCommands>
+            <left>/usr/local/bin/mogrify -rotate -90 IMAGE_FILE</left>
+            <right>/usr/local/bin/mogrify -rotate 90 IMAGE_FILE</right>
+        </rotationCommands>
+        <!-- allow renaming of images -->
+        <allowRenaming>false</allowRenaming>
+        <!-- allow selection of images -->
+        <allowSelection>false</allowSelection>
+        <allowDownload>false</allowDownload>
+        <allowDownloadAsPdf>false</allowDownloadAsPdf>
+        <!-- allow the user to finish the task directly out of the plugin -->
+        <allowTaskFinishButtons>false</allowTaskFinishButtons>
+        <displayocr>true</displayocr>
+    </config>
+
+    <config>
+        <project>*</project>
+        <step>ImageQA</step>
+        <foldername>master</foldername>
+        <!-- how to display the thumbnails -->
+        <numberOfImagesPerPage>12</numberOfImagesPerPage>
+        <thumbnailsize>200</thumbnailsize>
+        <!-- which image sizes to use for the big image -->
+        <imagesize>800</imagesize>
+        <imagesize>3000</imagesize>
+
+        <!-- allow renaming of images -->
+        <allowRenaming>false</allowRenaming>
+        <renamingPattern>
+            <field defaultValue="${process:Archive}"></field>
+            <field defaultValue="${process:Object}"></field>
+            <field defaultValue="1" number="true" format="0000"></field>
+        </renamingPattern>
+        <displayocr>true</displayocr>
+
+    </config>
+
 </config_plugin>
 ```
 
