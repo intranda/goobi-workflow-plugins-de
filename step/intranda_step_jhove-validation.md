@@ -16,8 +16,8 @@ Diese Plugin dient zur Validierung von Bildern im Format `TIF` innerhalb von def
 | Identifier | intranda\_step\_jhove-validation |
 | Source code | [https://github.com/intranda/goobi-plugin-step-tif-validation](https://github.com/intranda/goobi-plugin-step-tif-validation) |
 | Lizenz | GPL 2.0 oder neuer |
-| Kompatibilität | Goobi workflow 2020.02 |
-| Dokumentationsdatum | 04.03.2020 |
+| Kompatibilität | Goobi workflow 2020.07 |
+| Dokumentationsdatum | 12.06.2020 |
 
 ## Installation
 
@@ -55,8 +55,8 @@ Die Konfiguration für das Plugin erfolgt innerhalb der zentralen Konfigurations
     <config>
         <project>*</project>
         <step>*</step>
-        <validateMasterFolder>true</validateMasterFolder>
-        <validateMediaFolder>false</validateMediaFolder>
+        <!-- folders to validate, can be multiple one (e.g. master, main etc. -->
+        <folder>master</folder>
         <openStepOnError>Scanning</openStepOnError>
         <lockAllStepsBetween>true</lockAllStepsBetween>
         <jhoveConfiguration>/opt/digiverso/goobi/config/jhove/jhove.conf</jhoveConfiguration>
@@ -95,8 +95,7 @@ Die Parameter innerhalb der zentralen Konfigurationsdatei des Plugins haben folg
 | :--- | :--- |
 | `project` | Dieser Parameter legt fest, für welches Projekt der aktuelle Block `<config>` gelten soll. Verwendet wird hierbei der Name des Projektes. Dieser Parameter kann mehrfach pro `<config>` Block vorkommen. |
 | `step` | Dieser Parameter steuert, für welche Arbeitsschritte der Block `<config>` gelten soll. Verwendet wird hier der Name des Arbeitsschritts. Dieser Parameter kann mehrfach pro `<config>` Block vorkommen. |
-| `validateMasterFolder` | Mit diesem Parameter wird festgelegt, ob die Validierung der Bilder innerhalb des Master-Verzeichnisses erfolgen soll. |
-| `validateMediaFolder` | Mit diesem Parameter wird festgelegt, ob die Validierung der Bilder innerhalb des Media-Verzeichnisses erfolgen soll. |
+| `folder` | Mit diesem Parameter können Verzeichnisse festgelegt werden, deren Inhalte validiert werden sollen. Dieser Parameter kann wiederholt vorkommen. Mögliche Werte hierfür sind z.B. `master`, `media` oder auch individuelle Ordner wie `photos` und `scans`. |
 | `openStepOnError` | Dieser Parameter legt fest, welcher Arbeitsschritt des Workflows erneut geöffnet werden soll, wenn ein Fehler innerhalb der Validierung auftritt. Wird dieser Parameter nicht verwendet, so aktiviert das Plugin stattdessen einfach den vorherigen Arbeitsschritt des Validierungsschritts. |
 | `lockAllStepsBetween` | Mit diesem Parameter wird festgelegt, ob die Arbeitsschritte des Workflows zwischen dem Validierungsschritt und demjenigen, der innerhalb des Parameters `openStepOnError` angegeben wurde, wieder auf auf den Status gesperrt gesetzt werden sollen, so dass diese Arbeitsschritte ein erneutes Mal durchlaufen \(`true`\) werden müssen. Wird der Wert hingegen auf `false` gesetzt, so wird der Status der dazwischen liegenden Schritte nicht verändert, so dass die Arbeitsschritte auch nicht noch einmal durchlaufen werden. |
 | `jhoveConfiguration` | Mit diesem Parameter wird angegeben, wo sich die Konfigurationsdatei für JHove befindet. |
