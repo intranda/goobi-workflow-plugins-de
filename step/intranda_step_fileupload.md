@@ -48,7 +48,7 @@ Die Konfiguration des Plugins ist folgendermaßen aufgebaut:
         <project>*</project>
         <step>*</step>
         <!-- which file types to allow -->
-        <regex>/(\\.|\\/)(gif|jpe?g|png|tiff?|jp2|pdf)$/</regex>
+        <regex>/(\.|\/)(gif|jpe?g|png|tiff?|jp2|pdf)$/</regex>
         <!-- which folder to use (master or media) -->
         <folder>master</folder>
     </config>
@@ -57,7 +57,7 @@ Die Konfiguration des Plugins ist folgendermaßen aufgebaut:
         <project>My special project</project>
         <project>Archive_Project</project>
         <step>Upload derivatives</step>
-        <regex>/(\\.|\\/)(gif|jpe?g|png|tiff?|jp2|pdf)$/</regex>
+        <regex>/(\.|\/)(gif|jpe?g|png|tiff?|jp2|pdf)$/</regex>
         <folder>media</folder>
     </config>
 
