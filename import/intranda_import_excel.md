@@ -13,7 +13,7 @@ Die vorliegende Dokumentation beschreibt die Installation, die Konfiguration und
 | Details |  |
 | :--- | :--- |
 | Version | 1.0.0 |
-| Identifier | intranda\_import\_excel\_read\_headerdata |
+| Identifier | intranda\_import\_excel |
 | Source code | [https://github.com/intranda/goobi-plugin-import-excel](https://github.com/intranda/goobi-plugin-import-excel) |
 | Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 3.0 und neuer |
@@ -24,13 +24,13 @@ Die vorliegende Dokumentation beschreibt die Installation, die Konfiguration und
 Das Plugin muss in den folgenden Ordner installiert werden:
 
 ```text
-/opt/digiverso/goobi/plugins/import/plugin_intranda_import_generic_excel.jar
+/opt/digiverso/goobi/plugins/import/plugin_intranda_import_excel.jar
 ```
 
 Daneben gibt es eine Konfigurationsdatei, die an folgender Stelle liegen muss:
 
 ```text
-/opt/digiverso/goobi/config/plugin_intranda_import_excel_read_headerdata.xml
+/opt/digiverso/goobi/config/plugin_intranda_import_excel.xml
 ```
 
 ## Konfiguration

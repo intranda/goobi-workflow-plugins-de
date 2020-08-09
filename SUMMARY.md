@@ -64,7 +64,7 @@
 ## Import Plugins <a id="import"></a>
 
 * [Import für Zeitschriftenartikel aus einem Endnote Export](import/intranda_import_endnote.md)
-* [Import von Datensätzen aus einer Excel-Datei](import/intranda_import_excel_read_headerdata.md)
+* [Import von Datensätzen aus einer Excel-Datei](import/intranda_import_excel.md)
 
 ## Export Plugins <a id="export"></a>
 
