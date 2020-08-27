@@ -53,56 +53,64 @@ Es folgt eine kommentierte Beispielkonfiguration:
         <!-- which projects to use for (can be more than one, otherwise use *) -->
         <project>Register</project>
         <step>Check</step>
-        <!-- name of the property to check -->
-        <propertyName>TemplateID</propertyName>
-        <!-- expected value -->
-        <propertyValue>183</propertyValue>
-        <!-- list of steps to open, if property value matches -->
-        <steps type="open">
-            <title>Box preparation</title>
-        </steps>
-        <!-- list of steps to deactivate -->
-        <steps type="deactivate">
-            <title>Image QA</title>
-        </steps>
-        <!-- list of steps to close -->
-        <steps type="close">
-            <title>Automatic LayoutWizzard Cropping</title>
-            <title>LayoutWizzard: Manual confirmation</title>
-        </steps>
-        <!-- list of steps to lock -->
-        <steps type="lock">
-            <title>Automatic export to Islandora</title>
-        </steps>
+        
+        <!-- multiple changes can be done within one configuration rule; simply add another 'change' element with other properties here -->
+        <change>
+            <!-- name of the property to check -->
+            <propertyName>TemplateID</propertyName>
+            <!-- expected value -->
+            <propertyValue>183</propertyValue>
+            <!-- list of steps to open, if property value matches -->
+            <steps type="open">
+                <title>Box preparation</title>
+            </steps>
+            <!-- list of steps to deactivate -->
+            <steps type="deactivate">
+                <title>Image QA</title>
+            </steps>
+            <!-- list of steps to close -->
+            <steps type="close">
+                <title>Automatic LayoutWizzard Cropping</title>
+                <title>LayoutWizzard: Manual confirmation</title>
+            </steps>
+            <!-- list of steps to lock -->
+            <steps type="lock">
+                <title>Automatic export to Islandora</title>
+            </steps>
+        </change>    
     </config>
 
     <config>
         <!-- which projects to use for (can be more than one, otherwise use *) -->
         <project>*</project>
         <step>*</step>
-        <!-- name of the property to check -->
-        <propertyName>upload to digitool</propertyName>
-        <!-- expected value -->
-        <propertyValue>No</propertyValue>
-        <!-- list of steps to open, if property value matches -->
-        <steps type="open">
-            <title>Create derivates</title>
-            <title>Jpeg 2000 generation and validation</title>
-        </steps>
-        <!-- list of steps to deactivate -->
-        <steps type="deactivate">
-            <title>Rename files</title>
-        </steps>
-        <!-- list of steps to close -->
-        <steps type="close">
-            <title>Upload raw tiffs to uploaddirectory Socrates</title>
-            <title>Automatic pagination</title>
-        </steps>
-        <!-- list of steps to lock -->
-        <steps type="lock">
-            <title>Create METS file</title>
-            <title>Ingest into DigiTool</title>
-        </steps>
+        
+        <!-- multiple changes can be done within one configuration rule; simply add another 'change' element with other properties here -->
+        <change>
+            <!-- name of the property to check -->
+            <propertyName>upload to digitool</propertyName>
+            <!-- expected value -->
+            <propertyValue>No</propertyValue>
+            <!-- list of steps to open, if property value matches -->
+            <steps type="open">
+                <title>Create derivates</title>
+                <title>Jpeg 2000 generation and validation</title>
+            </steps>
+            <!-- list of steps to deactivate -->
+            <steps type="deactivate">
+                <title>Rename files</title>
+            </steps>
+            <!-- list of steps to close -->
+            <steps type="close">
+                <title>Upload raw tiffs to uploaddirectory Socrates</title>
+                <title>Automatic pagination</title>
+            </steps>
+            <!-- list of steps to lock -->
+            <steps type="lock">
+                <title>Create METS file</title>
+                <title>Ingest into DigiTool</title>
+            </steps>
+        </change> 
     </config>
 
 </config_plugin>
@@ -118,7 +126,7 @@ Jeder `<config>`-Block ist hier für ein bestimmtes Projekt und einen bestimmten
 </config>
 ```
 
-In jedem `<config>`-Element wird dann konfiguriert, welche Prozesseigenschaft überprüft wird \(`<propertyName>`\) und welcher Wert erwartet wird \(`<propertyValue>`\). Alle folgenden `<step>`-Elemente beschreiben dann eine Aktion, die ausgeführt wird, wenn die vorher konfigurierte Eigenschaft dem erwarteten Wert entspricht. Schritte können geöffnet `type="open"`, deaktiviert `type="deactivate"`, geschlossen `type="close"` und gesperrt `type="lock"` werden.
+In jedem `<change>`-Element wird dann konfiguriert, welche Prozesseigenschaft überprüft wird \(`<propertyName>`\) und welcher Wert erwartet wird \(`<propertyValue>`\). Alle folgenden `<step>`-Elemente beschreiben dann eine Aktion, die ausgeführt wird, wenn die vorher konfigurierte Eigenschaft dem erwarteten Wert entspricht. Schritte können geöffnet `type="open"`, deaktiviert `type="deactivate"`, geschlossen `type="close"` und gesperrt `type="lock"` werden.
 
 ## Einstellungen in Goobi
 
