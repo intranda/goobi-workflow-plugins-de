@@ -51,6 +51,7 @@
 * [Generierung von Platzhalterbildern](step/intranda_step_placeholder-creation.md)
 * [Ersetzen von Bildern](step/intranda_step_replace-images.md)
 * [Upload von Dateien](step/intranda_step_fileupload.md)
+* [Bildskalierung und Wasserzeichen rendern](step/bildskalierung-und-wasserzeichen-rendern.md)
 
 ## Opac Plugins <a id="opac"></a>
 
