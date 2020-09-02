@@ -77,6 +77,7 @@
 
 * [Generisches Import Plugin für Excel-Dateien inklusive Validierung](workflow/goobi-plugin-workflow-excelimport.md)
 * [Barcode Generator](workflow/plugin-workflow-barcode-generator.md)
+* [LayoutWizzard workflow plugin](workflow/layoutwizzard-workflow-plugin.md)
 
 ## Sonstiges <a id="other"></a>
 
