@@ -18,7 +18,7 @@ Dieses Workflow-Plugin wurde implementiert, um neben der reinen Importroutine eb
 | Identifier | intranda\_workflow\_excelimport |
 | Source code | [https://github.com/intranda/goobi-plugin-workflow-excelimport](https://github.com/intranda/goobi-plugin-workflow-excelimport) |
 | Lizenz | GPL 2.0 oder neuer |
-| Kompatibilität | Goobi workflow 2019.11 |
+| Kompatibilität | Goobi workflow 19.11 |
 | Dokumentationsdatum | 29.11.2019 |
 
 ## Installation
@@ -157,4 +157,3 @@ Für jedes einzelne Metadatum kann festgelegt werden, wie dieses importiert werd
 Nach der Installation und Inbetriebnahme des Plugins, steht dieses innerhalb des Menüs `Workflow` zur Verfügung. Nach dem Aufruf kann hier hier eine Excel-Datei hochgeladen werden, so dass anschließend alle Validierungsmeldungen sofort ersichtlich werden. Im Anschluß daran, kann entschieden werden, ob die Vorgänge trotz eventueller Validierungsmeldungen dennoch in Goobi erzeugt werden sollen, oder ob der Import abgebrochen werden soll.
 
 ![](../.gitbook/assets/workflow_excel_import.png)
-

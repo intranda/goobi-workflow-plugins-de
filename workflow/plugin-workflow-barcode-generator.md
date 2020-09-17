@@ -18,7 +18,7 @@ Dieses Workflow-Plugin dient zur flexiblen Generierung von Barcodes in einer meh
 | Identifier | intranda\_workflow\_barcode\_generator |
 | Source code | [https://github.com/intranda/goobi-plugin-workflow-barcode-generator](https://github.com/intranda/goobi-plugin-workflow-barcode-generator) |
 | Lizenz | GPL 2.0 oder neuer |
-| Kompatibilität | Goobi workflow 2020.02 |
+| Kompatibilität | Goobi workflow 20.02 |
 | Dokumentationsdatum | 15.02.2020 |
 
 ## Installation
@@ -181,4 +181,3 @@ Nach dem Klick auf den Button Barcodes generieren steht eine PDF-Datei zum Downl
 Zur Veranschaulichung der Bedienung steht hier ein Screencast für die Benutzung des Plugins zur Verfügung.
 
 {% embed url="https://www.youtube.com/watch?v=Eh8H4k1sKvE" caption="Screencast zur Benutzung des Plugins" %}
-

@@ -1,22 +1,21 @@
 ---
 description: >-
-  Dieses Workflow Plugin erlaubt die Abarbeitung von mehreren LayoutWizzard
-  Vorgängen in einem Arbeitsschritt.
+  Dieses Workflow Plugin erlaubt die Abarbeitung von Bildern aus mehreren Goobi Vorgängen innerhalb der LayoutWizzard Oberfläche.
 ---
 
 # LayoutWizzard workflow plugin
 
 ## Einführung
 
-Dieses Plugin erlaubt es, mehrere LayoutWizzard-Vorgänge an einer Stelle zu bearbeiten. Dazu werden alle Vorgänge mit dem richtigen offenen Schritt gesucht und eine LayoutWizzard Korrektur für alle diese Vorgänge angeboten. 
+Dieses Workflow-Plugin erlaubt es, mehrere Bilder, die aus verschiedenen Goobi-Vorgängen stammen in einer gemeinsamen LayoutWizzard-Oberfläche zu bearbeiten. Dazu werden alle Vorgänge ermittelt, deren Workflow sich aktuell auf dem konfigurieren offenen Arbeitsschritt befinden, um für diese eine LayoutWizzard-Korrektur anzubieten.
 
 ## Übersicht
 
 | Details |  |
 | :--- | :--- |
 | Version | 1.0.0 |
-| Identifier | intranda\_workflow\_barcode\_generator |
-| Source code | Source code noch nicht öffentlich verfügbar |
+| Identifier | intranda\_workflow\_crop |
+| Source code | Source code nicht öffentlich verfügbar |
 | Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 20.08 |
 | Dokumentationsdatum | 02.09.2020 |
@@ -42,7 +41,7 @@ Der Inhalt dieser Konfigurationsdatei sieht wie folgt aus:
 <config>
     <!-- this step must be open in a process for the process to appear in the plugin-->
     <allowed-step>
-        LayoutWizzard manuelle Kontrolle
+        LayoutWizzard
     </allowed-step>
     <singleImage>
         <cropFrame>
@@ -75,7 +74,7 @@ Der Inhalt dieser Konfigurationsdatei sieht wie folgt aus:
             <clickradius>10</clickradius>
         </spineMarker>
     </preview>
-    
+
     <previewCroppingOptions>
         <show>true</show>
     </previewCroppingOptions>
@@ -84,11 +83,10 @@ Der Inhalt dieser Konfigurationsdatei sieht wie folgt aus:
 
 ## Bedienung des Plugins
 
-Wenn das Plugin korrekt installiert und konfiguriert wurde, ist es innerhalb des Menüpunkts Workflow zu finden. Nach dem Betreten des Plugins wird dann eine LayoutWizzard-Preview Ansicht geöffnet, ganz ähnlich zu [der im step-plugin](https://docs.goobi.io/goobi-workflow-plugins-de/step/layoutwizzard/01_use/01_preview). 
+Wenn das Plugin korrekt installiert und konfiguriert wurde, ist es innerhalb des Menüpunkts `Workflow` zu finden. Nach dem Betreten des Plugins wird dann eine LayoutWizzard-Preview-Ansicht geöffnet, die sehr ähnlich zu derjenigen des [Step-Plugins für den Layoutwizzard](https://docs.goobi.io/goobi-workflow-plugins-de/step/layoutwizzard/01_use/01_preview) gestaltet ist.
 
 ![Preview-Ansicht im LayoutWizzard-Workflow-Plugin](../.gitbook/assets/lw_workflow_01.png)
 
-Die Bedienung ist zu der im Preview-Modus auch identisch, einziger Unterschied ist, dass die einzelnen Vorgänge visuell voneinander getrennt sind und durch einen einfachen Klick abgeschlossen werden. Die Ansicht springt danach zum nächsten Vorgang. 
+Die Bedienung dieses Plugins ist mit derjenigen des regulären LayoutWizzards innerhalb des Preview-Modus weitestgehend identisch. Der einzig nennenswerte Unterschied betriff hierbei lediglich die Aufführung der einzelnen Vorgänge, die jeweils visuell voneinander abgetrennt sind und durch einen einfachen Klick auf den zugehörigen Butten abgeschlossen werden können. Die Anzeige der Bilder aktualisiert sich daraufhin und zeigt anschließend den jeweils nächsten Vorgang an.
 
 ![Vorgang abschlie&#xDF;en](../.gitbook/assets/lw_workflow_02.png)
-
