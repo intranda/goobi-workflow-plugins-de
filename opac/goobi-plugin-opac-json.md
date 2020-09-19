@@ -86,6 +86,50 @@ Das Mapping der Inhalte des JSON-Datensatzes hin zu Goobi Metadaten geschieht in
         <person metadata="Author" field="creator" firstname="s/^(.+?)\, (.+?)$/$2/g" lastname="s/^(.+?)\, (.+?)$/$1/g" validationExpression="/^.+?\, .+?\, .+$/" regularExpression="s/^(.+?)\, (.+?)\, .+/$1\, $2/g"/>
 
     </config>
+
+    <config name="ArchivesSpace">
+        <field id="repo">
+                <label>Repository</label>
+                <type>text</type>
+                <defaultText>11</defaultText>
+                <url></url>
+        </field>
+
+        <field id="ao">
+                <label>Identifier</label>
+                <type>text</type>
+                <defaultText></defaultText>
+                <url>https://example.goobi.io/api/aspace/repositories/{repo.text}/archival_objects/{ao.text}</url>
+        </field>
+
+        <authentication>
+                <username>goobi</username>
+                <password>secretPassword</password>
+        </authentication>
+
+        <defaultPublicationType>ArchivalObject</defaultPublicationType>
+
+        <!-- Title      title[0] -->
+        <metadata metadata="TitleDocMain" field="$.title[0]" docType="volume"/>
+        <!-- OR ancestorTitles[0] if title[0] doesn't exist -->
+        <metadata metadata="TitleDocMain" field="$.[?(!@.title[0])]ancestorTitles[0]" docType="volume"/>
+
+        <!-- Collection Title is ancestorTitles[size – 1] -->
+        <metadata metadata="singleDigCollection" field="$.ancestorTitles[-1:]" docType="volume"/>
+
+        <!--System ID-->
+        <metadata metadata="CatalogIDSource" field="$.uri" docType="volume"/>
+
+        <!--Call Number-->
+        <metadata metadata="shelfmarksource" field="$.localRecordNumber" docType="volume" />
+
+        <!-- Container Information -->
+        <metadata metadata="ContainerInformation" field="$.containerGrouping" docType="volume" />
+
+        <!--Date Information-->
+        <metadata metadata="PublicationYear" field="$.date" />
+    </config>
+
 </config_plugin>
 ```
 
@@ -93,6 +137,8 @@ Die Konfigurationsdatei enthält vier Arten von Feldern:
 
 | Feldtyp | Beschreibung |
 | :--- | :--- |
+| `field` | Mit dieser Konfiguration können weitere Abfragefelder definiert werden, die innerhalb der Nutzeroberfläche aufgeführt werden sollen. |
+| `authentication`  | Geben Sie hier die Zugangsdaten für den Zugriff auf die Katalogschnittstelle an.   |
 | `recordType` | Dieser Typ dient zum Erkennen des Dokumententyps des JSON Datensatzes |
 | `defaultPublicationType` | Dieser Typ wird genutzt, wenn zuvor kein Dokumententyp erkannt wurde |
 | `metadata` | Dieser Typ dient zum Mapping von JSON Feldern zu Metadaten |
@@ -134,6 +180,10 @@ Passend zur oben beschriebenen Konfiguration entspricht dies etwa der folgenden 
 https://example.com/opac?id=[IDENTIFIER]
 ```
 
+Sind weitere Felder für die Katalogabfrage definiert, so werden diese ebenfalls in der Nutzeroberfläche angezeigt:
+
+![Zusätzliche Felder für die Katalogabfrage](../.gitbook/assets/plugin_opac_json_2_de.png)
+
 Sofern unter dieser URL ein gültiger Datensatz gefunden wird, wird dieser nach den innerhalb von `recordType` definierten Feldern durchsucht, in dem der Dokumententyp stehen soll. Wenn keine Felder definiert wurden oder sie nicht gefunden wurden, wird stattdessen der Typ aus dem konfigurierten Element `defaultPublicationType` genutzt. Mit dem ermittelten Typ wird dann das gewünschte Strukturelement erzeugt.
 
 Im Anschluß daran werden die konfigurierten Ausdrücke der `metadata` und `person` der Reihe nach ausgewertet. Sofern mit einem Ausdruck Daten gefunden werden, wird das entsprechend angegebene Metadatum erzeugt.
@@ -145,4 +195,3 @@ Für die Installation bzw. insbesondere für die Konfiguration des Plugins könn
 JSONPath Online Evaluator: [https://jsonpath.com/](https://jsonpath.com/)
 
 JSONPath Description: [https://support.smartbear.com/alertsite/docs/monitors/api/endpoint/jsonpath.html](https://support.smartbear.com/alertsite/docs/monitors/api/endpoint/jsonpath.html)
-
