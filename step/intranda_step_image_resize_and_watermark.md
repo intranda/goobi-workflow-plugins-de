@@ -16,7 +16,7 @@ Dieses Plugin erlaubt es, Bilder auf eine maximale Größe zu skalieren und ansc
 | :--- | :--- |
 | Version | 1.0.0 |
 | Identifier | intranda_step_image_resize_and_watermark |
-| Source code | -noch kein öffentlicher source code verfügbar - |
+| Source code | https://github.com/intranda/goobi-plugin-step-image-resize-and-watermark |
 | Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 2020.06 |
 | Dokumentationsdatum | 31.08.2020 |
