@@ -7,7 +7,7 @@ description: >-
 
 ## Einführung
 
-Dieses Plugin erlaubt einen flexiblen Export von Daten eines Vorgangsdient zum Upload von Dateien innerhalb der Nutzeroberfläche einer angenommenen Aufgabe in Goobi workflow.
+Dieses Plugin erlaubt einen flexiblen Export von Daten eines Vorgangs in ein definiertes Zielverzeichnis. Dabei kann dieses Plugin sehr granular konfiguriert werden, um ausgewählte Daten im Export zu berücksichtigen. Darüber hinaus ist hier ebenfalls eine Transformation der internen und der Export-METS-Datei via XSLT möglich und erlaubt so verschiedenste Einsatzszenarien.
 
 ## Übersicht
 
