@@ -287,3 +287,4 @@ Die Datei `goobi_projects.xml` benötigt eine neue Definition für den Publikati
 {% endcode %}
 
 Nachdem diese Konfiguration abgeschlossen wurde, steht innerhalb von Goobi eine neue Datenquelle innerhalb der Anlegemaske für Vorgänge zur Verfügung. Diese kann nun mittels der Identifier in gleicher Weise abgefragt werden wie andere Datenquellen und Kataloge auch.
+

@@ -43,3 +43,4 @@ Ein Klick auf den Button `Import der Daten durchführen` startet anschließend d
 Eine genaue Konfiguration des Imports sowie der zugrundeliegenden Regeln kann innerhalb der Konfigurationsdatei `plugin_intranda_administration_goobi2goobi_import_data.xml` erfolgen. Weitere Informationen über diese Konfiguration findet sich im im Abschnitt `Konfiguration für den Import der Daten`:
 
 {% page-ref page="installation.md" %}
+

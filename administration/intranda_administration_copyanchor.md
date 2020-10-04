@@ -92,3 +92,4 @@ Sowie innerhalb eines Goobi-Vorgangs ein Band als Master festgelegt wurde, kann 
 Geben Sie in dem Inputfeld des Plugins den Katalog-Identifier des übergeordneten Werkes ein \(z.B. die ID der Zeitschrift\) und klicken sie anschließend auf den Butten `Kopiervorgang starten`. Hiermit wird der Kopiervorgang aufgerufen, der die Metadaten des Master-Anchor-Datensatzes automatisch in alle zugehörigen Bände \(z.B. alle Bände der Zeitschrift\) übernimmt.
 
 ![Ausf&#xFC;hren des Kopiervorgangs](../.gitbook/assets/intranda_administration_copy_anchor_04.png)
+

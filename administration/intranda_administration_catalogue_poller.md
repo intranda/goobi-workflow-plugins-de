@@ -183,3 +183,4 @@ Sollte das Plugin für einen Vorgang aktualisierte Metadaten finden und daher di
 Die Updates der Metadaten durch das Plugin finden üblicherweise vollautomatisch im Hintergrund statt. Um dennoch jederzeit für einen Datensatz nachvollziehen zu können, was mit diesem zwischenzeitlich passierte, werden die Ereignisse geloggt. Zu jedem Vorgang, für den es Änderung aus diesem Plugin gab, werden daher automatisch detaillierte Einträge innerhalb des `Vorgangslogs` eingefügt. Diese enthalten neben dem Zeitstempel unter anderem eine genaue Auflistung der geänderten Metadatenfelder samt der Inhalte. Somit ist es jederzeit möglich auch den vorherigen bzw. den neuen Wert nachvollziehen zu können.
 
 ![Innerhalb des Vorgangslogs sind die &#xC4;nderungen des Catalogue Pollers nachvollziehbar](../.gitbook/assets/intranda_administration_catalogue_poller_05.png)
+

@@ -1,10 +1,10 @@
 ---
 description: >-
-  Dieses Step Plugin skaliert Bilder auf konfigurierbare maximale Ausmaße und rendert ein
-  Wasserzeichen in die skalierten Bilder.
+  Dieses Step Plugin skaliert Bilder auf konfigurierbare maximale Ausmaße und
+  rendert ein Wasserzeichen in die skalierten Bilder.
 ---
 
-# Bildskalierung und rendern von Wasserzeichen
+# Bildskalierung und Wasserzeichen rendern
 
 ## Einführung
 
@@ -15,8 +15,8 @@ Dieses Plugin erlaubt es, Bilder auf eine maximale Größe zu skalieren und ansc
 | Details |  |
 | :--- | :--- |
 | Version | 1.0.0 |
-| Identifier | intranda_step_image_resize_and_watermark |
-| Source code | https://github.com/intranda/goobi-plugin-step-image-resize-and-watermark |
+| Identifier | intranda\_step\_image\_resize\_and\_watermark |
+| Source code | [https://github.com/intranda/goobi-plugin-step-image-resize-and-watermark](https://github.com/intranda/goobi-plugin-step-image-resize-and-watermark) |
 | Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 2020.06 |
 | Dokumentationsdatum | 31.08.2020 |
@@ -37,7 +37,7 @@ Für die korrekte Ausführung des Plugins wird außerdem eine Konfigurationsdate
 
 Darüber hinaus wir auf dem System ebenfalls noch eine erfolgreiche Installation der folgenden beiden Pakete vorausgesetzt:
 
-``` bash
+```bash
 ImageMagick
 GraphicsMagick
 ```
@@ -46,7 +46,7 @@ Beide Pakete sind in gängigen Paketmanagern enthalten und können daraus unkomp
 
 ## Konfiguration des Plugins
 
-Die Konfiguration des Plugins erlaubt es festzulegen, auf welche Maximalgröße die Bilder skaliert werden sollen, sowie welches Wasserzeichen (Bilder und auch Text-Wassserzeichen werden unterstützt) gerendert werden soll. Auch die Positionierung des Wasserzeichens kann individuell festgelegt werden. Dafür sind mehrere Konfigurationen möglich, die anhand des Projektes, des Names für den Arbeitsschritt innerhalb des Workflows, der digitalen Kollektion sowie eines Medientyps (spezielles Metadatum innerhalb der METS-Datei des jeweiligen Vorgangs) unterschieden werden. Bei der Ausführung des Plugins wird die erste Konfiguration verwendet, die zum aktuell bearbeiteten Vorgang passt.
+Die Konfiguration des Plugins erlaubt es festzulegen, auf welche Maximalgröße die Bilder skaliert werden sollen, sowie welches Wasserzeichen \(Bilder und auch Text-Wassserzeichen werden unterstützt\) gerendert werden soll. Auch die Positionierung des Wasserzeichens kann individuell festgelegt werden. Dafür sind mehrere Konfigurationen möglich, die anhand des Projektes, des Names für den Arbeitsschritt innerhalb des Workflows, der digitalen Kollektion sowie eines Medientyps \(spezielles Metadatum innerhalb der METS-Datei des jeweiligen Vorgangs\) unterschieden werden. Bei der Ausführung des Plugins wird die erste Konfiguration verwendet, die zum aktuell bearbeiteten Vorgang passt.
 
 Bitte beachten Sie, dass im oberen Bereich der Konfiguration außerdem die korrekten Pfade für GraphicMagick und ImageMagick angegeben werden müssen.
 
@@ -139,3 +139,4 @@ Zur Inbetriebnahme des Plugins muss dieses für einen oder mehrere gewünschte A
 Nach Ausführung des Plugins haben die Bilder die erwartete Größe und verfügen über das konfigurierte Wasserzeichen.
 
 ![Possible results in the generated images](../.gitbook/assets/intranda_step_image_resize_and_watermark_result.png)
+

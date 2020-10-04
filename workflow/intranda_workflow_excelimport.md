@@ -157,3 +157,4 @@ Für jedes einzelne Metadatum kann festgelegt werden, wie dieses importiert werd
 Nach der Installation und Inbetriebnahme des Plugins, steht dieses innerhalb des Menüs `Workflow` zur Verfügung. Nach dem Aufruf kann hier hier eine Excel-Datei hochgeladen werden, so dass anschließend alle Validierungsmeldungen sofort ersichtlich werden. Im Anschluß daran, kann entschieden werden, ob die Vorgänge trotz eventueller Validierungsmeldungen dennoch in Goobi erzeugt werden sollen, oder ob der Import abgebrochen werden soll.
 
 ![](../.gitbook/assets/intranda_workflow_excelimport.png)
+

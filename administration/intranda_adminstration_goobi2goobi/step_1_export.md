@@ -35,7 +35,7 @@ Im Gegensatz zum Export über GoobiScript wird hierbei ein Download der xml-Date
 ## 2. Teilschritt: Export der Produktionsvorlagen
 
 {% hint style="info" %}
-**Hinweis:**   
+**Hinweis:**  
 Dieser Teilschritt ist optional und wird nur in seltenen Fällen benötigt.
 {% endhint %}
 
@@ -50,7 +50,7 @@ Klicken Sie hierzu nun auf den Button `Erzeuge Dateien mit Informationen über d
 ## 3. Teilschritt: Export der Infrastruktur
 
 {% hint style="info" %}
-**Hinweis:**   
+**Hinweis:**  
 Dieser Teilschritt ist optional und wird nur in seltenen Fällen benötigt.
 {% endhint %}
 
@@ -73,3 +73,4 @@ Sollen neben den eigentlichen Goobi-Vorgängen auch weitergehende Informationen 
 Nach der Auswahl der gewünschten Informationen und dem Klick auf den Button `Download der Infrastruktur als zip-Datei` erzeugt Goobi eine zip-Datei und bietet diese mit dem Namen `goobi-to-goobi-export.zip` zum Download an. Diese zip-Datei enthält nun sämtliche ausgewählten Informationen aus der Goobi-Datenbank für den Transfer zu dem Zielsystem.
 
 ![Heruntergeladene zip-Datei mit Informationen &#xFC;ber die Infrastruktur](../../.gitbook/assets/intranda_administration_goobi_to_goobi_export_filesystem_zip.png)
+

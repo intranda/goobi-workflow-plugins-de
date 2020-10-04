@@ -63,3 +63,4 @@ In Goobi muss dann noch der Schritt in den Workflow einkonfiguriert werden. Daf√
 Wenn dann nach erfolgreicher Konfiguration der Schritt ge√∂ffnet wird, werden alle Metadaten - sofern im Vorgang vorhanden - angezeigt:
 
 ![](../.gitbook/assets/intranda_step_displaymetadata_view.png)
+

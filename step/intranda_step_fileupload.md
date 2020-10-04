@@ -90,3 +90,4 @@ Dateien können entweder per Drag & Drop in diesen Bereich hochgeladen werden od
 Soll nach dem erfolgten Upload geprüft werden, welche Dateien in dem Ordner bereits vorhanden sind, so kann im rechten obereren Bereich die Anzeige umgeschaltet werden. Damit ist es dem Nutzer möglich, alle bereits vorhandenen Dateien in dem Ordner aufzulisten, einzelne Dateien herunterzuladen oder diese zu löschen.
 
 ![Anzeige der &#xDC;bersicht &#xFC;ber alle bereits vorhandenen Dateien des Ordners](../.gitbook/assets/intranda_step_fileUpload3_de.png)
+

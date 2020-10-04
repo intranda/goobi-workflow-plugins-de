@@ -67,3 +67,4 @@ Hier stehen die drei Auswahlmöglichkeiten `antiqua`, `fraktur` und `keine OCR` 
 ![Aktualisiert - keine OCR f&#xFC;r Einband und leere Seiten](../.gitbook/assets/intranda_step_ocrselector_updated.png)
 
 Das Plugin kann nach erfolgter Markierung per Klick auf `Plugin verlassen` verlassen werden. Dabei wird auch automatisch noch einmal gespeichert. Die Schaltfläche `Speichern` kann für zwischenzeitliches Speichern benutzt werden.
+

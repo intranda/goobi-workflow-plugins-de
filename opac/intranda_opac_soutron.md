@@ -115,3 +115,4 @@ Sofern hier ein gültiger Datensatz gefunden wird, wird der Datensatz nach dem F
 Im Anschluß werden die konfigurierten XPath-Ausdrücke ausgewertet, die für `<metadata>` und `<person>` konfiguriert wurden.
 
 Die Ausdrücke gelten für das Element `/soutron/catalogs_view/ct/`. Sofern mit einem Ausdruck Daten gefunden werden, wird das entsprechend angegebene Metadatum erzeugt. Bei Personen wird geprüft, ob der Wert ein Komma enthält. In dem Fall werden Vor- und Nachname am Komma getrennt, ansonsten wird der Wert als Nachname interpretiert.
+

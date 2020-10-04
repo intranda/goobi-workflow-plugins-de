@@ -50,3 +50,4 @@ Nach der vollständigen Erzeugung und Anreicherung der Export-Verzeichnisse auf 
 Nachdem die Export-Verzeichnisse erfolgreich auf das Zielsystem transferiert wurden, können die Daten dort eingespielt werden. Hierzu müssen die Daten an der richtigen Stelle im System abgelegt werden und auch einige weitere Vorkehrungen hinsichtlich der Infrastruktur vorbereitet sein.
 
 {% page-ref page="step\_3\_import.md" %}
+

@@ -62,3 +62,4 @@ Wenn in Goobi nach einem Identifier gesucht wird, wird im Hintergrund eine Anfra
 ![Oberfl&#xE4;che von Goobi workflow zur Abfrage des Katalogs](../.gitbook/assets/intranda_opac_marc_de.png)
 
 Nach der Abfrage des eigentlichen Datensatzes aus dem Katalog erfolgt das Mapping der Metadaten gemäß der im Regelsatz konfigurieren Regeln.
+
