@@ -68,11 +68,11 @@ Der Inhalt dieser Konfigurationsdatei sieht wie folgt aus:
 
 Für eine Nutzung dieses Plugins muss der Nutzer über die korrekte Rollenberechtigung verfügen.
 
-![Ohne korrekte Berechtigung ist das Plugin nicht nutzbar](../.gitbook/assets/workflow_massupload1_de.png)
+![Ohne korrekte Berechtigung ist das Plugin nicht nutzbar](../.gitbook/assets/intranda_workflow_massupload1_de.png)
 
 Bitte weisen Sie daher der Gruppe die Rolle `Plugin_Goobi_Massupload` zu.
 
-![Korrekt zugewiesene Rolle für die Nutzer](../.gitbook/assets/workflow_massupload2_de.png)
+![Korrekt zugewiesene Rolle für die Nutzer](../.gitbook/assets/intranda_workflow_massupload2_de.png)
 
 ## Erläuterung der Konfigurationsoptionen
 
@@ -92,14 +92,14 @@ Die Konfiguration des Plugins gestaltet sich wie folgt:
 
 Wenn das Plugin korrekt installiert und konfiguriert wurde, ist es innerhalb des Menüpunkts `Workflow` zu finden.
 
-![Geöffnetes Plugin für den Upload](../.gitbook/assets/workflow_massupload3_de.png)
+![Geöffnetes Plugin für den Upload](../.gitbook/assets/intranda_workflow_massupload3_de.png)
 
 An dieser Stellen können nun entweder Dateien hochgeladen oder aus dem Nutzerverzeichnis ausgelesen werden. Nach der Analyse der Dateinamen bzw. Bilder zeigt Goobi workflow an, welchen Vorgängen die eingespielten Bilder zugewiesen werden können.
 
-![Analysierte Dateien mit Anzeige der zugehörigen Vorgänge](../.gitbook/assets/workflow_massupload4_de.png)
+![Analysierte Dateien mit Anzeige der zugehörigen Vorgänge](../.gitbook/assets/intranda_workflow_massupload4_de.png)
 
 Mit einem Klick auf den Button `Dateien in Vorgänge einspielen` werden die Bilder nun in die Verzeichnisse der ermittelten Vorgänge verschoben und der Workflow fortgeführt.
 
 Bitte beachten Sie: Soll eine Erkennung von Barcodes erfolgen, um daraus die Vorgänge zu ermitteln, so ist wichtig, dass auch die Barcodes in ausreichender Größe und Qualität vorliegen, damit die Erkennung erfolgreich ist.
 
-![Digitalisierte Trennblätter mit Barcodes für die automatische Erkennung](../.gitbook/assets/workflow_massupload5.png)
+![Digitalisierte Trennblätter mit Barcodes für die automatische Erkennung](../.gitbook/assets/intranda_workflow_massupload5.png)
