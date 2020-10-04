@@ -7,7 +7,7 @@ description: >-
 
 ## Einführung
 
-Das Plugin erlaubt eine automatische Generierung von Identifiern und das Speichern innerhalb eines Metadatums in der METS-Datei des entprechdnen Vorgangs.
+Das Plugin erlaubt eine automatische Generierung von Identifiern und das Speichern innerhalb eines Metadatums in der METS-Datei des entsprechenden Vorgangs.
 
 ## Übersicht
 

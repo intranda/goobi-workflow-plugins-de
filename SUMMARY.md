@@ -55,6 +55,7 @@
 * [Package Export](step/intranda_step_exportPackage.md)
 * [Inhalte löschen](step/intranda_step_deleteContent.md)
 * [Identifier generieren](step/intranda_step_generateIdentifier.md)
+* [Bilder sortieren](step/intranda_step_reorder_images.md)
 
 ## Opac Plugins <a id="opac"></a>
 
