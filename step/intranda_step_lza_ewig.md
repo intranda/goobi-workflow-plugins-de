@@ -104,9 +104,8 @@ Nachdem das Plugin installiert und konfiguriert wurde, kann es innerhalb eines A
 
 ​ Voraussetzung für die Verwendung des Plugins ist der Einsatz von Goobi workflow 3.0, die korrekte Installation und Konfiguration des Plugins sowie die korrekte Einbindung des Plugins in die gewünschten Arbeitsschritte der Workflows. ​ ​
 
-![](../.gitbook/assets/plugin_export_ewig.png)
+![](../.gitbook/assets/intranda_step_lza_ewig.png)
 
 ## Sonstiges
 
 Der Arbeitsschritt innerhalb von Goobi workflow exportiert alle notwendigen Dateien für den EWIG Ingest. Der Upload selbst erfolgt über den intranda TaskManager. Dies ist sinnvoll, um zu vermeiden, das mehrere parallel laufende Uploadvorgänge Konflikte mit einander haben und das System verlangsamen. ​ Für den Upload siehe [Kapitel 4.17](https://docs.intranda.com/intranda-taskmanager-de/4/4.17-upload-von-dateien-in-das-ewig-langzeitarchiv) in der intranda TaskManager Dokumentation.
-

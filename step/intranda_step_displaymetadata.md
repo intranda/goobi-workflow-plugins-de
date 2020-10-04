@@ -58,9 +58,8 @@ Es können mehrere Metadaten zur Anzeige konfiguriert werden, zusätzlich kann e
 
 In Goobi muss dann noch der Schritt in den Workflow einkonfiguriert werden. Dafür muss in der Schritte-Konfiguration als Schritte-Plugin `intranda_step_displayMetadata` ausgewählt werden.
 
-![Konfiguration des Schritts](../.gitbook/assets/displaymetadata_config.png)
+![Konfiguration des Schritts](../.gitbook/assets/intranda_step_displaymetadata_config.png)
 
 Wenn dann nach erfolgreicher Konfiguration der Schritt geöffnet wird, werden alle Metadaten - sofern im Vorgang vorhanden - angezeigt:
 
-![](../.gitbook/assets/displaymetadata_view.png)
-
+![](../.gitbook/assets/intranda_step_displaymetadata_view.png)

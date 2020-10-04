@@ -53,7 +53,7 @@ Es folgt eine kommentierte Beispielkonfiguration:
         <!-- which projects to use for (can be more than one, otherwise use *) -->
         <project>Register</project>
         <step>Check</step>
-        
+
         <!-- multiple changes can be done within one configuration rule; simply add another 'change' element with other properties here -->
         <change>
             <!-- name of the property to check -->
@@ -84,7 +84,7 @@ Es folgt eine kommentierte Beispielkonfiguration:
         <!-- which projects to use for (can be more than one, otherwise use *) -->
         <project>*</project>
         <step>*</step>
-        
+
         <!-- multiple changes can be done within one configuration rule; simply add another 'change' element with other properties here -->
         <change>
             <!-- name of the property to check -->
@@ -110,7 +110,7 @@ Es folgt eine kommentierte Beispielkonfiguration:
                 <title>Create METS file</title>
                 <title>Ingest into DigiTool</title>
             </steps>
-        </change> 
+        </change>
     </config>
 
 </config_plugin>
@@ -132,9 +132,8 @@ In jedem `<change>`-Element wird dann konfiguriert, welche Prozesseigenschaft ü
 
 Nachdem das Plugin installiert und konfiguriert wurde, kann es in der Nutzeroberfläche in einem Workflowschritt konfiguriert werden. Hierbei sollte darauf geachtet werden, dass der Schritt so heißt, wie in der Konfigurationsdatei. Außerdem sollte ein Haken bei `Automatische Aufgabe` gesetzt sein.
 
-![Konfiguration des Workflowschritts](../.gitbook/assets/changeworkflow_step.png)
+![Konfiguration des Workflowschritts](../.gitbook/assets/intranda_step_changeworkflow.png)
 
 ## Nutzung
 
 Da das Plugin vollautomatisch laufen sollte, ist für die Nutzung nichts weiter zu beachten.
-

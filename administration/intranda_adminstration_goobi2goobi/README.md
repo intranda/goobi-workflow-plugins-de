@@ -29,7 +29,7 @@ Bevor die Verwendung des Export- und Import-Mechanismus erfolgen kann, müssen v
 
 Der Mechanismus für einen Datentransfer von einem Goobi workflow System zu einem anderem Goobi workflow System \(`Goobi-to-Goobi`\) ist in drei große Arbeitsschritte aufgeteilt.
 
-![Funktionsweise des Goobi-to-Goobi Datenaustausches](../../.gitbook/assets/goobi-to-goobi-description_de.png)
+![Funktionsweise des Goobi-to-Goobi Datenaustausches](../../.gitbook/assets/intranda_administration_goobi_to_goobi_description_de.png)
 
 Diese drei Arbeitsschritte gestalten sich folgendermaßen:
 
@@ -50,4 +50,3 @@ Nach der vollständigen Erzeugung und Anreicherung der Export-Verzeichnisse auf 
 Nachdem die Export-Verzeichnisse erfolgreich auf das Zielsystem transferiert wurden, können die Daten dort eingespielt werden. Hierzu müssen die Daten an der richtigen Stelle im System abgelegt werden und auch einige weitere Vorkehrungen hinsichtlich der Infrastruktur vorbereitet sein.
 
 {% page-ref page="step\_3\_import.md" %}
-

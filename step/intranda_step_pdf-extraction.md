@@ -73,11 +73,10 @@ Mit `<properties>` werden Vorgangseigenschaften je nach Ergebnis der Extraktion 
 
 Nachdem das Plugin installiert wurde, kann es in der Nutzeroberfläche in einem Workflowschritt konfiguriert werden.
 
-![](../.gitbook/assets/pdf_extraction_step%20%281%29.png)
+![](../.gitbook/assets/intranda_step_pdf_extraction.png)
 
 ## Nutzung
 
 Für die Nutzung des Plugins muss zum Ausführungszeitpunkt im Master-Ordner des Vorgangs eine PDF-Datei liegen. Diese wird dann automatisch in Einzelseiten aufgeteilt. Außerdem wird \(falls vorhanden\) der Volltext extrahiert und das Inhaltsverzeichnis der PDF-Datei ausgelesen um dann als Strukturelemente in die METS-Datei eingetragen zu werden.
 
 Es ist also zu empfehlen, dem Workflowschritt mit diesem Plugin einen anderen Workflowschritt vorzulagern, in dem Dateien in den Master-Ordner geladen werden. Dies kann per Verlinken des Vorgangsordners in den Home-Ordner des Nutzers oder zum Beispiel im File-Upload-Plugin geschehen.
-

@@ -108,11 +108,10 @@ Wenn in Goobi nach einem Identifier gesucht wird, wird im Hintergrund eine Anfra
 https://example.com/Library/WebServices/SoutronAPI.svc/GetCatalogue?id=[VALUE]
 ```
 
-![Oberfl&#xE4;che von Goobi workflow zur Abfrage des Katalogs](../.gitbook/assets/plugin_opac_soutron_de.png)
+![Oberfl&#xE4;che von Goobi workflow zur Abfrage des Katalogs](../.gitbook/assets/intranda_opac_soutron_de.png)
 
 Sofern hier ein gültiger Datensatz gefunden wird, wird der Datensatz nach dem Feld `/soutron/catalogs_view/ct/cat/rt/@name` durchsucht. Der Wert wird mit der konfigurierten `<docstructs>` Liste verglichen. Wenn es eine Entsprechung gibt, wird das gewünschte Strukturelement erzeugt.
 
 Im Anschluß werden die konfigurierten XPath-Ausdrücke ausgewertet, die für `<metadata>` und `<person>` konfiguriert wurden.
 
 Die Ausdrücke gelten für das Element `/soutron/catalogs_view/ct/`. Sofern mit einem Ausdruck Daten gefunden werden, wird das entsprechend angegebene Metadatum erzeugt. Bei Personen wird geprüft, ob der Wert ein Komma enthält. In dem Fall werden Vor- und Nachname am Komma getrennt, ansonsten wird der Wert als Nachname interpretiert.
-

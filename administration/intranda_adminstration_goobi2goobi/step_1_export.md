@@ -10,7 +10,7 @@ Nach der Konfiguration der benötigen Benutzerrechte kann der eigentliche Export
 
 Für die meisten Einsatzzwecke wird lediglich dieser Teilschritt zum Erzeugen der Export-Dateien für alle gewünschten Vorgänge benötigt. Hierbei wird für alle ausgewählten Vorgänge innerhalb des Dateisystems im Ordner jedes ausgewählten Vorgangs eine xml-Datei mit allen relevanten Informationen über den Vorgang aus der Datenbank erzeugt.
 
-![Exportierte xml-Datei innerhalb eines Vorgangsordners](../../.gitbook/assets/goobi-to-goobi-export-filesystem-processes.png)
+![Exportierte xml-Datei innerhalb eines Vorgangsordners](../../.gitbook/assets/intranda_administration_goobi_to_goobi_export_filesystem_processes.png)
 
 ### Export mittels GoobiScript
 
@@ -20,7 +20,7 @@ Um einen solchen Export für mehrere Vorgänge zusammen durchzuführen, besteht 
 action:exportDatabaseInformation
 ```
 
-![Aufrufen des Exports mittels GoobiScript](../../.gitbook/assets/goobi-to-goobi-export-goobiscript_de.png)
+![Aufrufen des Exports mittels GoobiScript](../../.gitbook/assets/intranda_administration_goobi_to_goobi_export_goobiscript_de.png)
 
 Nach der Ausführung dieses GoobiScripts findet sich in jedem Vorgangsordner die jeweilige Export-xml-Datei \(z.B. `5_db_export.xml`\).
 
@@ -28,7 +28,7 @@ Nach der Ausführung dieses GoobiScripts findet sich in jedem Vorgangsordner die
 
 Um einen solchen Export für einen einzelnen Vorgang durchzuführen, besteht die Möglichkeit, diesen innerhalb der Details eines Vorgangs zu starten. Klicken Sie hierzu einfach auf das entsprechende Icon für den Export.
 
-![Vorgangsdetails mit dem Icon f&#xFC;r den Export der Daten in eine zip-Datei](../../.gitbook/assets/goobi-to-goobi-export-single_de.png)
+![Vorgangsdetails mit dem Icon f&#xFC;r den Export der Daten in eine zip-Datei](../../.gitbook/assets/intranda_administration_goobi_to_goobi_export_single_de.png)
 
 Im Gegensatz zum Export über GoobiScript wird hierbei ein Download der xml-Datei gestartet, die die Datenbankinformationen beinhaltet.
 
@@ -41,11 +41,11 @@ Dieser Teilschritt ist optional und wird nur in seltenen Fällen benötigt.
 
 Ist gewünscht, dass nicht nur Vorgänge von einem Goobi workflow zu einem anderen übertragen werden, können auch Exportdaten für Produktionsvorlagen erzeugt werden. Da GoobiScript allerdings nicht innerhalb des Bereichs für Produktionsvorlagen verfügbar ist, kann dieser Export aus dem bereitgestellten Plugin `Goobi-to-Goobi Export` innerhalb des Menüs `Administration` erfolgen.
 
-![Nutzeroberfl&#xE4;che des Plugins Goobi-to-Goobi Export](../../.gitbook/assets/goobi-to-goobi-export_de.png)
+![Nutzeroberfl&#xE4;che des Plugins Goobi-to-Goobi Export](../../.gitbook/assets/intranda_administration_goobi_to_goobi_export_de.png)
 
 Klicken Sie hierzu nun auf den Button `Erzeuge Dateien mit Informationen über die Produktionsvorlagen`. Hierdurch wird für jede Produktionsvorlage ebenfalls eine xml-Datei mit den Datenbankinformationen im Dateisystem gespeichert und kann für den Transfer zu dem Zielsystem verwendet werden.
 
-![Exportierte xml-Datei innerhalb des Ordners einer Produktionsvorlage](../../.gitbook/assets/goobi-to-goobi-export-filesystem-templates.png)
+![Exportierte xml-Datei innerhalb des Ordners einer Produktionsvorlage](../../.gitbook/assets/intranda_administration_goobi_to_goobi_export_filesystem_templates.png)
 
 ## 3. Teilschritt: Export der Infrastruktur
 
@@ -72,5 +72,4 @@ Sollen neben den eigentlichen Goobi-Vorgängen auch weitergehende Informationen 
 
 Nach der Auswahl der gewünschten Informationen und dem Klick auf den Button `Download der Infrastruktur als zip-Datei` erzeugt Goobi eine zip-Datei und bietet diese mit dem Namen `goobi-to-goobi-export.zip` zum Download an. Diese zip-Datei enthält nun sämtliche ausgewählten Informationen aus der Goobi-Datenbank für den Transfer zu dem Zielsystem.
 
-![Heruntergeladene zip-Datei mit Informationen &#xFC;ber die Infrastruktur](../../.gitbook/assets/goobi-to-goobi-export-filesystem-zip.png)
-
+![Heruntergeladene zip-Datei mit Informationen &#xFC;ber die Infrastruktur](../../.gitbook/assets/intranda_administration_goobi_to_goobi_export_filesystem_zip.png)
