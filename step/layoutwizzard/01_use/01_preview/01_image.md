@@ -33,7 +33,7 @@ Neben der Bildanzeige gibt es ein Steuerelement zum Verschieben des Zuschneidera
 
 Die drei Buttons neben der Bildanzeige erlauben das Betreten der Einzelseitenansicht für die gewählte Analysephase, um dort gezielt einzelne Analyseparameter justieren zu können.  Klicken Sie innerhalb der Detailansicht erneut auf den Button `Vorschauansicht öffnen` gelangen Sie wieder zum selben Bild innerhalb der Vorschauansicht.
 
-![Buttons zum Betreten der Detailansicht](../../../../.gitbook/assets/layoutwizzard_16.png)
+![Buttons zum Betreten der Detailansicht](../../../../.gitbook/assets/intranda_step_crop_16.png)
 
 Unterhalb der Buttons für die Detailansicht befindet sich die Bildnummer innerhalb des Eingabeordners. Hierbei handelt es sich nicht um den Dateinamen der Bilddatei sondern um einen einfachen Zähler, der im Falle vieler gleichartiger angezeigter Bilder eine Orientierung geben soll, an welcher Stelle innerhalb der Bilddateien man sich derzeit befindet.
 
