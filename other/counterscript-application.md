@@ -130,7 +130,7 @@ In der Praxis werden die beiden Befehle nicht notwendig sein, da dies bereits au
 Wenn eine Analyse des Datenbestandes gestartet wurde, wird das Dateisystem nach neuen METS Dateien durchsucht. Wenn eine Datei gefunden wird, die einen neueren Zeitstempel lastModifiedTime hat, als der letzte Durchlauf her ist, handelt es sich um eine neue oder veränderte Datei.  
 In dem Fall wird mit der Datenbank abgeglichen, ob die b-Nummer bereits bekannt ist. Ist sie unbekannt, handelt es sich um einen neuen Datensatz, ansonsten um eine Modifikation. Die notwendigen Daten werden dann mittels XPATH-Anfragen aus der METS-Datei geholt und in die Datenbank geschrieben.  
 Anschließend werden die Datensätze der einzelnen Ordner mit den in der Datenbank bekannten Datensätzen verglichen. Fehlen im Ordner Dateien, die in der Datenbank noch bekannt sind, so handelt es sich um eine Löschung. Diese Information wird dann ebenfalls in der Datenbank hinzugefügt.  
-  
+
 Folgende Aufrufe dienen zur Suche im Datenbestand:
 
 ```text
@@ -141,7 +141,7 @@ wt-winnipeg/Counterscript/api/{format}/withincative/{start date}/{end date}
 ```
 
 Es stehen drei verschiedene Formate zur Verfügung, in denen die Ergebnisse geliefert werden können: `xml`, `csv` und `json`.  
-  
+
 Wird lediglich das Format angegeben, dann liefert die API alle aktiven Einträge, die in der Datenbank erfasst sind. Wird auch der Parameter `withincative` an die URL angehängt, so werden zusätzlich auch alle veralteten Einträge ausgeliefert.
 
 Ist man nur an einer Teilmenge interessiert, kann mittels Start- und Enddatum ein Zeitraum angegeben werden. Das Ergebnis enthält dann nur die Datensätze, bei denen es Änderungen in diesem Zeitraum gab.
@@ -155,7 +155,7 @@ wt-winnipeg/Counterscript/api/xml/bnumber/{number}
 ### 2.5.  Anbindung externer Tools
 
 Externe Tools können am einfachsten über die RESTful API angebunden werden. Sie müssen dafür die Punkt 2.4 aufgelisteten Befehle implementieren. Alternativ steht der Weg über einen MySQL Client zur Verfügung. Dabei gilt es zu beachten, dass der MySQL-Server aus Sicherheitsgründen nur von localhost erreichbar ist.  
-  
+
 Starten lässt sich der der Client mit dem folgenden Befehl auf dem Linux-Terminal:
 
 ```bash
@@ -186,7 +186,7 @@ Die Datenbank verfügt über eine Tabelle files, die die folgende Struktur aufwe
 describe files;
 ```
 
-Die Antwort der Datenbank lautet daraufhin folgendermaßen: 
+Die Antwort der Datenbank lautet daraufhin folgendermaßen:
 
 |  **Field**            |  **Type**            |  **Null** |  **Key**  |  **Default**  |  **Extra**  |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -242,7 +242,7 @@ select bnumber, access_status, access_licence, player_permission from files wher
 Deleted records, selectable by ‘Deleted date’ range:
 
 ```sql
-select bnumber from files where status = 'deleted' and deletion_date > '2015-11-01' and deletion_date < '2015-12-01'; 
+select bnumber from files where status = 'deleted' and deletion_date > '2015-11-01' and deletion_date < '2015-12-01';
 ```
 
 ## 3. Goobi Counterscript Plugin
@@ -273,19 +273,16 @@ Die ersten beiden Dateien enthalten die Programmlogik sowie die graphische Oberf
 
 Nachdem das Plugin installiert und eingerichtet wurde, steht es den Nutzern im Bereich des Menüs unter `Administration` zur Verfügung.
 
-![Abbildung 1: Zugang zu dem Plugin &#xFC;ber die Nutzeroberfl&#xE4;che von Goobi](../.gitbook/assets/counterscript_03.png)
+![Abbildung 1: Zugang zu dem Plugin &#xFC;ber die Nutzeroberfl&#xE4;che von Goobi](../.gitbook/assets/other_counterscript_03.png)
 
 Nachdem die Oberfläche geladen wurde, können Startdatum und Enddatum ausgewählt oder direkt über den kompletten Zeitraum gefiltert werden. Optional lassen sich auch veraltete Einträge anzeigen.
 
-![Abbildung 2: Eingabe des Zeitraums innerhalb des Filterfomulars](../.gitbook/assets/counterscript_05.png)
+![Abbildung 2: Eingabe des Zeitraums innerhalb des Filterfomulars](../.gitbook/assets/other_counterscript_05.png)
 
 Nach dem Filtern erhält man die Liste der gefundenen Datensätze für den gewählten Zeitraum.
 
-![Abbildung 3: Ansicht der gefilterten Datens&#xE4;tze in der Liste](../.gitbook/assets/counterscript_06.png)
+![Abbildung 3: Ansicht der gefilterten Datens&#xE4;tze in der Liste](../.gitbook/assets/other_counterscript_06.png)
 
 Durch diese Liste kann man mit Hilfe des Paginators navigieren, oder die vollständige Trefferliste als CSV Datei speichern. Mittels des Buttons in der Spalte Details eines jeden Eintrags lässt sich der Verlauf jeder Datei im Details nachvollziehen. Hier können alle erfassten Revisionen einer Datei eingesehen werden.
 
-![Abbildung 4: Einblick in die Details eines ausgew&#xE4;hlten Datensatzes](../.gitbook/assets/counterscript_07.png)
-
-
-
+![Abbildung 4: Einblick in die Details eines ausgew&#xE4;hlten Datensatzes](../.gitbook/assets/other_counterscript_07.png)
