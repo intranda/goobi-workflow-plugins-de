@@ -52,8 +52,8 @@
 * [Ersetzen von Bildern](step/intranda_step_replace-images.md)
 * [Upload von Dateien](step/intranda_step_fileupload.md)
 * [Bildskalierung und Wasserzeichen rendern](step/intranda_step_image_resize_and_watermark.md)
-* [Package Export](step/intranda_step_exportpackage.md)
-* [Inhalte löschen](step/intranda_step_deletecontent.md)
+* [Package Export](step/intranda_step_exportPackage.md)
+* [Inhalte löschen](step/intranda_step_deleteContent.md)
 
 ## Opac Plugins <a id="opac"></a>
 
@@ -85,4 +85,3 @@
 ## Sonstiges <a id="other"></a>
 
 * [Counterscript Application](other/counterscript-application.md)
-
