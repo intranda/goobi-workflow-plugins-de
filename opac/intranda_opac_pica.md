@@ -55,7 +55,6 @@ Das Mapping der Inhalte eines PICA-Datensatzes erfolgt innerhalb des jeweilig ve
 
 Wenn in Goobi nach einem Identifier gesucht wird, wird im Hintergrund eine Anfrage an die konfigurierte URL gestellt.
 
-![Oberfl&#xE4;che von Goobi workflow zur Abfrage des Katalogs](../.gitbook/assets/plugin_opac_pica_de.png)
+![Oberfl&#xE4;che von Goobi workflow zur Abfrage des Katalogs](../.gitbook/assets/intranda_opac_pica_de.png)
 
 Nach der Abfrage des eigentlichen Datensatzes aus dem PICA-Katalog erfolgt das Mapping der Metadaten gemäß der im Regelsatz konfigurieren Regeln.
-

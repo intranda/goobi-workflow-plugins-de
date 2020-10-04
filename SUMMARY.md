@@ -57,12 +57,12 @@
 
 ## Opac Plugins <a id="opac"></a>
 
-* [PICA Import](opac/goobi-plugin-opac-pica.md)
-* [MARC Import](opac/goobi-plugin-opac-marc.md)
-* [EAD Datenübernahme](opac/goobi-plugin-opac-ead.md)
-* [Generischer XML Import](opac/goobi-plugin-opac-generic-xml.md)
-* [Generischer JSON Import](opac/goobi-plugin-opac-json.md)
-* [Soutron Import](opac/goobi-plugin-opac-soutron.md)
+* [PICA Import](opac/intranda_opac_pica.md)
+* [MARC Import](opac/intranda_opac_marc.md)
+* [EAD Datenübernahme](opac/intranda_opac_ead.md)
+* [Generischer XML Import](opac/intranda_opac_generic_xml.md)
+* [Generischer JSON Import](opac/intranda_opac_json.md)
+* [Soutron Import](opac/intranda_opac_soutron.md)
 
 ## Import Plugins <a id="import"></a>
 
@@ -71,9 +71,9 @@
 
 ## Export Plugins <a id="export"></a>
 
-* [Fedora Export](export/plugin_intranda_export_fedora.md)
-* [Fedora Export PROV](export/plugin_intranda_export_fedora_prov.md)
-* [HAAB Export](export/plugin-intranda-export-haab.md)
+* [Fedora Export](export/intranda_export_fedora.md)
+* [Fedora Export PROV](export/intranda_export_fedora_prov.md)
+* [HAAB Export](export/intranda_export_haab.md)
 
 ## Workflow Plugins <a id="workflow"></a>
 

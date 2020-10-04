@@ -172,7 +172,7 @@ Die beiden Felder `metadata` und `person` dienen zum Import einzelner Inhalte au
 
 Wenn in Goobi nach einem Identifier gesucht wird, wird im Hintergrund eine Anfrage an die konfigurierte URL gestellt.
 
-![Oberfl&#xE4;che von Goobi workflow zur Abfrage des Katalogs](../.gitbook/assets/plugin_opac_json_de.png)
+![Oberfl&#xE4;che von Goobi workflow zur Abfrage des Katalogs](../.gitbook/assets/intranda_opac_json_de.png)
 
 Passend zur oben beschriebenen Konfiguration entspricht dies etwa der folgenden URL:
 
@@ -182,7 +182,7 @@ https://example.com/opac?id=[IDENTIFIER]
 
 Sind weitere Felder für die Katalogabfrage definiert, so werden diese ebenfalls in der Nutzeroberfläche angezeigt:
 
-![Zusätzliche Felder für die Katalogabfrage](../.gitbook/assets/plugin_opac_json_2_de.png)
+![Zusätzliche Felder für die Katalogabfrage](../.gitbook/assets/intranda_opac_json_2_de.png)
 
 Sofern unter dieser URL ein gültiger Datensatz gefunden wird, wird dieser nach den innerhalb von `recordType` definierten Feldern durchsucht, in dem der Dokumententyp stehen soll. Wenn keine Felder definiert wurden oder sie nicht gefunden wurden, wird stattdessen der Typ aus dem konfigurierten Element `defaultPublicationType` genutzt. Mit dem ermittelten Typ wird dann das gewünschte Strukturelement erzeugt.
 
