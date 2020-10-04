@@ -54,6 +54,7 @@
 * [Bildskalierung und Wasserzeichen rendern](step/intranda_step_image_resize_and_watermark.md)
 * [Package Export](step/intranda_step_exportPackage.md)
 * [Inhalte löschen](step/intranda_step_deleteContent.md)
+* [Identifier generieren](step/intranda_step_generateIdentifier.md)
 
 ## Opac Plugins <a id="opac"></a>
 
