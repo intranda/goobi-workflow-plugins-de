@@ -68,7 +68,7 @@ Manche Step Plugins verfügen über eine eigene Konfigurationsdatei. Diese ist i
 
 Opac Plugins dienen zur Kommunikation mit externen Datenquellen. Typische Beispiele hierfür sind Plugins für die Anbindung von Bibliothektskatalogen oder Datenbanken. Hierfür existieren je nach Datenquelle verschiedene Implementierungen, um die jeweilig zu verwendende Schnittstelle korrekt anzusprechen.
 
-Opac Plugins werden üblicherweise in diesen Pfad installiert:
+Opac Plugins werden üblicherweise unterhalb dieses Pfads installiert:
 
 ```text
 /opt/digiverso/goobi/plugins/opac/
