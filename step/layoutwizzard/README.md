@@ -23,7 +23,7 @@ Der LayoutWizzard ist ein Werkzeug zur Analyse vom digitalisierten Buchseiten un
 
 Die Analyse im LayoutWizzard findet halbautomatisch statt. Sie beginnt in der Regel mit einem automatischen Arbeitsschritt, in dem alle Bilder nach festen Algorithmen analysiert werden. Anschließend werden die Ergebnisse in einem manuellen Schritt überprüft und gegebenenfalls korrigiert. Abschließend werden in einem weiteren automatischen Schritt zugeschnittene Derivate der Ausgangsbilder erzeugt, üblicherweise innerhalb des Derivate-Ordners im entsprechenden Goobi-Vorgang.
 
-![Arbeitsweise des LayoutWizzards innerhalb des Goobi Workflows](../../.gitbook/assets/layoutwizzard_workflow_de.png)
+![Arbeitsweise des LayoutWizzards innerhalb des Goobi Workflows](../../.gitbook/assets/intranda_step_crop_workflow_de.png)
 
 Die automatischen Arbeitsschritte \(`Automatische Bildanalyse` und `Automatisches Croppen`\) finden in aller Regel ausgelagert in einem TaskManager-Plugin statt, um andere Arbeiten innerhalb von Goobi nicht durch eine hohe Rechenlast auf dem Goobi-Server einzuschränken. Aber auch eine Ausführung ohne TaskManager-Plugin ist möglich, so dass diese automatische Arbeitsschritte innerhalb von Goobi Step Plugins ohne eigenen Nutzeroberfläche unmittelbar innerhalb von Goobi workflow erfolgen.
 
@@ -31,13 +31,13 @@ Die manuelle Kontrolle der Analyseergebnisse mit dem Vorschlag für das Croppen 
 
 Je nach individueller Installation von Goobi workflow und der jeweiligen Workflows können die einzelnen Arbeitsschritte natürlich individuell benannt werden. Im folgenden Screenshot wurden für die drei nacheinander folgenden Arbeitsschritte beispielsweise andere Namen vergeben:
 
-![Individuelle Benennung der einzelnen Arbeitsschritte, die zum LayoutWizzard geh&#xF6;ren](../../.gitbook/assets/layoutwizzard_goobi_workflow.png)
+![Individuelle Benennung der einzelnen Arbeitsschritte, die zum LayoutWizzard geh&#xF6;ren](../../.gitbook/assets/intranda_step_crop_goobi_workflow.png)
 
 ## 3. Details zur Bildanalyse
 
 Die Bildanalyse des LayoutWizzard arbeitet in mehreren Phasen, um ausgehend von dem originalen Bild zu dem gewünschten Bildderivat zu gelangen. Hierzu durchläuft jedes Bild eine Bildanalyse, in der die Seiten ausgerichtet, das Objekt erkannt und die Buchfalz ermittelt wird. Die Bildanalyse besteht entsprechend zumeist aus den folgenden Phasen:
 
-![Analysephasen des LayoutWizzards](../../.gitbook/assets/layoutwizzard_diagramm_de.png)
+![Analysephasen des LayoutWizzards](../../.gitbook/assets/intranda_step_crop_diagramm_de.png)
 
 <table>
   <thead>
@@ -49,7 +49,7 @@ Die Bildanalyse des LayoutWizzard arbeitet in mehreren Phasen, um ausgehend von 
   <tbody>
     <tr>
       <td style="text-align:left">
-        <img src="../../.gitbook/assets/layoutwizzard_phases_1.png" alt/>
+        <img src="../../.gitbook/assets/intranda_step_crop_phases_1.png" alt/>
       </td>
       <td style="text-align:left">
         <p><b>Start</b>
@@ -60,7 +60,7 @@ Die Bildanalyse des LayoutWizzard arbeitet in mehreren Phasen, um ausgehend von 
     </tr>
     <tr>
       <td style="text-align:left">
-        <img src="../../.gitbook/assets/layoutwizzard_phases_2.png" alt/>
+        <img src="../../.gitbook/assets/intranda_step_crop_phases_2.png" alt/>
       </td>
       <td style="text-align:left">
         <p><b>1. Phase: Seite ausrichten</b>
@@ -73,7 +73,7 @@ Die Bildanalyse des LayoutWizzard arbeitet in mehreren Phasen, um ausgehend von 
     </tr>
     <tr>
       <td style="text-align:left">
-        <img src="../../.gitbook/assets/layoutwizzard_phases_3.png" alt/>
+        <img src="../../.gitbook/assets/intranda_step_crop_phases_3.png" alt/>
       </td>
       <td style="text-align:left">
         <p><b>2. Phase: Seite zuschneiden</b>
@@ -90,7 +90,7 @@ Die Bildanalyse des LayoutWizzard arbeitet in mehreren Phasen, um ausgehend von 
     </tr>
     <tr>
       <td style="text-align:left">
-        <img src="../../.gitbook/assets/layoutwizzard_phases_4.png" alt/>
+        <img src="../../.gitbook/assets/intranda_step_crop_phases_4.png" alt/>
       </td>
       <td style="text-align:left">
         <p><b>3. Phase: Falz erkennen</b>
@@ -107,7 +107,7 @@ Die Bildanalyse des LayoutWizzard arbeitet in mehreren Phasen, um ausgehend von 
     </tr>
     <tr>
       <td style="text-align:left">
-        <img src="../../.gitbook/assets/layoutwizzard_phases_5.png" alt/>
+        <img src="../../.gitbook/assets/intranda_step_crop_phases_5.png" alt/>
       </td>
       <td style="text-align:left">
         <p><b>Ende</b>
@@ -118,4 +118,3 @@ Die Bildanalyse des LayoutWizzard arbeitet in mehreren Phasen, um ausgehend von 
     </tr>
   </tbody>
 </table>
-

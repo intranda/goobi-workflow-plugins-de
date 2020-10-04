@@ -2,7 +2,7 @@
 
 Der Bereich der Arbeitsschritte enthält eine Liste aller konfigurierten Analyseschritte. Diese werden jeweils mit mehreren Schaltflächen aufgelistet.
 
-![Arbeitsschritte der jeweiligen Analysephasen](../../../../.gitbook/assets/layoutwizzard_53.png)
+![Arbeitsschritte der jeweiligen Analysephasen](../../../../.gitbook/assets/intranda_step_crop_53.png)
 
 | Icon | Beschreibung |
 | :--- | :--- |
@@ -17,4 +17,3 @@ Unterhalb der Analysephasen enthält der Bereich folgende weiteren Optionen:
 | ![](../../../../.gitbook/assets/layoutwizzard_29.png)  | Die Anzahl der bereits vollständig analysierten Bilder wird hier angezeigt. Wenn alle Bilder bearbeitet sind, erscheint das grüne Icon mit dem Häkchen. Dies sollte nach Abschluss der automatischen Analyse bereits der Fall sein. Wenn nicht, müssen die fehlenden Bilder gesucht und die Analyseschritte manuell oder automatisch abgeschlossen werden. Beachten Sie, dass der Schritt zum automatischen Speichern der LayoutWizzard-Daten nur funktioniert, wenn zuvor alle Bilder vollständig analysiert wurden. Ein rotes Icon mit einem Kreuz erscheint, wenn innerhalb des Plugins gerade eine automatische Analyse durchgeführt wird. Ein Klick auf dieses rote Icon beendet die Analyse.  |
 | ![](../../../../.gitbook/assets/layoutwizzard_28.png)  | Der Button `Alle Bilder bearbeiten` startet eine automatische Analyse aller Bilder im Plugin. Die Analyse wird abgebrochen, wenn das Icon mit dem roten Kreuz angeklickt wird, die Ergebnisse verworfen werden oder das Plugin beendet wird. In der Regel wird diese Funktion nicht benötigt, da die automatische Analyse in einem anderen Workflow-Schritt innerhalb des Goobi-Vorgangs erfolgt. Diese Funktion ist hauptsächlich zum Testen der automatischen Analyse oder zur Analyse kleiner Datensets gedacht.  |
 |  ![](../../../../.gitbook/assets/layoutwizzard_27.png)  | Dieser Button öffnet die Vorschauansicht, in der alle Bilder untereinander angezeigt und bearbeitet werden können. |
-
