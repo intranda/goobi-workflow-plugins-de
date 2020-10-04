@@ -75,11 +75,11 @@ Mittels dieser Anpassung am Regelsatz sind die Vorbereitungen für die Verwendun
 
 Nach der vollständigen Konfiguration des Plugins kann dieses verwendet werden. Dazu wird zunächst innerhalb desjenigen Bandes, der als Master-Anchor markiert werden soll, das neu definierte Metadatum `InternalNote` hinzugefügt und als Wert `AnchorMaster` eingetragen. Im folgenden Screenshot wird dies einmal verdeutlicht:
 
-![Dem Zeitschriftenband wurde Metadatum InternalNote mit dem Wert AnchorMaster zugewiesen](../.gitbook/assets/copy_anchor_01.png)
+![Dem Zeitschriftenband wurde Metadatum InternalNote mit dem Wert AnchorMaster zugewiesen](../.gitbook/assets/intranda_administration_copy_anchor_01.png)
 
 Der somit angepasste Zeitschriftenband wurde mit dieser Änderung als Master definiert. Von nun an dienen die dort verwendeten Metadaten des übergeordneten Werkes \(z.B. der Zeitschrift\) als Vorgabe für alle anderen zugehörigen Bände. Änderungen, die für alle Bände innerhalb der Anchor-Dateien vorgenommen werden sollen, erfolgen daher von nun an innerhalb dieses Datensatzes.
 
-![Anpassungen an diesem Anchor k&#xF6;nnen mit dem Plugin von nun an f&#xFC;r alle zugeh&#xF6;rigen B&#xE4;nde &#xFC;bernommen werden](../.gitbook/assets/copy_anchor_02.png)
+![Anpassungen an diesem Anchor k&#xF6;nnen mit dem Plugin von nun an f&#xFC;r alle zugeh&#xF6;rigen B&#xE4;nde &#xFC;bernommen werden](../.gitbook/assets/intranda_administration_copy_anchor_02.png)
 
 ### Übernahme der Metadaten für alle zugehörigen Bände
 
@@ -87,9 +87,8 @@ Sowie innerhalb eines Goobi-Vorgangs ein Band als Master festgelegt wurde, kann 
 
 Öffnen Sie zunächst das Plugin mittels des Menüs `Administration` und darin des Menüpunktes `Kopieren von Master-Anchor Daten`.
 
-![&#xD6;ffnen des Plugins &#xFC;ber das Men&#xFC; Administration](../.gitbook/assets/copy_anchor_03.png)
+![&#xD6;ffnen des Plugins &#xFC;ber das Men&#xFC; Administration](../.gitbook/assets/intranda_administration_copy_anchor_03.png)
 
 Geben Sie in dem Inputfeld des Plugins den Katalog-Identifier des übergeordneten Werkes ein \(z.B. die ID der Zeitschrift\) und klicken sie anschließend auf den Butten `Kopiervorgang starten`. Hiermit wird der Kopiervorgang aufgerufen, der die Metadaten des Master-Anchor-Datensatzes automatisch in alle zugehörigen Bände \(z.B. alle Bände der Zeitschrift\) übernimmt.
 
-![Ausf&#xFC;hren des Kopiervorgangs](../.gitbook/assets/copy_anchor_04.png)
-
+![Ausf&#xFC;hren des Kopiervorgangs](../.gitbook/assets/intranda_administration_copy_anchor_04.png)

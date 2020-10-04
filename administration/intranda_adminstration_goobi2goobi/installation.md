@@ -28,7 +28,7 @@ Plugin_goobi2goobi_export
 
 Diese Rollen können innerhalb der Benutzergruppen von Goobi workflow konfiguriert werden. Wählen Sie dazu einfach die Rollen auf der rechten Seite aus oder tragen diese in das Eingabefeld und Klicken anschließend auf das Plus-Icon.
 
-![Hinzuf&#xFC;gen der ben&#xF6;tigten Export-Rechte zur Benutzergruppe](../../.gitbook/assets/goobi-to-goobi-roles1_de.png)
+![Hinzuf&#xFC;gen der ben&#xF6;tigten Export-Rechte zur Benutzergruppe](../../.gitbook/assets/intranda_administration_goobi_to_goobi_roles1_de.png)
 
 Mit dieser Konfiguration ist die Vorbereitung auf Seiten des Ausgangssystem bereits abgeschlossen.
 
@@ -64,7 +64,7 @@ Plugin_goobi2goobi_import
 
 Diese Rolle kann innerhalb der Benutzergruppen von Goobi workflow konfiguriert werden, indem sie auf der rechten Seite in das Eingabefeld eingetragen und mittels Klick auf das Plus-Icon übernommen wird.
 
-![Hinzuf&#xFC;gen der ben&#xF6;tigten Import-Rechte zur Benutzergruppe](../../.gitbook/assets/goobi-to-goobi-roles2_de.png)
+![Hinzuf&#xFC;gen der ben&#xF6;tigten Import-Rechte zur Benutzergruppe](../../.gitbook/assets/intranda_administration_goobi_to_goobi_roles2_de.png)
 
 ### 2.3. Konfiguration für den Import der Infrastruktur
 
@@ -286,4 +286,3 @@ Innerhalb einer Regel können weitere allgemeine Einstellungen festgelegt werden
 | :--- | :--- | :--- |
 | `skipProcesslog` | `true` | Festlegung, ob das Vorgangslog des Ausgangssystem übernommen werden soll \(`false`\) oder ob es ignoriert werden soll \(`true`\). |
 | `skipUserImport` | `true` | Festlegung, ob die Benutzer von importierten Aufgaben eines Workflows innerhalb von Goobi als gelöschte Nutzer angelegt werden sollen \(`false`\) oder ob die Informationen über die Ausführung durch konkrete Personen ignoriert werden und so anonymisiert werden sollen. \(`true`\). |
-

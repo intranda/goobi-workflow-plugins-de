@@ -164,23 +164,22 @@ Plugin_Goobi_CataloguePoller
 
 Um dieses Recht zuzuweisen, muss der gewünschten Nutzergruppe zunächst die Berechtigung im rechten Bereich eingetragen werden.
 
-![Eintragen der gew&#xFC;nschten Berechtigung](../.gitbook/assets/administration_catalogue_poller_01.png)
+![Eintragen der gew&#xFC;nschten Berechtigung](../.gitbook/assets/intranda_administration_catalogue_poller_01.png)
 
-![Benutzergruppe mit zugewiesener Berechtigung](../.gitbook/assets/administration_catalogue_poller_02.png)
+![Benutzergruppe mit zugewiesener Berechtigung](../.gitbook/assets/intranda_administration_catalogue_poller_02.png)
 
 Sollte die Berechtigung für die Benutzergruppe neu eingetragen werden, so muss sich der Nutzer zunächst einmal neu in Goobi einloggen, um diese Berechtigungsstufe verwenden zu können. Anschließend kann er im Menü Administration auf das Plugin Catalogue Poller klicken und dort auch jederzeit eine Aktualisierung der Datensätze mittels Katalogabfrage manuell neu anstoßen.
 
-![Erfolgreicher Durchlauf mit der Aktualisierung eines betroffenen Goobi Vorgangs](../.gitbook/assets/administration_catalogue_poller_03.png)
+![Erfolgreicher Durchlauf mit der Aktualisierung eines betroffenen Goobi Vorgangs](../.gitbook/assets/intranda_administration_catalogue_poller_03.png)
 
 ## Automatische Backups
 
 Sollte das Plugin für einen Vorgang aktualisierte Metadaten finden und daher die METS-Datei aktualisieren, so wird zunächst automatisch ein Backup der aktuellen METS-Datei `meta.xml` und sofern relevant auch der `meta_anchor.xml` erzeugt. Das Backup wird neben der aktualisierten METS-Datei gespeichert.
 
-![Mehrere Versionen der METS-Dateien werden als Backup aufgehoben](../.gitbook/assets/administration_catalogue_poller_04.png)
+![Mehrere Versionen der METS-Dateien werden als Backup aufgehoben](../.gitbook/assets/intranda_administration_catalogue_poller_04.png)
 
 ## Logging innerhalb des Vorgangslogs
 
 Die Updates der Metadaten durch das Plugin finden üblicherweise vollautomatisch im Hintergrund statt. Um dennoch jederzeit für einen Datensatz nachvollziehen zu können, was mit diesem zwischenzeitlich passierte, werden die Ereignisse geloggt. Zu jedem Vorgang, für den es Änderung aus diesem Plugin gab, werden daher automatisch detaillierte Einträge innerhalb des `Vorgangslogs` eingefügt. Diese enthalten neben dem Zeitstempel unter anderem eine genaue Auflistung der geänderten Metadatenfelder samt der Inhalte. Somit ist es jederzeit möglich auch den vorherigen bzw. den neuen Wert nachvollziehen zu können.
 
-![Innerhalb des Vorgangslogs sind die &#xC4;nderungen des Catalogue Pollers nachvollziehbar](../.gitbook/assets/administration_catalogue_poller_05.png)
-
+![Innerhalb des Vorgangslogs sind die &#xC4;nderungen des Catalogue Pollers nachvollziehbar](../.gitbook/assets/intranda_administration_catalogue_poller_05.png)
