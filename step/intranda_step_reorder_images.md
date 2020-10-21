@@ -1,13 +1,13 @@
 ---
 description: >-
-  Dieses Step Plugin ermöglicht eine automatische Korrektur der Sortierung von Digitalisaten, die für rechte und linke Buchseiten getrennt voneinander erzeugt wurden.
+  Dieses Step Plugin ermöglicht eine automatische Korrektur der Sortierung von Digitalisaten, die für rechte und linke Buchseiten getrennt voneinander erzeugt wurden. Diese werden mit dem Plugin in die Korrekte Reihenfolge gebracht.
 ---
 
 # Bilder sortieren
 
 ## Einführung
 
-Das Plugin erlaubt eine automatische Sortierung von Bilddateien, die bei der Erzeugung nicht fortlaufend erzeugt und stattdessen für linke und rechte Seiten getrennt voneinander gespeichert wurden.
+Das Plugin erlaubt eine automatische Sortierung von Bilddateien, die bei der Erzeugung nicht fortlaufend erzeugt und stattdessen für linke und rechte Seiten getrennt voneinander gespeichert wurden. Dies ist beispielsweise dann sinnvoll, wenn z.B. ein zu geringer Öffnungswinkel eines Buchs das Scannen linker und rechter Seiten gleichzeitig verbietet.
 
 ## Übersicht
 
