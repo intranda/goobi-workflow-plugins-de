@@ -1,6 +1,6 @@
 ---
 description: >-
-  Dieses Step Plugin ermöglicht eine automatische Korrektur der Sortierung von Digitalisaten, die für rechte und linke Buchseiten getrennt voneinander erzeugt wurden. Diese werden mit dem Plugin in die Korrekte Reihenfolge gebracht.
+  Dieses Step Plugin ermöglicht eine automatische Korrektur der Sortierung von Digitalisaten, die für rechte und linke Buchseiten getrennt voneinander erzeugt wurden.
 ---
 
 # Bilder sortieren
