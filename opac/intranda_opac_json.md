@@ -164,8 +164,8 @@ Innerhalb des Katalogs können verschiedene Feldtypen genutzt werden:
 |`authentication`| Geben Sie hier die Zugangsdaten für den Zugriff auf die Katalogschnittstelle an.|
 |`recordType`|Dieser Typ dient zum Erkennen des Dokumententyps des JSON-Datensatzes.|
 |`defaultPublicationType`|Dieser Typ wird genutzt, wenn zuvor kein Dokumententyp erkannt wurde.|
-|`metadata`|Dieser Typ dient zum Mapping von JSON-Feldern zu Metadaten|
-|`person`|Dieser Typ dient zum Mapping von JSON-Feldern zu Personen|
+|`metadata`|Dieser Typ dient zum Mapping von JSON-Feldern zu Metadaten.|
+|`person`|Dieser Typ dient zum Mapping von JSON-Feldern zu Personen.|
 
 ### Feldtyp: field
 
@@ -206,7 +206,7 @@ Die beiden Element `<metadata>` und `<person>` dienen zum Import einzelner Inhal
 | `regularExpression` | Ein regulärer Ausdruck zur Manipulation des Wertes. Dieser wird nach der Prüfung der `validationExpression` angewendet. |
 | `firstname` | Ein regulärer Ausdruck, mit dem bei Personen der Vorname aus dem Feldinhalt ermittelt wird. |
 | `lastname` | Ein regulärer Ausdruck, mit dem bei Personen der Nachname aus dem Feldinhalt ermittelt wird. |
-|`followLink`| Defniert, ob der enthaltene Wert direkt importiert wird, oder einen Link zu einem anderen Datensatz enthält. |
+|`followLink`| Definiert, ob der enthaltene Wert direkt importiert wird, oder einen Link zu einem anderen Datensatz enthält. |
 |`templateName`| Enthält den Namen des zu nutzenden `<config>` Blocks, mit dem der neue Datensatz analysiert werden soll. |
 |`basisUrl`| Enthält die zu nutzende Basis-URL, falls der Link zum Datensatz ein relativer Pfad ist. |
 
