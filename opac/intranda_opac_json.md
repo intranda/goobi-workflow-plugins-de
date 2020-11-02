@@ -27,19 +27,19 @@ plugin_intranda_opac_json-GUI.jar
 plugin_intranda_opac_json.xml
 ```
 
-Die Datei `plugin_intranda_opac_json.jar` enthält die Programmlogik und muss für den Nutzer `tomcat` lesbar an folgendem Pfad installiert werden:
+Die Datei `plugin_intranda_opac_json.jar` enthält die Programmlogik und muss für den Nutzer `tomcat8` lesbar an folgendem Pfad installiert werden:
 
 ```bash
 /opt/digiverso/goobi/plugins/opac/plugin_intranda_opac_json.jar
 ```
 
-Die Datei `plugin_intranda_opac_json-GUI.jar` enthält die Nutzeroberfläche und muss für den Nutzer `tomcat` lesbar an folgendem Pfad installiert werden:
+Die Datei `plugin_intranda_opac_json-GUI.jar` enthält die Nutzeroberfläche und muss für den Nutzer `tomcat8` lesbar an folgendem Pfad installiert werden:
 
 ```bash
 /opt/digiverso/goobi/plugins/GUI/plugin_intranda_opac_json-GUI.jar
 ```
 
-Die Datei `plugin_intranda_opac_json.xml` muss ebenfalls für den Nutzer `tomcat` lesbar sein und unter folgendem Pfad liegen:
+Die Datei `plugin_intranda_opac_json.xml` muss ebenfalls für den Nutzer `tomcat8` lesbar sein und unter folgendem Pfad liegen:
 
 ```bash
 /opt/digiverso/goobi/config/plugin_intranda_opac_json.xml
@@ -62,10 +62,9 @@ In der Datei `goobi_opac.xml` muss die Schnittstelle zum gewünschten Katalogsys
     port="443" database="x" iktlist="x" ucnf="x" opacType="intranda_opac_json" />
 </catalogue>
 ```
+The `title` attribute contains a unique name. The plugin to be used is determined by `opacType`, which in this case must be `intranda_opac_json`. The other fields are not required.
 
-Das Attribut `title` enthält einen eindeutigen Namen und `opacType` das zu nutzende Plugin. In diesem Fall muss der Eintrag `intranda_opac_json` lauten. Die weiteren Felder werden nicht benötigt.
-
-Das Mapping der Inhalte des JSON-Datensatzes hin zu Goobi Metadaten geschieht innerhalb der Datei `plugin_intranda_opac_json.xml`. Die Definition der Felder innerhalb des JSON-Datensatzes geschieht mittels `JSONPath`, dem XPath-Equivalent für JSON.
+The mapping of the JSON dataset to Goobi metadata is determined by the `plugin_intranda_opac_json.xml` file. The fields within the JSON dataset are referenced using `JSONPath`, the XPath equivalent for JSON.
 
 ```xml
 <config_plugin>
