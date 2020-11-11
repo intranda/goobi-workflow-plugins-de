@@ -53,7 +53,7 @@ Die einzelnen Felder haben folgende Bedeutung:
 |Wert|Beschreibung|
 |--- |--- |
 |`url`|Dieses Feld ist ein Pflichtfeld und enthält die URL zur OID-API. |
-|`username`| Dieser Paremeter enthält den Nutzernamen, falls eine Basic Authentication verwendet wird. Wenn die API ohne Authentifizierung erreichbar ist, kann dieser Parameter leer bleiben.|
+|`username`| Dieser Parameter enthält den Nutzernamen, falls eine Basic Authentication verwendet wird. Wenn die API ohne Authentifizierung erreichbar ist, kann dieser Parameter leer bleiben.|
 |`password`|Dieser Parameter enthält das Passwort, falls eine Basic Authentication verwendet wird. Wenn die API ohne Authentifizierung erreichbar ist, kann dieser Parameter leer bleiben.|
 |`headerparam`|Dieser Parameter definiert den Namen eines HTTP Header Parameters, der beim Aufruf gesetzt wird. Wenn kein zusätzlicher Parameter benötigt wird, kann der Parameter leer bleiben.|
 |`headerValue`|Dieser Parameter definiert den Wert eines HTTP Header Parameters, der beim Aufruf gesetzt wird. Wenn kein zusätzlicher Parameter benötigt wird, kann das Feld leer bleiben.|
