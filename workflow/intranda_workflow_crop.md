@@ -14,7 +14,6 @@ Dieses Workflow-Plugin erlaubt es, mehrere Bilder, die aus verschiedenen Goobi-V
 
 | Details |  |
 | :--- | :--- |
-| Version | 1.0.0 |
 | Identifier | intranda\_workflow\_crop |
 | Source code | Source code nicht öffentlich verfügbar |
 | Lizenz | GPL 2.0 oder neuer |
@@ -91,4 +90,3 @@ Wenn das Plugin korrekt installiert und konfiguriert wurde, ist es innerhalb des
 Die Bedienung dieses Plugins ist mit derjenigen des regulären LayoutWizzards innerhalb des Preview-Modus weitestgehend identisch. Der einzig nennenswerte Unterschied betriff hierbei lediglich die Aufführung der einzelnen Vorgänge, die jeweils visuell voneinander abgetrennt sind und durch einen einfachen Klick auf den zugehörigen Butten abgeschlossen werden können. Die Anzeige der Bilder aktualisiert sich daraufhin und zeigt anschließend den jeweils nächsten Vorgang an.
 
 ![Abschlie&#xDF;en aller Bilder eines Vorgangs](../.gitbook/assets/intranda_workflow_crop_02.png)
-

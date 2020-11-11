@@ -14,7 +14,6 @@ Mit Hilfe dieses Export-Plugins für Goobi können die Goobi-Vorgänge innerhalb
 
 | Details |  |
 | :--- | :--- |
-| Version | 1.0.0 |
 | Identifier | HaabExport |
 | Source code | [https://github.com/intranda/goobi-plugin-export-haab](https://github.com/intranda/goobi-plugin-export-haab) |
 | Lizenz | GPL 2.0 oder neuer |
@@ -55,4 +54,3 @@ Mit Hilfe der Auflistung `<exportFolder>` können verschiedene Orte definiert we
 Um das Export-Plugin nach der erfolgreichen Installation innerhalb des Workflows nutzen zu können, muss ein Arbeitsschritt definiert werden, bei dem die Funktion Export DMS aktiviert wurde. Darüber hinaus muss als Schritt-Plugin der Wert `HaabExport` eingetragen werden.
 
 ![](../.gitbook/assets/intranda_export_haab.png)
-

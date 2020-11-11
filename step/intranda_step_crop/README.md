@@ -12,7 +12,6 @@ Der LayoutWizzard ist ein Werkzeug zur Analyse vom digitalisierten Buchseiten un
 
 | Details |  |
 | :--- | :--- |
-| Version | 1.0.0 |
 | Identifier | intranda\_step\_crop |
 | Source code | [https://gitea.intranda.com/goobi-workflow/goobi-plugin-step-crop](https://gitea.intranda.com/goobi-workflow/goobi-plugin-step-crop) |
 | Lizenz | kommerzielle Lizenz |
@@ -118,4 +117,3 @@ Die Bildanalyse des LayoutWizzard arbeitet in mehreren Phasen, um ausgehend von 
     </tr>
   </tbody>
 </table>
-

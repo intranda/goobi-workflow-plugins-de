@@ -12,7 +12,6 @@ Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den
 
 | Details |  |
 | :--- | :--- |
-| Version | 1.0.0 |
 | Identifier | intranda\_step\_pdfUpload |
 | Source code | [https://github.com/intranda/goobi-plugin-step-pdfupload](https://github.com/intranda/goobi-plugin-step-pdfupload) |
 | Lizenz | GPL 2.0 oder neuer |
@@ -101,4 +100,3 @@ Wird eine Datei hochgeladen, werden die Informationen dazu in der METS Datei ges
 Durch das Übernehmen in die METS-Datei ist sichergestellt, dass die Reihenfolge der hochgeladenen Dateien persistent gespeichert wird.
 
 Wird die Aufgabe anschließend erneut geöffnet, werden die Informationen zu den hochgeladenen Dateien aus der METS-Datei entnommen und ebenfalls angezeigt.
-

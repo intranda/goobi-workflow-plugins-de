@@ -12,7 +12,6 @@ Mit den beiden hier beschriebenen Plugins ist ein Datentransfer von einem Goobi 
 
 | Details |  |
 | :--- | :--- |
-| Version | 1.0.0 |
 | Identifier | intranda\_administration\_goobi2goobi\_export  intranda\_administration\_goobi2goobi\_import\_infrastructure  intranda\_administration\_goobi2goobi\_import\_data |
 | Source code | [https://github.com/intranda/goobi-plugin-administration-goobi2goobi-export](https://github.com/intranda/goobi-plugin-administration-goobi2goobi-export)  [https://github.com/intranda/goobi-plugin-administration-goobi2goobi-import](https://github.com/intranda/goobi-plugin-administration-goobi2goobi-import) |
 | Lizenz | GPL 2.0 oder neuer |
@@ -50,4 +49,3 @@ Nach der vollständigen Erzeugung und Anreicherung der Export-Verzeichnisse auf 
 Nachdem die Export-Verzeichnisse erfolgreich auf das Zielsystem transferiert wurden, können die Daten dort eingespielt werden. Hierzu müssen die Daten an der richtigen Stelle im System abgelegt werden und auch einige weitere Vorkehrungen hinsichtlich der Infrastruktur vorbereitet sein.
 
 {% page-ref page="step\_3\_import.md" %}
-

@@ -12,7 +12,6 @@ Dieses Plugin dient zum Ersetzen von zuvor eingespielten Platzhalterbildern inne
 
 | Details |  |
 | :--- | :--- |
-| Version | 1.0.0 |
 | Identifier | intranda\_step\_replace-images |
 | Source code | [https://github.com/intranda/goobi-plugin-step-replace-images](https://github.com/intranda/goobi-plugin-step-replace-images) |
 | Lizenz | GPL 2.0 oder neuer |
@@ -38,4 +37,3 @@ Dieses Plugin wird in den Workflow so integriert, dass es für eine ausgewählte
 Somit erhält der Nutzer Zugriff auf die Nutzeroberfläche des Plugins, wo ihm der derzeitige Inhalt des Master-Ordners aufgelistet wird. Hier können nun gezielt einzelne oder auch viele Bilder per Drag & Drop an diejenige Stelle kopiert werden, ab der die einzufügenden Bilder die vorhandenen Platzhalterbilder ersetzen sollen. Das Plugin stellt während des Uploads zugleich sicher, dass die neu hochgeladenen Dateien korrekt umbenannt werden.
 
 ![Nutzeroberfl&#xE4;che zum Ersetzen der vorhandenen Platzhalterbilder](../.gitbook/assets/intranda_step_replace-images-2_de.png)
-

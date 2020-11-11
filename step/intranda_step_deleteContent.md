@@ -14,7 +14,6 @@ Das Plugin dient zum automatischen Löschen von Daten eines Vorgangs. Hierzu kan
 
 | Details |  |
 | :--- | :--- |
-| Version | 1.0.0 |
 | Identifier | intranda\_step\_deleteContent |
 | Source code | [https://github.com/intranda/goobi-plugin-step-deleteContent](https://github.com/intranda/goobi-plugin-step-deleteContent) |
 | Lizenz | GPL 2.0 oder neuer |
@@ -124,4 +123,3 @@ Da dieses Plugin üblicherweise automatisch ausgeführt werden soll, sollte der 
 Nachdem das Plugin vollständig installiert und eingerichtet wurde, wird es üblicherweise automatisch innerhalb des Workflows ausgeführt, so dass keine manuelle Interaktion mit dem Nutzer erfolgt. Stattdessen erfolgt der Aufruf des Plugins durch den Workflow im Hintergrund und startet die Löschung der konfigurierten Daten. Hierbei werden die konfigurierten Ordner und Daten gelöscht, sofern diese vorhanden sind. Nicht vorhandene Daten werden übersprungen. Wenn konfiguriert wurde, dass der Vorgang deaktiviert werden soll, werden alle Arbeitsschritte durchlaufen und geprüft, ob diese bereits innerhalb des Workflows regulär geschlossen wurden. Sollte dies nicht der Fall sein, wird der Arbeitsschritt deaktiviert.
 
 Nach Abschluss der Löschung wird im Vorgangslog eine Meldung über den Aufruf dieses Plugins und das Löschen der Daten hinzugefügt.
-

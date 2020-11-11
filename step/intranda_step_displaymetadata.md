@@ -12,7 +12,6 @@ Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den
 
 | Details |  |
 | :--- | :--- |
-| Version | 1.1.0 |
 | Identifier | intranda\_step\_displayMetadata |
 | Source code | [https://github.com/intranda/goobi-plugin-step-displaymetadata](https://github.com/intranda/goobi-plugin-step-displaymetadata) |
 | Lizenz | GPL 2.0 oder neuer |
@@ -63,4 +62,3 @@ In Goobi muss dann noch der Schritt in den Workflow einkonfiguriert werden. Daf√
 Wenn dann nach erfolgreicher Konfiguration der Schritt ge√∂ffnet wird, werden alle Metadaten - sofern im Vorgang vorhanden - angezeigt:
 
 ![](../.gitbook/assets/intranda_step_displaymetadata_view.png)
-

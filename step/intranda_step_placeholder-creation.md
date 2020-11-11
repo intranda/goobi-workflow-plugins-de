@@ -12,7 +12,6 @@ Dieses Plugin dient zur Generierung von Platzhalterbildern innerhalb des Master-
 
 | Details |  |
 | :--- | :--- |
-| Version | 1.0.0 |
 | Identifier | intranda\_step\_placeholder-creation |
 | Source code | [https://github.com/intranda/goobi-plugin-step-placeholder](https://github.com/intranda/goobi-plugin-step-placeholder) |
 | Lizenz | GPL 2.0 oder neuer |
@@ -39,4 +38,3 @@ Dieses Plugin wird in den Workflow so integriert, dass es für eine ausgewählte
 Ab diesem Moment existieren zu dem Vorgang die generierten auffälligen Platzhalterbilder und können im Laufe des weiteren Workflows angezeigt und auch ersetzt werden.
 
 ![Anzeige der Platzhalterbilder z.B. innerhalb des METS-Editors](../.gitbook/assets/intranda_step_placeholder-creation-2_de.png)
-

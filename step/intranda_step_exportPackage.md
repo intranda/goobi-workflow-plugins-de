@@ -14,7 +14,6 @@ Dieses Plugin erlaubt einen flexiblen Export von Daten eines Vorgangs in ein def
 
 | Details |  |
 | :--- | :--- |
-| Version | 1.0.0 |
 | Identifier | intranda\_step\_exportPackage |
 | Source code | [https://github.com/intranda/goobi-plugin-step-exportPackage](https://github.com/intranda/goobi-plugin-step-exportPackage) |
 | Lizenz | GPL 2.0 oder neuer |

@@ -10,7 +10,6 @@ Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den
 
 | Details |  |
 | :--- | :--- |
-| Version | 1.0.0 |
 | Identifier | intranda\_opac\_soutron |
 | Source code | [https://github.com/intranda/goobi-plugin-opac-soutron](https://github.com/intranda/goobi-plugin-opac-soutron) |
 | Lizenz | GPL 2.0 oder neuer |
@@ -115,4 +114,3 @@ Sofern hier ein gültiger Datensatz gefunden wird, wird der Datensatz nach dem F
 Im Anschluß werden die konfigurierten XPath-Ausdrücke ausgewertet, die für `<metadata>` und `<person>` konfiguriert wurden.
 
 Die Ausdrücke gelten für das Element `/soutron/catalogs_view/ct/`. Sofern mit einem Ausdruck Daten gefunden werden, wird das entsprechend angegebene Metadatum erzeugt. Bei Personen wird geprüft, ob der Wert ein Komma enthält. In dem Fall werden Vor- und Nachname am Komma getrennt, ansonsten wird der Wert als Nachname interpretiert.
-

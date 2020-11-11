@@ -12,7 +12,6 @@ Die vorliegende Dokumentation beschreibt die Installation, die Konfiguration und
 
 | Details |  |
 | :--- | :--- |
-| Version | 1.0.3 |
 | Identifier | prov\_export\_fedora |
 | Source code | [https://gitea.intranda.com/goobi-workflow/goobi-plugin-export-fedora-prov](https://gitea.intranda.com/goobi-workflow/goobi-plugin-export-fedora-prov) |
 | Lizenz | GPL 2.0 oder neuer |
@@ -199,4 +198,3 @@ http(s)://<Fedora REST endpoint>/records/<barcode.substring(0,4)>/<barcode.sunst
 [http://localhost:8888/fedora/rest/records/](http://localhost:8888/fedora/rest/records/barc/ode1/234/images/1/files/00000001.jp2)[DB/00/27/DB/-F83B-11E9-AE98-A392051B17E6](https://dev-content.prov.vic.gov.au/rest/records/DB/00/27/DB/F83B11E9AE98A392051B17E6)[/images/1/files/00000001.jp2](http://localhost:8888/fedora/rest/records/barc/ode1/234/images/1/files/00000001.jp2)  
 [http://localhost:8888/fedora/rest/records/](http://localhost:8888/fedora/rest/records/barc/ode1/234/images/2/files/00000002.jp2)[DB/00/27/DB/-F83B-11E9-AE98-A392051B17E6](https://dev-content.prov.vic.gov.au/rest/records/DB/00/27/DB/F83B11E9AE98A392051B17E6)[/images/2/files/00000002.jp2    
 ](http://localhost:8888/fedora/rest/records/barc/ode1/234/images/2/files/00000002.jp2)[http://localhost:8888/fedora/rest/records/](http://localhost:8888/fedora/rest/records/barc/ode1/234/images/3/files/00000003.jp2)[DB/00/27/DB/-F83B-11E9-AE98-A392051B17E6](https://dev-content.prov.vic.gov.au/rest/records/DB/00/27/DB/F83B11E9AE98A392051B17E6)[/images/3/files/00000003.jp2](http://localhost:8888/fedora/rest/records/barc/ode1/234/images/3/files/00000003.jp2)
-

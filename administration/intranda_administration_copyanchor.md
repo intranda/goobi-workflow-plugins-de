@@ -12,7 +12,6 @@ Die vorliegende Dokumentation beschreibt die Installation, die Konfiguration und
 
 | Details |  |
 | :--- | :--- |
-| Version | 1.0.0 |
 | Identifier | intranda\_administration\_copymasteranchor |
 | Source code | [https://github.com/intranda/goobi-plugin-administration-copyanchor](https://github.com/intranda/goobi-plugin-administration-copyanchor) |
 | Lizenz | GPL 2.0 oder neuer |
@@ -92,4 +91,3 @@ Sowie innerhalb eines Goobi-Vorgangs ein Band als Master festgelegt wurde, kann 
 Geben Sie in dem Inputfeld des Plugins den Katalog-Identifier des übergeordneten Werkes ein \(z.B. die ID der Zeitschrift\) und klicken sie anschließend auf den Butten `Kopiervorgang starten`. Hiermit wird der Kopiervorgang aufgerufen, der die Metadaten des Master-Anchor-Datensatzes automatisch in alle zugehörigen Bände \(z.B. alle Bände der Zeitschrift\) übernimmt.
 
 ![Ausf&#xFC;hren des Kopiervorgangs](../.gitbook/assets/intranda_administration_copy_anchor_04.png)
-

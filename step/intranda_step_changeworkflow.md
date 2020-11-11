@@ -12,7 +12,6 @@ Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den
 
 | Details |  |
 | :--- | :--- |
-| Version | 1.0.0 |
 | Identifier | intranda\_step\_changeWorkflow |
 | Source code | [https://github.com/intranda/goobi-plugin-step-change-workflow](https://github.com/intranda/goobi-plugin-step-change-workflow) |
 | Lizenz | GPL 2.0 oder neuer |
@@ -137,4 +136,3 @@ Nachdem das Plugin installiert und konfiguriert wurde, kann es in der Nutzerober
 ## Nutzung
 
 Da das Plugin vollautomatisch laufen sollte, ist für die Nutzung nichts weiter zu beachten.
-

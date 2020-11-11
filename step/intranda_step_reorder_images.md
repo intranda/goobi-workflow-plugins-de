@@ -13,7 +13,6 @@ Das Plugin erlaubt eine automatische Sortierung von Bilddateien, die bei der Erz
 
 | Details |  |
 | :--- | :--- |
-| Version | 1.0.0 |
 | Identifier | intranda\_step\_reorder_images |
 | Source code | [https://github.com/intranda/goobi-plugin-step-reorder-images](https://github.com/intranda/goobi-plugin-step-reorder-images) |
 | Lizenz | GPL 2.0 oder neuer |

@@ -14,7 +14,6 @@ Dieses Plugin dient zum Upload von Dateien innerhalb der Nutzeroberfläche einer
 
 | Details |  |
 | :--- | :--- |
-| Version | 1.0.0 |
 | Identifier | intranda\_step\_fileUpload |
 | Source code | [https://github.com/intranda/goobi-plugin-step-fileupload](https://github.com/intranda/goobi-plugin-step-fileupload) |
 | Lizenz | GPL 2.0 oder neuer |
@@ -90,4 +89,3 @@ Dateien können entweder per Drag & Drop in diesen Bereich hochgeladen werden od
 Soll nach dem erfolgten Upload geprüft werden, welche Dateien in dem Ordner bereits vorhanden sind, so kann im rechten obereren Bereich die Anzeige umgeschaltet werden. Damit ist es dem Nutzer möglich, alle bereits vorhandenen Dateien in dem Ordner aufzulisten, einzelne Dateien herunterzuladen oder diese zu löschen.
 
 ![Anzeige der &#xDC;bersicht &#xFC;ber alle bereits vorhandenen Dateien des Ordners](../.gitbook/assets/intranda_step_fileUpload3_de.png)
-

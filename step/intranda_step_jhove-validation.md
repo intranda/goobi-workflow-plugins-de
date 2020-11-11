@@ -12,7 +12,6 @@ Diese Plugin dient zur Validierung von Bildern im Format `TIF` innerhalb von def
 
 | Details |  |
 | :--- | :--- |
-| Version | 1.0.0 |
 | Identifier | intranda\_step\_jhove-validation |
 | Source code | [https://github.com/intranda/goobi-plugin-step-tif-validation](https://github.com/intranda/goobi-plugin-step-tif-validation) |
 | Lizenz | GPL 2.0 oder neuer |
@@ -110,4 +109,3 @@ Das Plugin wird üblicherweise vollautomatisch innerhalb des Workflows ausgefüh
 Dieses Plugin wird in den Workflow so integriert, dass es automatisch ausgeführt wird. Eine manuelle Interaktion mit dem Plugin ist nicht notwendig. Zur Verwendung innerhalb eines Arbeitsschrittes des Workflows sollte es wie im nachfolgenden Screenshot konfiguriert werden.
 
 ![Integration des Plugins in den Workflow](../.gitbook/assets/intranda_step_jhove-validation.png)
-

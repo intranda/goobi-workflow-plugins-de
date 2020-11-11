@@ -12,7 +12,6 @@ Die vorliegende Dokumentation beschreibt die Installation, die Konfiguration und
 
 | Details |  |
 | :--- | :--- |
-| Version | 1.0.0 |
 | Identifier | intranda\_step\_xmp |
 | Source code | [https://github.com/intranda/goobi-plugin-step-xmpheader](https://github.com/intranda/goobi-plugin-step-xmpheader) |
 | Lizenz | GPL 2.0 oder neuer |
@@ -375,4 +374,3 @@ XMP-Header ermöglichen das Schreiben des vollständigen Dublin-Core Metadatensa
     </config>
 </config_plugin>
 ```
-

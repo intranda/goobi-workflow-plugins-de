@@ -6,7 +6,6 @@ Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den
 
 | Details |  |
 | :--- | :--- |
-| Version | 1.0.0 |
 | Identifier | intranda\_step\_lza\_ewig |
 | Source code | [https://github.com/intranda/goobi-plugin-step-ewig](https://github.com/intranda/goobi-plugin-step-ewig) |
 | Lizenz | GPL 2.0 oder neuer |
@@ -109,4 +108,3 @@ Nachdem das Plugin installiert und konfiguriert wurde, kann es innerhalb eines A
 ## Sonstiges
 
 Der Arbeitsschritt innerhalb von Goobi workflow exportiert alle notwendigen Dateien für den EWIG Ingest. Der Upload selbst erfolgt über den intranda TaskManager. Dies ist sinnvoll, um zu vermeiden, das mehrere parallel laufende Uploadvorgänge Konflikte mit einander haben und das System verlangsamen. ​ Für den Upload siehe [Kapitel 4.17](https://docs.intranda.com/intranda-taskmanager-de/4/4.17-upload-von-dateien-in-das-ewig-langzeitarchiv) in der intranda TaskManager Dokumentation.
-

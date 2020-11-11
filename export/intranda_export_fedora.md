@@ -10,7 +10,6 @@ Die vorliegende Dokumentation beschreibt die Installation, die Konfiguration und
 
 | Details |  |
 | :--- | :--- |
-| Version | 1.0.0 |
 | Identifier | intranda\_export\_fedora |
 | Source code | [https://github.com/intranda/goobi-plugin-export-fedora](https://github.com/intranda/goobi-plugin-export-fedora) |
 | Lizenz | GPL 2.0 oder neuer |
@@ -101,4 +100,3 @@ http(s)://<Fedora REST endpoint>/records/&lt;CatalogIdDigital>/
 ### URL für die Derivate der Bilder
 
 [http://localhost:8888/fedora/rest/records/PPN123456789/media/00000001.tif](http://localhost:8888/fedora/rest/records/PPN123456789/media/00000001.tif) [http://localhost:8888/fedora/rest/records/PPN123456789/media/00000002.tif](http://localhost:8888/fedora/rest/records/PPN123456789/media/00000002.tif) [http://localhost:8888/fedora/rest/records/PPN123456789/media/00000003.tif](http://localhost:8888/fedora/rest/records/PPN123456789/media/00000003.tif)
-

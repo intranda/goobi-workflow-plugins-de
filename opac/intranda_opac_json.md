@@ -10,7 +10,6 @@ Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den
 
 | Details |  |
 | :--- | :--- |
-| Version | 1.0.0 |
 | Identifier | intranda\_opac\_json |
 | Source code | [https://github.com/intranda/goobi-plugin-opac-json](https://github.com/intranda/goobi-plugin-opac-json) |
 | Lizenz | GPL 2.0 oder neuer |

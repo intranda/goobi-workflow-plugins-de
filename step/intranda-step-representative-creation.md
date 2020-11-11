@@ -15,7 +15,6 @@ Mit Hilfe dieses Plugins können METS Dateien automatisch aufbereitet und der Re
 
 | Details |  |
 | :--- | :--- |
-| Version | 1.0.0 |
 | Identifier | RepresentativeCreation |
 | Source code | [https://github.com/intranda/goobi-plugin-step-representative-creation](https://github.com/intranda/goobi-plugin-step-representative-creation) |
 | Lizenz | GPL 2.0 oder neuer |
@@ -81,4 +80,3 @@ Die Arbeitsweise des Plugins innerhalb des korrekt konfigurierten Workflows sieh
 4. Von diesem Element wird das erste zugeordnete Bild als Repräsentant gesetzt.
 5. Sollte kein Strukturelement mit diesem Namen gefunden werden oder der Datensatz enthält keine Stukturelemente, kann eine Fehlermeldung in das Vorgangslog geschrieben und der Workflow auf einen vorherigen Arbeitsschritt zurückgesetzt werden.
 6. Dies ist jedoch nur dann möglich, wenn ein Text für die Fehlermeldung und der Name des Schrittes konfiguriert wurden.
-

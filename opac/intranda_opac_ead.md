@@ -12,7 +12,6 @@ Die vorliegende Dokumentation beschreibt die Installation, die Konfiguration und
 
 | Details |  |
 | :--- | :--- |
-| Version | 1.0.0 |
 | Identifier | intranda\_opac\_ead |
 | Source code | [https://github.com/intranda/goobi-plugin-opac-ead](https://github.com/intranda/goobi-plugin-opac-ead) |
 | Lizenz | GPL 2.0 oder neuer |
@@ -287,4 +286,3 @@ Die Datei `goobi_projects.xml` benötigt eine neue Definition für den Publikati
 {% endcode %}
 
 Nachdem diese Konfiguration abgeschlossen wurde, steht innerhalb von Goobi eine neue Datenquelle innerhalb der Anlegemaske für Vorgänge zur Verfügung. Diese kann nun mittels der Identifier in gleicher Weise abgefragt werden wie andere Datenquellen und Kataloge auch.
-

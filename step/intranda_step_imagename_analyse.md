@@ -12,7 +12,6 @@ Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den
 
 | Details |  |
 | :--- | :--- |
-| Version | 1.0.0 |
 | Identifier | intranda\_step\_imagename\_analyse |
 | Source code | [https://github.com/intranda/goobi-plugin-step-analyse-imagenames](https://github.com/intranda/goobi-plugin-step-analyse-imagenames) |
 | Lizenz | GPL 2.0 oder neuer |
@@ -107,4 +106,3 @@ Die folgenden Beispiele basieren auf der oben definierten Konfiguration:
 | BxSem-A22\_VS1v.jpg | erstes Endsheet, zweite Seite |
 | BxSem-A22\_VS2.jpg | zweites Endsheet |
 | BxSem-B08\_SV.jpg | einziges Bild der FrontSection |
-

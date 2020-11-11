@@ -12,7 +12,6 @@ Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den
 
 | Details |  |
 | :--- | :--- |
-| Version | 1.0.0 |
 | Identifier | intranda\_step\_ocrselector |
 | Source code | [https://github.com/intranda/goobi-plugin-step-ocrselector](https://github.com/intranda/goobi-plugin-step-ocrselector) |
 | Lizenz | GPL 2.0 oder neuer |
@@ -67,4 +66,3 @@ Hier stehen die drei Auswahlmöglichkeiten `antiqua`, `fraktur` und `keine OCR` 
 ![Aktualisiert - keine OCR f&#xFC;r Einband und leere Seiten](../.gitbook/assets/intranda_step_ocrselector_updated.png)
 
 Das Plugin kann nach erfolgter Markierung per Klick auf `Plugin verlassen` verlassen werden. Dabei wird auch automatisch noch einmal gespeichert. Die Schaltfläche `Speichern` kann für zwischenzeitliches Speichern benutzt werden.
-

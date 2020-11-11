@@ -13,7 +13,6 @@ Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den
 
 | Details |  |
 | :--- | :--- |
-| Version | 1.0.0 |
 | Identifier | intranda\_step\_mixedocr |
 | Source code | [https://github.com/intranda/goobi-plugin-step-mixedocr](https://github.com/intranda/goobi-plugin-step-mixedocr) |
 | Lizenz | GPL 2.0 oder neuer |
@@ -98,4 +97,3 @@ Nachdem das Plugin installiert und Konfiguriert wurde, muss es noch in Goobi wor
 ![Konfiguration des Schritts in Goobi Workflow](../.gitbook/assets/intranda_step_mixedocr_config_gui.png)
 
 Das Plugin wird üblicherweise automatisch ausgeführt, deshalb sollte der Haken bei `Automatische Aufgabe` gesetzt sein. Außerdem muss das Plugin `intranda_step_mixedocr` unter `Plugin für Arbeitsschritt` ausgewählt werden.
-

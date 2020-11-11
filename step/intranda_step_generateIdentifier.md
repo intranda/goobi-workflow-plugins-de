@@ -13,7 +13,6 @@ Das Plugin erlaubt eine automatische Generierung von Identifiern und das Speiche
 
 | Details |  |
 | :--- | :--- |
-| Version | 1.0.0 |
 | Identifier | intranda\_step\_generateIdentifier |
 | Source code | [https://github.com/intranda/goobi-plugin-step-generateIdentifier](https://github.com/intranda/goobi-plugin-step-generateIdentifier) |
 | Lizenz | GPL 2.0 oder neuer |

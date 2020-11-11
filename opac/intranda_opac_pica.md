@@ -10,7 +10,6 @@ Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den
 
 | Details |  |
 | :--- | :--- |
-| Version | 1.0.0 |
 | Identifier | intranda\_opac\_pica |
 | Source code | [https://github.com/intranda/goobi-plugin-opac-pica](https://github.com/intranda/goobi-plugin-opac-pica) |
 | Lizenz | GPL 2.0 oder neuer |
@@ -58,4 +57,3 @@ Wenn in Goobi nach einem Identifier gesucht wird, wird im Hintergrund eine Anfra
 ![Oberfl&#xE4;che von Goobi workflow zur Abfrage des Katalogs](../.gitbook/assets/intranda_opac_pica_de.png)
 
 Nach der Abfrage des eigentlichen Datensatzes aus dem PICA-Katalog erfolgt das Mapping der Metadaten gemäß der im Regelsatz konfigurieren Regeln.
-

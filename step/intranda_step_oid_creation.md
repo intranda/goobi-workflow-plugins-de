@@ -13,7 +13,6 @@ Mit diesem Plugins können Object Identifier für ein Werk und alle Bilder von e
 
 | Details |  |
 | :--- | :--- |
-| Version | 1.0.0 |
 | Identifier | intranda\_step\_oid\_creation |
 | Source code | [https://github.com/intranda/goobi-plugin-step-oid-creation](https://github.com/intranda/goobi-plugin-step-oid-creation) |
 | Lizenz | GPL 2.0 oder neuer |

@@ -17,7 +17,6 @@ Neben der Zuordnung der Dateien auf Basis des Dateinamens ist ebenso konfigurier
 
 | Details |  |
 | :--- | :--- |
-| Version | 1.0.0 |
 | Identifier | intranda\_workflow\_massupload |
 | Source code | [https://github.com/intranda/goobi-plugin-workflow-massupload](https://github.com/intranda/goobi-plugin-workflow-massupload) |
 | Lizenz | GPL 2.0 oder neuer |
@@ -105,4 +104,3 @@ Mit einem Klick auf den Button `Dateien in Vorgänge einspielen` werden die Bild
 Bitte beachten Sie: Soll eine Erkennung von Barcodes erfolgen, um daraus die Vorgänge zu ermitteln, so ist wichtig, dass auch die Barcodes in ausreichender Größe und Qualität vorliegen, damit die Erkennung erfolgreich ist.
 
 ![Digitalisierte Trennbl&#xE4;tter mit Barcodes f&#xFC;r die automatische Erkennung](../.gitbook/assets/intranda_workflow_massupload5.png)
-
