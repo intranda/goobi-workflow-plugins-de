@@ -38,3 +38,4 @@ Dieses Plugin wird in den Workflow so integriert, dass es für eine ausgewählte
 Ab diesem Moment existieren zu dem Vorgang die generierten auffälligen Platzhalterbilder und können im Laufe des weiteren Workflows angezeigt und auch ersetzt werden.
 
 ![Anzeige der Platzhalterbilder z.B. innerhalb des METS-Editors](../.gitbook/assets/intranda_step_placeholder-creation-2_de.png)
+

@@ -100,3 +100,4 @@ http(s)://<Fedora REST endpoint>/records/&lt;CatalogIdDigital>/
 ### URL für die Derivate der Bilder
 
 [http://localhost:8888/fedora/rest/records/PPN123456789/media/00000001.tif](http://localhost:8888/fedora/rest/records/PPN123456789/media/00000001.tif) [http://localhost:8888/fedora/rest/records/PPN123456789/media/00000002.tif](http://localhost:8888/fedora/rest/records/PPN123456789/media/00000002.tif) [http://localhost:8888/fedora/rest/records/PPN123456789/media/00000003.tif](http://localhost:8888/fedora/rest/records/PPN123456789/media/00000003.tif)
+

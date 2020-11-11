@@ -1,6 +1,7 @@
 ---
 description: >-
-  Dieses Step Plugin erlaubt die Generierung von konfigurierbaren Identifiern und das Speichern innerhalb eines Metadatums in der METS-Datei.
+  Dieses Step Plugin erlaubt die Generierung von konfigurierbaren Identifiern
+  und das Speichern innerhalb eines Metadatums in der METS-Datei.
 ---
 
 # Identifier generieren
@@ -65,9 +66,9 @@ Der Block `<config>` kann für verschiedene Projekte oder Arbeitsschritte wieder
 | `project` | Dieser Parameter legt fest, für welches Projekt der aktuelle Block `<config>` gelten soll. Verwendet wird hierbei der Name des Projektes. Dieser Parameter kann mehrfach pro `<config>` Block vorkommen. |
 | `step` | Dieser Parameter steuert, für welche Arbeitsschritte der Block `<config>` gelten soll. Verwendet wird hier der Name des Arbeitsschritts. Dieser Parameter kann mehrfach pro `<config>` Block vorkommen. |
 | `field` | Mit diesem Parameter kann festgelegt werden, in welches Metadatenfeld der generierte Identifier geschrieben werden soll. |
-| `type` | Dieser Parameter erlaubt zwischen verschiedenen Typen für die Generierung des Identifiers auszuwählen. Zur Verfügung stehen Zufallszahlen (`random`), Zeitstempel (`timestamp`) sowie UUIDs (`uuid`). |
+| `type` | Dieser Parameter erlaubt zwischen verschiedenen Typen für die Generierung des Identifiers auszuwählen. Zur Verfügung stehen Zufallszahlen \(`random`\), Zeitstempel \(`timestamp`\) sowie UUIDs \(`uuid`\). |
 | `length` | Wurde als Typ eine Zufallszahl ausgewählt, so kann hier die Anzahl der Stellen festgelegt werden. |
-| `overwrite` | Wenn dieser Parameter auf `true` gesetzt wird, so wird bei wiederholter Ausführung des Plugins stets ein neuer Identifier erzeugt und überschreibt damit einen eventuell vorhandenen Identifier erneut. Andernfalls (`false`) würde nur dann ein neuer Identifier erzeugt werden, wenn das konfigurierte Feld (`field`) noch leer ist oder nicht existiert. |
+| `overwrite` | Wenn dieser Parameter auf `true` gesetzt wird, so wird bei wiederholter Ausführung des Plugins stets ein neuer Identifier erzeugt und überschreibt damit einen eventuell vorhandenen Identifier erneut. Andernfalls \(`false`\) würde nur dann ein neuer Identifier erzeugt werden, wenn das konfigurierte Feld \(`field`\) noch leer ist oder nicht existiert. |
 
 ## Integration des Plugins in den Workflow
 
@@ -80,3 +81,4 @@ Da dieses Plugin üblicherweise automatisch ausgeführt werden soll, sollte der 
 ## Arbeitsweise des Plugins
 
 Nachdem das Plugin vollständig installiert und eingerichtet wurde, wird es üblicherweise automatisch innerhalb des Workflows ausgeführt, so dass keine manuelle Interaktion mit dem Nutzer erfolgt. Stattdessen erfolgt der Aufruf des Plugins durch den Workflow im Hintergrund und startet die Generierung eines Identifiers abhängig von der gewählten Konfiguration.
+

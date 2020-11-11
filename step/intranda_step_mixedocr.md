@@ -97,3 +97,4 @@ Nachdem das Plugin installiert und Konfiguriert wurde, muss es noch in Goobi wor
 ![Konfiguration des Schritts in Goobi Workflow](../.gitbook/assets/intranda_step_mixedocr_config_gui.png)
 
 Das Plugin wird üblicherweise automatisch ausgeführt, deshalb sollte der Haken bei `Automatische Aufgabe` gesetzt sein. Außerdem muss das Plugin `intranda_step_mixedocr` unter `Plugin für Arbeitsschritt` ausgewählt werden.
+

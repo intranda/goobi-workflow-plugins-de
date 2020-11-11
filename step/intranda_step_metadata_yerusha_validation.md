@@ -113,3 +113,4 @@ Das Plugin wird unmittelbar nach dem Betreten einer Aufgabe ausgeführt und geö
 ![Anzeige der Ergebnisse der Validierung innerhalb einer angenommenen Aufgabe](../.gitbook/assets/intranda_step_metadata_yerusha_validation2.png)
 
 Wurde die Aufgabe so konfiguriert, dass ein Betreten des Metadateneditors von Goobi erlaubt ist, und wurden darin Änderungen an den Metadaten vorgenommen, so kann die Validierung anschließend jederzeit erneut durchgeführt werden. Auch im Falle einer Änderung der Validierungsregeln innerhalb der Konfigurationsdatei ist eine solche neue Ausführung der Validierung durchaus hilfreich.
+

@@ -117,3 +117,4 @@ Die Bildanalyse des LayoutWizzard arbeitet in mehreren Phasen, um ausgehend von 
     </tr>
   </tbody>
 </table>
+

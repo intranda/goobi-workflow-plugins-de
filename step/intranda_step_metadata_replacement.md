@@ -123,3 +123,4 @@ Innerhalb des Workflows von Goobi können die vorliegenden Metadaten innerhalb d
 ![Der Erscheinungsort London ist nun in einem eigenen Feld mit korrekter Schreibweise und Normdaten vorhanden](../.gitbook/assets/intranda_step_metadata_replacement4.png)
 
 Die konstante Pflege des Vokabulars und die Integrierbarkeit in einen Workflow auch an mehreren Stellen innerhalb von Aufgaben erlaubt, dass die Inhalte auch künftig aktualisiert und veröffentlicht werden können.
+

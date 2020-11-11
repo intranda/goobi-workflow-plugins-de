@@ -54,3 +54,4 @@ Mit Hilfe der Auflistung `<exportFolder>` können verschiedene Orte definiert we
 Um das Export-Plugin nach der erfolgreichen Installation innerhalb des Workflows nutzen zu können, muss ein Arbeitsschritt definiert werden, bei dem die Funktion Export DMS aktiviert wurde. Darüber hinaus muss als Schritt-Plugin der Wert `HaabExport` eingetragen werden.
 
 ![](../.gitbook/assets/intranda_export_haab.png)
+

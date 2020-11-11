@@ -128,3 +128,4 @@ https://example.com/opac?id=[VALUE]
 Sofern hier ein gültiger Datensatz gefunden wird, wird dieser nach dem Feld gesucht, in dem der Dokumententyp stehen soll. Wenn die Query nicht definiert ist, wird stattdessen der Dokumententyp aus der Konfigurationsdatei gelesen. Mit dem ermittelten Typ wird dann das gewünschte Strukturelement erzeugt.
 
 Im Anschluß daran werden alle XPath Ausdrücke ausgewertet, die konfiguriert wurden. Sofern mit einem Ausdruck Daten gefunden werden, wird das entsprechend angegebene Metadatum erzeugt. Bei Personen wird geprüft, ob der Wert ein Komma enthält. In diesem Fall werden Vor- und Nachname am Komma getrennt, andernfalls wird der Wert als Nachname interpretiert.
+

@@ -129,7 +129,7 @@ Wird die URL ohne ein Datum aufgerufen, wird der gesamte Datenbestand analysiert
 In der Praxis werden die beiden Befehle nicht notwendig sein, da dies bereits automatisch durch Aufruf des Cronjobs täglich um 0:05 geschieht.  
 Wenn eine Analyse des Datenbestandes gestartet wurde, wird das Dateisystem nach neuen METS Dateien durchsucht. Wenn eine Datei gefunden wird, die einen neueren Zeitstempel lastModifiedTime hat, als der letzte Durchlauf her ist, handelt es sich um eine neue oder veränderte Datei.  
 In dem Fall wird mit der Datenbank abgeglichen, ob die b-Nummer bereits bekannt ist. Ist sie unbekannt, handelt es sich um einen neuen Datensatz, ansonsten um eine Modifikation. Die notwendigen Daten werden dann mittels XPATH-Anfragen aus der METS-Datei geholt und in die Datenbank geschrieben.  
-Anschließend werden die Datensätze der einzelnen Ordner mit den in der Datenbank bekannten Datensätzen verglichen. Fehlen im Ordner Dateien, die in der Datenbank noch bekannt sind, so handelt es sich um eine Löschung. Diese Information wird dann ebenfalls in der Datenbank hinzugefügt.  
+Anschließend werden die Datensätze der einzelnen Ordner mit den in der Datenbank bekannten Datensätzen verglichen. Fehlen im Ordner Dateien, die in der Datenbank noch bekannt sind, so handelt es sich um eine Löschung. Diese Information wird dann ebenfalls in der Datenbank hinzugefügt.
 
 Folgende Aufrufe dienen zur Suche im Datenbestand:
 
@@ -140,7 +140,7 @@ wt-winnipeg/Counterscript/api/{format}/{start date}/{end date}
 wt-winnipeg/Counterscript/api/{format}/withincative/{start date}/{end date}
 ```
 
-Es stehen drei verschiedene Formate zur Verfügung, in denen die Ergebnisse geliefert werden können: `xml`, `csv` und `json`.  
+Es stehen drei verschiedene Formate zur Verfügung, in denen die Ergebnisse geliefert werden können: `xml`, `csv` und `json`.
 
 Wird lediglich das Format angegeben, dann liefert die API alle aktiven Einträge, die in der Datenbank erfasst sind. Wird auch der Parameter `withincative` an die URL angehängt, so werden zusätzlich auch alle veralteten Einträge ausgeliefert.
 
@@ -154,7 +154,7 @@ wt-winnipeg/Counterscript/api/xml/bnumber/{number}
 
 ### 2.5.  Anbindung externer Tools
 
-Externe Tools können am einfachsten über die RESTful API angebunden werden. Sie müssen dafür die Punkt 2.4 aufgelisteten Befehle implementieren. Alternativ steht der Weg über einen MySQL Client zur Verfügung. Dabei gilt es zu beachten, dass der MySQL-Server aus Sicherheitsgründen nur von localhost erreichbar ist.  
+Externe Tools können am einfachsten über die RESTful API angebunden werden. Sie müssen dafür die Punkt 2.4 aufgelisteten Befehle implementieren. Alternativ steht der Weg über einen MySQL Client zur Verfügung. Dabei gilt es zu beachten, dass der MySQL-Server aus Sicherheitsgründen nur von localhost erreichbar ist.
 
 Starten lässt sich der der Client mit dem folgenden Befehl auf dem Linux-Terminal:
 
@@ -176,9 +176,9 @@ show tables;
 
 Dies resultiert in der folgenden Antwort des MySQL-Servers:
 
-|  Tables\_in\_counterscript  |
+| Tables\_in\_counterscript |
 | :--- |
-|  files                     |
+| files |
 
 Die Datenbank verfügt über eine Tabelle files, die die folgende Struktur aufweist:
 
@@ -188,20 +188,20 @@ describe files;
 
 Die Antwort der Datenbank lautet daraufhin folgendermaßen:
 
-|  **Field**            |  **Type**            |  **Null** |  **Key**  |  **Default**  |  **Extra**  |
+| **Field** | **Type** | **Null** | **Key** | **Default** | **Extra** |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-|  id                 |  int\(10\) unsigned  |  NO    |  PRI  |  NULL     |  auto\_increment  |
-|  filename           |  varchar\(255\)      |  YES   |  |  NULL     |  |
-|  bnumber            |  varchar\(255\)      |  YES   |  |  NULL     |  |
-|  material           |  varchar\(255\)      |  YES   |  |  NULL     |  |
-|  access\_status      |  varchar\(255\)      |  YES   |  |  NULL     |  |
-|  access\_licence     |  varchar\(255\)      |  YES   |  |  NULL     |  |
-|  player\_permission  |  varchar\(255\)      |  YES   |  |  NULL     |  |
-|  status             |  varchar\(255\)      |  YES   |  |  NULL     |  |
-|  creation\_date      |  datetime          |  YES   |  |  NULL     |  |
-|  modification\_date  |  datetime          |  YES   |  |  NULL     |  |
-|  deletion\_date      |  datetime          |  YES   |  |  NULL     |  |
-|  current            |  tinyint\(1\)        |  YES   |  |  0        |  |
+| id | int\(10\) unsigned | NO | PRI | NULL | auto\_increment |
+| filename | varchar\(255\) | YES |  | NULL |  |
+| bnumber | varchar\(255\) | YES |  | NULL |  |
+| material | varchar\(255\) | YES |  | NULL |  |
+| access\_status | varchar\(255\) | YES |  | NULL |  |
+| access\_licence | varchar\(255\) | YES |  | NULL |  |
+| player\_permission | varchar\(255\) | YES |  | NULL |  |
+| status | varchar\(255\) | YES |  | NULL |  |
+| creation\_date | datetime | YES |  | NULL |  |
+| modification\_date | datetime | YES |  | NULL |  |
+| deletion\_date | datetime | YES |  | NULL |  |
+| current | tinyint\(1\) | YES |  | 0 |  |
 
 Die Tabelle enthält folgenden Inhalt:
 
@@ -211,11 +211,11 @@ select * from files;
 
 Die Antwort der Datenbank lautet beispielhaft folgendermaßen:
 
-| **id**     | **filename**    | **bnumber**      | **material**  | **access\_status**  | **access\_licence**  | **player\_permission**  | **status**   | **creation\_date**     | **modification\_date**    | **deletion\_date**        | **current**  |
+| **id** | **filename** | **bnumber** | **material** | **access\_status** | **access\_licence** | **player\_permission** | **status** | **creation\_date** | **modification\_date** | **deletion\_date** | **current** |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-|  97297  |  /mnt/export/7/4/7/6/b21286747\_2.xml  |  b21286747\_2  |  |  Open           |  PDM             |  63                 |  deleted   |  2015-09-24 14:51:57  |  NULL                 |  2015-11-26 00:16:54  |        1  |
-|  98992  |  /mnt/export/9/6/7/5/b21355769.xml    |  b21355769    |  |  Open           |  CC-BY-NC        |  63                 |  modified  |  2015-08-18 22:21:33  |  2015-12-02 16:18:40  |  NULL                 |        1  |
-|  99001  |  /mnt/export/x/4/9/4/b2265494x.xml    |  b2265494x    |  t         |  Open           |  CC-BY-NC        |  63                 |  newly     |  2015-12-02 17:34:48  |  NULL                 |  NULL                 |        1   |
+| 97297 | /mnt/export/7/4/7/6/b21286747\_2.xml | b21286747\_2 |  | Open | PDM | 63 | deleted | 2015-09-24 14:51:57 | NULL | 2015-11-26 00:16:54 | 1 |
+| 98992 | /mnt/export/9/6/7/5/b21355769.xml | b21355769 |  | Open | CC-BY-NC | 63 | modified | 2015-08-18 22:21:33 | 2015-12-02 16:18:40 | NULL | 1 |
+| 99001 | /mnt/export/x/4/9/4/b2265494x.xml | b2265494x | t | Open | CC-BY-NC | 63 | newly | 2015-12-02 17:34:48 | NULL | NULL | 1 |
 
 ### 2.6. Beispielabfragen an die Datenbank
 
@@ -286,3 +286,4 @@ Nach dem Filtern erhält man die Liste der gefundenen Datensätze für den gewä
 Durch diese Liste kann man mit Hilfe des Paginators navigieren, oder die vollständige Trefferliste als CSV Datei speichern. Mittels des Buttons in der Spalte Details eines jeden Eintrags lässt sich der Verlauf jeder Datei im Details nachvollziehen. Hier können alle erfassten Revisionen einer Datei eingesehen werden.
 
 ![Abbildung 4: Einblick in die Details eines ausgew&#xE4;hlten Datensatzes](../.gitbook/assets/other_counterscript_07.png)
+

@@ -1,6 +1,7 @@
 ---
 description: >-
-  Dieses Step Plugin dient zur Generierung von Object Identifiern (OID) und deren Nutzung innerhalb der METS-Dateien.
+  Dieses Step Plugin dient zur Generierung von Object Identifiern (OID) und
+  deren Nutzung innerhalb der METS-Dateien.
 ---
 
 # Object Identifier Generierung
@@ -23,13 +24,13 @@ Mit diesem Plugins können Object Identifier für ein Werk und alle Bilder von e
 
 Zur Installation des Plugins muss die folgende Datei installiert werden:
 
-```xml
+```markup
 /opt/digiverso/goobi/plugins/step/plugin_intranda_step_oid_creation.jar
 ```
 
 Um zu konfigurieren, wie sich das Plugin verhalten soll, können verschiedene Werte in der Konfigurationsdatei angepasst werden. Die Konfigurationsdatei befindet sich üblicherweise hier:
 
-```xml
+```markup
 /opt/digiverso/goobi/config/plugin_intranda_step_oid_creation.xml
 ```
 
@@ -37,7 +38,7 @@ Um zu konfigurieren, wie sich das Plugin verhalten soll, können verschiedene We
 
 Die Konfiguration des Plugins ist folgendermaßen aufgebaut:
 
-```xml
+```markup
 <config_plugin>
     <url>https://example.com/management/api/oid/new/</url>
     <username></username>
@@ -49,13 +50,13 @@ Die Konfiguration des Plugins ist folgendermaßen aufgebaut:
 
 Die einzelnen Felder haben folgende Bedeutung:
 
-|Wert|Beschreibung|
-|--- |--- |
-|`url`|Dieses Feld ist ein Pflichtfeld und enthält die URL zur OID-API. |
-|`username`| Dieser Parameter enthält den Nutzernamen, falls eine Basic Authentication verwendet wird. Wenn die API ohne Authentifizierung erreichbar ist, kann dieser Parameter leer bleiben.|
-|`password`|Dieser Parameter enthält das Passwort, falls eine Basic Authentication verwendet wird. Wenn die API ohne Authentifizierung erreichbar ist, kann dieser Parameter leer bleiben.|
-|`headerparam`|Dieser Parameter definiert den Namen eines HTTP Header Parameters, der beim Aufruf gesetzt wird. Wenn kein zusätzlicher Parameter benötigt wird, kann der Parameter leer bleiben.|
-|`headerValue`|Dieser Parameter definiert den Wert eines HTTP Header Parameters, der beim Aufruf gesetzt wird. Wenn kein zusätzlicher Parameter benötigt wird, kann das Feld leer bleiben.|
+| Wert | Beschreibung |
+| :--- | :--- |
+| `url` | Dieses Feld ist ein Pflichtfeld und enthält die URL zur OID-API. |
+| `username` | Dieser Parameter enthält den Nutzernamen, falls eine Basic Authentication verwendet wird. Wenn die API ohne Authentifizierung erreichbar ist, kann dieser Parameter leer bleiben. |
+| `password` | Dieser Parameter enthält das Passwort, falls eine Basic Authentication verwendet wird. Wenn die API ohne Authentifizierung erreichbar ist, kann dieser Parameter leer bleiben. |
+| `headerparam` | Dieser Parameter definiert den Namen eines HTTP Header Parameters, der beim Aufruf gesetzt wird. Wenn kein zusätzlicher Parameter benötigt wird, kann der Parameter leer bleiben. |
+| `headerValue` | Dieser Parameter definiert den Wert eines HTTP Header Parameters, der beim Aufruf gesetzt wird. Wenn kein zusätzlicher Parameter benötigt wird, kann das Feld leer bleiben. |
 
 ## Integration in den Workflow
 
@@ -74,3 +75,4 @@ Damit der spätere Export samt Hash-Werten funktioniert, sollte im Anschluss an 
 ```bash
 /opt/digiverso/goobi/scripts/create_checksum.sh -s {imagepath} -p {processpath}
 ```
+

@@ -106,3 +106,4 @@ Die folgenden Beispiele basieren auf der oben definierten Konfiguration:
 | BxSem-A22\_VS1v.jpg | erstes Endsheet, zweite Seite |
 | BxSem-A22\_VS2.jpg | zweites Endsheet |
 | BxSem-B08\_SV.jpg | einziges Bild der FrontSection |
+

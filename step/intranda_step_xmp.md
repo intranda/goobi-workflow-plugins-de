@@ -374,3 +374,4 @@ XMP-Header ermöglichen das Schreiben des vollständigen Dublin-Core Metadatensa
     </config>
 </config_plugin>
 ```
+

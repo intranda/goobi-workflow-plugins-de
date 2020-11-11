@@ -100,3 +100,4 @@ Wird eine Datei hochgeladen, werden die Informationen dazu in der METS Datei ges
 Durch das Übernehmen in die METS-Datei ist sichergestellt, dass die Reihenfolge der hochgeladenen Dateien persistent gespeichert wird.
 
 Wird die Aufgabe anschließend erneut geöffnet, werden die Informationen zu den hochgeladenen Dateien aus der METS-Datei entnommen und ebenfalls angezeigt.
+

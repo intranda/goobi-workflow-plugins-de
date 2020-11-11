@@ -138,3 +138,4 @@ Zur Inbetriebnahme des Plugins muss dieses für einen oder mehrere gewünschte A
 Nach Ausführung des Plugins haben die Bilder die erwartete Größe und verfügen über das konfigurierte Wasserzeichen.
 
 ![Possible results in the generated images](../.gitbook/assets/intranda_step_image_resize_and_watermark_result.png)
+

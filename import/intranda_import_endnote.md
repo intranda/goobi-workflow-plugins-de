@@ -81,3 +81,4 @@ Des Import erfolgt zeilenweise. Dabei wird für jede Zeile der Vorgangstitel aus
 Nun wird geprüft, ob ein Heft erzeugt werden soll. Dies passiert auf Basis der Angabe der Spalte `Issue`. Wenn das Feld leer ist, wird der Artikel direkt an den Jahrgang angehängt, ansonsten wird nach dem richtigen Heft gesucht. Existiert es noch nicht, wird es ebenfalls erzeugt. Die Sortierung der Hefte basiert auf der Nummer der Spalte `Issue`.
 
 Anschließend wird der Artikel erzeugt und dem Heft oder Jahrgang hinzugefügt. Sofern mehrere Artikel existieren, passiert die Sortierung anhand der Angabe der Startseite aus der Spalte `Pages`.
+

@@ -1,6 +1,8 @@
 ---
 description: >-
-  Dieses Step Plugin ermöglicht eine automatische Korrektur der Sortierung von Digitalisaten, die für rechte und linke Buchseiten getrennt voneinander erzeugt wurden.
+  Dieses Step Plugin ermöglicht eine automatische Korrektur der Sortierung von
+  Digitalisaten, die für rechte und linke Buchseiten getrennt voneinander
+  erzeugt wurden.
 ---
 
 # Bilder sortieren
@@ -13,7 +15,7 @@ Das Plugin erlaubt eine automatische Sortierung von Bilddateien, die bei der Erz
 
 | Details |  |
 | :--- | :--- |
-| Identifier | intranda\_step\_reorder_images |
+| Identifier | intranda\_step\_reorder\_images |
 | Source code | [https://github.com/intranda/goobi-plugin-step-reorder-images](https://github.com/intranda/goobi-plugin-step-reorder-images) |
 | Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 2020.09 |
@@ -40,36 +42,35 @@ Die Konfiguration des Plugins ist folgendermaßen aufgebaut:
 ```markup
 <config_plugin>
 
-	<config>
-		<!-- which projects to use for (can be more then one, otherwise use *) -->
-		<project>*</project>
-		<step>*</step>
+    <config>
+        <!-- which projects to use for (can be more then one, otherwise use *) -->
+        <project>*</project>
+        <step>*</step>
 
-		<!-- which folder to use as source (master|media|jpeg|source|...) -->
-		<sourceFolder>master</sourceFolder>
+        <!-- which folder to use as source (master|media|jpeg|source|...) -->
+        <sourceFolder>master</sourceFolder>
 
     <!-- which folder to use as target (master|media|jpeg|source|...) -->
-		<targetFolder>media</targetFolder>
+        <targetFolder>media</targetFolder>
 
     <!-- use prefix from previous file name separated by following underscore -->
-		<usePrefix>true</usePrefix>
+        <usePrefix>true</usePrefix>
 
     <!-- define if the first page is right or left -->
-		<firstFileIsRight>true</firstFileIsRight>
+        <firstFileIsRight>true</firstFileIsRight>
 
     <!-- define which naming format shall be used; default is %04d -->
-		<namingFormat>%04d</namingFormat>
+        <namingFormat>%04d</namingFormat>
 
     <!-- files to be ignored and moved to the end, can be multiple ones, used
-			in the order as defined here, the string mentioned here has to be contained
-			in file name -->
-		<blacklist>_Spine_2</blacklist>
-		<blacklist>_Spine_1</blacklist>
-		<blacklist>_Colourchart</blacklist>
-	</config>
+            in the order as defined here, the string mentioned here has to be contained
+            in file name -->
+        <blacklist>_Spine_2</blacklist>
+        <blacklist>_Spine_1</blacklist>
+        <blacklist>_Colourchart</blacklist>
+    </config>
 
 </config_plugin>
-
 ```
 
 Der Block `<config>` kann für verschiedene Projekte oder Arbeitsschritte wiederholt vorkommen, um innerhalb verschiedener Workflows unterschiedliche Aktionen durchführen zu können. Die weiteren Parameter innerhalb dieser Konfigurationsdatei haben folgende Bedeutungen:
@@ -78,7 +79,7 @@ Der Block `<config>` kann für verschiedene Projekte oder Arbeitsschritte wieder
 | :--- | :--- |
 | `project` | Dieser Parameter legt fest, für welches Projekt der aktuelle Block `<config>` gelten soll. Verwendet wird hierbei der Name des Projektes. Dieser Parameter kann mehrfach pro `<config>` Block vorkommen. |
 | `step` | Dieser Parameter steuert, für welche Arbeitsschritte der Block `<config>` gelten soll. Verwendet wird hier der Name des Arbeitsschritts. Dieser Parameter kann mehrfach pro `<config>` Block vorkommen. |
-| `sourceFolder` | Mit diesem Parameter wird das Verzeichnis angegeben, aus dem die Dateien gelesen werden sollen. Dies ist üblicherweise das Master-Verzeichnis (`master`). |
+| `sourceFolder` | Mit diesem Parameter wird das Verzeichnis angegeben, aus dem die Dateien gelesen werden sollen. Dies ist üblicherweise das Master-Verzeichnis \(`master`\). |
 | `targetFolder` | Hier kann festgelegt werden, in welchem Ordner die umsortierten Dateien abgelegt werden sollen. Dies ist meist das Verzeichnis `media` |
 | `usePrefix` | Soll für die Umsortierung eine Präfix berücksichtigt werden, der den Dateinahmen vorangestellt ist und mit einem Unterstrich endet, kann dies hier definiert werden. |
 | `firstFileIsRight` | Da das Plugin unterschiedlich vorgeht, ob es sich bei der ersten Datei um eine rechte oder linke Seite handelt, kann dies hier festgelegt werden. |
@@ -96,3 +97,4 @@ Da dieses Plugin üblicherweise automatisch ausgeführt werden soll, sollte der 
 ## Arbeitsweise des Plugins
 
 Nachdem das Plugin vollständig installiert und eingerichtet wurde, wird es üblicherweise automatisch innerhalb des Workflows ausgeführt, so dass keine manuelle Interaktion mit dem Nutzer erfolgt. Stattdessen erfolgt der Aufruf des Plugins durch den Workflow im Hintergrund und startet die Umsortierung bzw. Umbenennung der Dateien abhängig von der gewählten Konfiguration.
+
