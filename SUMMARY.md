@@ -56,6 +56,7 @@
 * [Inhalte löschen](step/intranda_step_deleteContent.md)
 * [Identifier generieren](step/intranda_step_generateIdentifier.md)
 * [Bilder sortieren](step/intranda_step_reorder_images.md)
+* [Object Identifier Generierung](step/intranda_step_oid_creation.md)
 
 ## Opac Plugins <a id="opac"></a>
 
