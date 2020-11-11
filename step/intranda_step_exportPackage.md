@@ -19,7 +19,7 @@ Dieses Plugin erlaubt einen flexiblen Export von Daten eines Vorgangs in ein def
 | Source code | [https://github.com/intranda/goobi-plugin-step-exportPackage](https://github.com/intranda/goobi-plugin-step-exportPackage) |
 | Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 2020.09 |
-| Dokumentationsdatum | 03.10.2020 |
+| Dokumentationsdatum | 11.11.2020 |
 
 ## Installation
 
@@ -108,7 +108,7 @@ Der Block `<config>` kann für verschiedene Projekte oder Arbeitsschritte wieder
 | `export` | Wenn die Inhalte des `export` Ordners mit berücksichtigt werden sollen, kann dies hier ebenfalls angegeben werden. |
 | `itm` | Sollen die Inhalte des TaskManager-Verzeichnisses `itm` mit exportiert werden, wird dies hier definiert. |
 | `validation` | Mit diesem Parameter kann festgelegt werden, dass die Inhalte des Verzeichnisses `validation` ebenfalls exportiert werden sollen. |
-| `uuid` | Wenn für die Verlinkung zwischen `<mets:structMap>`, `<mets:fptr>` und `<mets:fileGrp>`, `<mets:file>` UUIDs (v4) genutzt werden sollen, kann dies hier angegeben werden.
+| `uuid` | Wenn für die Verlinkung zwischen `<mets:structMap>`, `<mets:fptr>` und `<mets:fileGrp>`, `<mets:file>` UUIDs (v4) genutzt werden sollen, kann dies hier angegeben werden. |
 | `checksum` | Wenn diese Option aktiviert wurde, werden die exportierten Daten mit zuvor generierten Checksummen verglichen, um den erfolgreichen Export zu verifizieren. Wurden bei der Konfiguration der `imagefolder` auch Dateigruppen konfiguriert, werden die Checksummen auch in die entsprechenden Dateigruppen eingetragen. |
 | `checksumValidationCommand` | Enthält das Kommandozeilentool, mit dem die Verifizierung durchgeführt wird. |
 | `transformMetaFile` | Mit diesem Parameter wird festgelegt, ob die interne METS-Datei von Goobi workflow in das Zielverzeichnis kopiert werden soll. |
