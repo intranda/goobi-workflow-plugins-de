@@ -85,6 +85,7 @@
 * [Barcode Generator](workflow/intranda_workflow_barcode_generator.md)
 * [LayoutWizzard workflow plugin](workflow/intranda_workflow_crop.md)
 * [Massenupload](workflow/intranda_workflow_massupload.md)
+* [Vorgangsbeziehungen anlegen](workflow/intranda_workflow_linkedprocesscreation.md)
 
 ## Sonstiges <a id="other"></a>
 
