@@ -1,41 +1,41 @@
 ---
 description: >-
-  Dieses Schritte-Plugin erlaubt es, Transkriptionen von Werken zu erstellen.
-  Die Transkriptionen werden ohne Wortkoordinaten erfasst.
+  This step plugin allows you to create transcriptions of works.
+  The transcriptions are recorded without word coordinates.
 ---
 
-# Transkription von Bildinhalten
+# Transcription of image content
 
-## Einführung
+## Introduction
 
-Das Transkriptions-Plugin erlaubt es dem Benutzer, die txt-OCR Ergebnisse eines Goobi-Vorgangs zu bearbeiten. Dabei wird immer ein Bild und ein RichText-Editor angezeigt, in dem der Text erfasst werden kann.
+The transcription plug-in allows the user to edit the txt-OCR results of a Goobi process. It always displays an image and a rich text editor in which the text can be entered.
 
 | Details |  |
 | :--- | :--- |
 | Identifier | intranda\_step\_transcription |
 | Source code | nicht verfügbar |
-| Lizenz | GPL 2.0 oder neuer |
-| Kompatibilität | Goobi workflow 20.09 |
-| Dokumentationsdatum | 11.11.2020 |
+| Licence | GPL 2.0 or neuer |
+| Compatibility | Goobi workflow 20.09 |
+| Documentation date | 11.11.2020 |
 
 ## Installation
 
-Das Plugin besteht aus zwei Dateien, die an den folgenden Pfaden erwartet werden:
+The plugin consists of two files, which are expected at the following paths:
 
 ```text
 /opt/digiverso/goobi/plugins/step/plugin_intranda_step_transcription.jar
 /opt/digiverso/goobi/plugins/GUI/plugin_intranda_step_transcription-GUI.jar
 ```
 
-## Konfiguration
+## Configuration
 
-Die Konfiguration wird in folgendem Pfad erwartet:
+The configuration is expected in the following path:
 
 ```text
 /opt/digiverso/goobi/config/plugin_intranda_step_transcription.xml
 ```
 
-Die Konfiguration sieht so aus:
+The configuration looks like this:
 
 ```markup
 <config_plugin>
@@ -53,17 +53,15 @@ Die Konfiguration sieht so aus:
         <allowTaskFinishButtons>true</allowTaskFinishButtons>
     </config>
 
-
 </config_plugin>
 ```
 
-## Benutzung
+## Usage of this plugin
 
-Zur Benutzung des Plugins muss dieses in einen Workflow integriert werden und steht dann für die Nutzer zur Bearbeitung zur Verfügung.
+To use the plugin, it must be integrated into a workflow and is then available for users to edit.
 
-Nimmt ein Nutzer eine Aufgabe mit diesem Plugin entgegen, so kann er dessen Nutzeroberfläche betreten. Dort kann anschließend zwischen den Bilddateien geblättert werden. Zur jeweilig aktuellen Seite wird dabei ein Richtext-Editor angezeigt, der die eventuell bereits vorhandene Transkription anzeigt oder falls vorhanden die OCR-Ergebnisse. In diesem Editor kann nun das bisherige Ergebnis korrigiert oder auch ein ganz neuer Text transkribiert werden.
+If a user accepts a task with this plugin, he can enter its user interface. There it is then possible to browse between the image files. A rich text editor is displayed for the respective current page, which shows any existing transcription or, if available, the OCR results. In this editor the previous result can be corrected or a completely new text can be transcribed.
 
 {% hint style="info" %}
-Bitte beachten Sie, dass dieses Plugin lediglich eine einfache Transkription von Seiteninhalten erlaubt. Hierbei ist keine Erfassung von Koordinaten für Absätze, Zeilen oder Wörter möglich.
+Please note that this plugin only allows a simple transcription of page content. It is not possible to enter coordinates for paragraphs, lines or words.
 {% endhint %}
-
