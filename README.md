@@ -243,12 +243,12 @@ Mittels der REST Plugins verfügt Goobi über eine weitere Möglichkeit, dass ex
 Die Installation von REST Plugins erfolgt in folgendem Ordner:
 
 ```text
-/opt/digiverso/goobi/plugins/rest/
+/opt/digiverso/goobi/lib/
 ```
 
-Ebenso wie die Web-API Plugins verfügen auch die REST Plugins über keine eigene Nutzeroberfläche. Auch wird die Berechtigung für den Zugriff über die gleiche Konfigurationsdatei gesteuert und kontrolliert damit den Zugriff von ausgewählten IP-Adressen und unter Prüfung einer Authentifizierung. Auch für die REST Plugins erfolgt die Konfiguration dabei in folgender Datei:
+Ebenso wie die Web-API Plugins verfügen auch die REST Plugins über keine eigene Nutzeroberfläche. Auch wird die Berechtigung für den Zugriff über die gleiche Konfigurationsdatei gesteuert und kontrolliert damit den Zugriff von ausgewählten IP-Adressen und unter Prüfung einer Authentifizierung. Für die REST Plugins erfolgt die Konfiguration dabei in folgender Datei:
 
 ```text
-/opt/digiverso/goobi/config/goobi_webapi.xml
+/opt/digiverso/goobi/config/goobi_rest.xml
 ```
 
