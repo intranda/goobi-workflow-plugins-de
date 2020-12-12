@@ -165,7 +165,7 @@ Die Parameter innerhalb dieser Konfigurationsdatei haben folgende Bedeutungen:
 | `guiType` | Mittels dieses Parameters läßt sich festlegen, wie sich die Nutzeroberfläche verhalten soll. Mögliche Werte hierfür sind `part`, `full` und `both`. |
 | `project` | Dieser Parameter legt fest, für welches Projekt der aktuelle Block `<config>` gelten soll. Verwendet wird hierbei der Name des Projektes. Dieser Parameter kann mehrfach pro `<config>` Block vorkommen. |
 | `step` | Dieser Parameter steuert, für welche Arbeitsschritte der Block `<config>` gelten soll. Verwendet wird hier der Name des Arbeitsschritts. Dieser Parameter kann mehrfach pro `<config>` Block vorkommen. |
-| `useOrigFolder` | Legen Sie hier fest, ob die Master-Bilder des Goobi-Vorgangs verwendet werden sollen oder stattdessen die vorliegenden Derivate. |
+| `foldername` | Legen Sie hier fest, aus welchem Verzeichnis die Bilder angezeigt werden sollen. Werden hierbei mehrere Verzeichnisse in dem wiederholbaren Parameter verwendet, so kann der Nutzer zwischen diesen Verzeichnissen auswählen. Mögliche Werte hierfür sind z.B. `master`, `media` oder auch individuelle Ordner wie `photos` und `scans`. |
 | `numberOfImagesPerPage` | Definieren Sie hier, wie viele Thumbnails in der regulären Anzeige gleichzeitig dargestellt werden sollen. |
 | `thumbnailsize` | Hiermit läßt sich festlegen, in welcher Größe die Thumbnails angezeigt werden sollen. |
 | `numberOfImagesInPartGUI` | Mit diesem Parameter läßt sich festlegen, wieviele Thumbnails gleich innerhalb der angenommenen Aufgabe angezeigt werden sollen. |
@@ -216,4 +216,3 @@ Neben der reinen Bildanzeige kann das Plugin ebenfalls mit anderen Objekttypen u
 Je nach individueller Konfiguration erlaubt das Plugin noch viele weitere Funktionen, die zumeist innerhalb der Thumbnaildarstellung sichtbar werden. Wurden diese Funktionen in der oben beschriebenen Konfigurationsdatei konfiguriert, so lassen sich diese zum Beispiel für einen Download von PDF-Dateien, Bilddateien, Rotationen, Löschungen und andere Operationen nutzen.
 
 ![Aktivierte Zusatzfunktionen innerhalb der Thumbnaildarstellung](../.gitbook/assets/intranda_step_imageqa6.png)
-
