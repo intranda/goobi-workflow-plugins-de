@@ -2,7 +2,7 @@
 
 Der LayoutWizzard-Workflow in Goobi besteht in aller Regel aus mehreren Goobi-Workflow Schritten die zusammenarbeiten. Ein typischer LayoutWizzard Workflow als Teil eines Goobi-Workflows kann dabei zum Beispiel wie folgt aussehen:
 
-![Goobi-Workflow mit den typischen LayoutWizzard-Schritten](../../../.gitbook/assets/intranda_step_crop_goobi_workflow.png)
+![Goobi-Workflow mit den typischen LayoutWizzard-Schritten](../../../.gitbook/assets/intranda_step_crop_goobi_workflow%20%281%29.png)
 
 Im ersten Schritt \(in diesem Beispiel `Automatic Image Analysis`\) findet eine automatische Layoutanalse der Bilder zur Prüfung der Rotation, des Inhaltsbereichs sowie zur Position der Buchfalz statt. Dies geschieht üblicherweise in einem externen TaskManager, um die Systemressourcen von Goobi zu entlasten. Im zweiten Schritt \(in diesem Beispiel `LayoutWizzard`\) erfolgt dann eine manuelle Überprüfung und gegebenenfalls eine Korrektur der analysierten Ergebnisse. Diese Bearbeitung erfolgt innerhalb einer eigenen Nutzeroberfläche, die als Goobi-Plugin installiert wurde. Sobald diese manuelle Überprüfung dann abgeschlossen wurde, findet die automatische Speicherung \(hier benannt als `Automatic Image Cropping`\) der zugeschnittenen Derivate statt, auf Basis der zuvor analysierten und eventuell angepassten Daten. Auch diese Speicherung findet üblicherweise innerhalb des TaskManagers statt.
 

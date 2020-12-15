@@ -30,7 +30,7 @@ Die manuelle Kontrolle der Analyseergebnisse mit dem Vorschlag für das Croppen 
 
 Je nach individueller Installation von Goobi workflow und der jeweiligen Workflows können die einzelnen Arbeitsschritte natürlich individuell benannt werden. Im folgenden Screenshot wurden für die drei nacheinander folgenden Arbeitsschritte beispielsweise andere Namen vergeben:
 
-![Individuelle Benennung der einzelnen Arbeitsschritte, die zum LayoutWizzard geh&#xF6;ren](../../.gitbook/assets/intranda_step_crop_goobi_workflow%20%281%29.png)
+![Individuelle Benennung der einzelnen Arbeitsschritte, die zum LayoutWizzard geh&#xF6;ren](../../.gitbook/assets/intranda_step_crop_goobi_workflow%20%281%29%20%281%29.png)
 
 ## 3. Details zur Bildanalyse
 

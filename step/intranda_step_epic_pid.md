@@ -1,9 +1,10 @@
 ---
 description: >-
-  Dieses Step Plugin erlaubt die Registrierung von Handle und DOI als Persistente Identifier über den ePIC Service der GWDG.
+  Dieses Step Plugin erlaubt die Registrierung von Handle und DOI als
+  Persistente Identifier über den ePIC Service der GWDG.
 ---
 
-# Generierung von Handle und DOI als Persistente Identifier mittels ePIC
+# ePIC PID Registrierung \(Handle & DOI\)
 
 ## Einführung
 
@@ -40,29 +41,29 @@ Um zu konfigurieren, wie sich das Plugin verhalten soll, müssen ausserdem die f
 
 Die Konfiguration der Datei `plugin_intranda_step_epic_pid.xml` ist folgendermaßen aufgebaut:
 
-```xml
+```markup
 <config_plugin>
 
-	<config>
-		<!-- which projects to use for (can be more then one, otherwise use *) -->
-		<project>*</project>
-		<step>*</step>
+    <config>
+        <!-- which projects to use for (can be more then one, otherwise use *) -->
+        <project>*</project>
+        <step>*</step>
 
-		<!-- authentication and main information -->
-		<certificate>/opt/digiverso/goobi/config/certificate.pem</certificate>
-		<user>USER</user>
-		<base>BASE</base>
-		<url>https://viewer.goobi.io/idresolver?handle=</url>
+        <!-- authentication and main information -->
+        <certificate>/opt/digiverso/goobi/config/certificate.pem</certificate>
+        <user>USER</user>
+        <base>BASE</base>
+        <url>https://viewer.goobi.io/idresolver?handle=</url>
 
-		<!-- configuration for Handles -->
-		<prefix>go</prefix>
-		<name>goobi</name>
-		<separator>-</separator>
+        <!-- configuration for Handles -->
+        <prefix>go</prefix>
+        <name>goobi</name>
+        <separator>-</separator>
 
-		<!-- configuration for DOIs -->
-		<doiGenerate>true</doiGenerate>
-		<doiMapping>/opt/digiverso/goobi/config/plugin_intranda_step_epic_pid_mapping.xml</doiMapping>
-	</config>
+        <!-- configuration for DOIs -->
+        <doiGenerate>true</doiGenerate>
+        <doiMapping>/opt/digiverso/goobi/config/plugin_intranda_step_epic_pid_mapping.xml</doiMapping>
+    </config>
 
 </config_plugin>
 ```
@@ -73,7 +74,7 @@ Der Block `<config>` kann für verschiedene Projekte oder Arbeitsschritte wieder
 | :--- | :--- |
 | `project` | Dieser Parameter legt fest, für welches Projekt der aktuelle Block `<config>` gelten soll. Verwendet wird hierbei der Name des Projektes. Dieser Parameter kann mehrfach pro `<config>` Block vorkommen. |
 | `step` | Dieser Parameter steuert, für welche Arbeitsschritte der Block `<config>` gelten soll. Verwendet wird hier der Name des Arbeitsschritts. Dieser Parameter kann mehrfach pro `<config>` Block vorkommen. |
-| `certificate` | Im Element `certificate` wird der Pfad zum privaten Key definiert, der für die Authentifizierung verwendet wird.  |
+| `certificate` | Im Element `certificate` wird der Pfad zum privaten Key definiert, der für die Authentifizierung verwendet wird. |
 | `user` | Mit diesem Parameter wird der Nutzername für die Authentifizierung festgelegt. |
 | `base` | Hiermit wird der Base-Name für die Generierung der Handles festgelegt. |
 | `url` | Mit diesem Parameter wird definiert, wie die finale URL für den Handle-Resolver lauten soll. Dabei wird an dieser Stelle definiert, wie die URL beginnt. Die anschließend gebildete Handle-ID wird hinten angestellt, so dass die letztliche URL folgendermaßen aufgebaut sein wird: `url` + Handle-ID |
@@ -90,38 +91,38 @@ Die Konfiguration der Datei `plugin_intranda_step_epic_pid_mapping.xml` ist folg
 ```markup
 <?xml version="1.0" encoding="UTF-8"?>
 <Mapping>
-	<map>
-		<field>title</field>
-		<metadata>TitleDocMain</metadata>
-		<altMetadata>Title</altMetadata>
-		<default>Fragment</default>
-	</map>
+    <map>
+        <field>title</field>
+        <metadata>TitleDocMain</metadata>
+        <altMetadata>Title</altMetadata>
+        <default>Fragment</default>
+    </map>
 
-	<map>
-		<field>author</field>
-		<metadata>Author</metadata>
-		<default>intranda</default>
-	</map>
+    <map>
+        <field>author</field>
+        <metadata>Author</metadata>
+        <default>intranda</default>
+    </map>
 
-	<map>
-		<field>publisher</field>
-		<metadata>Publisher</metadata>
-		<altMetadata>Source</altMetadata>
-		<default>intranda</default>
-	</map>
+    <map>
+        <field>publisher</field>
+        <metadata>Publisher</metadata>
+        <altMetadata>Source</altMetadata>
+        <default>intranda</default>
+    </map>
 
-	<map>
-		<field>pubdate</field>
-		<metadata>PublicationYear</metadata>
-		<altMetadata>PublicationYearSort</altMetadata>
-		<altMetadata>PublicationRun</altMetadata>
-		<default>intranda</default>
-	</map>
+    <map>
+        <field>pubdate</field>
+        <metadata>PublicationYear</metadata>
+        <altMetadata>PublicationYearSort</altMetadata>
+        <altMetadata>PublicationRun</altMetadata>
+        <default>intranda</default>
+    </map>
 
-	<map>
-		<field>inst</field>
-		<default>intranda</default>
-	</map>
+    <map>
+        <field>inst</field>
+        <default>intranda</default>
+    </map>
 </Mapping>
 ```
 
@@ -149,7 +150,7 @@ Nachdem das Plugin vollständig installiert und eingerichtet wurde, wird es übl
 Die Arbeitsweise des Plugins innerhalb des korrekt konfigurierten Workflows sieht folgendermaßen aus:
 
 * Zunächst öffnet das Plugin die METS-Datei des Vorgangs.
-* Für jede logische und physische Element dieser METS-Datei wird ein Handle in der Form `PREFIX-CLIENT-OBJECTID` erzeugt. Ist die geplante `OBJECTID` bereits als Handle vergeben, so wird ein hochzählender Suffix (z.B: `-1`, `-2`, etc.) hinten angefügt.
+* Für jede logische und physische Element dieser METS-Datei wird ein Handle in der Form `PREFIX-CLIENT-OBJECTID` erzeugt. Ist die geplante `OBJECTID` bereits als Handle vergeben, so wird ein hochzählender Suffix \(z.B: `-1`, `-2`, etc.\) hinten angefügt.
 * Der generierte Handle wird abschließend innerhalb der METS-Datei bei dem jeweiligen logischen bzw. physischen Strukturelement als Metadatum gespeichert. Hierfür wird üblicherweise der Metadatentyp `_urn` verwendet.
 * Wurde die Registrierung von DOIs aktiviert, wird zusätzlich zur Handle-Generierung für jedes logische top-level Element ein neuer DOI-Identifier erzeugt und innerhalb der METS-Datei gespeichert.
 
@@ -157,16 +158,17 @@ Die Arbeitsweise des Plugins innerhalb des korrekt konfigurierten Workflows sieh
 
 Wird ein Handle registriert, ergeben sich folgende Inhalte aus der Kommunikation mit dem ePIC Service:
 
-```
+```text
 Handle Values for: BASE/go-goobi-1296243265-17
-Index	Type	Timestamp	Data
-1	URL	2020-04-21 12:02:30Z 	https://viewer.goobi.io/idresolver?handle=
-2	TITLE	2020-04-21 12:02:30Z 	[Stammbuch Daniel Schelling]
-3	AUTHORS	2020-04-21 12:02:30Z 	Daniel Schelling
-4	PUBLISHER	2020-04-21 12:02:30Z 	Stadtarchiv Duderstadt
-5	PUBDATE	2020-04-21 12:02:30Z 	1617
-6	INST	2020-04-21 12:02:30Z 	intranda
-100	HS_ADMIN	2020-04-21 12:02:30Z 	handle=USER; index=300; [create hdl,delete hdl,read val,modify val,del val,add val,modify admin,del admin,add admin,list]
+Index    Type    Timestamp    Data
+1    URL    2020-04-21 12:02:30Z     https://viewer.goobi.io/idresolver?handle=
+2    TITLE    2020-04-21 12:02:30Z     [Stammbuch Daniel Schelling]
+3    AUTHORS    2020-04-21 12:02:30Z     Daniel Schelling
+4    PUBLISHER    2020-04-21 12:02:30Z     Stadtarchiv Duderstadt
+5    PUBDATE    2020-04-21 12:02:30Z     1617
+6    INST    2020-04-21 12:02:30Z     intranda
+100    HS_ADMIN    2020-04-21 12:02:30Z     handle=USER; index=300; [create hdl,delete hdl,read val,modify val,del val,add val,modify admin,del admin,add admin,list]
 ```
 
-Diese Informationen wird anschließend vom ePIC-Service der GWDG verwendet, um automatisch einen DOI-Identifier zu erzeugen, der mit der gleichen ID  versehen wird: `BASE/go-goobi-1296243265-17`.
+Diese Informationen wird anschließend vom ePIC-Service der GWDG verwendet, um automatisch einen DOI-Identifier zu erzeugen, der mit der gleichen ID versehen wird: `BASE/go-goobi-1296243265-17`.
+
