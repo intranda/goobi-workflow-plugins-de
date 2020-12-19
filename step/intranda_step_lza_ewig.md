@@ -12,7 +12,7 @@ Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den
 | Kompatibilität | Goobi workflow 3.0 |
 | Dokumentationsdatum | 05.12.2019 |
 
-### Installation und Konfiguration
+## Installation und Konfiguration
 
 Das Plugin besteht aus zwei Dateien:
 
@@ -95,7 +95,7 @@ Das Element `<createManifest>` steuert, ob ein submission manifest erzeugt werde
 
 Jeder `<manifestParameter>` besteht aus zwei Teilen, dem Attribut `name`, das den Namen des Parameters enthält, sowie dem Text, in dem die gewünschten Feldinhalte konfiguriert werden. Dabei können sowohl statische Texte als auch alle in Goobi bekannten Variablen genutzt werden. Mehrere Parameter können mittels Semikolon getrennt angegeben werden. Für den Fall, dass der erste Wert nicht bekannt ist, weil zum Beispiel das konfigurierte Metadatum nicht ausgefüllt wurde, wird dann der nächste Wert probiert.
 
-### Einstellungen in Goobi workflow
+## Einstellungen in Goobi workflow
 
 Nachdem das Plugin installiert und konfiguriert wurde, kann es innerhalb eines Arbeitsschrittes genutzt werden. Dazu muss innerhalb der gewünschten Aufgabe das Plugin `intranda_step_lza_ewig` ausgewählt werden. Des Weiteren muss die Checkbox Automatische Aufgabe gesetzt sein.
 
