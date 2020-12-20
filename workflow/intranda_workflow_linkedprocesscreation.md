@@ -10,7 +10,7 @@ description: >-
 
 Mit diesem Workflow-Plugin ist es möglich, mehrere in einer Beziehung zueinander stehende Vorgänge in einer einzelnen Anlegemaske zu erzeugen.
 
-Die Anlegemasken sind dabei komplett konfigurierbar und jedes Feld kann einem Metadatum in einem Prozess zugeschrieben werden. Außerdem werden die Beziehungen zwischen den Prozessen konfiguriert. 
+Die Anlegemasken sind dabei komplett konfigurierbar und jedes Feld kann einem Metadatum in einem Prozess zugeschrieben werden. Außerdem werden die Beziehungen zwischen den Prozessen konfiguriert.
 
 ## Übersicht
 
@@ -60,9 +60,9 @@ Der Inhalt dieser Konfigurationsdatei sieht wie folgt aus:
 
 		<!-- Schreibe das Metadatenfeld "internalNumber" aus Prozess 1
 		     in das Feld "descriptionOf" in Prozess 2 -->
-    <relation 
-        sourceProcessId="1" 
-        targetProcessId="2" 
+    <relation
+        sourceProcessId="1"
+        targetProcessId="2"
         sourceMetadataType="internalNumber"
         targetMetadataType="descriptionOf"/>
 
@@ -92,7 +92,7 @@ Der Inhalt dieser Konfigurationsdatei sieht wie folgt aus:
 					<processTitle>true</processTitle>
 					<processId>1</processId>
 				</field>
-				
+
 			</box>
 
 			<box name="Digitalisat">
@@ -111,7 +111,7 @@ Der Inhalt dieser Konfigurationsdatei sieht wie folgt aus:
 					<sourceVocabulary>dataSources</sourceVocabulary>
 					<processId>1</processId>
 				</field>
-				
+
 			</box>
 		</column>
 
@@ -141,7 +141,7 @@ Der Inhalt dieser Konfigurationsdatei sieht wie folgt aus:
 			</box>
 		</column>
 	</type>
-	
+
 	<!-- Es können mehrere Vorlagen konfiguriert werden -->
 	<type>
 	  ...
@@ -153,7 +153,6 @@ Für eine Nutzung dieses Plugins muss der Nutzer über die korrekte Rollenberech
 
 ## Bedienung des Plugins
 
-Das Plugin kann im Menü `Workflow` vorgefunden werden. Nachdem die Oberfläche betreten und geladen wurde, kann im unteren linken Bereich zwischen den zur Verfügung stehenden Vorlagen gewechselt werden. 
+Das Plugin kann im Menü `Workflow` vorgefunden werden. Nachdem die Oberfläche betreten und geladen wurde, kann im unteren linken Bereich zwischen den zur Verfügung stehenden Vorlagen gewechselt werden.
 
-Um Vorgänge anzulegen, sollten durch den Nutzer alle benötigten Felder ausgefüllt werden. Anschließend werden durch einen Klick auf `Vorgänge anlegen` die konfigurierten Vorgänge samt der hinterlegten Metadaten angelegt. 
-
+Um Vorgänge anzulegen, sollten durch den Nutzer alle benötigten Felder ausgefüllt werden. Anschließend werden durch einen Klick auf `Vorgänge anlegen` die konfigurierten Vorgänge samt der hinterlegten Metadaten angelegt.
