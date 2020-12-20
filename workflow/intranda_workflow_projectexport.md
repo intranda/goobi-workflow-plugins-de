@@ -93,6 +93,6 @@ Nach der Auswahl des gewünschten Projektes stehen je nach Konfiguration zwei Bu
 
 Das Exportergebnis ist so aufgebaut, dass für jeden Vorgang ein Unterordner erzeugt wird innerhalb dessen sich die zugehörigen Bilder aus dem definierten Verzeichnnis befinden. Darüber hinaus wird ausserdem eine Excel-Datei erzeugt.
 
-![Beschreibung](../.gitbook/assets/intranda_workflow_projectexport5.png)
+![Aufbau einer exportierten Exceldatei mit allen zugehörigen Metadaten pro Bild](../.gitbook/assets/intranda_workflow_projectexport5.png)
 
 Innerhalb jeder Zeile dieser Excel-Datei befinden sich nun die jeweiligen Metadaten, die aus der METS-Datei gelesen wurden, wobei diese redundant für jedes Bild wiederholt aufgeführt werden.
