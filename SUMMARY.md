@@ -59,6 +59,7 @@
 * [Transkription von Bildinhalten](step/intranda_step_transcription.md)
 * [Object Identifier Generierung](step/intranda_step_oid_creation.md)
 * [ePIC PID Registrierung \(Handle & DOI\)](step/intranda_step_epic_pid.md)
+* [Metadaten bearbeiten](step/intranda_step_metadata_edition.md)
 
 ## Opac Plugins <a id="opac"></a>
 
