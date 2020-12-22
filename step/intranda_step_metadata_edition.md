@@ -144,7 +144,7 @@ Für jedes einzublendende Metadatum kann ein Element `<displayfield>` definiert 
 | `validationRegex` | Mit diesem Parameter läßt sich ein regulärer Ausdruck definierten, um den Feldinhalt auf Validität zu überprüfen. |
 | `validationErrorText` | Hier läßt sich die Meldung definieren, die angezeigt werden soll, wenn die Validierung nicht erfolgreich stattfinden konnte. |
 | `label` | Mit dem Parameter kann eine Beschriftung definiert werden, die den Benutzern für das Feld angezeigt wird. |
-| `structType` | Mit diesem Parameter wird das Strukturelement definiert, von dem die Metadaten für die Anzeige verwendet werden sollen (z. B. `Anchor`). |
+| `structType` | Mit diesem Parameter wird das Strukturelement definiert, von dem die Metadaten für die Anzeige verwendet werden sollen (z. B. `anchor`). |
 | `defaultValue` | Hier läßt sich ein Standardwert definieren, der gesetzt werden soll, wenn kein Wert vorhanden ist. |
 | `searchable` | Mit diesem Parameter läßt sich definieren, ob der Inhalt dieses Feldes für die Ausführung einer Suche verwendet werden soll. |
 | `suffix` | Hiermit läßt sich ein Suffix bestimmen, das der Suchanfrage angefügt werden soll, wenn andere Vorgänge mit gleichem Feldinhalt gesucht werden. |
