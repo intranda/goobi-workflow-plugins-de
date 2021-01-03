@@ -90,6 +90,10 @@
 * [Vorgangsbeziehungen anlegen](workflow/intranda_workflow_linkedprocesscreation.md)
 * [Projektexport als Ordner mit Bildern und Excel-Datei](workflow/intranda_workflow_projectexport.md)
 
+## Statistiken <a id="statistics"></a>
+
+* [Sudan Memory Übersetzungen](statistics/intranda_statistics_sudan_memory.md)
+
 ## Sonstiges <a id="other"></a>
 
 * [Counterscript Application](other/counterscript-application.md)
