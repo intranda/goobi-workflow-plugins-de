@@ -8,7 +8,7 @@ description: >-
 
 ## Einführung
 
-Das Transkriptions-Plugin erlaubt es dem Benutzer, die txt-OCR Ergebnisse eines Goobi-Vorgangs zu bearbeiten. Dabei wird immer ein Bild und ein RichText-Editor angezeigt, in dem der Text erfasst werden kann.
+Das Transkriptions-Plugin erlaubt es dem Benutzer, die txt-OCR Ergebnisse eines Goobi-Vorgangs zu bearbeiten. Dabei werden nebeneinander ein Bild und ein Rich-Text-Editor angezeigt, in dem der Text erfasst werden kann.
 
 | Details |  |
 | :--- | :--- |
@@ -27,7 +27,7 @@ Zur Nutzung des Plugins müssen diese beiden Dateien an folgende Orte kopiert we
 /opt/digiverso/goobi/plugins/GUI/plugin_intranda_step_transcription-GUI.jar
 ```
 
-Die Konfiguration des Plugins findet innerhalb dessen Konfigurationsdatei `plugin_intranda_step_imageQA.xml` statt. Diese wird unter folgendem Pfad erwartet:
+Die Konfiguration des Plugins findet innerhalb dessen Konfigurationsdatei `plugin_intranda_step_transcription.xml` statt. Diese wird unter folgendem Pfad erwartet:
 
 ```text
 /opt/digiverso/goobi/config/plugin_intranda_step_transcription.xml
