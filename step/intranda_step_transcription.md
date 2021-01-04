@@ -1,7 +1,7 @@
 ---
 description: >-
-  Dieses Schritte-Plugin erlaubt es, Transkriptionen von Werken zu erstellen.
-  Die Transkriptionen werden ohne Wortkoordinaten erfasst.
+  Dieses Step-Plugin erlaubt es, Transkriptionen von Werken zu erstellen.
+  Die Transkriptionen werden dabei ohne Wort- oder Zeilenkoordinaten erfasst.
 ---
 
 # Transkription von Bildinhalten
@@ -13,29 +13,29 @@ Das Transkriptions-Plugin erlaubt es dem Benutzer, die txt-OCR Ergebnisse eines 
 | Details |  |
 | :--- | :--- |
 | Identifier | intranda\_step\_transcription |
-| Source code | nicht verfügbar |
+| Source code | https://github.com/intranda/goobi-plugin-step-transcription |
 | Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 20.09 |
 | Dokumentationsdatum | 11.11.2020 |
 
 ## Installation
 
-Das Plugin besteht aus zwei Dateien, die an den folgenden Pfaden erwartet werden:
+Zur Nutzung des Plugins müssen diese beiden Dateien an folgende Orte kopiert werden:
 
 ```text
 /opt/digiverso/goobi/plugins/step/plugin_intranda_step_transcription.jar
 /opt/digiverso/goobi/plugins/GUI/plugin_intranda_step_transcription-GUI.jar
 ```
 
-## Konfiguration
-
-Die Konfiguration wird in folgendem Pfad erwartet:
+Die Konfiguration des Plugins findet innerhalb dessen Konfigurationsdatei `plugin_intranda_step_imageQA.xml` statt. Diese wird unter folgendem Pfad erwartet:
 
 ```text
 /opt/digiverso/goobi/config/plugin_intranda_step_transcription.xml
 ```
 
-Die Konfiguration sieht so aus:
+## Konfiguration
+
+Die Konfiguration des Plugins ist folgendermaßen aufgebaut:
 
 ```markup
 <config_plugin>
@@ -45,25 +45,48 @@ Die Konfiguration sieht so aus:
           2.) step name matches and project is *
           3.) project name matches and step name is *
           4.) project name and step name are *
--->
+    -->
+
     <config>
         <!-- which projects to use for (can be more then one, otherwise use *) -->
         <project>*</project>
         <step>*</step>
+
+        <!-- which folder to use (master|main|jpeg|source|...) -->
+        <imageFolder>master</imageFolder>
+
+        <!-- display button to finish the task directly from within the entered plugin -->
         <allowTaskFinishButtons>true</allowTaskFinishButtons>
     </config>
-
 
 </config_plugin>
 ```
 
-## Benutzung
+Die Parameter innerhalb dieser Konfigurationsdatei haben folgende Bedeutungen:
 
-Zur Benutzung des Plugins muss dieses in einen Workflow integriert werden und steht dann für die Nutzer zur Bearbeitung zur Verfügung.
+| Wert | Beschreibung |
+| :--- | :--- |
+| `project` | Dieser Parameter legt fest, für welches Projekt der aktuelle Block `<config>` gelten soll. Verwendet wird hierbei der Name des Projektes. Dieser Parameter kann mehrfach pro `<config>` Block vorkommen. |
+| `step` | Dieser Parameter steuert, für welche Arbeitsschritte der Block `<config>` gelten soll. Verwendet wird hier der Name des Arbeitsschritts. Dieser Parameter kann mehrfach pro `<config>` Block vorkommen. |
+| `imageFolder` | Legen Sie hier fest, aus welchem Verzeichnis die Bilder angezeigt werden sollen. Mögliche Werte hierfür sind z.B. `master`, `media` oder auch individuelle Ordner wie `photos` und `scans`. |
+| `allowTaskFinishButtons` | Mit diesem Parameter kann ermöglicht werden, dass in der regulären Plugin-Oberfläche bereits Buttons zum Abschließen der Aufgabe angezeigt werden sollen, so dass das Plugin nicht zunächst verlassen werden muss. |
 
-Nimmt ein Nutzer eine Aufgabe mit diesem Plugin entgegen, so kann er dessen Nutzeroberfläche betreten. Dort kann anschließend zwischen den Bilddateien geblättert werden. Zur jeweilig aktuellen Seite wird dabei ein Richtext-Editor angezeigt, der die eventuell bereits vorhandene Transkription anzeigt oder falls vorhanden die OCR-Ergebnisse. In diesem Editor kann nun das bisherige Ergebnis korrigiert oder auch ein ganz neuer Text transkribiert werden.
+## Integration des Plugins in den Workflow
+
+Zur Inbetriebnahme des Plugins muss dieses für einen oder mehrere gewünschte Aufgaben im Workflow aktiviert werden. Dies erfolgt wie im folgenden Screenshot aufgezeigt durch Auswahl des Plugins `intranda_step_transcription` aus der Liste der installierten Plugins.
+
+![Zuweisung des Plugins zu einer bestimmten Aufgabe](../.gitbook/assets/intranda_step_transcription1_de.png)
+
+Sowie ein Nutzer anschließend eine Aufgabe annimmt, die dieses Plugin enthält, kann er dieses aus der Aufgabe heraus betreten.
+
+![Plugin innerhalb der angenommenen Aufgabe](../.gitbook/assets/intranda_step_transcription2_de.png)
+
+## Benutzung des Plugins
+
+Nachdem der Nutzer das Plugin betreten hat, kann er dort zwischen den Bilddateien blättern. Zur jeweilig angezeigten Seite wird dabei im rechten Bereich ein Rich-Text-Editor angezeigt, der die eventuell bereits vorhandene Transkription bzw. die ggf. vorhandenen OCR-Ergebnisse anzeigt. In diesem Editor kann nun das bisherige Ergebnis korrigiert oder auch ein ganz neuer Text transkribiert werden.
+
+![Plugin innerhalb der angenommenen Aufgabe](../.gitbook/assets/intranda_step_transcription3_de.png)
 
 {% hint style="info" %}
 Bitte beachten Sie, dass dieses Plugin lediglich eine einfache Transkription von Seiteninhalten erlaubt. Hierbei ist keine Erfassung von Koordinaten für Absätze, Zeilen oder Wörter möglich.
 {% endhint %}
-
