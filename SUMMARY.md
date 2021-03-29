@@ -6,7 +6,7 @@
 
 * [Catalogue Poller](administration/intranda_administration_catalogue_poller.md)
 * [Copy Master-Anchor](administration/intranda_administration_copyanchor.md)
-* [Goobi-to-Goobi](administration/intranda_adminstration_goobi2goobi/README.md)
+* [Goobi-to-Goobi](administration/intranda_administration_goobi2goobi/README.md)
   * [Installation und Konfiguration](administration/intranda_administration_goobi2goobi/installation.md)
   * [Erzeugung der Export-Verzeichnisse](administration/intranda_administration_goobi2goobi/step_1_export.md)
   * [Transfer der Export-Verzeichnisse](administration/intranda_administration_goobi2goobi/step_2_transfer.md)
