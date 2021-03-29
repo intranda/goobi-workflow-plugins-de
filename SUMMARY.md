@@ -11,6 +11,10 @@
   * [Erzeugung der Export-Verzeichnisse](administration/intranda_adminstration_goobi2goobi/step_1_export.md)
   * [Transfer der Export-Verzeichnisse](administration/intranda_adminstration_goobi2goobi/step_2_transfer.md)
   * [Einspielen der Export-Verzeichnisse](administration/intranda_adminstration_goobi2goobi/step_3_import.md)
+* [Archive Management](administration/intranda_adminstration_archive_management/README.md)
+  * [Installation für den Produktivbetrieb](administration/intranda_adminstration_archive_management/installation_for_productive_use.md)
+  * [Installation für die Weiterentwicklung und Tests](administration/intranda_adminstration_archive_management/installation_for_development.md)
+  * [Konfiguration](administration/intranda_adminstration_archive_management/configuration.md)
 
 ## Step Plugins <a id="step"></a>
 

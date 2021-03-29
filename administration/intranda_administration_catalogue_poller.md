@@ -45,7 +45,7 @@ Daneben gibt es eine Konfigurationsdatei, die an folgender Stelle liegen muss:
 Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intranda_administration_catalogue_poller.xml` und kann im laufenden Betrieb angepasst werden. Im folgenden ist eine beispielhafte Konfigurationsdatei aufgeführt:
 
 {% code title="plugin\_intranda\_administration\_catalogue\_poller.xml" %}
-```markup
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <config_plugin>
 
@@ -85,73 +85,16 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
    <lastRun>1551731078691</lastRun>
 </config_plugin>
 ```
-{% endcode %}
 
 | Parameter | Erläuterung |
 | :--- | :--- |
-
-
 | `rule title` | An dieser Stelle wird ein interner Name angegeben, der hauptsächlich für die Nutzeroberfläche zur Unterscheidung der unterschiedlichen Regeln dient |
-| :--- | :--- |
-
-
 | `filter` | Mittels des Filters können ein oder mehrere Goobi-Projekte definiert werden, für die die hier definierten Regeln gelten sollen. Mittels `*` gilt die Regel für sämtliche Projekte. Enthaltene Leerzeichen innerhalb des Filters müssen genau wie innerhalb der Goobi Oberfläche mit Anführungszeichen umschlossen werden. |
-| :--- | :--- |
-
-
 | `catalogue` | Hier kann definiert werden, welcher Katalog für die Abfrage von neuen Daten verwendet werden soll. Hierbei handelt es sich um die Bezeichnung eines Kataloges, wie er innerhalb der globalen Goobi-Katalogkonfiguration innerhalb von `goobi_opac.xml` definiert wurde. |
-| :--- | :--- |
-
-
-| `catalogueIdentifier` | Definition desjenigen Metadatums aus der METS-Datei, das für die Abfrage des Katalogs verwendet werden soll. Üblicherweise handelt es sich hierbei um denjenigen Identifier, der auch bei der erstmaligen Katalogabfrage verwendet wurde und der zumeist innerhalb der Metadatums `${meta.CatalogIDDigital}` gespeichert vorliegt.. |
-| :--- | :--- |
-
-
+| `catalogueIdentifier` | Definition desjenigen Metadatums aus der METS-Datei, das für die Abfrage des Katalogs verwendet werden soll. Üblicherweise handelt es sich hierbei um denjenigen Identifier, der auch bei der erstmaligen Katalogabfrage verwendet wurde und der zumeist innerhalb der Metadatums `${meta.CatalogIDDigital}` gespeichert vorliegt. |
 | `exportUpdatedRecords` | Wenn dieser Wert auf `true` gesetzt wird, so erfolgt im Anschluß an die Katalogabfrage für all diejenigen Datensätze ein erneuter Datenexport, die im Verlauf der Katalogabfrage auch tatsächlich aktualisiert wurden. Als Datenexport wird in diesem Fall derjenige Arbeitsschritt ausgeführt, der als erster `Export`-Arbeitsschritt innerhalb des Workflows für den Vorgang definiert wurde. Damit ist üblicherweise der Export und damit die Veröffentlichung des Vorgangs innerhalb der Goobi viewers gemeint. Zu beachten ist hierbei, dass die Vorgänge nur dann exportiert werden, wenn der Mechanismus für `mergeRecords` ebenfalls auf `true`gesetzt ist. |
-| :--- | :--- |
-
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left"><code>mergeRecords</code>
-      </th>
-      <th style="text-align:left">
-        <p>Wenn der Wert<code>true</code> gesetzt ist, wird die bestehende METS-Datei
-          mit den aktuellen Daten aus dem Katalog aktualisiert. Eventuelle zus&#xE4;tzliche
-          Metadaten k&#xF6;nnen f&#xFC;r die Aktualisierung ausgeschlossen werden.
-          Auch bleibt der logische und physische Strukturbaum innerhalb der METS-Datei
-          unver&#xE4;ndert.</p>
-        <p>Wenn der Wert auf <code>false</code> gesetzt wird, dann wird die bestehende
-          METS-Datei vollst&#xE4;ndig durch eine neue METS-Datei ersetzt, die mittels
-          der Katalogabfrage generiert wurde.</p>
-      </th>
-    </tr>
-  </thead>
-  <tbody></tbody>
-</table>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left"><code>skipField</code>
-      </th>
-      <th style="text-align:left">
-        <p>Hier k&#xF6;nnen mehrere Metadatenfelder definiert werden, die keinesfalls
-          durch eine Katalogabfrage ge&#xE4;ndert werden sollen. Dies ist insbesondere
-          f&#xFC;r diejenigen Felder sinnvoll, die nicht aus einer Katalogabfrage
-          kommen und daher zuvor zus&#xE4;tzlich zu den Katalogdaten erfasst wurden.
-          Typische Beispiele f&#xFC;r solche Felder sind unter anderem <code>singleDigCollection</code>, <code>accesscondition</code> und <code>pathimagefiles</code>.
-          <br
-          />
-        </p>
-        <p>Bitte beachten Sie, dass dieser Parameter nur dann Anwendung findet, wenn
-          der Wert f&#xFC;r <code>mergeRecords</code> auf <code>true</code> steht.</p>
-      </th>
-    </tr>
-  </thead>
-  <tbody></tbody>
-</table>
+|`mergeRecords` | Wenn der Wert `true` gesetzt ist, wird die bestehende METS-Datei mit den aktuellen Daten aus dem Katalog aktualisiert. Eventuelle zusätzliche Metadaten können für die Aktualisierung ausgeschlossen werden. Auch bleibt der logische und physische Strukturbaum innerhalb der METS-Datei unverändert.Wenn der Wert auf `false` gesetzt wird, dann wird die bestehende METS-Datei vollständig durch eine neue METS-Datei ersetzt, die mittels der Katalogabfrage generiert wurde.|
+|`skipField` | Hier können mehrere Metadatenfelder definiert werden, die keinesfalls durch eine Katalogabfrage geändert werden sollen. Dies ist insbesondere für diejenigen Felder sinnvoll, die nicht aus einer Katalogabfrage kommen und daher zuvor zusätzlich zu den Katalogdaten erfasst wurden. Typische Beispiele für solche Felder sind unter anderem `singleDigCollection`,`accesscondition` und `pathimagefiles`. Bitte beachten Sie, dass dieser Parameter nur dann Anwendung findet, wenn der Wert für `mergeRecords` auf `true` steht.|
 
 Das Catalogue Poller Plugin wird durch Goobi automatisch aktiviert. Seine Laufzeit beginnt 22:00 Uhr und wiederholt sich alle 24 Stunden.
 
@@ -163,7 +106,7 @@ Plugin_Goobi_CataloguePoller
 
 Um dieses Recht zuzuweisen, muss der gewünschten Nutzergruppe zunächst die Berechtigung im rechten Bereich eingetragen werden.
 
-![Eintragen der gew&#xFC;nschten Berechtigung](../.gitbook/assets/intranda_administration_catalogue_poller_01.png)
+![Eintragen der gewünschten Berechtigung](../.gitbook/assets/intranda_administration_catalogue_poller_01.png)
 
 ![Benutzergruppe mit zugewiesener Berechtigung](../.gitbook/assets/intranda_administration_catalogue_poller_02.png)
 
