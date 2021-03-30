@@ -1,6 +1,6 @@
 ---
 description: >-
-  Goobi administration plugin zur Verwaltung von Archivbeständen
+  Goobi Administration Plugin zur Verwaltung von Archivbeständen
 ---
 
 # Archive Management
@@ -39,7 +39,7 @@ Darüber hinaus benötigt das Plugin noch zusätzlich eine Konfigurationsdatei, 
 /opt/digiverso/goobi/config/plugin_intranda_administration_archive_management.xml
 ```
 
-## Installation der Datenbank basex
+## Installation der Datenbank BaseX
 
 Das Plugin liest und schreibt standardisierte EAD-Dateien. Damit diese Bearbeitungen der Daten performant erfolgen kann, wird hierzu die XML-Datenbank BaseX verwendet, innerhalb der die EAD-Dateien abgelegt und indiziert werden. Voraussetzung für die Installation von BaseX ist Java 1.8. Die Inbetriebnahme dieser Datenbank erfolgt abhängig von dem Einsatzzweck etwas unterschiedlich, abhängig davon, ob das Plugin für einen Produktivbetrieb oder für die Weiterentwicklung installiert werden soll.
 
@@ -61,7 +61,7 @@ Das Plugin für die Bearbeitung von Archivbeständen findet sich unterhalb des M
 
 ### Zuweisung der benötigen Rechte für die Nutzung des Plugins
 
-Zur Nutzung des Plugins ist zunächst notwendig, dass der Nutzer über das Recht `Plugin_Administration_Tektonik` verfügt. Sollte dieses Recht noch noch nicht zugewiesen worden sein, erhält der Nutzer folgenden Hinweis:
+Zur Nutzung des Plugins ist zunächst notwendig, dass der Nutzer über das Recht `Plugin_Administration_Archive_Management` verfügt. Sollte dieses Recht noch noch nicht zugewiesen worden sein, erhält der Nutzer folgenden Hinweis:
 
 ![Hinweis auf fehlende Nutzerrechte](../../.gitbook/assets/intranda_administration_archive_management_01_de.png)
 
@@ -83,7 +83,7 @@ Alternativ dazu kann ebenfalls ein neuer Archivbestand erzeugt werden. In diesem
 
 Nach der Auswahl des zu bearbeitenden Archivbestandes wird man in die Bearbeitungsmaske weitergeleitet. Hier läßt sich nun im linken Bereich der Strukturbaum bearbeiten. Im rechten Bereich können die Details des jeweils ausgewählten Knoten bearbeitet werden.
 
-![Bearbeitunhgsmaske für den Archivbestand](../../.gitbook/assets/intranda_administration_archive_management_06_de.png)
+![Bearbeitungsmaske für den Archivbestand](../../.gitbook/assets/intranda_administration_archive_management_06_de.png)
 
 Durch einen Klick auf die Buttons `Abrechen` oder `Archivbestand speichern und verlassen` wird man wieder auf die Seite zur Auswahl eines Archivbestandes geleitet.
 
@@ -137,16 +137,15 @@ Wenn die Details eines Bereiches ausgeklappt werden, erfolgt eine Anzeige der ei
 
 ### Validierung der Metadaten
 
-Sowohl der Button `Download als EAD Datei` als auch der Button `Validierung ausführen` stellen sicher, dass die Metadaten valide sind. Dabei werden die konfigurierten Regeln angewendet und geprüft, ob einzelne Werte dagegen verstoßen. Ist dies der Fall, werden die betroffenen Knoten im linken Bereich farbig hervorgehoben. Wird ein solcher invalider Knoten ausgewählt, werden die betroffenen Badges rot umrandet dargestellt und in den Metadaten wird neben der Umrandung auch der konfigurierte Fehlertext angezeigt.
+Sowohl der Button `Download als EAD Datei` als auch der Button `Validierung ausführen` stellen sicher, dass die Metadaten valide sind. Dabei werden die konfigurierten Regeln angewendet und geprüft, ob einzelne Werte dagegen verstoßen. Ist dies der Fall, werden die betroffenen Knoten im linken Bereich farbig hervorgehoben. Wird ein solcher invalider Knoten ausgewählt, werden die betroffenen Badges rot dargestellt und in den Metadaten wird neben der Umrandung auch der konfigurierte Fehlertext angezeigt.
 
 ![Anzeige einer fehlerhaften Validierung](../../.gitbook/assets/intranda_administration_archive_management_09_de.png)
 
 Eine fehlgeschlagene Validierung verhindert nicht das Speichern des Archivbestandes oder das Erzeugen von Goobi-Vorgängen.
 
-### Download, Speichern, Abrechen
+### Download der EAD-Datei und Speichern der Daten
 
 Die beiden Buttons zum `Download als EAD Datei` und `Archivbestand speichern und verlassen` erzeugen eine neue EAD auf Basis des aktuellen Zustandes der Knoten. Dabei wird mit Ausnahme des obersten Knoten jeder Knoten als eigentständiges `<c>`-Element dargestellt. Die Daten des obersten Knoten werden innerhalb von `<archdesc>` unterhalb des `<ead>` Elements geschrieben.
 
 Neben den erfassten Metadaten wird ein neues `create` oder `modified event` samt Datum und Nutzerinformationen erstellt und in der Liste der Events hinzugefügt.
 Wenn der Archivbestand gespeichert wird, wird der aktuelle Zustand ebenfalls automatisch in die XML-Datenbank exportiert. 
-

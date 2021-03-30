@@ -52,7 +52,7 @@ Nach dem erfolgreichen Login erhält man einen Überblick über die installierte
 
 ![Administrativer Übersicht](../../.gitbook/assets/intranda_administration_archive_management_install_04.png)
 
-Von dort kann num zum Menüpunkt `Databases` gegangen werden, um dann auf den Button `Create` zu klicken.
+Von dort kann nun zum Menüpunkt `Databases` gegangen werden, um dann auf den Button `Create` zu klicken.
 
 ![Neue Datenbank anlegen](../../.gitbook/assets/intranda_administration_archive_management_install_05.png)
 

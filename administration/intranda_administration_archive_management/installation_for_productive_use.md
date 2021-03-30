@@ -18,7 +18,7 @@ Am einfachsten erfolgt der Download von dort als `ZIP Package` beispielsweise in
 http://files.basex.org/releases/9.4.4/BaseX944.zip
 ```
 
-Die heruntergeladene zip-Datei kann anschließend entpackt werden. Üblicherweise erfolgt die Installation der Dankbank unter folgendem Pfad:
+Die heruntergeladene zip-Datei kann anschließend entpackt werden. Üblicherweise erfolgt die Installation der Datenbank unter folgendem Pfad:
 
 ``` bash
 /opt/digiverso/basex/
