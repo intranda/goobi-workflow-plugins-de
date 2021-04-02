@@ -14,7 +14,7 @@ Dieses Statistik-Plugin ermöglicht eine statistische Erfassung der Aktivität v
 | Details |  |
 | :--- | :--- |
 | Identifier | intranda_statistics_sudan_memory_activity_by_user |
-| Source code | https://github.com/intranda/intranda_statistics_sudan_memory_activity_by_user |
+| Source code | https://github.com/intranda/goobi-plugin-statistics-sudan-memory |
 | Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 20.10 |
 | Dokumentationsdatum | 03.01.2021 |

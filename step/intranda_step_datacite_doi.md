@@ -11,8 +11,8 @@ Diese Dokumentation beschreibt die Installation, Konfiguration und Verwendung de
 
 | Details | |
 | :--- | :--- |
-| Identifier | plugin_intranda_step_datacite_doi |
-| Source code | [https://github.com/intranda/intranda_step_datacite_doi](https://github.com/intranda/intranda_step_datacite_doi) |
+| Identifier | intranda_step_datacite_doi |
+| Source code | [https://github.com/intranda/goobi-plugin-step-datacite-doi](https://github.com/intranda/goobi-plugin-step-datacite-doi) |
 | Lizenz | GPL 2.0 or newer |
 | Kompatibilität | Goobi workflow 2021.03 |
 | Dokumentationsdatum | 15.03.2021 |
