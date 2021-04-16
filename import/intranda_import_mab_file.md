@@ -11,7 +11,7 @@ Diese Dokumentation beschreibt die Installation, Konfiguration und Verwendung de
 | Details |  |
 | :--- | :--- |
 | Identifier | intranda\_import\_mab\_files |
-| Source code | [https://github.com/intranda/goobi-plugin-import-mab_file](https://github.com/intranda/goobi-plugin-import-mab_file) |
+| Source code | [https://github.com/intranda/goobi-plugin-import-mab-file](https://github.com/intranda/goobi-plugin-import-mab-file) |
 | Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 2021.01 |
 | Dokumentationsdatum | 12.01.2021 |
