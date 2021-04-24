@@ -96,6 +96,7 @@
 * [Massenupload](workflow/intranda_workflow_massupload.md)
 * [Vorgangsbeziehungen anlegen](workflow/intranda_workflow_linkedprocesscreation.md)
 * [Projektexport als Ordner mit Bildern und Excel-Datei](workflow/intranda_workflow_projectexport.md)
+* [Vorgangserstellung durch Dateiupload](workflow/intranda_workflow_fileupload_processcreation.md)
 
 ## Statistiken <a id="statistics"></a>
 
