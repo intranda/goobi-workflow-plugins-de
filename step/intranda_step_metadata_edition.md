@@ -1,6 +1,8 @@
 ---
 description: >-
-  Dieses Step Plugin für Goobi workflow erlaubt die direkte Bearbeitung von Metadaten aus einer geöffneten Aufgabe heraus ohne Verwendung des METS-Editors.
+  Dieses Step Plugin für Goobi workflow erlaubt die direkte Bearbeitung von
+  Metadaten aus einer geöffneten Aufgabe heraus ohne Verwendung des
+  METS-Editors.
 ---
 
 # Metadaten bearbeiten
@@ -36,7 +38,7 @@ Um zu konfigurieren, wie sich das Plugin verhalten soll, können verschiedene We
 
 Die Konfiguration des Plugins ist folgendermaßen aufgebaut:
 
-```xml
+```markup
 <config_plugin>
     <config>
         <!-- which projects to use for (can be more then one, otherwise use *) -->
@@ -144,12 +146,12 @@ Für jedes einzublendende Metadatum kann ein Element `<displayfield>` definiert 
 | `validationRegex` | Mit diesem Parameter läßt sich ein regulärer Ausdruck definierten, um den Feldinhalt auf Validität zu überprüfen. |
 | `validationErrorText` | Hier läßt sich die Meldung definieren, die angezeigt werden soll, wenn die Validierung nicht erfolgreich stattfinden konnte. |
 | `label` | Mit dem Parameter kann eine Beschriftung definiert werden, die den Benutzern für das Feld angezeigt wird. |
-| `structType` | Mit diesem Parameter wird das Strukturelement definiert, von dem die Metadaten für die Anzeige verwendet werden sollen (z. B. `anchor`). |
+| `structType` | Mit diesem Parameter wird das Strukturelement definiert, von dem die Metadaten für die Anzeige verwendet werden sollen \(z. B. `anchor`\). |
 | `defaultValue` | Hier läßt sich ein Standardwert definieren, der gesetzt werden soll, wenn kein Wert vorhanden ist. |
 | `searchable` | Mit diesem Parameter läßt sich definieren, ob der Inhalt dieses Feldes für die Ausführung einer Suche verwendet werden soll. |
 | `suffix` | Hiermit läßt sich ein Suffix bestimmen, das der Suchanfrage angefügt werden soll, wenn andere Vorgänge mit gleichem Feldinhalt gesucht werden. |
-| `vocabularyName` | Hier wird der Name des Vokabulars festgelegt, wenn dieses für die Anzeige von auswählbaren Datensätzen verwendet werden soll (z. B. Fachbegriffe). |
-| `searchParameter` | Dieser Paremeter ist optional und wiederholbar. Er dient zur weiteren Einschränkung von Datensätzen aus dem Vokabular (z. B. `type=AccessLocations`) |
+| `vocabularyName` | Hier wird der Name des Vokabulars festgelegt, wenn dieses für die Anzeige von auswählbaren Datensätzen verwendet werden soll \(z. B. Fachbegriffe\). |
+| `searchParameter` | Dieser Paremeter ist optional und wiederholbar. Er dient zur weiteren Einschränkung von Datensätzen aus dem Vokabular \(z. B. `type=AccessLocations`\) |
 
 ### Konfiguration: importfield
 
@@ -175,10 +177,11 @@ Nachdem das Plugin vollständig installiert und eingerichtet wurde, steht es fü
 
 Abhängig von der Konfiguration werden hier die entsprechenden Metadaten angezeigt und können bearbeitet werden. Je nach Konfiguration ist hier auch eine Suche nach anderen Vorgängen möglich, indem auf das Icon für die Suche geklickt wird.
 
-![Suche nach anderen Vorgängen, um von diesen Metadaten übernehmen zu können](../.gitbook/assets/intranda_step_metadata_edition3_de.png)
+![Suche nach anderen Vorg&#xE4;ngen, um von diesen Metadaten &#xFC;bernehmen zu k&#xF6;nnen](../.gitbook/assets/intranda_step_metadata_edition3_de.png)
 
 Innerhalb des Dialogs mit den gefundenen Vorgängen kann nun ausgewählt werden, welche der angezeigten Metadaten der gefundenen Vorgänge übernommen werden sollen.
 
 Ein Klick auf eines der angezeigten Thumbnails erlaubt das Setzen des Repräsentanten.
 
 Bitte beachten Sie, dass die Bearbeitungen nur dann gespeichert werden, wenn auf den dafür vorgesehenen Button geklickt wird.
+

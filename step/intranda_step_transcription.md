@@ -1,7 +1,7 @@
 ---
 description: >-
-  Dieses Step-Plugin erlaubt es, Transkriptionen von Werken zu erstellen.
-  Die Transkriptionen werden dabei ohne Wort- oder Zeilenkoordinaten erfasst.
+  Dieses Step-Plugin erlaubt es, Transkriptionen von Werken zu erstellen. Die
+  Transkriptionen werden dabei ohne Wort- oder Zeilenkoordinaten erfasst.
 ---
 
 # Transkription von Bildinhalten
@@ -13,7 +13,7 @@ Das Transkriptions-Plugin erlaubt es dem Benutzer, die txt-OCR Ergebnisse eines 
 | Details |  |
 | :--- | :--- |
 | Identifier | intranda\_step\_transcription |
-| Source code | https://github.com/intranda/goobi-plugin-step-transcription |
+| Source code | [https://github.com/intranda/goobi-plugin-step-transcription](https://github.com/intranda/goobi-plugin-step-transcription) |
 | Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 20.09 |
 | Dokumentationsdatum | 11.11.2020 |
@@ -90,3 +90,4 @@ Nachdem der Nutzer das Plugin betreten hat, kann er dort zwischen den Bilddateie
 {% hint style="info" %}
 Bitte beachten Sie, dass dieses Plugin lediglich eine einfache Transkription von Seiteninhalten erlaubt. Hierbei ist keine Erfassung von Koordinaten für Absätze, Zeilen oder Wörter möglich.
 {% endhint %}
+

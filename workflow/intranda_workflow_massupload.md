@@ -104,3 +104,4 @@ Mit einem Klick auf den Button `Dateien in Vorgänge einspielen` werden die Bild
 Bitte beachten Sie: Soll eine Erkennung von Barcodes erfolgen, um daraus die Vorgänge zu ermitteln, so ist wichtig, dass auch die Barcodes in ausreichender Größe und Qualität vorliegen, damit die Erkennung erfolgreich ist.
 
 ![Digitalisierte Trennbl&#xE4;tter mit Barcodes f&#xFC;r die automatische Erkennung](../.gitbook/assets/intranda_workflow_massupload5.png)
+

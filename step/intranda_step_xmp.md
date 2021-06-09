@@ -66,8 +66,8 @@ Diese Konfigurationsdatei kann im laufenden Betrieb angepasst werden. Eine Beisp
                 <type>metadata</type>
                 <!-- name: - name of the metadata field -->
                 <name>PlaceOfPublication</name>
-                <!-- use: - default is logical , use value from the physical, logical, anchor, current, page docstruct or from all elements -->
-                <use>logical</use> <!-- physical|logical|anchor|page|current|all-->
+                <!-- use: - default is logical , use value from the physical, logical, anchor, current, page docstruct, last (lowest in hierarchy that has the metadata) or from all elements -->
+                <use>logical</use> <!-- physical|logical|anchor|page|current|last|all-->
                 <!-- separator - use this separator to separate the different occurences of a field, default is blank -->
                 <separator>;</separator>
                 <!-- useFirst: - use only the first occurence or all - default is true -->
@@ -146,7 +146,8 @@ Wenn es sich um ein `metadata`-Feld handelt, werden eine Reihe von weiteren Unte
   * `physical`: die Suche ist auf das Element physSequence beschränkt. Hier kann zum Beispiel die URN des Werkes gefunden werden.
   * `current`: die Suche wird nur in dem Element durchgeführt, dass dem aktuellen Bild zugeordet wurde und in der Hierarchie am tiefsten liegt. Zum Beispiel ein Kapitel oder ein Artikel.
   * `page`: die Suche wird nur innerhalb des page Elements durchgeführt. Hier stehen üblicherweise die granulare URNs oder die physische und logische Seitennummer
-  * `all`: die Suche wird in allen logischen Elementen durchgeführt, die dem Bild zugeordnet sind. Dabei wird mit dem höchsten begonnen.
+  * `last` : die Suche wird in allen logischen Elementen durchgeführt, die dem Bild zugeordnet sind. Es wird das Metadatum mit der niedrigsten Hierarchiestufe übernommen.
+  * `all`: die Suche wird in allen logischen Elementen durchgeführt, die dem Bild zugeordnet sind. Dabei wird mit dem höchsten begonnen. Alle gefundenen Werte werden konkateniert.
 * `<separator>`: die hier konfigurierten Zeichen werden als Separator genutzt, falls mehr als ein Eintrag gefunden wurde.
 * `<useFirst>`: enthält dieses Feld den Wert `true`, wird der erste gefundene Wert genommen, ansonsetn wird nach weiteren Werten gesucht
 * `<staticPrefix>`: dieser Text wird vor den Metadateninhalt gesetzt

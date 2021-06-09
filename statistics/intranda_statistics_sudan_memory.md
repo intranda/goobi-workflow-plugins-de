@@ -1,6 +1,7 @@
 ---
 description: >-
-  Dieses Statistik-Plugin ermittelt die Aktivität der Bearbeitungen von Übersetzungen innerhalb spezifischer Metadatenfelder.
+  Dieses Statistik-Plugin ermittelt die Aktivität der Bearbeitungen von
+  Übersetzungen innerhalb spezifischer Metadatenfelder.
 ---
 
 # Sudan Memory Übersetzungen
@@ -13,8 +14,8 @@ Dieses Statistik-Plugin ermöglicht eine statistische Erfassung der Aktivität v
 
 | Details |  |
 | :--- | :--- |
-| Identifier | intranda_statistics_sudan_memory_activity_by_user |
-| Source code | https://github.com/intranda/goobi-plugin-statistics-sudan-memory |
+| Identifier | intranda\_statistics\_sudan\_memory\_activity\_by\_user |
+| Source code | [https://github.com/intranda/goobi-plugin-statistics-sudan-memory](https://github.com/intranda/goobi-plugin-statistics-sudan-memory) |
 | Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 20.10 |
 | Dokumentationsdatum | 03.01.2021 |
@@ -57,7 +58,7 @@ DROP FUNCTION IF EXISTS wordcount;
      DELIMITER ;
 ```
 
-Dieser Funktion kann ein UTF8-codierter Text übergeben werden. Der Text wird Zeichen für Zeichen überprüft. Wenn das aktuelle Zeichen ein alnumerisches Zeichen ist (Buchstaben, Zahlen, Punkt, Komma, Buchstaben mit Diakritika, Klammern), das vorherige Zeichen jedoch nicht (Nichts, Leerzeichen, Zeilenumbruch, Tabulator), beginnt an dieser Stelle ein neues Wort und der Wortzähler wird erhöht. Am Ende wird der Wortzähler zurückgegeben.
+Dieser Funktion kann ein UTF8-codierter Text übergeben werden. Der Text wird Zeichen für Zeichen überprüft. Wenn das aktuelle Zeichen ein alnumerisches Zeichen ist \(Buchstaben, Zahlen, Punkt, Komma, Buchstaben mit Diakritika, Klammern\), das vorherige Zeichen jedoch nicht \(Nichts, Leerzeichen, Zeilenumbruch, Tabulator\), beginnt an dieser Stelle ein neues Wort und der Wortzähler wird erhöht. Am Ende wird der Wortzähler zurückgegeben.
 
 ## Konfiguration des Plugins
 
@@ -71,7 +72,7 @@ Bitte weisen Sie daher der Gruppe die Rolle `view_translation_activity` zu.
 
 Anschließend kann der Menüpunkt `Aktivität Übersetzung und Bearbeitung` im Bereich `Controlling` ausgewählt werden.
 
-![Aufrufen des Plugins im Menü](../.gitbook/assets/intranda_statistics_sudan_memory3_de.png)
+![Aufrufen des Plugins im Men&#xFC;](../.gitbook/assets/intranda_statistics_sudan_memory3_de.png)
 
 ## Bedienung des Plugins
 
@@ -89,10 +90,9 @@ Die Auswertung `Überblick` listet für jeden Zeitraum innerhalb des Start- und 
 
 ### Auswertung: Detaillierte Anzeige
 
-Die `Detaillierte Anzeige` listet jeden Arbeitsschritt `Translation of Arabic content to English` oder `Translation of English content to Arabic` auf, der innerhalb des angegebenen Start- und Enddatums abgeschlossen wurde.
-Zu jedem Arbeitsschritt wird außerdem der Nutzer, der zugehörige Vorgang, sowie der Inhalt und die Anzahl der Wörter aus den vier Feldern `Title (Arabic)`, `Title (English)`, `Description (English)` und `Description (Arabic)` angezeigt.
+Die `Detaillierte Anzeige` listet jeden Arbeitsschritt `Translation of Arabic content to English` oder `Translation of English content to Arabic` auf, der innerhalb des angegebenen Start- und Enddatums abgeschlossen wurde. Zu jedem Arbeitsschritt wird außerdem der Nutzer, der zugehörige Vorgang, sowie der Inhalt und die Anzahl der Wörter aus den vier Feldern `Title (Arabic)`, `Title (English)`, `Description (English)` und `Description (Arabic)` angezeigt.
 
-![Anzeige der Ergebnisse mit Möglichkeit für den Download](../.gitbook/assets/intranda_statistics_sudan_memory5_de.png)
+![Anzeige der Ergebnisse mit M&#xF6;glichkeit f&#xFC;r den Download](../.gitbook/assets/intranda_statistics_sudan_memory5_de.png)
 
 Die beiden Auswertungen lassen sich auch jeweils als Excel-Datei herunterladen.
 
@@ -175,3 +175,4 @@ SQL query für einen detaillierten Bericht:
         AND s.Bearbeitungsstatus = 3
         AND s.BearbeitungsEnde BETWEEN '2019-01-01' AND '2020-12-31';
 ```
+

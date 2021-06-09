@@ -1,6 +1,8 @@
 ---
 description: >-
-  Dies ist ein Goobi workflow Plugin für den Upload von mehreren Dateien, um eine automatische Vorgangserstellung auf Basis der hochgeladenen Dateien zu ermöglichen. Aus Dateien mit ähnlichen Namen werden Goobi Vorgänge erstellt und die hochgeladenen Dateien zugewiesen.
+  Dies ist ein Goobi workflow Plugin für den Upload von mehreren Dateien, um
+  eine automatische Vorgangserstellung auf Basis der hochgeladenen Dateien zu
+  ermöglichen. Aus Dateien mit ähnlichen Namen werd
 ---
 
 # Vorgangserstellung durch Dateiupload
@@ -13,7 +15,7 @@ Dieses Workflow-Plugin erlaubt einen Massenupload von Dateien, auf deren Basis a
 
 | Details |  |
 | :--- | :--- |
-| Identifier | intranda_workflow_fileUploadProcessCreation |
+| Identifier | intranda\_workflow\_fileUploadProcessCreation |
 | Source code | [https://github.com/intranda/goobi-plugin-workflow-fileupload-processcreation](https://github.com/intranda/goobi-plugin-workflow-fileupload-processcreation) |
 | Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 20.12 |
@@ -36,20 +38,20 @@ Um zu konfigurieren, wie sich das Plugin verhalten soll, können verschiedene We
 
 Der Inhalt dieser Konfigurationsdatei sieht wie folgt aus:
 
-```xml
+```markup
 <config_plugin>
-	
-	<!-- which file types shall be allowed for uploading these -->
-	<allowed-file-extensions>/(\.|\/)(gif|jpe?g|png|tiff?|jp2|pdf)$/</allowed-file-extensions>
 
-	<!-- which process template shall be used to create the new processes -->
-	<processTemplateName>ImportWorkflow</processTemplateName>
+    <!-- which file types shall be allowed for uploading these -->
+    <allowed-file-extensions>/(\.|\/)(gif|jpe?g|png|tiff?|jp2|pdf)$/</allowed-file-extensions>
 
-	<!-- which publication type shall be used inside of the created METS files -->
-	<metadataDocumentType>Monograph</metadataDocumentType>
+    <!-- which process template shall be used to create the new processes -->
+    <processTemplateName>ImportWorkflow</processTemplateName>
 
-	<!-- define a naming schema for the file names to be matched for the process creation -->
-	<namingSchema>/.*(BA_\\d+[_-](\\d+)).*\\.jpg/</namingSchema>
+    <!-- which publication type shall be used inside of the created METS files -->
+    <metadataDocumentType>Monograph</metadataDocumentType>
+
+    <!-- define a naming schema for the file names to be matched for the process creation -->
+    <namingSchema>/.*(BA_\\d+[_-](\\d+)).*\\.jpg/</namingSchema>
 
 </config_plugin>
 ```
@@ -80,3 +82,4 @@ Wenn das Plugin korrekt installiert und konfiguriert wurde, ist es innerhalb des
 ![Ge&#xF6;ffnetes Plugin f&#xFC;r den Upload](../.gitbook/assets/intranda_workflow_fileupload_processcreation3_de.png)
 
 An dieser Stellen können nun Dateien hochgeladen werden. Nach der Analyse der Dateinamen erzeugt Goobi die entsprechenden Vorgänge automatisch.
+

@@ -1,4 +1,4 @@
-# Installation des Archivmanagement-Plugins für den Produktivbetrieb
+# Installation für den Produktivbetrieb
 
 Zur Installation des Plugins für den produktiven Einsatz auf einem Webserver gehen Sie folgendermaßen vor:
 
@@ -6,7 +6,7 @@ Zur Installation des Plugins für den produktiven Einsatz auf einem Webserver ge
 
 Zunächst muss die XML-Datenbank BaseX von der BaseX-Webseite heruntergeladen werden. Der Download kann von hier erfolgen:
 
-```
+```text
 https://basex.org/download/
 ```
 
@@ -14,13 +14,13 @@ https://basex.org/download/
 
 Am einfachsten erfolgt der Download von dort als `ZIP Package` beispielsweise in der Version 9.4.4:
 
-```
+```text
 http://files.basex.org/releases/9.4.4/BaseX944.zip
 ```
 
 Die heruntergeladene zip-Datei kann anschließend entpackt werden. Üblicherweise erfolgt die Installation der Datenbank unter folgendem Pfad:
 
-``` bash
+```bash
 /opt/digiverso/basex/
 ```
 
@@ -34,10 +34,9 @@ unzip BaseX944.zip
 
 Nach dem Herunterladen und Entpacken muss die Jetty-Konfiguration angepasst werden, so dass die Applikation nur auf `localhost` erreichbar ist. Dafür muss in der Konfigurationsdatei `/opt/digiverso/basex/webapp/WEB-INF/jetty.xml` sichergestellt werden, dass der `host` auf `127.0.0.1` steht:
 
-```bash jetty.xml
-  <Set name="host">127.0.0.1</Set>
-```
+\`\`\`bash jetty.xml 127.0.0.1
 
+```text
 Anschließend wird die `Systemd Unit File` an diesen Pfad installiert:
 
 ```bash
@@ -90,27 +89,28 @@ systemctl restart apache2
 
 Die XML Datenbank kann nach der Installation unter folgender URL erreicht werden:
 
-​<http://localhost:8984/>​
+​[http://localhost:8984/](http://localhost:8984/)​
 
 ![Gestarteter BaseX Server](../../.gitbook/assets/intranda_administration_archive_management_install_02.png)
 
 ## Datenbank administrieren und EAD-Datei einspielen
+
 Nachdem BaseX heruntergeladen und gestartet wurde, können XML-Dateien als neue Datenbanken eingespielt werden. Dazu wird zunächst der Menüpunkt `Database Administration` geöffnet, wo ein Login mit diesen Zugangsdaten erfolgen kann:
 
-```
+```text
 Login:      admin
 Passwort:   admin
 ```
 
-![Login für die Datenbank-Administration](../../.gitbook/assets/intranda_administration_archive_management_install_03.png)
+![Login f&#xFC;r die Datenbank-Administration](../../.gitbook/assets/intranda_administration_archive_management_install_03.png)
 
 Nach dem ersten Anmelden sollte daher als erstes ein neues Passwort vergeben werden. Dazu muss der Menüeintrag Users geöffnet werden. Hier kann der Accountname angeklickt und das neue Passwort gesetzt werden.
 
 Nach dem erfolgreichen Login erhält man einen Überblick über die installierten Datenbanken, Log-Dateien usw.
 
-![Administrativer Übersicht](../../.gitbook/assets/intranda_administration_archive_management_install_04.png)
+![Administrativer &#xDC;bersicht](../../.gitbook/assets/intranda_administration_archive_management_install_04.png)
 
-Unter dem Menüpunkt `Databases` können neue Datenbanken für die EAD Dateien erzeugt werden. 
+Unter dem Menüpunkt `Databases` können neue Datenbanken für die EAD Dateien erzeugt werden.
 
 ![Neue Datenbank anlegen](../../.gitbook/assets/intranda_administration_archive_management_install_05.png)
 
@@ -138,14 +138,13 @@ Um BaseX für Abfrage aus Goobi einzurichten, muss der Datenbank bekannt gemacht
 
 Zur Konfiguration der Abfragen müssen im Pfad `/opt/digiverso/basex/webapp/` mehrere neue Dateien erzeugt werden. Diese befinden sich innerhalb des Plugin-Repositories unterhalb des Pfades `plugin/src/main/resources/` und können von dort auch in den Ordner `/opt/digiverso/basex/webapp/` kopiert werden.
 
-![*.xq-Dateien aus dem ausgecheckten Plugin](../../.gitbook/assets/intranda_administration_archive_management_install_10.png)
+![\*.xq-Dateien aus dem ausgecheckten Plugin](../../.gitbook/assets/intranda_administration_archive_management_install_10.png)
 
-![Kopierte *.xq-Dateien innerhalb des Verzeichnisses webapp von BaseX](../../.gitbook/assets/intranda_administration_archive_management_install_11.png)
+![Kopierte \*.xq-Dateien innerhalb des Verzeichnisses webapp von BaseX](../../.gitbook/assets/intranda_administration_archive_management_install_11.png)
 
 Inhalt der Datei `listDatabases.xq`:
 
-```xq
-
+```text
 (: XQuery file to return the names of all available databases :)
 module namespace page = 'http://basex.org/examples/web-pagepage';
 (:declare default element namespace "urn:isbn:1-931666-22-9";:)
@@ -157,7 +156,7 @@ declare
 
 function page:getDatabases() {
   let $ead := db:list()
-  
+
   return 
     <databases>
     {
@@ -182,7 +181,7 @@ function page:getDatabases() {
 
 Inhalt der Datei `openDatabase.xq`:
 
-```xq
+```text
 (: XQuery file to return a full ead record :)
 module namespace page = 'http://basex.org/examples/web-page';
 declare default element namespace "urn:isbn:1-931666-22-9";
@@ -203,7 +202,7 @@ function page:getDatbase($database, $filename) {
 
 Inhalt der Datei `importFile.xq`:
 
-```xq
+```text
 (: XQuery file to return a full ead record :)
 module namespace page = 'http://basex.org/examples/web-page';
 declare default element namespace "urn:isbn:1-931666-22-9";
@@ -226,24 +225,25 @@ updating function page:import($db, $filename) {
 
 Je nachdem, wo die BaseX-Datenbank installiert wurde, müssen noch zwei Anpassungen für das Schreiben von EAD-Dateien im Dateisystem vorgenommen werden. Zunächst muss einmal ein Ordner erzeugt und mit entsprechenden Rechten versehen werden, damit darin EAD-Dateien gespeichert werden können. Dieser Ordner kann beispielsweise so lauten:
 
-``` bash
+```bash
 /opt/digiverso/basex/import/
 ```
 
 Um auf dieses angegebene Verzeichnis zugreifen zu können, muss es natürlich auf dem System auch tatsächlich existieren und daher ggf. noch angelegt werden:
 
-``` bash
+```bash
 mkdir /opt/digiverso/basex/import
 ```
 
 Dieses Verzeichnis muss nun innerhalb von zwei Konfigurationsdateien richtig konfiguriert werden. Zunächst einmal erfolgt die Anpassung in Konfigurationsdatei `plugin_intranda_administration_archive_management.xml` so, dass dort der Pfad definiert wird:
 
-``` xml
+```markup
 <eadExportFolder>/opt/digiverso/basex/import</eadExportFolder>
 ```
 
 Außerdem muss auch die zuvor eingerichtete Datei `importFile.xq` so anpasst werden, dass darin folgende Zeile auf den richtigen Pfad verweist:
 
-``` bash
+```bash
 let $path := '/opt/digiverso/basex/import/' || $filename
 ```
+

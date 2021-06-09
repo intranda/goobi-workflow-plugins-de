@@ -65,7 +65,7 @@
 * [ePIC PID Registrierung \(Handle & DOI\)](step/intranda_step_epic_pid.md)
 * [Metadaten bearbeiten](step/intranda_step_metadata_edition.md)
 * [Plugin zur Registrierung von DOIs via DataCite API](step/intranda_step_datacite_doi.md)
-* [Extraktion von Bildmetadaten](step/intranda_step_imageMetadataExtraction.md)
+* [Extraktion von Bildmetadaten](step/intranda_step_imagemetadataextraction.md)
 * [Katalogabfrage](step/intranda_step_catalogue_request.md)
 
 ## Opac Plugins <a id="opac"></a>
@@ -106,3 +106,4 @@
 ## Sonstiges <a id="other"></a>
 
 * [Counterscript Application](other/counterscript-application.md)
+

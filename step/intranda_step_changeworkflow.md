@@ -41,85 +41,85 @@ Es folgt eine kommentierte Beispielkonfiguration:
 ```markup
 <config_plugin>
     <!--
-    	order of configuration is: 
-	    1.) project name and step name matches 
-	    2.) step name matches and project is * 
-	    3.) project name matches and step name is * 
-	    4.) project name and step name are * 
+        order of configuration is: 
+        1.) project name and step name matches 
+        2.) step name matches and project is * 
+        3.) project name matches and step name is * 
+        4.) project name and step name are * 
     -->
 
-	<config>
-		<!-- which projects to use for (can be more then one, otherwise use *) -->
-		<project>Register</project>
-		<step>Check</step>
+    <config>
+        <!-- which projects to use for (can be more then one, otherwise use *) -->
+        <project>Register</project>
+        <step>Check</step>
 
-		<!-- multiple changes can be done within one configuration rule; simply add another 'change' element with other properties here -->
-		<change>
-			<!-- name of the property or metadata to check: please take care to use the syntax of the Variable replacer here -->
-	        <propertyName>{process.TemplateID}</propertyName>
-			<!-- expected value (can be blank too) -->
-			<propertyValue>183</propertyValue>
-			<!-- condition for value comparing, can be 'is' or 'not' or 'missing' or 'available' -->
-			<propertyCondition>is</propertyCondition>
-			<!-- list of steps to open, if property value matches -->
-			<steps type="open">
-				<title>Box preparation</title>
-			</steps>
-			<!-- list of steps to deactivate -->
-			<steps type="deactivate">
-				<title>Image QA</title>
-			</steps>
-			<!-- list of steps to close -->
-			<steps type="close">
-				<title>Automatic LayoutWizzard Cropping</title>
-				<title>LayoutWizzard: Manual confirmation</title>
-			</steps>
-			<!-- list of steps to lock -->
-			<steps type="lock">
-				<title>Automatic export to Islandora</title>
-			</steps>
+        <!-- multiple changes can be done within one configuration rule; simply add another 'change' element with other properties here -->
+        <change>
+            <!-- name of the property or metadata to check: please take care to use the syntax of the Variable replacer here -->
+            <propertyName>{process.TemplateID}</propertyName>
+            <!-- expected value (can be blank too) -->
+            <propertyValue>183</propertyValue>
+            <!-- condition for value comparing, can be 'is' or 'not' or 'missing' or 'available' -->
+            <propertyCondition>is</propertyCondition>
+            <!-- list of steps to open, if property value matches -->
+            <steps type="open">
+                <title>Box preparation</title>
+            </steps>
+            <!-- list of steps to deactivate -->
+            <steps type="deactivate">
+                <title>Image QA</title>
+            </steps>
+            <!-- list of steps to close -->
+            <steps type="close">
+                <title>Automatic LayoutWizzard Cropping</title>
+                <title>LayoutWizzard: Manual confirmation</title>
+            </steps>
+            <!-- list of steps to lock -->
+            <steps type="lock">
+                <title>Automatic export to Islandora</title>
+            </steps>
 
-			<usergroups step="Image QA">
-				<usergroup>Administration</usergroup>
-				<usergroup>AutomaticTasks</usergroup>
-			</usergroups>
-		</change>
-	</config>
+            <usergroups step="Image QA">
+                <usergroup>Administration</usergroup>
+                <usergroup>AutomaticTasks</usergroup>
+            </usergroups>
+        </change>
+    </config>
 
-	<config>
-		<!-- which projects to use for (can be more then one, otherwise use *) -->
-		<project>*</project>
-		<step>*</step>
+    <config>
+        <!-- which projects to use for (can be more then one, otherwise use *) -->
+        <project>*</project>
+        <step>*</step>
 
-		<!-- multiple changes can be done within one configuration rule; simply add another 'change' element with other properties here -->
-		<change>
-			<!-- name of the property or metadata to check: please take care to use the syntax of the Variable replacer here -->
-			<propertyName>{process.upload to digitool}</propertyName>
-			<!-- expected value (can be blank too) -->
-			<propertyValue>No</propertyValue>
-			<!-- condition for value comparing, can be 'is' or 'not' -->
-			<propertyCondition>is</propertyCondition>
-			<!-- list of steps to open, if property value matches -->
-			<steps type="open">
-				<title>Create derivates</title>
-				<title>Jpeg 2000 generation and validation</title>
-			</steps>
-			<!-- list of steps to deactivate -->
-			<steps type="deactivate">
-				<title>Rename files</title>
-			</steps>
-			<!-- list of steps to close -->
-			<steps type="close">
-				<title>Upload raw tiffs to uploaddirectory Socrates</title>
-				<title>Automatic pagination</title>
-			</steps>
-			<!-- list of steps to lock -->
-			<steps type="lock">
-				<title>Create METS file</title>
-				<title>Ingest into DigiTool</title>
-			</steps>
-		</change>
-	</config>
+        <!-- multiple changes can be done within one configuration rule; simply add another 'change' element with other properties here -->
+        <change>
+            <!-- name of the property or metadata to check: please take care to use the syntax of the Variable replacer here -->
+            <propertyName>{process.upload to digitool}</propertyName>
+            <!-- expected value (can be blank too) -->
+            <propertyValue>No</propertyValue>
+            <!-- condition for value comparing, can be 'is' or 'not' -->
+            <propertyCondition>is</propertyCondition>
+            <!-- list of steps to open, if property value matches -->
+            <steps type="open">
+                <title>Create derivates</title>
+                <title>Jpeg 2000 generation and validation</title>
+            </steps>
+            <!-- list of steps to deactivate -->
+            <steps type="deactivate">
+                <title>Rename files</title>
+            </steps>
+            <!-- list of steps to close -->
+            <steps type="close">
+                <title>Upload raw tiffs to uploaddirectory Socrates</title>
+                <title>Automatic pagination</title>
+            </steps>
+            <!-- list of steps to lock -->
+            <steps type="lock">
+                <title>Create METS file</title>
+                <title>Ingest into DigiTool</title>
+            </steps>
+        </change>
+    </config>
 
 </config_plugin>
 ```
@@ -138,7 +138,7 @@ In jedem `<change>`-Element wird dann konfiguriert, welche Prozesseigenschaft ü
 
 Bitte beachten Sie, dass die Angabe zur Definition, welche Eigenschaft für die Prüfung eines Wertes verwendet werden soll, mit der Syntax für den sog. Variablen Replacer angegeben werden muss. Entsprechend muss bei der Definition des Feldes, das geprüft werden soll die Angabe wir wie in in folgenden Beispielen erfolgen:
 
-```xml
+```markup
 <propertyName>{process.ABC}</propertyName>
 <propertyName>{{meta.ABC}}</propertyName>
 <propertyName>{meta.topstruct.ABC}</propertyName>

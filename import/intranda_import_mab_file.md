@@ -1,5 +1,7 @@
 ---
-description: This is technical documentation for the plugin to import MAB files to processes in Goobi workflow.
+description: >-
+  This is technical documentation for the plugin to import MAB files to
+  processes in Goobi workflow.
 ---
 
 # Import von MAB Dateien
@@ -32,7 +34,7 @@ Es gibt auch eine Konfigurationsdatei, die sich an folgendem Ort befinden muss:
 
 Zusätzlich gibt es eine `tags`-Datei, deren Speicherort in der Konfigurationsdatei angegeben wird:
 
-```xml
+```markup
 <tags>/path/to/tags.txt</tags>
 ```
 
@@ -40,7 +42,7 @@ Zusätzlich gibt es eine `tags`-Datei, deren Speicherort in der Konfigurationsda
 
 Die Konfiguration erfolgt über die Konfigurationsdatei `plugin_intranda_import_mab_file.xml` und kann im laufenden Betrieb angepasst werden.
 
-```xml
+```markup
 <config_plugin>
     <config>
         <!-- which workflow template shall be used -->
@@ -86,8 +88,8 @@ Die Konfiguration erfolgt über die Konfigurationsdatei `plugin_intranda_import_
 Die Konfiguration erlaubt unterschiedliche Konfigurationen für verschiedene Produktionsvorlagen. Dazu muss im Feld `Template` nur der Name des gewünschten Vorlage eingetragen werden. Der Eintrag mit dem Wert `*` wird für alle Vorlagen verwendet, für die keine eigene Konfiguration existiert.
 
 | Konfigurationselement | Verwendung |
-|---|---|
-| `rulesetPath` | Dies ist der Pfad zum Regelsatz für die MetsMods-Dateien. | 
+| :--- | :--- |
+| `rulesetPath` | Dies ist der Pfad zum Regelsatz für die MetsMods-Dateien. |
 | `imagePathFile` | Dieser Parameter definiert den Pfad zu den Bilddateien, die sich entweder im Ordner selbst oder in Unterordnern mit dem Namen der Katalogkennung befinden. |
 | `tags` | Dieser Parameter definiert die Übersetzungsdatei, die mab2-Codes in Metadaten übersetzt. |
 | `withSGML` | Wenn dieser Parameter auf `true` gesetzt ist, dann werden SGML-Dateien verwendet. Beachten Sie, dass dies derzeit nicht verwendet wird, sondern für eine spätere Version vorgesehen ist. |
@@ -95,7 +97,6 @@ Die Konfiguration erlaubt unterschiedliche Konfigurationen für verschiedene Pro
 | `defaultPublicationType` | Mit diesem Parameter wird der Typ des Dokuments definiert, wenn es keine Kinder oder Eltern hat. Ein Dokument mit Kindern wird als MultiVolumeWork importiert, die Kinder werden als Volumes importiert. |
 | `collection` | Dies gibt die Metadaten `singleDigCollection` für die MetsMods-Dateien an, den Namen der Sammlung, zu der die Werke gehören. |
 | `listIDs` | Hier definieren Sie den Pfad zu einer Textdatei, die eine Liste von Katalogkennungen enthält. Wenn dieses Feld nicht leer ist, dann werden nur Datensätze mit diesen Katalogkennungen aus der MAB-Datei importiert. |
-
 
 ## Tags
 
@@ -148,10 +149,11 @@ Jede Zeile enthält einen MAB-Code, gefolgt von dem Namen der Metadaten, in die 
 
 ## Verwendung
 
-Um den Import zu nutzen, muss in den Produktionsvorlagen der Bereich "Massenimport" geöffnet werden und im Reiter "Datei-Upload-Import" das Plugin "intranda_import_mab_file" ausgewählt werden. Anschließend kann eine MAB-Datei hochgeladen und importiert werden.
+Um den Import zu nutzen, muss in den Produktionsvorlagen der Bereich "Massenimport" geöffnet werden und im Reiter "Datei-Upload-Import" das Plugin "intranda\_import\_mab\_file" ausgewählt werden. Anschließend kann eine MAB-Datei hochgeladen und importiert werden.
 
-Der Import findet in mehreren Schritten statt. Zunächst wird die gesamte Datei eingelesen, und die Maps child-parent und parent-children werden erstellt und (als JSON-Dateien) im Goobi `temp` Ordner für den aktuellen Benutzer gespeichert. Diese Maps werden im nächsten Schritt zur Erstellung von Ankerdateien verwendet.
+Der Import findet in mehreren Schritten statt. Zunächst wird die gesamte Datei eingelesen, und die Maps child-parent und parent-children werden erstellt und \(als JSON-Dateien\) im Goobi `temp` Ordner für den aktuellen Benutzer gespeichert. Diese Maps werden im nächsten Schritt zur Erstellung von Ankerdateien verwendet.
 
-Die MAB-Datei wird dann in einzelne Datensätze zerlegt. Für jeden Datensatz wird aus dem Katalog-Identifier (und einem eventuell in der Konfigurationsdatei angegebenen Präfix) der Prozesstitel generiert und geprüft, ob der Prozess bereits in Goobi existiert. Ist dies nicht der Fall, wird der Prozess angelegt und die konfigurierten Metadaten für `Anchor` und `Volume` in einem Ordner in dem in der Konfiguration angegebenen Ausgabepfad zwischengespeichert. Eventuelle Bilder werden in einen Unterordner ` images` kopiert.
+Die MAB-Datei wird dann in einzelne Datensätze zerlegt. Für jeden Datensatz wird aus dem Katalog-Identifier \(und einem eventuell in der Konfigurationsdatei angegebenen Präfix\) der Prozesstitel generiert und geprüft, ob der Prozess bereits in Goobi existiert. Ist dies nicht der Fall, wird der Prozess angelegt und die konfigurierten Metadaten für `Anchor` und `Volume` in einem Ordner in dem in der Konfiguration angegebenen Ausgabepfad zwischengespeichert. Eventuelle Bilder werden in einen Unterordner `images` kopiert.
 
 Im nächsten Schritt werden alle diese Ordner, die die MetsMods-Dateien und die Bilder enthalten, als Vorgänge in Goobi workflow importiert und in die entsprechenden Ordner in Goobi verschoben.
+

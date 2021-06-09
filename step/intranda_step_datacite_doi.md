@@ -1,6 +1,7 @@
 ---
 description: >-
- Dies ist ein Goobi Step-Plugin, um die Registrierung von digitalen Objekten beim DataCite DOI-Dienst zu ermöglichen.
+  Dies ist ein Goobi Step-Plugin, um die Registrierung von digitalen Objekten
+  beim DataCite DOI-Dienst zu ermöglichen.
 ---
 
 # Plugin zur Registrierung von DOIs via DataCite API
@@ -9,9 +10,9 @@ description: >-
 
 Diese Dokumentation beschreibt die Installation, Konfiguration und Verwendung des Plugins.
 
-| Details | |
+| Details |  |
 | :--- | :--- |
-| Identifier | intranda_step_datacite_doi |
+| Identifier | intranda\_step\_datacite\_doi |
 | Source code | [https://github.com/intranda/goobi-plugin-step-datacite-doi](https://github.com/intranda/goobi-plugin-step-datacite-doi) |
 | Lizenz | GPL 2.0 or newer |
 | Kompatibilität | Goobi workflow 2021.03 |
@@ -51,7 +52,7 @@ Die Datei `plugin_intranda_step_datacite_doi.xml` ist die Hauptkonfigurationsdat
 
 Die Konfiguration erfolgt über die Konfigurationsdatei `plugin_intranda_step_datacite_doi.xml` und kann im laufenden Betrieb angepasst werden. Sie ist wie folgt aufgebaut:
 
-```xml
+```markup
 <config_plugin>
     <config>
         <!-- which projects to use for (can be more then one, otherwise use *) -->
@@ -94,21 +95,21 @@ Der Block `<config>` kann für verschiedene Projekte oder Workflow-Schritte mehr
 | `step` | Dieser Parameter steuert, für welche Arbeitsschritte der Block `<config>` gelten soll. Verwendet wird hier der Name des Arbeitsschritts. Dieser Parameter kann mehrfach pro `<config>` Block vorkommen. |
 | `SERVICE_ADDRESS` | Dieser Parameter definiert die URL für den Datacite-Dienst. Im obigen Beispiel ist es der Testserver. |
 | `base` | Dieser Parameter definiert die DOI-Basis für die Einrichtung, die bei Datacite registriert wurde. |
-| `url` | Der Parameter url definiert den Präfix, den jeder DOI-Link erhält. Ein DOI "10.80831/goobi-1" erhält hier z. B. den Hyperlink "https://viewer.goobi.io/idresolver?doi=10.80831/goobi-1" |
-| `USERNAME` | Dies ist der Benutzername, der für die DataCite-Registrierung verwendet wird.|
-| `PASSWORD` | Dies ist das Passwort, das für die DataCite-Registrierung verwendet wird.|
-| `prefix` | Dies ist das Präfix, das dem DOI vor dem Namen und der ID des Dokuments gegeben werden soll.|
+| `url` | Der Parameter url definiert den Präfix, den jeder DOI-Link erhält. Ein DOI "10.80831/goobi-1" erhält hier z. B. den Hyperlink "[https://viewer.goobi.io/idresolver?doi=10.80831/goobi-1](https://viewer.goobi.io/idresolver?doi=10.80831/goobi-1)" |
+| `USERNAME` | Dies ist der Benutzername, der für die DataCite-Registrierung verwendet wird. |
+| `PASSWORD` | Dies ist das Passwort, das für die DataCite-Registrierung verwendet wird. |
+| `prefix` | Dies ist das Präfix, das dem DOI vor dem Namen und der ID des Dokuments gegeben werden soll. |
 | `name` | Dies ist der Name, der dem DOI vor der ID des Dokuments gegeben werden soll. |
 | `separator` | Definieren Sie hier ein Trennzeichen, das zwischen den verschiedenen Teilen des DOI verwendet werden soll. |
-| `handleMetadata` | Dieser Parameter gibt an, unter welchem Metadatennamen der DOI in der METS-MODS-Datei gespeichert werden soll. Standard ist `_urn`.|
+| `handleMetadata` | Dieser Parameter gibt an, unter welchem Metadatennamen der DOI in der METS-MODS-Datei gespeichert werden soll. Standard ist `_urn`. |
 | `doiMapping` | In diesem Parameter wird der Pfad zur Mapping-Datei für die DOI-Registrierung festgelegt. |
-| `typeForDOI` | Mit diesem Parameter kann der DocStruct-Typ definiert werden, dem DOIs zugewiesen werden sollen. Wenn dieser leer ist oder fehlt, erhält nur das oberste DocStruct-Element einen DOI. Enthält der Parameter den Namen einer Sub-DocStruct, so werden diese mit DOIs versehen.|
+| `typeForDOI` | Mit diesem Parameter kann der DocStruct-Typ definiert werden, dem DOIs zugewiesen werden sollen. Wenn dieser leer ist oder fehlt, erhält nur das oberste DocStruct-Element einen DOI. Enthält der Parameter den Namen einer Sub-DocStruct, so werden diese mit DOIs versehen. |
 
 ## Konfiguration innerhalb der Mapping-Datei
 
 Die Mapping-Konfigurationsdatei sieht in etwa so aus:
 
-```xml
+```markup
 <?xml version="1.0" encoding="UTF-8"?>
 <Mapping>
   <!-- Mandatory fields: -->
@@ -178,5 +179,5 @@ Da dieses Plugin in der Regel automatisch ausgeführt werden soll, sollte der Wo
 
 ## Funktionsweise des Plugins
 
-Das Programm untersucht die Metadatenfelder der METS/MODS-Datei aus dem Goobi-Vorgang. Wenn ein `<typeForDOI>` angegeben ist, dann geht es jedes Strukturlement dieses Typs in der Datei durch. Wenn nicht, dann nimmt es das oberste Strukturlement. Daraus erstellt es die Daten für ein DOI, wobei es die Mapping-Datei zum Übersetzen verwendet. Dann wird der DOI über die MDS-API von DataCite registriert, wobei der DOI durch die `<base>` zusammen mit einem beliebigen `<prefix>` und `<name>` und der ID des Dokuments (seine `CatalogIDDigital`) plus einem inkrementierten Zähler angegeben wird, falls mehr als ein DOI für das gegebene Dokument erzeugt wurde. Der Datensatz erhält eine registrierte URL, die durch `<url>` definiert ist, gefolgt von der DOI. Der generierte DOI wird in die METS/MODS-Datei unter den in `<handleMetadata>` angegebenem Metadatum gespeichert. Wenn der Wert für `<typeForDOI>` zum Beispiel `Article` lautet, dann erhält jeder Artikel in der METS/MODS-Datei einen DOI, der in den Metadaten unter `<handleMetadata>` für jeden Artikel gespeichert wird.
+Das Programm untersucht die Metadatenfelder der METS/MODS-Datei aus dem Goobi-Vorgang. Wenn ein `<typeForDOI>` angegeben ist, dann geht es jedes Strukturlement dieses Typs in der Datei durch. Wenn nicht, dann nimmt es das oberste Strukturlement. Daraus erstellt es die Daten für ein DOI, wobei es die Mapping-Datei zum Übersetzen verwendet. Dann wird der DOI über die MDS-API von DataCite registriert, wobei der DOI durch die `<base>` zusammen mit einem beliebigen `<prefix>` und `<name>` und der ID des Dokuments \(seine `CatalogIDDigital`\) plus einem inkrementierten Zähler angegeben wird, falls mehr als ein DOI für das gegebene Dokument erzeugt wurde. Der Datensatz erhält eine registrierte URL, die durch `<url>` definiert ist, gefolgt von der DOI. Der generierte DOI wird in die METS/MODS-Datei unter den in `<handleMetadata>` angegebenem Metadatum gespeichert. Wenn der Wert für `<typeForDOI>` zum Beispiel `Article` lautet, dann erhält jeder Artikel in der METS/MODS-Datei einen DOI, der in den Metadaten unter `<handleMetadata>` für jeden Artikel gespeichert wird.
 

@@ -51,7 +51,7 @@ Bitte beachten Sie, dass im oberen Bereich der Konfiguration außerdem die korre
 
 Eine Beispielkonfiguration für die Datei `plugin_intranda_step_image_resize_and_watermark.xml` sieht folgendermaßen aus:
 
-```xml
+```markup
 <config_plugin>
     <!-- path to GraphicsMagick -->
     <gmPath>/usr/bin/gm</gmPath>
@@ -149,3 +149,4 @@ Zur Inbetriebnahme des Plugins muss dieses für einen oder mehrere gewünschte A
 Nach Ausführung des Plugins haben die Bilder die erwartete Größe und verfügen über das konfigurierte Wasserzeichen.
 
 ![Possible results in the generated images](../.gitbook/assets/intranda_step_image_resize_and_watermark_result.png)
+

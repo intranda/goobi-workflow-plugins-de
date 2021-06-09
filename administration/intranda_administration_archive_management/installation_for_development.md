@@ -1,4 +1,4 @@
-# Installation des Archivmanagement-Plugins für die Weiterentwicklung oder zur Durchführung von Tests
+# Installation für die Weiterentwicklung und Tests
 
 Soll das Archivmanagement-Plugin für Testzwecke oder für eine Weiterentwicklung in Betrieb genommen werden, kann dies etwas anders erfolgen als unter Produktivbedingungen. Gehen Sie hierzu folgendermaßen vor:
 
@@ -6,7 +6,7 @@ Soll das Archivmanagement-Plugin für Testzwecke oder für eine Weiterentwicklun
 
 Zunächst muss die XML-Datenbank BaseX von der BaseX-Webseite heruntergeladen werden. Der Download kann von hier erfolgen:
 
-```
+```text
 https://basex.org/download/
 ```
 
@@ -14,7 +14,7 @@ https://basex.org/download/
 
 Am einfachsten erfolgt der Download von dort als `ZIP Package` beispielsweise in der Version 9.4.4:
 
-```
+```text
 http://files.basex.org/releases/9.4.4/BaseX944.zip
 ```
 
@@ -32,25 +32,26 @@ cd basex/bin/
 
 Der Datenbankserver BaseX ist damit nun gestartet und kann über eine Webbrowser aufgerufen werden:
 
-```
+```text
 http://localhost:8984/
 ```
 
 ![Gestarteter BaseX Server](../../.gitbook/assets/intranda_administration_archive_management_install_02.png)
 
 ## Datenbank administrieren und EAD-Datei einspielen
+
 Nachdem BaseX heruntergeladen und gestartet wurde, können XML-Dateien als neue Datenbanken eingespielt werden. Dazu wird zunächst der Menüpunkt `Database Administration` geöffnet, wo ein Login mit diesen Zugangsdaten erfolgen kann:
 
-```
+```text
 Login:      admin
 Passwort:   admin
 ```
 
-![Login für die Datenbank-Administration](../../.gitbook/assets/intranda_administration_archive_management_install_03.png)
+![Login f&#xFC;r die Datenbank-Administration](../../.gitbook/assets/intranda_administration_archive_management_install_03.png)
 
 Nach dem erfolgreichen Login erhält man einen Überblick über die installierten Datenbank, Log-Dateien usw.
 
-![Administrativer Übersicht](../../.gitbook/assets/intranda_administration_archive_management_install_04.png)
+![Administrativer &#xDC;bersicht](../../.gitbook/assets/intranda_administration_archive_management_install_04.png)
 
 Von dort kann nun zum Menüpunkt `Databases` gegangen werden, um dann auf den Button `Create` zu klicken.
 
@@ -80,11 +81,11 @@ Nachdem der Datenbankserver gestartet und mit einem EAD-Bestand gefüllt wurde, 
 git clone git@gitea.intranda.com:goobi-workflow/goobi-plugin-administration-archive-management.git
 ```
 
-Aus dem ausgecheckten Projekt müssen nun die drei `*.xq` Dateien aus dem Verzeichnis `plugin/src/main/resources/` in den Unterordner `webapp` von BaseX kopiert werden.  
+Aus dem ausgecheckten Projekt müssen nun die drei `*.xq` Dateien aus dem Verzeichnis `plugin/src/main/resources/` in den Unterordner `webapp` von BaseX kopiert werden.
 
-![*.xq-Dateien aus dem ausgecheckten Plugin](../../.gitbook/assets/intranda_administration_archive_management_install_10.png)
+![\*.xq-Dateien aus dem ausgecheckten Plugin](../../.gitbook/assets/intranda_administration_archive_management_install_10.png)
 
-![Kopierte *.xq-Dateien innerhalb des Verzeichnisses webapp von BaseX](../../.gitbook/assets/intranda_administration_archive_management_install_11.png)
+![Kopierte \*.xq-Dateien innerhalb des Verzeichnisses webapp von BaseX](../../.gitbook/assets/intranda_administration_archive_management_install_11.png)
 
 Anschließend kann das Plugin kompiliert werden:
 
@@ -95,45 +96,45 @@ mvn package
 
 Gegebenenfalls muss man vor dem Kompilieren des Plugins zunächst eine Anpassung an der Datei `plugin/module-gui/pom.xml` für die Nutzeroberfläche vornehmen und dort die folgenden beiden Zeilen auskommentieren:
 
-```xml
+```markup
   <exclude>META-INF/tags/**/*.xhtml</exclude>
   <exclude>META-INF/intranda.taglib.xml</exclude>
 ```
 
 Nach dem Kompilieren des Plugins müssen die beiden Plugin-Dateien an die korrekte Stelle kopiert werden:
 
-``` bash
+```bash
 cp plugin/module-gui/target/plugin_intranda_administration_archive_management-GUI.jar /opt/digiverso/goobi/plugins/GUI
 cp plugin/module-main/target/plugin_intranda_administration_archive_management.jar /opt/digiverso/goobi/plugins/administration
 ```
 
 Außerdem kann die vorbereitete Konfigurationsdatei aus dem `test/resources`-Verzeichnis verwendet werden:
 
-``` bash
+```bash
 cp plugin/src/test/resources/plugin_intranda_administration_archive_management.xml /opt/digiverso/goobi/config
 ```
 
 Je nachdem, wo die basex-Datenbank installiert wurde, müssen noch zwei Anpassungen für das Schreiben von EAD-Dateien im Dateisystem vorgenommen werden. Zunächst muss einmal ein Ordner erzeugt und mit entsprechenden Rechten versehen werden, damit darin EAD-Dateien gespeichert werden können. Dieser Ordner kann beispielsweise so lauten:
 
-``` bash
+```bash
 /opt/digiverso/basex/import/
 ```
 
 Um auf dieses angegebene Verzeichnis zugreifen zu können, muss es natürlich auf dem System auch tatsächlich existieren und daher ggf. noch angelegt werden:
 
-``` bash
+```bash
 mkdir /opt/digiverso/basex/import
 ```
 
 Dieses Verzeichnis muss nun innerhalb von zwei Konfigurationsdateien richtig konfiguriert werden. Zunächst einmal erfolgt die Anpassung in Konfigurationsdatei `plugin_intranda_administration_archive_management.xml` so, dass dort der Pfad definiert wird:
 
-``` xml
+```markup
 <eadExportFolder>/opt/digiverso/basex/import</eadExportFolder>
 ```
 
 Außerdem muss auch die zuvor eingerichtete Datei `importFile.xq` so anpasst werden, dass darin folgende Zeile auf den richtigen Pfad verweist:
 
-``` bash
+```bash
 let $path := '/opt/digiverso/basex/import/' || $filename
 ```
 
@@ -145,13 +146,14 @@ Nach der erfolgreichen Installation des Plugins in Goobi, muss die entsprechende
 
 Für die Entwicklung direkt im Goobi-Projekt in Eclipse können die folgenden Anpassungen vorgenommen werden.
 
-- Kopieren der Datei `plugin_administration_archive_management.xhtml` in den `uii`-Ordner
-- Kopieren des Ordners `tags` und der Datei `intranda.taglib.xml` in den `WEB-INF`-Ordner
-- Anpassung der Datei `web.xml` mit diesem Snippet:
+* Kopieren der Datei `plugin_administration_archive_management.xhtml` in den `uii`-Ordner
+* Kopieren des Ordners `tags` und der Datei `intranda.taglib.xml` in den `WEB-INF`-Ordner
+* Anpassung der Datei `web.xml` mit diesem Snippet:
 
-``` xml
+```markup
 <context-param>
    <param-name>javax.faces.FACELETS_LIBRARIES</param-name>
    <param-value>/WEB-INF/intranda.taglib.xml</param-value>
 </context-param>
 ```
+
