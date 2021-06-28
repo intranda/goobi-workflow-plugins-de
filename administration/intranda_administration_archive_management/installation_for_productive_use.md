@@ -155,7 +155,15 @@ Im Administrationsbereich von BaseX können auch Dateien entfernt werden. Dazu m
 
 Um BaseX für Abfrage aus Goobi einzurichten, muss der Datenbank bekannt gemacht werden, wie eine solche Anfrage aussieht, was mit dem Ergebnis der Abfrage geschehen soll und wie das Ergebnis der Abfrage auszusehen hat. Dafür bietet BaseX verschiedene Optionen an. Wir haben uns für `RESTXQ` entschieden, da diese im Gegensatz zur REST Schnittstelle keine zusätzliche Authentifizierung benötigt.
 
-Zur Konfiguration der Abfragen müssen im Pfad `/opt/digiverso/basex/webapp/` mehrere neue Dateien erzeugt werden. Diese befinden sich innerhalb des Plugin-Repositories unterhalb des Pfades `plugin/src/main/resources/` und können von dort auch in den Ordner `/opt/digiverso/basex/webapp/` kopiert werden.
+Zur Konfiguration der Abfragen müssen im Pfad `/opt/digiverso/basex/webapp/` mehrere neue Dateien erzeugt werden. Diese befinden sich innerhalb des Plugin-Repositories unterhalb des Pfades `plugin/src/main/resources/` und können von dort auch in den Ordner `/opt/digiverso/basex/webapp/` kopiert werden. Alternativ können sie auch mit den folgenden Befehlen automatisch angelegt werden:
+
+```bash
+cd /opt/digiverso/basex/webapp/
+wget https://raw.githubusercontent.com/intranda/goobi-plugin-administration-archive-management/master/plugin/src/main/resources/importFile.xq
+wget https://github.com/intranda/goobi-plugin-administration-archive-management/blob/master/plugin/src/main/resources/listDatabases.xq
+wget https://github.com/intranda/goobi-plugin-administration-archive-management/blob/master/plugin/src/main/resources/openDatabase.xq
+chown tomcat8. *.xq
+```
 
 ![\*.xq-Dateien aus dem ausgecheckten Plugin](../../.gitbook/assets/intranda_administration_archive_management_install_10.png)
 
