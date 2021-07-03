@@ -12,7 +12,7 @@ Die vorliegende Dokumentation beschreibt die Installation, die Konfiguration und
 
 | Details |  |
 | :--- | :--- |
-| Identifier | intranda\_administration\_catalogue\_poller |
+| Identifier | intranda_step_catalogue_request |
 | Source code | [https://github.com/intranda/goobi-plugin-step-catalogue-request](https://github.com/intranda/goobi-plugin-step-catalogue-request) |
 | Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 2021.02 |
