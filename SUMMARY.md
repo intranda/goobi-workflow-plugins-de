@@ -81,7 +81,7 @@
 
 * [Import für Zeitschriftenartikel aus einem Endnote Export](import/intranda_import_endnote.md)
 * [Import von Datensätzen aus einer Excel-Datei](import/intranda_import_excel.md)
-* [Import von MAB Dateien](import/intranda_import_mab_file.md)
+* [Import von MAB Dateien](import/intranda_import_sisis_sunrise_file.md)
 
 ## Export Plugins <a id="export"></a>
 

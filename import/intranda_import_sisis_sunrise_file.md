@@ -1,35 +1,35 @@
 ---
 description: >-
-  This is technical documentation for the plugin to import MAB files to
-  processes in Goobi workflow.
+  Dies ist die technische Dokumentation für das Plugin zum Import von
+  Sisis SunRise-Dateien als Vorgänge in Goobi workflow.
 ---
 
-# Import von MAB Dateien
+# Import von Sisis SunRise Dateien
 
 ## Einführung
 
-Diese Dokumentation beschreibt die Installation, Konfiguration und Verwendung des Plugins zum Importieren von MAB-Dateien.
+Diese Dokumentation beschreibt die Installation, Konfiguration und Verwendung des Plugins zum Importieren von Sisis SunRise-Dateien.
 
 | Details |  |
 | :--- | :--- |
-| Identifier | intranda\_import\_mab\_files |
-| Source code | [https://github.com/intranda/goobi-plugin-import-mab-file](https://github.com/intranda/goobi-plugin-import-mab-file) |
+| Identifier | intranda\_import\_sisis\_sunrise\_files |
+| Source code | [https://github.com/intranda/goobi-plugin-import-sisis–sunrise-file](https://github.com/intranda/goobi-plugin-import-sisis–sunrise-file) |
 | Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 2021.01 |
-| Dokumentationsdatum | 12.01.2021 |
+| Dokumentationsdatum | 16.07.2021 |
 
 ### Installation
 
 Das Plugin muss in folgendem Ordner installiert werden:
 
 ```bash
-/opt/digiverso/goobi/plugins/import/plugin_intranda_import_mab_file.jar
+/opt/digiverso/goobi/plugins/import/plugin_intranda_import_sisis_sunrise_file.jar
 ```
 
 Es gibt auch eine Konfigurationsdatei, die sich an folgendem Ort befinden muss:
 
 ```bash
-/opt/digiverso/goobi/config/plugin_intranda_import_mab_file.xml
+/opt/digiverso/goobi/config/plugin_intranda_import_sisis_sunrise_file.xml
 ```
 
 Zusätzlich gibt es eine `tags`-Datei, deren Speicherort in der Konfigurationsdatei angegeben wird:
@@ -40,7 +40,7 @@ Zusätzlich gibt es eine `tags`-Datei, deren Speicherort in der Konfigurationsda
 
 ## Konfiguration
 
-Die Konfiguration erfolgt über die Konfigurationsdatei `plugin_intranda_import_mab_file.xml` und kann im laufenden Betrieb angepasst werden.
+Die Konfiguration erfolgt über die Konfigurationsdatei `plugin_intranda_import_sisis_sunrise_file.xml` und kann im laufenden Betrieb angepasst werden.
 
 ```markup
 <config_plugin>
@@ -96,7 +96,7 @@ Die Konfiguration erlaubt unterschiedliche Konfigurationen für verschiedene Pro
 | `sgmlPath` | Wenn SGML-Dateien verwendet werden, ist dies der Ordner, in dem sie sich befinden. |
 | `defaultPublicationType` | Mit diesem Parameter wird der Typ des Dokuments definiert, wenn es keine Kinder oder Eltern hat. Ein Dokument mit Kindern wird als MultiVolumeWork importiert, die Kinder werden als Volumes importiert. |
 | `collection` | Dies gibt die Metadaten `singleDigCollection` für die MetsMods-Dateien an, den Namen der Sammlung, zu der die Werke gehören. |
-| `listIDs` | Hier definieren Sie den Pfad zu einer Textdatei, die eine Liste von Katalogkennungen enthält. Wenn dieses Feld nicht leer ist, dann werden nur Datensätze mit diesen Katalogkennungen aus der MAB-Datei importiert. |
+| `listIDs` | Hier definieren Sie den Pfad zu einer Textdatei, die eine Liste von Katalogkennungen enthält. Wenn dieses Feld nicht leer ist, dann werden nur Datensätze mit diesen Katalogkennungen aus der Sisis SunRise-Datei importiert. |
 
 ## Tags
 
@@ -149,11 +149,11 @@ Jede Zeile enthält einen MAB-Code, gefolgt von dem Namen der Metadaten, in die 
 
 ## Verwendung
 
-Um den Import zu nutzen, muss in den Produktionsvorlagen der Bereich "Massenimport" geöffnet werden und im Reiter "Datei-Upload-Import" das Plugin "intranda\_import\_mab\_file" ausgewählt werden. Anschließend kann eine MAB-Datei hochgeladen und importiert werden.
+Um den Import zu nutzen, muss in den Produktionsvorlagen der Bereich "Massenimport" geöffnet werden und im Reiter "Datei-Upload-Import" das Plugin "intranda\_import\_sisis\_sunrise\_file" ausgewählt werden. Anschließend kann eine Sisis SunRise-Datei hochgeladen und importiert werden.
 
 Der Import findet in mehreren Schritten statt. Zunächst wird die gesamte Datei eingelesen, und die Maps child-parent und parent-children werden erstellt und \(als JSON-Dateien\) im Goobi `temp` Ordner für den aktuellen Benutzer gespeichert. Diese Maps werden im nächsten Schritt zur Erstellung von Ankerdateien verwendet.
 
-Die MAB-Datei wird dann in einzelne Datensätze zerlegt. Für jeden Datensatz wird aus dem Katalog-Identifier \(und einem eventuell in der Konfigurationsdatei angegebenen Präfix\) der Prozesstitel generiert und geprüft, ob der Prozess bereits in Goobi existiert. Ist dies nicht der Fall, wird der Prozess angelegt und die konfigurierten Metadaten für `Anchor` und `Volume` in einem Ordner in dem in der Konfiguration angegebenen Ausgabepfad zwischengespeichert. Eventuelle Bilder werden in einen Unterordner `images` kopiert.
+Die Sisis SunRise-Datei wird dann in einzelne Datensätze zerlegt. Für jeden Datensatz wird aus dem Katalog-Identifier \(und einem eventuell in der Konfigurationsdatei angegebenen Präfix\) der Prozesstitel generiert und geprüft, ob der Prozess bereits in Goobi existiert. Ist dies nicht der Fall, wird der Prozess angelegt und die konfigurierten Metadaten für `Anchor` und `Volume` in einem Ordner in dem in der Konfiguration angegebenen Ausgabepfad zwischengespeichert. Eventuelle Bilder werden in einen Unterordner `images` kopiert.
 
 Im nächsten Schritt werden alle diese Ordner, die die MetsMods-Dateien und die Bilder enthalten, als Vorgänge in Goobi workflow importiert und in die entsprechenden Ordner in Goobi verschoben.
 
