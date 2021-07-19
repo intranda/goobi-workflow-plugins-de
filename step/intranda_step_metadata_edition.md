@@ -16,8 +16,8 @@ Dieses Plugin erlaubt die Bearbeitung von konfigurierbaren Eigenschaften und Met
 | Identifier | intranda\_step\_metadata\_edition |
 | Source code | [https://github.com/intranda/goobi-plugin-step-metadata-edition](https://github.com/intranda/goobi-plugin-step-metadata-edition) |
 | Lizenz | GPL 2.0 oder neuer |
-| Kompatibilität | Goobi workflow 2020.11 |
-| Dokumentationsdatum | 20.12.2020 |
+| Kompatibilität | Goobi workflow 2021.06 |
+| Dokumentationsdatum | 19.07.2021 |
 
 ## Installation
 
@@ -52,6 +52,14 @@ Die Konfiguration des Plugins ist folgendermaßen aufgebaut:
 
         <!-- which image folder should be used? Possible values are master/media, default is media -->
         <imageFolder>media</imageFolder>
+
+        <!-- configure here if the images shall be rendered inside of the user interface; 
+             if switched off then the representative image cannot be set -->
+        <showImages>true</showImages>
+        
+        <!-- this switch allows to hide the search and import functionality for other processes;
+            if switched off the button will disappear -->
+        <showImportMetadata>true</showImportMetadata>
 
         <!-- each displayfield defines what shall be shown in the user interface
                 source: where shall the field get its content from, possible values are property, metadata, person
@@ -131,6 +139,9 @@ Der Block `<config>` kann für verschiedene Projekte oder Arbeitsschritte wieder
 | `hideEmptyFields` | Es kann hiermit festgelegt werden, dass Felder, die keine Inhalte haben, dennoch leer eingeblendet werden sollen. |
 | `imageFolder` | Dieser Parameter bestimmt, aus welchem Verzeichnis die Bilder zur Anzeige verwendet werden sollen. Übliche Werte sind hier beispielsweise `master` oder `media`. |
 | `preselectFields` | Mit diesem Parameter kann festgelegt werden, ob die innerhalb der Vorgangssuche dieses Plugins gefundenen Metadaten bereits vorausgewählt sein sollen, so dass eine einfache Übernahme der Metadaten erfolgen kann. |
+| `showImages` | Mit diesem Parameter wird festgelegt, ob der Bildbereich zur Auswahl des Repräsentanten angezeigt werden soll. |
+| `showImportMetadata` | Dieser Parameter steuert, ob der Button für die Suche in existierenden Vorgängen und deren Datenübernahme möglich sein soll. |
+
 
 ### Konfiguration: displayfield
 
