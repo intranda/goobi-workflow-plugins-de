@@ -73,11 +73,12 @@ Die Konfiguration des Plugins ist folgendermaßen aufgebaut:
                 structType: the place where the metadata comes from for source metadata (e.g. anchor)
                 defaultValue: the value to fill as default
                 searchable: define if the content of this field shall be used to start a search for other processes with this value
+                repeatable: define if the field is allowed exist multiple times so that a button for duplication and for deletion is rendered; the default is false
                 suffix: a suffix that shall be added to the search query when the field content is searched
                 vocabularyName: name of the vocabulary to list records from (e.g. Subject terms)
                 searchParameter: optional repeatable parameter to restrict records from the vocabulary (e.g. type=AccessLocations)
         -->
-        <displayfield source="property" name="Template" type="text" required="false" helpText="This is an explaining text to define what shall be entered into this field.">
+        <displayfield source="property" name="Template" type="text" required="false" repeatable="true" helpText="This is an explaining text to define what shall be entered into this field.">
             <defaultValue></defaultValue>
         </displayfield>
         <displayfield source="metadata" name="PublicationYear" type="text" required="true">
