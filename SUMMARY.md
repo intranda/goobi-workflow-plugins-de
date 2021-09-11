@@ -15,6 +15,8 @@
   * [Installation für den Produktivbetrieb](administration/intranda_administration_archive_management/installation_for_productive_use.md)
   * [Installation für die Weiterentwicklung und Tests](administration/intranda_administration_archive_management/installation_for_development.md)
   * [Konfiguration](administration/intranda_administration_archive_management/configuration.md)
+* [Paginierung zurücksetzen](administration/intranda_administration_reset_pagination.md)
+* [Kompatibilität mit Regelsatz](administration/intranda_administration_ruleset_compatibility.md)
 
 ## Step Plugins <a id="step"></a>
 
