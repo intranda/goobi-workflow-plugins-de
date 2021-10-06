@@ -62,13 +62,16 @@ In der Datei `goobi_opac.xml` muss die Schnittstelle zum gewünschten Katalogsys
 </catalogue>
 ```
 
-The `title` attribute contains a unique name. The plugin to be used is determined by `opacType`, which in this case must be `intranda_opac_json`. The other fields are not required.
+Das Attribut `title` enthält einen eindeutigen Namen. Das zu verwendende Plugin wird durch `opacType` bestimmt, das in diesem Fall `intranda_opac_json` sein muss. Die anderen Felder sind nicht erforderlich.
 
-The mapping of the JSON dataset to Goobi metadata is determined by the `plugin_intranda_opac_json.xml` file. The fields within the JSON dataset are referenced using `JSONPath`, the XPath equivalent for JSON.
+Die Zuordnung des JSON-Datensatzes zu den Goobi-Metadaten wird durch die Datei `plugin_intranda_opac_json.xml` bestimmt. Auf die Felder innerhalb des JSON-Datensatzes wird mit `JSONPath`, dem XPath-Äquivalent für JSON, verwiesen.
 
 ```markup
 <config_plugin>
     <config name="Opac Name">
+
+        <showResultList>true</showResultList>
+        <urlForSecondCall>https://example.goobi.io/metadatacloud/api</urlForSecondCall>
 
         <field id="repository">
             <label>Repository</label>
@@ -165,6 +168,8 @@ Innerhalb des Katalogs können verschiedene Feldtypen genutzt werden:
 | `defaultPublicationType` | Dieser Typ wird genutzt, wenn zuvor kein Dokumententyp erkannt wurde. |
 | `metadata` | Dieser Typ dient zum Mapping von JSON-Feldern zu Metadaten. |
 | `person` | Dieser Typ dient zum Mapping von JSON-Feldern zu Personen. |
+| `showResultList` | Mit diesem Parameter kann festgelegt werden, dass nach einer Katalogabfrage eine Auswahlliste angezeigt werden soll, die eine Auswahl des zu importierenden Unterdatensatzes aus einer Liste erlaubt. |
+| `urlForSecondCall` | Die hier angebene URL wird dazu verwendet, dass die ID des ausgewählten Unterdatensatzes für die Abfrage an die hier festgelegte URL angehängt wird. |
 
 ### Feldtyp: field
 
@@ -228,6 +233,10 @@ Sind weitere Felder für die Katalogabfrage definiert, so werden diese ebenfalls
 Sofern unter dieser URL ein gültiger Datensatz gefunden wird, wird dieser nach den innerhalb von `recordType` definierten Feldern durchsucht, in dem der Dokumententyp stehen soll. Wenn keine Felder definiert wurden oder sie nicht gefunden wurden, wird stattdessen der Typ aus dem konfigurierten Element `defaultPublicationType` genutzt. Mit dem ermittelten Typ wird dann das gewünschte Strukturelement erzeugt.
 
 Im Anschluß daran werden die konfigurierten Ausdrücke der `metadata` und `person` der Reihe nach ausgewertet. Sofern mit einem Ausdruck Daten gefunden werden, wird das entsprechend angegebene Metadatum erzeugt.
+
+Wurde innerhalb der Konfiguration mit dem Parameter `showResultList` festgelegt, dass eine Trefferliste zur Verfügung stehen soll, aus der der Nutzer einen Datensatz auswählen kann, so öffnet sich nach der Katalogabfrage ein Dialog wie der folgende:
+
+![Dialog zur Auswahl des zu importierenden Datensatzes aus einer Trefferliste nach der initialen Katalogabfrage](../.gitbook/assets/intranda_opac_json_3_de.png)
 
 ## Nützliche Links
 
