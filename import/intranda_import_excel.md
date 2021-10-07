@@ -34,7 +34,7 @@ Daneben gibt es eine Konfigurationsdatei, die an folgender Stelle liegen muss:
 
 ## Konfiguration
 
-Die Konfiguration erfolgt über die Datei `plugin_intranda_import_excel_read_headerdata.xml`. Diese Datei kann im laufenden Betrieb angepasst werden.
+Die Konfiguration erfolgt über die Datei `plugin_intranda_import_excel.xml`. Diese Datei kann im laufenden Betrieb angepasst werden.
 
 ```markup
 <config_plugin>
