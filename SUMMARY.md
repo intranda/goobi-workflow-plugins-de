@@ -69,6 +69,7 @@
 * [Plugin zur Registrierung von DOIs via DataCite API](step/intranda_step_datacite_doi.md)
 * [Extraktion von Bildmetadaten](step/intranda_step_imagemetadataextraction.md)
 * [Katalogabfrage](step/intranda_step_catalogue_request.md)
+* [Heris Datenimport](step/intranda_step_herisimport.md)
 
 ## Opac Plugins <a id="opac"></a>
 
