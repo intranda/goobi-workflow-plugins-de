@@ -16,7 +16,7 @@ Dieses Plugin erlaubt die Datenübername von mehreren Metdaten aus einem Vokabul
 Übersicht
 ---------------------------------------------------------------------------
 
-Details             |  
+Details             |  &nbsp;
 ------------------- | -----------------------------------------------------
 Identifier          | intranda_step_herisimport
 Source code         | [https://github.com/intranda/goobi-plugin-step-herisimport](https://github.com/intranda/goobi-plugin-step-herisimport)
