@@ -1,6 +1,6 @@
 ---
 description: >-
-  Dies ist ein Import-Plugin für den Goobi-Workflow, das für den Import von Altdaten für das Bundesdenkmalamt in Wien benötigt wurde.
+  Dies ist ein Import-Plugin für den Goobi-Workflow, das für den Import von Altdaten für das Bundesdenkmalamt in Österreich benötigt wurde.
 ---
 
 # Import von Datensätzen des BDA Österreich
