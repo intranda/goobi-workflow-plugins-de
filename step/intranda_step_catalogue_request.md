@@ -16,7 +16,17 @@ Die vorliegende Dokumentation beschreibt die Installation, die Konfiguration und
 | Source code | [https://github.com/intranda/goobi-plugin-step-catalogue-request](https://github.com/intranda/goobi-plugin-step-catalogue-request) |
 | Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 2021.02 |
-| Dokumentationsdatum | 25.04.2021 |
+| Dokumentationsdatum | 06.11.2021 |
+
+## Arbeitsweise des Plugins
+
+Das Plugin wird üblicherweise vollautomatisch innerhalb des Workflows ausgeführt. Es ermittelt zunächst, ob sich innerhalb der Konfigurationsdatei ein Block befindet, der für den aktuellen Workflow bzgl. des Projektnamens und Arbeitsschrittes konfiguriert wurde. Wenn dies der Fall ist, werden die weiteren Parameter ausgewertet und es erfolgt die Katalogabfrage mit dem innerhalb der Konfigurationsdatei angegebenen Feldinhalt der METS-Datei als Identifier.
+
+## Bedienung des Plugins
+
+Dieses Plugin wird in den Workflow so integriert, dass es automatisch ausgeführt wird. Eine manuelle Interaktion mit dem Plugin ist nicht notwendig. Zur Verwendung innerhalb eines Arbeitsschrittes des Workflows sollte es wie im nachfolgenden Screenshot konfiguriert werden.
+
+![Integration des Plugins in den Workflow](../.gitbook/assets/intranda_step_catalogue_request_de.png)
 
 ## Installation
 
@@ -55,12 +65,10 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
         <!-- which catalogue to use ('GBV', 'Wiener', 'CBL Adlib' ...), can use variable replacer compatible value as well, e.g. '$(meta.Catalogue)' -->
         <catalogue>Wiener</catalogue>
 
-        <!-- which field to use for the catalogue request (typically '12' for identifier, sometimes '1007' for barcodes -->
-        <catalogueField>12</catalogueField>
-
-        <!-- which identifier to use for the catalogue request (use standard variable replacer compatible value here, e.g. '$(meta.CatalogIDDigital)') -->
-        <catalogueIdentifier>$(meta.CatalogIDDigital)</catalogueIdentifier>
-
+        <!-- which field to use for the catalogue request (typically '12' for identifier, sometimes '1007' for barcodes, and 
+          which identifier to use for the catalogue request (use standard variable replacer compatible value here, e.g. '$(meta.CatalogIDDigital)') -->
+        <catalogueField fieldName="12" fieldValue="$(meta.CatalogIDDigital)" />
+        
         <!-- define if existing structure subelements shall be kept (true), otherwise a complete new mets file is created and overwrites the existing one (false) -->
         <mergeRecords>true</mergeRecords>
 
@@ -96,14 +104,3 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 | `ignoreRequestIssues` | Hier kann definiert werden, wie sich das Plugin im Falle eines Abfragefehlers verhalten soll, beispielsweise bei Netzwerkproblemen. Auf diese Weise läßt sich definieren, dass der Workflow unterbrochen oder dennoch fortgeführt werden soll. |
 | `analyseSubElements` | Mit diesem Parameter läßt sich definieren, ob auch Metadaten für bereits innerhalb der METS-Dateien vorhandene Strukturelemente vom Katalog abgefragt werden sollen. Hierfür muss pro Unterelement das festgelegte Metadatum für den abzufragenden Identifier vorhanden sein. |
 | `skipField` | Hier können mehrere Metadatenfelder definiert werden, die keinesfalls durch eine Katalogabfrage geändert werden sollen. Dies ist insbesondere für diejenigen Felder sinnvoll, die nicht aus einer Katalogabfrage kommen und daher zuvor zusätzlich zu den Katalogdaten erfasst wurden. Typische Beispiele für solche Felder sind unter anderem `singleDigCollection`,`accesscondition` und `pathimagefiles`. Bitte beachten Sie, dass dieser Parameter nur dann Anwendung findet, wenn der Wert für `mergeRecords` auf `true` steht. |
-
-## Arbeitsweise des Plugins
-
-Das Plugin wird üblicherweise vollautomatisch innerhalb des Workflows ausgeführt. Es ermittelt zunächst, ob sich innerhalb der Konfigurationsdatei ein Block befindet, der für den aktuellen Workflow bzgl. des Projektnamens und Arbeitsschrittes konfiguriert wurde. Wenn dies der Fall ist, werden die weiteren Parameter ausgewertet und es erfolgt die Katalogabfrage mit dem innerhalb der Konfigurationsdatei angegebenen Feldinhalt der METS-Datei als Identifier.
-
-## Bedienung des Plugins
-
-Dieses Plugin wird in den Workflow so integriert, dass es automatisch ausgeführt wird. Eine manuelle Interaktion mit dem Plugin ist nicht notwendig. Zur Verwendung innerhalb eines Arbeitsschrittes des Workflows sollte es wie im nachfolgenden Screenshot konfiguriert werden.
-
-![Integration des Plugins in den Workflow](../.gitbook/assets/intranda_step_catalogue_request_de.png)
-
