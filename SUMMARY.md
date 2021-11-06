@@ -17,6 +17,8 @@
   * [Konfiguration](administration/intranda_administration_archive_management/configuration.md)
 * [Paginierung zurücksetzen](administration/intranda_administration_reset_pagination.md)
 * [Kompatibilität mit Regelsatz](administration/intranda_administration_ruleset_compatibility.md)
+* [Konfigurationseditor](administration/intranda_administration_config_file_editor.md)
+* [Regelsatzeditor](administration/intranda_administration_ruleset_editor.md)
 
 ## Step Plugins <a id="step"></a>
 
