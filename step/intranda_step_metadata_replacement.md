@@ -13,10 +13,10 @@ Dieses Plugin erlaubt eine automatische Anreicherung von Metadaten innerhalb der
 | Details |  |
 | :--- | :--- |
 | Identifier | intranda\_step\_metadata\_replacement |
-| Source code | [https://github.com/intranda/goobi-plugin-step-yerusha-metadatareplacement](https://github.com/intranda/goobi-plugin-step-yerusha-metadatareplacement) |
+| Source code | [https://github.com/intranda/goobi-plugin-step-metadata-replacement](https://github.com/intranda/goobi-plugin-step-metadata-replacement) |
 | Lizenz | GPL 2.0 oder neuer |
-| Kompatibilität | Goobi workflow 2020.06 |
-| Dokumentationsdatum | 14.06.2020 |
+| Kompatibilität | Goobi workflow 2021.10 |
+| Dokumentationsdatum | 22.11.2021 |
 
 ## Installation
 
@@ -77,6 +77,9 @@ Die Konfiguration des Plugins ist folgendermaßen aufgebaut:
                 shall the original value be duplicated then? -->
             <duplicateIfMissing>false</duplicateIfMissing>
 
+            <!-- if the same value in fieldTo exists more than once remove the duplicates -->
+			<removeDuplicatedFieldTo>false</removeDuplicatedFieldTo>
+        
         </entry>
     </config>
 </config_plugin>
@@ -99,6 +102,7 @@ Die Parameter innerhalb dieser Konfigurationsdatei haben folgende Bedeutungen:
 | `contentAuthorityUri` | Sollen Normdaten übernommen werden, kann hier das Feld innerhalb des Vokabulars für die Authority URI festgelegt werden. |
 | `contentAuthorityValueUri` | Sollen Normdaten übernommen werden, kann hier das Feld innerhalb des Vokabulars für den Datensatz festgelegt werden. |
 | `duplicateIfMissing` | Soll der originale Wert übernommen werden, wenn innerhalb des Vokabulars keine Entsprechung gefunden wurde, muss dieser Wert auf `true` gesetzt werden. |
+| `removeDuplicatedFieldTo` | Wenn ein Zielfeld mit gleichem Inhalt mehrfach vorhanden ist, kann mit diesem Parameter festgelegt werden, dass Duplikate entfernt werden. Hierbei wird ausschließlich der Feldtyp und der Wert geprüft. Personen, Körperschaften, Metadatengruppen und auch Authority-Informationen werden nicht berücksichtigt. |
 
 Zur Inbetriebnahme des Plugins muss dieses für einen oder mehrere gewünschte Aufgaben im Workflow aktiviert werden. Dies erfolgt wie im folgenden Screenshot aufgezeigt durch Auswahl des Plugins `intranda_step_metadata_replacement` aus der Liste der installierten Plugins.
 
