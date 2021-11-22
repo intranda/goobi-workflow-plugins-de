@@ -23,7 +23,7 @@ Dieses Plugin erlaubt eine automatische Anreicherung von Metadaten innerhalb der
 Zur Nutzung des Plugins muss dieses an den folgenden Ort kopiert werden:
 
 ```text
-/opt/digiverso/goobi/plugins/step/plugin_intranda_step_metadata-replacement.jar
+/opt/digiverso/goobi/plugins/step/plugin_intranda_step_metadata_replacement.jar
 ```
 
 Die Konfiguration des Plugins findet innerhalb dessen Konfigurationsdatei `intranda_step_metadata_replacement.xml` statt. Diese wird unter folgendem Pfad erwartet:
