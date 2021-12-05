@@ -17,8 +17,8 @@ Das Plugin dient zum automatischen Löschen von Daten eines Vorgangs. Hierzu kan
 | Identifier | intranda\_step\_deleteContent |
 | Source code | [https://github.com/intranda/goobi-plugin-step-deleteContent](https://github.com/intranda/goobi-plugin-step-deleteContent) |
 | Lizenz | GPL 2.0 oder neuer |
-| Kompatibilität | Goobi workflow 2020.09 |
-| Dokumentationsdatum | 03.10.2020 |
+| Kompatibilität | Goobi workflow 2021.10 |
+| Dokumentationsdatum | 05.12.2021 |
 
 ## Installation
 
@@ -81,6 +81,15 @@ Die Konfiguration des Plugins ist folgendermaßen aufgebaut:
 
       <!-- deactivate all unfinished tasks -->
       <deactivateProcess>false</deactivateProcess>
+
+      <!-- delete specific metadata in the structure main object (e.g. Monograph or Volume) 
+        use the internal ruleset name here, e.g. singleDigCollection, DocLanguage etc. 
+        this field is repeatable -->
+      <deleteMetadata name="myMetadataType"/>
+
+      <!-- delete specific process properties, e.g. Font type, Opening angle etc. 
+        this field is repeatable -->
+      <deleteProperty name="Opening angle"/>
   </config>
 
 </config_plugin>
@@ -109,6 +118,8 @@ Der Block `<config>` kann für verschiedene Projekte oder Arbeitsschritte wieder
 | `deleteProcesslogDirectory` | Legen Sie hier fest, ob der Ordner gelöscht werden soll, in dem die Dateien verwaltet werden, die im Vorgangslog hochgeladen wurden. |
 | `deleteMetadataFiles` | Legen Sie hier fest, ob die Metadaten und dazugehörigen Backups gelöscht werden sollen. |
 | `deactivateProcess` | Wenn diese Option aktiviert wurde, werden alle Schritte des Vorgangs deaktiviert, wenn diese zuvor nicht bereits abgeschlossen wurden. |
+| `deleteMetadata` | Hier kann ein bestimmtes Metadatum gelöscht werden, das sich auf der Ebene des Werkes in der Metadatendatei befindet. Das Element ist wiederholbar und muss einen gültigen Namen für ein Metadatentyp aus dem Regelsatz verwenden. |
+| `deleteProperty` | Hier kann eine bestimmte Vorgangseigenschaft gelöscht werden., Das Element ist wiederholbar und muss den Namen der Eigenschaft aufführen. |
 
 ## Integration des Plugins in den Workflow
 
