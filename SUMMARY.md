@@ -17,6 +17,8 @@
   * [Konfiguration](administration/intranda_administration_archive_management/configuration.md)
 * [Paginierung zurücksetzen](administration/intranda_administration_reset_pagination.md)
 * [Kompatibilität mit Regelsatz](administration/intranda_administration_ruleset_compatibility.md)
+* [Konfigurationseditor](administration/intranda_administration_config_file_editor.md)
+* [Regelsatzeditor](administration/intranda_administration_ruleset_editor.md)
 
 ## Step Plugins <a id="step"></a>
 
@@ -104,6 +106,7 @@
 * [Vorgangsbeziehungen anlegen](workflow/intranda_workflow_linkedprocesscreation.md)
 * [Projektexport als Ordner mit Bildern und Excel-Datei](workflow/intranda_workflow_projectexport.md)
 * [Vorgangserstellung durch Dateiupload](workflow/intranda_workflow_fileupload_processcreation.md)
+* [AEON Datenübernahme](workflow/intranda_workflow_aeon_process_creation.md)
 
 ## Statistiken <a id="statistics"></a>
 
