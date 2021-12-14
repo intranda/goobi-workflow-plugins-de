@@ -91,7 +91,7 @@ Die Konfiguration erlaubt unterschiedliche Konfigurationen für verschiedene Pro
 | :--- | :--- |
 | `rulesetPath` | Dies ist der Pfad zum Regelsatz für die MetsMods-Dateien. |
 | `imagePathFile` | Dieser Parameter definiert den Pfad zu den Bilddateien, die sich entweder im Ordner selbst oder in Unterordnern mit dem Namen der Katalogkennung befinden. |
-| `tags` | Dieser Parameter definiert die Übersetzungsdatei, die mab2-Codes in Metadaten übersetzt. |
+| `tags` | Dieser Parameter definiert die Übersetzungsdatei, die die Codes in Metadaten übersetzt. |
 | `withSGML` | Wenn dieser Parameter auf `true` gesetzt ist, dann werden SGML-Dateien verwendet. Beachten Sie, dass dies derzeit nicht verwendet wird, sondern für eine spätere Version vorgesehen ist. |
 | `sgmlPath` | Wenn SGML-Dateien verwendet werden, ist dies der Ordner, in dem sie sich befinden. |
 | `defaultPublicationType` | Mit diesem Parameter wird der Typ des Dokuments definiert, wenn es keine Kinder oder Eltern hat. Ein Dokument mit Kindern wird als MultiVolumeWork importiert, die Kinder werden als Volumes importiert. |
@@ -145,7 +145,7 @@ Eine Tag-Datei kann etwa so aussehen:
 1371 OtherTitle
 ```
 
-Jede Zeile enthält einen MAB-Code, gefolgt von dem Namen der Metadaten, in die er übersetzt werden soll. Jeder Metadatentyp in der Liste muss in dem Regelsatz definiert sein, der für das Projekt verwendet wird, in das die Datei importiert werden soll, und die `CatalogIDDigital` muss definiert sein, da sie zur Erstellung der Prozess-ID verwendet wird.
+Jede Zeile enthält einen Code, gefolgt von dem Namen der Metadaten, in die er übersetzt werden soll. Jeder Metadatentyp in der Liste muss in dem Regelsatz definiert sein, der für das Projekt verwendet wird, in das die Datei importiert werden soll, und die `CatalogIDDigital` muss definiert sein, da sie zur Erstellung der Prozess-ID verwendet wird.
 
 ## Verwendung
 
