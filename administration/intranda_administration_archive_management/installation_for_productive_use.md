@@ -159,10 +159,10 @@ Zur Konfiguration der Abfragen müssen im Pfad `/opt/digiverso/basex/webapp/` me
 
 ```bash
 cd /opt/digiverso/basex/webapp/
-wget https://raw.githubusercontent.com/intranda/goobi-plugin-administration-archive-management/master/plugin/src/main/resources/importFile.xq
-wget https://github.com/intranda/goobi-plugin-administration-archive-management/blob/master/plugin/src/main/resources/listDatabases.xq
-wget https://github.com/intranda/goobi-plugin-administration-archive-management/blob/master/plugin/src/main/resources/openDatabase.xq
-chown tomcat8. *.xq
+sudo -u tomcat wget https://raw.githubusercontent.com/intranda/goobi-plugin-administration-archive-management/master/plugin/src/main/resources/importFile.xq
+sudo -u tomcat wget https://raw.githubusercontent.com/intranda/goobi-plugin-administration-archive-management/master/plugin/src/main/resources/listDatabases.xq
+sudo -u tomcat wget https://raw.githubusercontent.com/intranda/goobi-plugin-administration-archive-management/master/plugin/src/main/resources/openDatabase.xq
+chown tomcat. *.xq
 ```
 
 ![\*.xq-Dateien aus dem ausgecheckten Plugin](../../.gitbook/assets/intranda_administration_archive_management_install_10.png)
