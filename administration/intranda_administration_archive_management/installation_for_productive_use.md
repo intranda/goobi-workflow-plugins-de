@@ -68,14 +68,14 @@ Diese hat folgenden Aufbau:
 ```bash
 [Unit]
 Description=BaseX HTTP server
-​
+
 [Service]
-User=tomcat8
-Group=tomcat8
+User=tomcat
+Group=tomcat
 ProtectSystem=full
 ExecStart=/opt/digiverso/basex/bin/basexhttp
 ExecStop=/opt/digiverso/basex/bin/basexhttp stop
-​
+
 [Install]
 WantedBy=multi-user.target
 ```
