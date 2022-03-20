@@ -20,7 +20,7 @@ Details             |  Erläuterung
 Identifier          | intranda_administration_ruleset_editor
 Source code         | [https://github.com/intranda/goobi-plugin-administration-ruleset-editor](https://github.com/intranda/goobi-plugin-administration-ruleset-editor)
 Lizenz              | GPL 2.0 oder neuer 
-Dokumentationsdatum | 06.11.2021
+Dokumentationsdatum | 20.03.2022
 
 
 Arbeitsweise des Plugins
@@ -73,7 +73,6 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 ```xml
 <config_plugin>
 	
-	<rulesetDirectory>/opt/digiverso/goobi/rulesets/</rulesetDirectory>
 	<!-- By editing a ruleset file in the browser GUI, a backup file will be stored in the backup directory -->
 	<rulesetBackupDirectory>/opt/digiverso/goobi/rulesets/backup/</rulesetBackupDirectory>
 	<!-- backup files will be stored as ruleset.xml.1, ruleset.xml.2, ..., ruleset.xml.n -->
@@ -86,7 +85,6 @@ Die Parameter innerhalb dieser Konfigurationsdatei haben folgende Bedeutungen:
 
 Parameter           |  Erläuterung
 ------------------- | ----------------------------------------------------- 
-`rulesetDirectory`         | Dies ist der Pfad, an dem sich die Regelsatzdateien befinden.
 `rulesetBackupDirectory`   | Hiermit wird der Pfad für die Backup-Dateien festgelegt, wo nach dem Bearbeiten die Backups der Regelsatzdateien gespeichert werden sollen.
 `numberOfBackupFiles`         | Dieser ganzzahlige Wert gibt an, wie viele Backup-Dateien pro Regelsatzdatei gespeichert bleiben, bevor sie durch neue Backups überschrieben werden.
 

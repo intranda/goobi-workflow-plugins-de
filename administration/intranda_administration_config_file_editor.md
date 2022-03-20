@@ -21,7 +21,7 @@ Details             |  Erläuterung
 Identifier          | intranda_administration_config_file_editor
 Source code         | [https://github.com/intranda/goobi-plugin-administration-config-file-editor](https://github.com/intranda/goobi-plugin-administration-config-file-editor)
 Lizenz              | GPL 2.0 oder neuer 
-Dokumentationsdatum | 06.11.2021
+Dokumentationsdatum | 20.03.2022
 
 
 Arbeitsweise des Plugins
@@ -32,6 +32,10 @@ Nach der Installation ist das Plugin in einem eigenen Eintrag im Menü `Administ
 ![Geöffnetes Plugin ohne geladene Datei](../.gitbook/assets/intranda_administration_config_file_editor3_de.png)
 
 Nach dem Öffnen werden auf der linken Seite alle Konfigurationsdateien von Goobi aufgelistet. Diese kann man durch Anklicken des jeweiligen Icons öffnen, um sie zu bearbeiten.
+
+Bitte beachten Sie, dass die Konfigurationsdatei dieses Plugins aus Sicherheitsgründen standardmäßig nicht in der Liste erscheint und nur für Superadministratoren bearbeitbar ist.
+
+Es werden außerdem keine versteckten Dateien und keine Dateien aus versteckten Ordnern angezeigt.
 
 ![Geöffnetes Plugin mit geladener Datei](../.gitbook/assets/intranda_administration_config_file_editor4_de.png)
 
@@ -78,11 +82,16 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 ```xml
 <config_plugin>
 
-	<configFileDirectory>/opt/digiverso/goobi/config/</configFileDirectory>
-	<!-- By editing a config file in the browser GUI, a backup file will be stored in the backup directory -->
-	<configFileBackupDirectory>/opt/digiverso/goobi/config/backup/</configFileBackupDirectory>
-	<!-- backup files will be stored as config.xml.1, config.xml.2, ..., config.xml.n -->
-	<numberOfBackupFiles>8</numberOfBackupFiles>
+    <configFileDirectories>
+        <directory backupFiles="16">/opt/digiverso/goobi/config/</directory>
+        <directory backupFolder="wizzardBackup/" backupFiles="4">/opt/digiverso/layoutwizzard/</directory>
+        <directory backupFolder="itmPluginsBackup/" backupFiles="4" fileRegex="\.xml">/opt/digiverso/itm/plugins/config/</directory>
+        <directory backupFolder="itmBackup/" fileRegex="\.xml">/opt/digiverso/itm/config/</directory>
+        <!--
+        Example:
+        <directory backupFolder="exampleBackup/" backupFiles="12" fileRegex="\.xml">/opt/digiverso/example/config/</directory>
+        -->
+    </configFileDirectories>
 
 </config_plugin>
 ```
@@ -91,9 +100,11 @@ Die Parameter innerhalb dieser Konfigurationsdatei haben folgende Bedeutungen:
 
 Parameter           |  Erläuterung
 ------------------- | ----------------------------------------------------- 
-`configFileDirectory`         | Dies ist der Pfad, an dem sich die Konfigurationsdateien befinden.
-`configFileBackupDirectory`   | Hiermit wird der Pfad für die Backup-Dateien festgelegt, wo nach dem Bearbeiten die Backups der Konfigurationsdateien gespeichert werden sollen.
-`numberOfBackupFiles`         | Dieser ganzzahlige Wert gibt an, wie viele Backup-Dateien pro Konfigurationsdatei gespeichert bleiben, bevor sie durch neue Backups überschrieben werden.
+`configFileDirectories`       | Dies ist die Liste, die alle ausgewählten Konfigurationsdateipfade beinhaltet. Der in Goobi Workflow voreingestellte Konfigurationsdateipfad wird immer verwendet.
+`directory`                   | Konfigurationsdateien aus dem hier angegebenen absoluten Pfad werden in der Benutzeroberfläche angezeigt. Der Pfad wird ignoriert, wenn er nicht existiert.
+`backupFolder`                | Dieser Parameter gibt einen relativen Pfad in `directory` an, in dem die Backup-Dateien gespeichert werden sollen. Standardmäßig wird `backup/` verwendet, wenn der Parameter nicht angegeben wird. Um Backupdateien im selben Verzeichnis wie `directory` speichern zu lassen, überschreiben Sie den Wert mit `backupFolder=""`.
+`backupFiles`                 | Dieser ganzzahlige Wert gibt an, wie viele Backup-Dateien pro Konfigurationsdatei gespeichert bleiben, bevor sie durch neue Backups überschrieben werden. Der Standardwert beträgt 8.
+`fileRegex`                   | Dieser Parameter ermöglicht eine Filterung der angezeigten Konfigurationsdateien in dem entsprechenden Ordner. Es kann ein beliebiger Regex-Ausdruck eingetragen werden. Wird dieser Parameter nicht verwendet oder ein leerer Text angegeben, so werden alle Dateien angezeigt.
 
 Sollen Hilfetexte zu einzelnen Konfigurationsdateien angezeigt werden, so müssen diese innerhalb der messages-Dateien hinterlegt werden. Hierzu wird beispielsweise in diesen Dateien eine Anpassung vorgenommen:
 
