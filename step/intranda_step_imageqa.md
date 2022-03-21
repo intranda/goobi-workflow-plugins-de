@@ -15,8 +15,8 @@ Diese Plugin dient zur visuellen Prüfung der Qualität von Bildern. Es erlaubt 
 | Identifier | intranda\_step\_imageQA |
 | Source code | [https://github.com/intranda/goobi-plugin-step-imageqa](https://github.com/intranda/goobi-plugin-step-imageqa) |
 | Lizenz | GPL 2.0 oder neuer |
-| Kompatibilität | Goobi workflow 2020.03 |
-| Dokumentationsdatum | 12.04.2021 |
+| Kompatibilität | Goobi workflow 2022.02 |
+| Dokumentationsdatum | 21.03.2022 |
 
 ## Installation
 
@@ -85,6 +85,12 @@ Die Konfiguration des Plugins ist folgendermaßen aufgebaut:
             <left command="/usr/bin/mogrify|-rotate|-90|IMAGE_FILE" />
             <right command="/usr/bin/mogrify|-rotate|90|IMAGE_FILE" />
         </rotationCommands>
+        <!-- allow flipping of images -->
+        <allowFlipping>true</allowFlipping>
+        <flippingCommands>
+            <horizontal command="/bin/true" />
+            <vertical command="/bin/true" />
+        </flippingCommands>
         <!-- allow renaming of images -->
         <allowRenaming>false</allowRenaming>
         <!-- allow selection of images -->
@@ -123,6 +129,12 @@ Die Konfiguration des Plugins ist folgendermaßen aufgebaut:
             <left command="/usr/bin/mogrify|-rotate|-90|IMAGE_FILE" />
             <right command="/usr/bin/mogrify|-rotate|90|IMAGE_FILE" />
         </rotationCommands>
+        <!-- allow flipping of images -->
+        <allowFlipping>true</allowFlipping>
+        <flippingCommands>
+            <horizontal command="/bin/true" />
+            <vertical command="/bin/true" />
+        </flippingCommands>
         <!-- allow renaming of images -->
         <allowRenaming>false</allowRenaming>
         <!-- allow selection of images -->
@@ -144,7 +156,6 @@ Die Konfiguration des Plugins ist folgendermaßen aufgebaut:
         <!-- which image sizes to use for the big image -->
         <imagesize>800</imagesize>
         <imagesize>3000</imagesize>
-
         <!-- allow renaming of images -->
         <allowRenaming>false</allowRenaming>
         <renamingPattern>
@@ -188,6 +199,8 @@ Die Parameter innerhalb dieser Konfigurationsdatei haben folgende Bedeutungen:
 | `allowTaskFinishButtons` | Mit diesem Parameter kann ermöglicht werden, dass in der regulären Plugin-Oberfläche bereits Buttons zum Abschließen der Aufgabe angezeigt werden sollen, so dass das Plugin nicht zunächst verlassen werden muss. |
 | `displayocr` | Hier kann festgelegt werden, ob der Button für die Anzeige von Volltextergebnissen aktiviert werden soll. |
 | `useJSFullscreen` | Mit diesem Parameter kann festgelegt werden, dass die Vollbildanzeige allein mittels JavaScript erfolgen soll. Diese Anzeige ist deutlich performanter, erlaubt jedoch keine Anzeige des Volltextes parallel zum Bild. |
+| `allowFlipping`	| Wird diese Funktion aktiviert, so dürfen die angezeigten Bilder horizontal und vertikal gespiegelt werden.
+| `flippingCommands`	| Hiermit lässt sich festlegen, mit welchen Kommandozeilenaufrufen die Spiegelung der Bilder erfolgen soll.
 
 ## Integration des Plugins in den Workflow
 
@@ -215,7 +228,7 @@ Zur größeren Anzeige lassen sich Bilder auch in einer Vollbildanzeige darstell
 
 Neben der reinen Bildanzeige kann das Plugin ebenfalls mit anderen Objekttypen umgehen. So ist unter anderem auch eine Anzeige von 3D-Objekten möglich, die mittels zusätzlicher Navigationsbuttons auch zur Anzeige rotiert und vergrößert werden können.
 
-Je nach individueller Konfiguration erlaubt das Plugin noch viele weitere Funktionen, die zumeist innerhalb der Thumbnaildarstellung sichtbar werden. Wurden diese Funktionen in der oben beschriebenen Konfigurationsdatei konfiguriert, so lassen sich diese zum Beispiel für einen Download von PDF-Dateien, Bilddateien, Rotationen, Löschungen und andere Operationen nutzen.
+Je nach individueller Konfiguration erlaubt das Plugin noch viele weitere Funktionen, die zumeist innerhalb der Thumbnaildarstellung sichtbar werden. Wurden diese Funktionen in der oben beschriebenen Konfigurationsdatei konfiguriert, so lassen sich diese zum Beispiel für einen Download von PDF-Dateien, Bilddateien, Rotationen, Spiegelungen, Löschungen und andere Operationen nutzen.
 
 ![Aktivierte Zusatzfunktionen innerhalb der Thumbnaildarstellung](../.gitbook/assets/intranda_step_imageqa6.png)
 
