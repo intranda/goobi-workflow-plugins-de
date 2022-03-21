@@ -88,8 +88,8 @@ Die Konfiguration des Plugins ist folgendermaßen aufgebaut:
         <!-- allow flipping of images -->
         <allowFlipping>true</allowFlipping>
         <flippingCommands>
-            <horizontal command="/bin/true" />
-            <vertical command="/bin/true" />
+            <horizontal command="/usr/bin/mogrify|-flop|IMAGE_FILE" />
+            <vertical command="/usr/bin/mogrify|-flip|IMAGE_FILE" />
         </flippingCommands>
         <!-- allow renaming of images -->
         <allowRenaming>false</allowRenaming>
@@ -132,8 +132,8 @@ Die Konfiguration des Plugins ist folgendermaßen aufgebaut:
         <!-- allow flipping of images -->
         <allowFlipping>true</allowFlipping>
         <flippingCommands>
-            <horizontal command="/bin/true" />
-            <vertical command="/bin/true" />
+            <horizontal command="/usr/bin/mogrify|-flop|IMAGE_FILE" />
+            <vertical command="/usr/bin/mogrify|-flip|IMAGE_FILE" />
         </flippingCommands>
         <!-- allow renaming of images -->
         <allowRenaming>false</allowRenaming>
