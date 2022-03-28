@@ -1,13 +1,13 @@
 ---
 description: >-
-  Goobi Step Plugin für die Erstellung von Archival Resource Keys (ARK) mit DataCite Metadaten.
+  Goobi Step Plugin für die Erstellung von Archival Resource Keys (ARK) mit Metadaten nach dem DataCite Schema.
 ---
 
-# Katalogabfrage
+# Erzeugen von Archival Resource Keys
 
 
 ## Einführung
-Die vorliegende Dokumentation beschreibt die Installation, die Konfiguration und den Einsatz des Step Plugins für die Generierng von ARK-Identifiern in Goobi workflow.
+Die vorliegende Dokumentation beschreibt die Installation, die Konfiguration und den Einsatz des Step Plugins für die Generierung von ARK-Identifiern in Goobi workflow.
 
 | Details |  |
 | :--- | :--- |
@@ -19,7 +19,7 @@ Die vorliegende Dokumentation beschreibt die Installation, die Konfiguration und
 
 
 ## Arbeitsweise des Plugins
-Das Plugin wird üblicherweise vollautomatisch innerhalb des Workflows ausgeführt. Es ermittelt zunächst, ob bereits ein Archival Resource Key vorhanden ist. Sollte noch kein ARK vorhanden sein, wird ein neuer ARK registriert. Falls schon ein ARK in den Metadaten vorhanden ist, wird versucht die Metadaten des ARKs zu aktualisieren.
+Das Plugin wird üblicherweise vollautomatisch innerhalb des Workflows ausgeführt. Es ermittelt zunächst, ob bereits ein Archival Resource Key (ARK) vorhanden ist. Sollte noch kein ARK vorhanden sein, wird ein neuer ARK registriert. Falls schon ein ARK in den Metadaten vorhanden ist, wird versucht die Metadaten des ARKs zu aktualisieren.
 
 
 ## Bedienung des Plugins
@@ -44,7 +44,7 @@ Diese Datei muss in dem richtigen Verzeichnis installiert werden, so dass diese 
 Daneben gibt es eine Konfigurationsdatei, die an folgender Stelle liegen muss:
 
 ```bash
-/opt/digiverso/goobi/config/plugin_intranda_step_catalogue_ark.xml
+/opt/digiverso/goobi/config/plugin_intranda_step_ark.xml
 ```
 
 ## Konfiguration
@@ -125,4 +125,4 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 | `metadataResourceType` | Entspricht dem `datacite.publicationyear` Feld .In der Regel kann der vorgegebene Wert `{meta.PublicationYear}` beibehalten werden. |
 | `metadataResourceType`   | Entspricht dem `datacite.resourcetype` Feld. Es sind nur die Werte Audiovisual, Collection, Dataset, Event, Image ,InteractiveResource, Model, PhysicalObject, Service, Software, Sound, Text, Workflow, und Other zulässig. Zusätzlich können noch spezifische Untertypen angegeben werden. Ein Beispiel wäre Image/`Photo`. Der Untertyp, also der Teil hinter dem `/`, unterliegt dabei keiner Einschränkung.|
 | `publicationUrl`   | URL unter der Sie das digitalisierte Werk in Zukunft zur Verfügung stellen. In der Regel wird die Veröffentlichungs-URL einem Muster folgen, z.B. `https://viewer.example.org/{meta.CatalogIDDigital}`. In diesem Fall wird davon ausgegangen, dass die Werke in Zukunft unter einer URL veröffentlicht werden, die das Metadatum `Identifier` enthält. |
-| `metadaType`  | Gibt den Metadatentyp an unter dem die URN erfasst werden soll. Hier sollte die Vorgabe nicht verändert werden.  |
+| `metadataType`  | Gibt den Metadatentyp an, unter dem die URN erfasst werden soll. Hier sollte die Vorgabe nicht verändert werden.  |
