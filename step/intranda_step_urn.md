@@ -3,7 +3,7 @@ description: >-
   Goobi Step Plugin für die Erstellung von Uniform Resource Names (URN).
 ---
 
-# Katalogabfrage
+# Erzeugung von Uniform Resource Names
 
 
 ## Einführung
