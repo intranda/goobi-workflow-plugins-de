@@ -3,7 +3,7 @@ description: >-
   Goobi Step Plugin für die Erstellung von Archival Resource Keys (ARK) mit Metadaten nach dem DataCite Schema.
 ---
 
-# Erzeugen von Archival Resource Keys
+# Erzeugen von Archival Resource Keys (ARK)
 
 
 ## Einführung
@@ -25,7 +25,7 @@ Das Plugin wird üblicherweise vollautomatisch innerhalb des Workflows ausgefüh
 ## Bedienung des Plugins
 Dieses Plugin wird in den Workflow so integriert, dass es automatisch ausgeführt wird. Eine manuelle Interaktion mit dem Plugin ist nicht notwendig. Zur Verwendung innerhalb eines Arbeitsschrittes des Workflows sollte es wie im nachfolgenden Screenshot konfiguriert werden.
 
-![Integration des Plugins in den Workflow](../.gitbook/assets/intranda_step_catalogue_request_de.png)
+![Integration des Plugins in den Workflow](../.gitbook/assets/intranda_step_ark_de.png)
 
 
 ## Installation
@@ -51,12 +51,15 @@ Daneben gibt es eine Konfigurationsdatei, die an folgender Stelle liegen muss:
 
 Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intranda_step_ark.xml` und kann im laufenden Betrieb angepasst werden. Im folgenden ist eine beispielhafte Konfigurationsdatei aufgeführt:
 
-```markup
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <config_plugin>
-	<!-- order of configuration is: 1.) project name and step name matches 2.)
-		step name matches and project is * 3.) project name matches and step name
-		is * 4.) project name and step name are * -->
+	<!-- order of configuration is:
+    1.) project name and step name matches
+    2.) step name matches and project is *
+    3.) project name matches and step name is *
+    4.) project name and step name are *
+  -->
 
 	<config>
 		<!-- which projects to use for (can be more then one, otherwise use *) -->
@@ -90,8 +93,7 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 		<metadataPublisher>{meta.PublisherName}</metadataPublisher>
 
 		<!-- metadata field datacite.publicationyear -->
-		<metadataPublicationYear>{meta.PublicationYear}
-		</metadataPublicationYear>
+		<metadataPublicationYear>{meta.PublicationYear}</metadataPublicationYear>
 
 		<!-- metadata field datacite.resourcetype can only contain following values:
 			Audiovisual, Collection, Dataset, Event, Image ,InteractiveResource, Model,
@@ -100,8 +102,7 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 		<metadataResourceType>Text</metadataResourceType>
 
 		<!--target url ark will forward to -->
-		<publicationUrl>https://viewer.example.org/{meta.CatalogIDDigital}
-		</publicationUrl>
+		<publicationUrl>https://viewer.example.org/{meta.CatalogIDDigital}</publicationUrl>
 
 		<!--metadatatype in METS-File -->
 		<metadataType>ARK</metadataType>
@@ -115,14 +116,14 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 | `project` | Dieser Parameter legt fest, für welches Projekt der aktuelle Block `<config>` gelten soll. Verwendet wird hierbei der Name des Projektes. Dieser Parameter kann mehrfach pro `<config>` Block vorkommen. |
 | `step` | Dieser Parameter steuert, für welche Arbeitsschritte der Block `<config>` gelten soll. Verwendet wird hier der Name des Arbeitsschritts. Dieser Parameter kann mehrfach pro `<config>` Block vorkommen. |
 | `uri` | In diesem Parameter muss die URL der API hinterlegt werden. In der Regel kann der Standardeintrag `https://www.arketype.ch` übernommen werden.  |
-| `naan` | NAAN ist ein Akronym für Name Assigning Number Authority. Es handelt sich um einen eindeutigen Bezeichner, der welcher der Account zugeordnet ist. |
+| `naan` | NAAN ist ein Akronym für Name Assigning Number Authority. Es handelt sich um einen eindeutigen Bezeichner, welchem der Account zugeordnet ist. |
 | `apiUser` |  Name des API Nutzers |
 | `apiPassword` | Passwort des API Nutzers |
-| `shoulder` | Name des Unternamensraumes in dem die neuen ARKs erzeugt werden sollen |
-| `metadataCreator` | Entspricht dem `datacite.creator` Feld und sollte die Forscher benennen, die die Daten erzeugt haben. In der Regel kann der vorgegebene Wert `{meta.CreatorsAllOrigin}` beibehalten werden.  |
-| `metadataTitle` | Entspricht dem `datacite.title` Feld und sollte den Namen unter dem die Veröffentlichung bekannt ist beinhalten. In der Regel kann der vorgegebene Wert `{meta.TitleDocMain}` beibehalten werden. |
+| `shoulder` | Name des Unternamensraumes, in dem die neuen ARKs erzeugt werden sollen |
+| `metadataCreator` | Entspricht dem `datacite.creator` Feld und sollte die Personen benennen, die die Daten erzeugt haben. In der Regel kann der vorgegebene Wert `{meta.CreatorsAllOrigin}` beibehalten werden.  |
+| `metadataTitle` | Entspricht dem `datacite.title` Feld und sollte den Namen beinhalten, unter dem die Veröffentlichung bekannt ist. In der Regel kann der vorgegebene Wert `{meta.TitleDocMain}` beibehalten werden. |
 | `metadataPublisher` | Entspricht dem `datacite.publisher` Feld. In der Regel kann der vorgegebene Wert `{meta.PublisherName}` beibehalten werden. |
-| `metadataResourceType` | Entspricht dem `datacite.publicationyear` Feld .In der Regel kann der vorgegebene Wert `{meta.PublicationYear}` beibehalten werden. |
-| `metadataResourceType`   | Entspricht dem `datacite.resourcetype` Feld. Es sind nur die Werte Audiovisual, Collection, Dataset, Event, Image ,InteractiveResource, Model, PhysicalObject, Service, Software, Sound, Text, Workflow, und Other zulässig. Zusätzlich können noch spezifische Untertypen angegeben werden. Ein Beispiel wäre Image/`Photo`. Der Untertyp, also der Teil hinter dem `/`, unterliegt dabei keiner Einschränkung.|
-| `publicationUrl`   | URL unter der Sie das digitalisierte Werk in Zukunft zur Verfügung stellen. In der Regel wird die Veröffentlichungs-URL einem Muster folgen, z.B. `https://viewer.example.org/{meta.CatalogIDDigital}`. In diesem Fall wird davon ausgegangen, dass die Werke in Zukunft unter einer URL veröffentlicht werden, die das Metadatum `Identifier` enthält. |
+| `metadataResourceType` | Entspricht dem `datacite.publicationyear` Feld. In der Regel kann der vorgegebene Wert `{meta.PublicationYear}` beibehalten werden. |
+| `metadataResourceType`   | Entspricht dem `datacite.resourcetype` Feld. Es sind nur die Werte `Audiovisual`, `Collection`, `Dataset`, `Event`, `Image`, `InteractiveResource`, `Model`, `PhysicalObject`, `Service`, `Software`, `Sound`, `Text`, `Workflow`, und `Other` zulässig. Zusätzlich können noch spezifische Untertypen angegeben werden. Ein Beispiel wäre Image/`Photo`. Der Untertyp, also der Teil hinter dem `/`, unterliegt dabei keiner Einschränkung.|
+| `publicationUrl`   | URL unter der das digitalisierte Werk in Zukunft zur Verfügung steht. In der Regel wird die Veröffentlichungs-URL einem Muster folgen, z.B. `https://viewer.example.org/{meta.CatalogIDDigital}`. In diesem Fall wird davon ausgegangen, dass die Werke in Zukunft unter einer URL veröffentlicht werden, die das Metadatum `Identifier` enthält. |
 | `metadataType`  | Gibt den Metadatentyp an, unter dem die URN erfasst werden soll. Hier sollte die Vorgabe nicht verändert werden.  |

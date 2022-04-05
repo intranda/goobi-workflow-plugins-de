@@ -3,7 +3,7 @@ description: >-
   Goobi Step Plugin für die Erstellung von Uniform Resource Names (URN).
 ---
 
-# Erzeugung von Uniform Resource Names
+# Erzeugung von Uniform Resource Names (URN)
 
 
 ## Einführung
@@ -60,30 +60,30 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
           2.) step name matches and project is *
           3.) project name matches and step name is *
           4.) project name and step name are *
-	-->
+	  -->
 
     <config>
         <!-- which projects to use for (can be more then one, otherwise use *) -->
         <project>*</project>
         <step>*</step>
 
-    <!-- URI of the URN API, must use httos -->
-		<uri>https://api.nbn-resolving.org/v2/</uri>
+        <!-- URI of the URN API, must use httos -->
+        <uri>https://api.nbn-resolving.org/v2/</uri>
 
-		<!-- namespace in which new URNs shall be created -->
-		<namespace>urn:nbn:de:gbv:XX</namespace>
+        <!-- namespace in which new URNs shall be created -->
+        <namespace>urn:nbn:de:gbv:XX</namespace>
 
-		<!-- name of the API user -->
-		<apiUser>UserName</apiUser>
+        <!-- name of the API user -->
+        <apiUser>UserName</apiUser>
 
-		<!-- password of the API user -->
-		<apiPassword>Password</apiPassword>
+        <!-- password of the API user -->
+        <apiPassword>Password</apiPassword>
 
-		<!--target url URN will forward to -->
-		<publicationUrl>https://viewer.example.org/{meta.CatalogIDDigital}</publicationUrl>
+        <!--target url URN will forward to -->
+        <publicationUrl>https://viewer.example.org/{meta.CatalogIDDigital}</publicationUrl>
 
-		<!--metadataType in METS-File -->
-        <metadataType>URN</metadataType>
+        <!--metadataType in METS-File -->
+        <metadataType>_urn</metadataType>
     </config>
 </config_plugin>
 ```
@@ -96,5 +96,5 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 | `namespace` | Der Namensraum in dem die neuen URNs angelegt werden. |
 | `apiUser` | Der Name des API-Nutzers. |
 | `apiPassword` | Das Passwort des API-Nutzers. |
-| `publicationUrl`   | Die URL unter der Sie das digitalisierte Werk in Zukunft zur Verfügung stellen. In der Regel wird die Veröffentlichungs-URL einem Muster folgen, z.B. `https://viewer.example.org/{meta.CatalogIDDigital}`. In diesem Fall wird davon ausgegangen, dass die Werke in Zukunft unter einer URL veröffentlicht werden, die das Metadatum `Identifier` enthält. |
+| `publicationUrl`   | Die URL unter der das digitalisierte Werk in Zukunft zur Verfügung steht. In der Regel wird die Veröffentlichungs-URL einem Muster folgen, z.B. `https://viewer.example.org/{meta.CatalogIDDigital}`. In diesem Fall wird davon ausgegangen, dass die Werke in Zukunft unter einer URL veröffentlicht werden, die das Metadatum `Identifier` enthält. |
 | `metadataType`  | Gibt den Metadatentyp an, unter dem der URN erfasst werden soll. Hier sollte die Vorgabe nicht verändert werden.  |
