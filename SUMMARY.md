@@ -75,6 +75,7 @@
 * [Batch Progress](step/intranda_step_batch_progress.md)
 * [URNs generieren](step/intranda_step_urn.md)
 * [ARKs generieren](step/intranda_step_ark.md)
+* [Mails versenden](step/intranda_step_sendMail.md)
 
 ## Opac Plugins <a id="opac"></a>
 

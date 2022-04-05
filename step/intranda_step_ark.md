@@ -12,7 +12,7 @@ Die vorliegende Dokumentation beschreibt die Installation, die Konfiguration und
 | Details |  |
 | :--- | :--- |
 | Identifier | intranda_step_ark |
-| Source code | [https://gitea.intranda.com/goobi-workflow/goobi-plugin-step-ark](https://gitea.intranda.com/goobi-workflow/goobi-plugin-step-ark) |
+| Source code | [https://github.com/intranda/goobi-plugin-step-ark](https://github.com/intranda/goobi-plugin-step-ark) |
 | Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 2022.03 |
 | Dokumentationsdatum | 25.03.2022 |
