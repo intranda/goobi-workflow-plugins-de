@@ -19,6 +19,7 @@
 * [Kompatibilität mit Regelsatz](administration/intranda_administration_ruleset_compatibility.md)
 * [Konfigurationseditor](administration/intranda_administration_config_file_editor.md)
 * [Regelsatzeditor](administration/intranda_administration_ruleset_editor.md)
+* [Wiederherstellung von archivierten Bildordnern](administration/intranda_administration_restorearchivedimagefolders.md)
 
 ## Step Plugins <a id="step"></a>
 
