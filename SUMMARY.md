@@ -78,7 +78,8 @@
 * [ARKs generieren](step/intranda_step_ark.md)
 * [Mails versenden](step/intranda_step_sendMail.md)
 * [Archivierung von Bildordnern](step/intranda_step_archiveimagefolder.md)
-
+* [GeoNames Annotierung](step/intranda_step_geonamesautoannotator.md)
+* [GeoNames Korrektur](step/intranda_step_geonamescorrection.md)
 
 
 ## Opac Plugins <a id="opac"></a>

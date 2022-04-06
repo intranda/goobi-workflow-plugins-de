@@ -53,7 +53,7 @@ Die Konfiguration der Datei `plugin_intranda_step_epic_pid.xml` ist folgenderma√
         <certificate>/opt/digiverso/goobi/config/certificate.pem</certificate>
         <user>USER</user>
         <base>BASE</base>
-        <url>https://viewer.goobi.io/idresolver?handle=</url>
+        <url>https://viewer.example.org/resolver?field=MD_PI_HANLDE&identifier=</url>
 
         <!-- configuration for Handles -->
         <prefix>go</prefix>
@@ -171,4 +171,3 @@ Index    Type    Timestamp    Data
 ```
 
 Diese Informationen wird anschlie√üend vom ePIC-Service der GWDG verwendet, um automatisch einen DOI-Identifier zu erzeugen, der mit der gleichen ID versehen wird: `BASE/go-goobi-1296243265-17`.
-
