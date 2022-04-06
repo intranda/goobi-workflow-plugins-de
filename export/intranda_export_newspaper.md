@@ -11,10 +11,11 @@ Das Plugin dient zur Erstellung der METS Struktur für den Import in das Zeitung
 
 Jede Ausgabe wird als einzelne METS Dateien erstellt und in der METS-Anchor Datei des Jahrgangs verlinkt. Die Ausgabe kann weitere Strukturdaten wie Artikelbeschreibungen oder Beilagen enthalten. Hier wird auch auf die digitalisierten Bilder verwiesen.
 
-<https://wiki.deutsche-digitale-bibliothek.de/display/DFD/Gesamtaufnahme+Zeitung+1.0>
-<https://wiki.deutsche-digitale-bibliothek.de/display/DFD/Jahrgang+Zeitung+1.0>
-<https://wiki.deutsche-digitale-bibliothek.de/display/DFD/Ausgabe+Zeitung+1.0>
+{% embed url="https://wiki.deutsche-digitale-bibliothek.de/display/DFD/Gesamtaufnahme+Zeitung+1.0" caption="https://wiki.deutsche-digitale-bibliothek.de/display/DFD/Gesamtaufnahme+Zeitung+1.0" %}
 
+{% embed url="https://wiki.deutsche-digitale-bibliothek.de/display/DFD/Jahrgang+Zeitung+1.0" caption="https://wiki.deutsche-digitale-bibliothek.de/display/DFD/Jahrgang+Zeitung+1.0" %}
+
+{% embed url="https://wiki.deutsche-digitale-bibliothek.de/display/DFD/Ausgabe+Zeitung+1.0" caption="https://wiki.deutsche-digitale-bibliothek.de/display/DFD/Ausgabe+Zeitung+1.0" %}
 
 | Details |  |
 | :--- | :--- |
