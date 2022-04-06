@@ -35,6 +35,7 @@ Diese Dateien müssen in den richtigen Verzeichnissen installiert werden, so das
 /opt/digiverso/goobi/config/plugin_intranda_administration_restorearchivedimagefolders.xml
 ```
 
+
 ## Konfiguration
 Die Konfigurationsdatei ist im Moment leer, muss aber trotzdem vorliegen.
 
@@ -48,6 +49,11 @@ Die Information, woher die Daten geholt werden sollen, sind im jeweiligen Vorgan
 
 Für die Authentifizierung an ssh-Servern wird an den üblichen Stellen (`$USER_HOME/.ssh`) nach public keys gesucht. Andere Authentifizierungsmethoden wie username/password sind nicht vorgesehen.  
 
+Für eine Nutzung dieses Plugins muss der Nutzer über die korrekte Rollenberechtigung verfügen. Bitte weisen Sie daher der Benutzergruppe die Rolle `Plugin_administration_restorearchivedimagefolders` zu.
+
+![Korrekt zugewiesene Rolle für die Nutzer](../.gitbook/assets/intranda_administration_restorearchivedimagefolders1_de.png)
 
 ## Bedienung des Plugins
 Das Plugin bietet eine grafische Oberfläche an, die über das Menü `Administration` geöffnet werden kann. Dort kann dann ein Suchfilter verwendet werden, wie er auch an anderen Stellen von Goobi workflow (z.B. für die Vorgangsliste) verwendet wird. Mit einem Klick auf `Plugin ausführen`, werden dann die für die über den eingegebenen Filter gefundenen Vorgänge die Bilder wieder hergestellt. Die Nutzeroberfläche aktualisiert sich automatisch.
+
+![User interface of the plugin](../.gitbook/assets/intranda_administration_restorearchivedimagefolders2_de.png)
