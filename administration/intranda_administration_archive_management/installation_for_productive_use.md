@@ -164,7 +164,6 @@ sudo -u tomcat wget https://raw.githubusercontent.com/intranda/goobi-plugin-admi
 sudo -u tomcat wget https://raw.githubusercontent.com/intranda/goobi-plugin-administration-archive-management/master/plugin/src/main/resources/listDatabases.xq
 sudo -u tomcat wget https://raw.githubusercontent.com/intranda/goobi-plugin-administration-archive-management/master/plugin/src/main/resources/openDatabase.xq
 sudo -u tomcat wget https://raw.githubusercontent.com/intranda/goobi-plugin-administration-archive-management/master/plugin/src/main/resources/findDb.xq
-chown tomcat. *.xq
 ```
 
 ![\*.xq-Dateien aus dem ausgecheckten Plugin](../../.gitbook/assets/intranda_administration_archive_management_install_10.png)
