@@ -110,8 +110,8 @@ Die Konfiguration erfolgt über die Datei `plugin_intranda_import_excel.xml`. Di
 
             <!-- use this fields, if the firstname and lastname are in different columns -->
             <!--
-            <firstname>5-Vorname</firstname>
-            <lastname>6-Nachname</lastname>
+            <firstnameFieldHeader>5-Vorname</firstnameFieldHeader>
+            <lastnameFieldHeader>6-Nachname</lastnameFieldHeader>
             -->
         </person>
 
