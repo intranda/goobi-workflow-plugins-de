@@ -121,11 +121,11 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 | `apiPassword` | Das Passwort des API-Nutzers. |
 | `apiUri` | In diesem Parameter muss die URL der API hinterlegt werden. In der Regel kann der Standardeintrag `https://api.nbn-resolving.org/v2/` übernommen werden.  |
 | `namespace` | Der Namensraum in dem der neue URNs angelegt werden. |
-| `infix` | Infix der in die generierten URNs nach dem Namensraum eingefügt wird. Eine neue URN hätte die Form `{namespace}{infix}{generatedValue}`. |
+| `infix` | Infix, der in die generierten URNs nach dem Namensraum eingefügt wird. Eine neue URN hätte die Form `{namespace}{infix}{generatedValue}`. |
 | `publicationUrl`   | Die URL unter der das digitalisierte Werk in Zukunft zur Verfügung steht. In der Regel wird die Veröffentlichungs-URL einem Muster folgen, z.B. `https://viewer.example.org/viewer/resolver?urn={pi.urn}`. Der Platzhalter {pi.urn} wird vom Plugin, durch den neuen URN ersetzt. |
-| `work` | Schalter der das Setzen von Werks-URNs aktiviert (Monographie, Manuscript, Volume, usw.) |
-| `anchor` |Schalter der das Setzen von URNs für das Ankerelement aktiviert |
-| `allowed -> type` | Hier können Sie Elemente aufzählen, für die ein URN generiert werden soll. Für jedes Element muss ein `<type>ElementName</type>` Eintrag im `<allowed>` Element angelegt werden. **Hinweis:** Wenn Sie anchor oder work auf true setzen, erhalten das Ankerelement und das Werkelement eine URN auch wenn sie nicht in der Liste aufgeführt sind. |
+| `work` | Schalter, der das Setzen von Werks-URNs aktiviert (Monographie, Manuscript, Volume, usw.). |
+| `anchor` |Schalter, der das Setzen von URNs für das Ankerelement aktiviert. |
+| `allowed -> type` | Hier können Sie Elemente aufzählen, für die ein URN generiert werden soll. Für jedes Element muss ein `<type>ElementName</type>` Eintrag im `<allowed>` Element angelegt werden. **Hinweis:** Wenn Sie anchor oder work auf true setzen, erhalten das Ankerelement und das Werkelement eine URN, auch wenn ihre Typnamen nicht in der Liste aufgeführt werden. |
 | `typeNameMets` | Gibt den Metadatentyp an, unter dem METS-URNs erfasst werden sollen. Hier sollte die Vorgabe nicht verändert werden. |
 | `typeNameMods`  | Gibt den Metadatentyp an, unter dem MODS-URNs erfasst werden sollen. Hier sollte die Vorgabe nicht verändert werden.  |
-| `createModsUrns`  | Wenn Sie URNs im MOTS-Block schreiben wollen, setzen Sie diesen Schalter auf `true`. Bedenken Sie jedoch, dass es eventuell notwendig ist die Regelsätze einzelner Strukturelemente anzupassen.  |
+| `createModsUrns`  | Wenn Sie URNs im MODS-Block schreiben wollen, setzen Sie diesen Schalter auf `true`. Bedenken Sie jedoch, dass es eventuell notwendig ist die Regelsätze einzelner Strukturelemente anzupassen.  |
