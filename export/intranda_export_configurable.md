@@ -45,11 +45,12 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 <config_plugin>
 	<!--
         order of configuration is:
-          1.) project name name matches
+          1.) project name matches
           2.) project is *
 	-->
 	<config>
 		<project>testocr</project>
+    <includeMarcXml>false</includeMarcXml>
 		<folder>
 			<includeMedia>true</includeMedia>
 			<includeMaster>true</includeMaster>
@@ -58,7 +59,7 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 			<includeExort>false</includeExort>
 			<includeITM>false</includeITM>
 			<includeOcr>true</includeOcr>
-            <includeValidation>false</includeValidation>
+      <includeValidation>false</includeValidation>
 			<ocr>
 				<suffix>alto</suffix>
 			</ocr>
@@ -72,7 +73,7 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 		<target key="{meta.ViewerInstance}" value="eivfaanddigihub" projectName="gihubExportProject"/>
 		<target key="{meta.ViewerInstance}" value="" projectName=""/>
 		<target key="{meta.URN}" value="" projectName=""/>
-        <includeMarcXml>false<includeMarcXml>
+    <includeMarcXml>false</includeMarcXml>
 		<folder>
             <!-- as configured in goobi_config.properties -->
             <!--genericFolder>thumbs</genericFolder-->
@@ -86,7 +87,6 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 			<includeValidation>false</includeValidation>
 		</folder>
 	</config>
-
 </config_plugin>
 
 ```
