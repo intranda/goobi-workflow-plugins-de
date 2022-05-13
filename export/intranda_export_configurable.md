@@ -70,9 +70,8 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 	<config>
 		<project>*</project>
 		<target key="{meta.ViewerInstance}" value="eivfaanddigihub" projectName="eivfExportProject"/>
-		<target key="{meta.ViewerInstance}" value="eivfaanddigihub" projectName="gihubExportProject"/>
+		<target key="{meta.ViewerInstance}" value="eivfaanddigihub" projectName="digihubExportProject"/>
 		<target key="{meta.ViewerInstance}" value="" projectName=""/>
-		<target key="{meta.URN}" value="" projectName=""/>
     <includeMarcXml>false</includeMarcXml>
 		<folder>
             <!-- as configured in goobi_config.properties -->
