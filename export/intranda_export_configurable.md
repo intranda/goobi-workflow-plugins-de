@@ -1,6 +1,6 @@
 ---
 description: >-
-  Dies ist eine technische Dokumentation für das Goobi Export Plugin Configurable. Es ermöglicht, den Export mithilfe der Projektkonfiguration anzupassen. Durch die Verwendung von Exportprojekten ist es auch möglich zu verschiedenen Speicherorten in einem Durchlauf zu exportieren.
+  Dies ist eine technische Dokumentation für das konfigurierbare Goobi Export Plugin. Es ermöglicht, den Export mithilfe der Projektkonfiguration anzupassen. Durch die Verwendung von Exportprojekten ist es auch möglich zu verschiedenen Speicherorten in einem Durchlauf zu exportieren.
 ---
 
 # Konfigurierbarer Export
@@ -74,8 +74,8 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 		<target key="{meta.ViewerInstance}" value="" projectName=""/>
     <includeMarcXml>false</includeMarcXml>
 		<folder>
-            <!-- as configured in goobi_config.properties -->
-            <!--genericFolder>thumbs</genericFolder-->
+      <!-- as configured in goobi_config.properties -->
+      <!--genericFolder>thumbs</genericFolder-->
 			<includeMedia>true</includeMedia>
 			<includeMaster>true</includeMaster>
 			<includeOcr>false</includeOcr>
@@ -94,13 +94,13 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 | :--- | :--- |
 | `project` | Dieser Parameter legt fest, für welches Projekt der aktuelle Block `<config>` gelten soll. Verwendet wird hierbei der Name des Projektes. Der `<config>`-Block mit dem `project` `*` wird immer verwendet, wenn kein anderer Block auf den Projektnamen passt.  
 | `target` | Dieser Parameter hat 3 obligatorische Attribute: Im Parameter `key` sollte eine Goobi Variable der Form `{meta.Metadatenname}` verwendet werden. Im Attribut `value` kann dann der gewünschte Wert angegeben werden. Setzt man `value=""` So schlägt die Bedingung an, wenn das Metadatum leer oder nicht gesetzt ist. Im Attribut `projectName` sollte der Name des Exportprojektes, mit dessen Einstellungen der Export stattfinden soll, angegeben werden. Wird dem Attribut ein leerer String zugewiesen `projectName=""`, so werden die Einstellungen des Projektes des Vorgangs zum Export verwendet. Wenn keine target condition gesetzt ist, wird ein normaler Export durchgeführt. Für jede target Bedingung, die zutrifft, wird ein Export angestoßen.  |
-|`includeMarcXml`| Dieser Parameter legt fest, ob evtl. vorhandene MARC-XML Daten in die exportierte Metsdatei eingebettet werden sollen. Der Defaultwert ist `false`.|
+|`includeMarcXml`| Dieser Parameter legt fest, ob evtl. vorhandene MARC-XML Daten in die exportierte Mets-Datei eingebettet werden sollen. Der Defaultwert ist `false`.|
 
-Der Block `<config>` ist wiederholbar und kann so in unterschiedlichen Projekten verschiedene Metadaten definieren. Der Block mit <project>*</project> wird angewendet, wenn kein Block mit der Projektbezeichnung des Projektes existiert.
+Der Block `<config>` ist wiederholbar und kann so in unterschiedlichen Projekten verschiedene Metadaten definieren. Der Block mit `<project>*</project>` wird angewendet, wenn kein Block mit der Projektbezeichnung des Projektes existiert.
 
 ### Der folder-Block
 
-Der `folder` Block befindet sich innnerhalb von jedem `config`-Element. Er steuert, welche Verzeichnse für den Export berücksichtigt werden sollen.
+Der `folder` Block befindet sich innerhalb von jedem `config`-Element. Er steuert, welche Verzeichnisse für den Export berücksichtigt werden sollen.
 
 | Parameter | Erläuterung |
 | :--- | :--- |
@@ -112,7 +112,7 @@ Der `folder` Block befindet sich innnerhalb von jedem `config`-Element. Er steue
 | `includeExort` | Hier kann definiert werden, ob der export-Ordner exportiert werden soll. |
 | `includeITM` | Hier kann definiert werden, ob der TaskManager-Ordner exportiert werden soll. |
 | `includeValidation` | Hier kann definiert werden, ob der validation-Ordner exportiert werden soll. |
-| `ocr` | Das ocr Element wird benötigt, wenn man OCR-Ordner mit verschiedenen Suffixen verwendet. Das konkrete Suffix kann dann im Unterlement `suffix` angegeben werden. |
+| `ocr` | Das `ocr` Element wird benötigt, wenn man OCR-Ordner mit verschiedenen Suffixen verwendet. Das konkrete Suffix kann dann im Unterelement `suffix` angegeben werden. |
 
 Der Defaultwert für jeden dieser Parameter außer `ocr` ist `false`. Wird der jeweilige Parameter nicht in der Konfiguration erwähnt, findet kein Export des entsprechenden Ordners statt.
 
