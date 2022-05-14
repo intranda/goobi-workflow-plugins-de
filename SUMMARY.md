@@ -80,7 +80,7 @@
 * [Archivierung von Bildordnern](step/intranda_step_archiveimagefolder.md)
 * [GeoNames Annotierung](step/intranda_step_geonamesautoannotator.md)
 * [GeoNames Korrektur](step/intranda_step_geonamescorrection.md)
-
+* [Laufzettel generieren](step/intranda_step_save_docket_file.md)
 
 ## Opac Plugins <a id="opac"></a>
 
