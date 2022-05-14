@@ -54,15 +54,18 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <config_plugin>
-	<!-- order of configuration is: 1.) project name and step name matches 2.) 
-		step name matches and project is * 3.) project name matches and step name 
-		is * 4.) project name and step name are * -->
+	<!-- order of configuration is:
+    1.) project name and step name matches
+    2.) step name matches and project is *
+    3.) project name matches and step name is *
+    4.) project name and step name are *
+  -->
 
 	<config>
 		<!-- which projects to use for (can be more then one, otherwise use *) -->
 		<project>*</project>
 		<step>*</step>
-		
+
 		<!-- name of the API user -->
 		<apiUser>user</apiUser>
 
@@ -81,7 +84,7 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 
 		<!-- example URN urn:nbn:de:gbv:48-goobi-20220404122233 -->
 
-		<!--target url the newly generated urn will forward to. {pi.urn} will be 
+		<!--target url the newly generated urn will forward to. {pi.urn} will be
 			replaced with the newly minted urn -->
 		<publicationUrl>https://viewer.example.org/viewer/resolver?urn={pi.urn}
 		</publicationUrl>
@@ -92,7 +95,7 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 		<!--Generate URN for the anchor Element -->
 		<anchor>false</anchor>
 
-		<!--Elements listed here will receive a URN. If work is set to true the 
+		<!--Elements listed here will receive a URN. If work is set to true the
 			work element will receive a URN, even if it is not listed here -->
     <!--
 		<allowed>
@@ -106,7 +109,7 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 		<!--metadata name for URNs in MODS-bloc. -->
 		<typeNameMods>URN</typeNameMods>
 
-		<!--Shall the plugin create URNs in the MODS-bloc. The rule set entries 
+		<!--Shall the plugin create URNs in the MODS-bloc. The rule set entries
 			of certain elements may have to be altered, if you wish to use this -->
 		<createModsUrns>false</createModsUrns>
 	</config>
@@ -125,7 +128,7 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 | `publicationUrl`   | Die URL unter der das digitalisierte Werk in Zukunft zur Verfügung steht. In der Regel wird die Veröffentlichungs-URL einem Muster folgen, z.B. `https://viewer.example.org/viewer/resolver?urn={pi.urn}`. Der Platzhalter {pi.urn} wird vom Plugin, durch den neuen URN ersetzt. |
 | `work` | Schalter, der das Setzen von Werks-URNs aktiviert (Monographie, Manuscript, Volume, usw.). |
 | `anchor` |Schalter, der das Setzen von URNs für das Ankerelement aktiviert. |
-| `allowed -> type` | Hier können Sie Elemente aufzählen, für die ein URN generiert werden soll. Für jedes Element muss ein `<type>ElementName</type>` Eintrag im `<allowed>` Element angelegt werden. **Hinweis:** Wenn Sie anchor oder work auf true setzen, erhalten das Ankerelement und das Werkelement eine URN, auch wenn ihre Typnamen nicht in der Liste aufgeführt werden. |
+| `allowed -> type` | Hier können Sie Elemente aufzählen, für die ein URN generiert werden soll. Für jedes Element muss ein `<type>ElementName</type>` Eintrag im `<allowed>` Element angelegt werden. <br/>**Hinweis:** Wenn Sie anchor oder work auf true setzen, erhalten das Ankerelement und das Werkelement eine URN, auch wenn ihre Typnamen nicht in der Liste aufgeführt werden. |
 | `typeNameMets` | Gibt den Metadatentyp an, unter dem METS-URNs erfasst werden sollen. Hier sollte die Vorgabe nicht verändert werden. |
 | `typeNameMods`  | Gibt den Metadatentyp an, unter dem MODS-URNs erfasst werden sollen. Hier sollte die Vorgabe nicht verändert werden.  |
 | `createModsUrns`  | Wenn Sie URNs im MODS-Block schreiben wollen, setzen Sie diesen Schalter auf `true`. Bedenken Sie jedoch, dass es eventuell notwendig ist die Regelsätze einzelner Strukturelemente anzupassen.  |
