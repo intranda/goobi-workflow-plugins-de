@@ -78,7 +78,7 @@ Die Konfiguration erfolgt über die Datei `plugin_intranda_import_excel.xml`. Di
         <imageFolderHeaderName>images</imageFolderHeaderName>
 
         <!-- defines, if images are moved from the source folder to the destination (true) or copied (false) -->
-        <moveImages>true</moveImages>
+        <moveFiles>true</moveFiles>
 
         <!-- Run the import as GoobiScript -->
         <runAsGoobiScript>true</runAsGoobiScript>
@@ -224,9 +224,9 @@ Das Element `processTitleRule` dient zur Generierung des Vorgangstitel. Hier ste
 
 ### Übernahme von Bildern
 
-Mit Hilfe der Elemente `imageFolderHeaderName`, `imageFolderPath` und `moveImages` können zusätzlich zu den Metadaten auch Bilder importiert werden. In `imageFolderHeaderName` wird hierfür der Spaltenname eingetragen, in dem in der Excel-Datei die Ordnernamen zu finden sind, die die Bilder enthalten. Dort kann entweder ein absoluter Pfad oder auch ein relativer Pfad angegeben werden. Wenn hierbei ein relativer Pfad angegeben wird, muss das Element `imageFolderPath` den `root` Pfad zu den Bildern enthalten.
+Mit Hilfe der Elemente `imageFolderHeaderName`, `imageFolderPath` und `moveFiles` können zusätzlich zu den Metadaten auch Bilder importiert werden. In `imageFolderHeaderName` wird hierfür der Spaltenname eingetragen, in dem in der Excel-Datei die Ordnernamen zu finden sind, die die Bilder enthalten. Dort kann entweder ein absoluter Pfad oder auch ein relativer Pfad angegeben werden. Wenn hierbei ein relativer Pfad angegeben wird, muss das Element `imageFolderPath` den `root` Pfad zu den Bildern enthalten.
 
-Mittels des Elements`moveImages` kann gesteuert werden, ob die Bilder kopiert oder verschoben werden sollen.
+Mittels des Elements`moveFiles` kann gesteuert werden, ob die Bilder kopiert oder verschoben werden sollen.
 
 ```markup
 <!-- define which column contains the image folder name. Can be combined with <imageFolderPath> prefix or an absolute path.
