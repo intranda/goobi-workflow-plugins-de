@@ -105,6 +105,7 @@
 * [HAAB Export](export/intranda_export_haab.md)
 * [Einzelseitenexport](export/intranda_export_bda_singleImage.md)
 * [Zeitungsexport](export/intranda_export_newspaper.md)
+* [Konfigurierbarer Export](export/intranda_export_configurable.md)
 
 ## Workflow Plugins <a id="workflow"></a>
 
