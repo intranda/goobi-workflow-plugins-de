@@ -237,7 +237,7 @@ Mittels des Elements`moveFiles` kann gesteuert werden, ob die Bilder kopiert ode
 <imageFolderPath>/mnt/images/</imageFolderPath>
 
 <!-- defines, if images are moved from the source folder to the destination (true) or copied (false) -->
-<moveImages>true</moveImages>
+<moveFiles>true</moveFiles>
 ```
 
 ### Ausführung mittels GoobiScript
@@ -312,4 +312,3 @@ Eine Metadatengruppe besteht aus mehreren Metadaten und Personen. Die Konfigurat
 Um den Import zu nutzen, muss in den Produktionsvorlagen der Massenimportbereich geöffnet werden und im Reiter Dateiupload-Import das Plugin `intranda_import_excel` ausgewählt werden. Anschließend kann eine Excel-Datei hochgeladen und importiert werden.
 
 Der Import erfolgt anschließend zeilenweise. Dabei wird für jede Zeile ein neuer Vorgang erzeugt und die konfigurierten Regeln angewendet. Wenn dabei ein valider Datensatz erzeugt wurde und der generierte Vorgangstitel noch nicht vergeben wurde, wird der Vorgang tatsächlich erzeugt und gespeichert.
-
