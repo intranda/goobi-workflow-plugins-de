@@ -1,9 +1,9 @@
 ---
 description: >-
-  Dies ist eine technische Dokumentation für das Goobi Export-Plugin configurable. Es ermöglicht, den Exportort mithilfe der Projektkonfiguration anzupassen. Durch die Verwendung von Exportprojekten ist es auch möglich in verschiedene Zielorte in einem Durchlauf zu exportieren
+  Dies ist eine technische Dokumentation für das Goobi Export Plugin Configurable. Es ermöglicht, den Export mithilfe der Projektkonfiguration anzupassen. Durch die Verwendung von Exportprojekten ist es auch möglich zu verschiedenen Speicherorten in einem Durchlauf zu exportieren.
 ---
 
-# Export Configurable
+# Konfigurierbarer Export
 
 ## Einführung
 
@@ -13,7 +13,7 @@ Mithilfe dieses Export-Plugins für Goobi können die Goobi-Vorgänge innerhalb 
 
 | Details |  |
 | :--- | :--- |
-| Identifier | HaabExport |
+| Identifier | intranda_export_configurable |
 | Source code | [https://github.com/intranda/goobi-plugin-export-configurable](https://github.com/intranda/goobi-plugin-export-configurable) |
 | Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 2022.03 und neuer |
@@ -69,8 +69,8 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 
 	<config>
 		<project>*</project>
-		<target key="{meta.ViewerInstance}" value="eivfaanddigihub" projectName="eivfExportProject"/>
-		<target key="{meta.ViewerInstance}" value="eivfaanddigihub" projectName="digihubExportProject"/>
+		<target key="{meta.ViewerInstance}" value="evifaanddigihub" projectName="evifExportProject"/>
+		<target key="{meta.ViewerInstance}" value="evifaanddigihub" projectName="digihubExportProject"/>
 		<target key="{meta.ViewerInstance}" value="" projectName=""/>
     <includeMarcXml>false</includeMarcXml>
 		<folder>
@@ -93,14 +93,14 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 | Parameter | Erläuterung |
 | :--- | :--- |
 | `project` | Dieser Parameter legt fest, für welches Projekt der aktuelle Block `<config>` gelten soll. Verwendet wird hierbei der Name des Projektes. Der `<config>`-Block mit dem `project` `*` wird immer verwendet, wenn kein anderer Block auf den Projektnamen passt.  
-| `target` | Dieser Parameter hat 3 obligatorische Attribute. Im Parameter `key` sollte eine Goobi Variable der Form {meta.Metadatenname} verwendet werden. Im Attribut `value` kann dann der geünschte Wert angegeben werden. Setzt man `value=""` So schlägt die Bedingung an, wenn das Metadatum leer oder nicht gesetzt ist. Im Attribut `projectName` sollte der Name des Exportprojektes, mit dessen Einstellungen der Export stattfinden soll, angegeben werden. Wird dem Attribut ein leerer String zugewiesen `projectName=""`, so werden die Einstellungen des Projektes des Vorgangs zum Export verwendet. Wenn keine target condition gesetzt ist, wird ein normaler Export durchgeführt. Für jede target Bedingung, die zutrifft, wird ein Export angestoßen.  |
-|`includeMarcXml`| Dieser Parameter legt fest, ob evtl. vorhandene MARC-XML Daten in die exportierte Metsdatei eingebettet werden sollen. Der Defaultwert ist false.|
+| `target` | Dieser Parameter hat 3 obligatorische Attribute: Im Parameter `key` sollte eine Goobi Variable der Form `{meta.Metadatenname}` verwendet werden. Im Attribut `value` kann dann der gewünschte Wert angegeben werden. Setzt man `value=""` So schlägt die Bedingung an, wenn das Metadatum leer oder nicht gesetzt ist. Im Attribut `projectName` sollte der Name des Exportprojektes, mit dessen Einstellungen der Export stattfinden soll, angegeben werden. Wird dem Attribut ein leerer String zugewiesen `projectName=""`, so werden die Einstellungen des Projektes des Vorgangs zum Export verwendet. Wenn keine target condition gesetzt ist, wird ein normaler Export durchgeführt. Für jede target Bedingung, die zutrifft, wird ein Export angestoßen.  |
+|`includeMarcXml`| Dieser Parameter legt fest, ob evtl. vorhandene MARC-XML Daten in die exportierte Metsdatei eingebettet werden sollen. Der Defaultwert ist `false`.|
 
 Der Block `<config>` ist wiederholbar und kann so in unterschiedlichen Projekten verschiedene Metadaten definieren. Der Block mit <project>*</project> wird angewendet, wenn kein Block mit der Projektbezeichnung des Projektes existiert.
 
 ### Der folder-Block
 
-Der folder Block befindet sich in jedem `config`-Element.
+Der `folder` Block befindet sich innnerhalb von jedem `config`-Element. Er steuert, welche Verzeichnse für den Export berücksichtigt werden sollen.
 
 | Parameter | Erläuterung |
 | :--- | :--- |
@@ -110,12 +110,12 @@ Der folder Block befindet sich in jedem `config`-Element.
 | `includeSource` | Hier kann definiert werden, ob der source-Ordner exportiert werden soll. |
 | `includeImport` | Hier kann definiert werden, ob der import-Ordner exportiert werden soll. |
 | `includeExort` | Hier kann definiert werden, ob der export-Ordner exportiert werden soll. |
-| `includeITM` | Hier kann definiert werden, ob der ITM-Ordner exportiert werden soll. |
+| `includeITM` | Hier kann definiert werden, ob der TaskManager-Ordner exportiert werden soll. |
 | `includeValidation` | Hier kann definiert werden, ob der validation-Ordner exportiert werden soll. |
-| `ocr` | Das ocr Element wird benötigt, wenn man OCR-Ordner mit verschiedenen Sufixen verwendet. Das konkrete Suffix kann dann im Unterlement `suffix` angegeben werden. |
+| `ocr` | Das ocr Element wird benötigt, wenn man OCR-Ordner mit verschiedenen Suffixen verwendet. Das konkrete Suffix kann dann im Unterlement `suffix` angegeben werden. |
 
-Der Defaultwert für jeden dieser Parameter außer ocr ist false. Wird der jeweilige Parameter nicht in der Konfiguration erwähnt, findet kein Export des entsprechenden Ordners statt.
+Der Defaultwert für jeden dieser Parameter außer `ocr` ist `false`. Wird der jeweilige Parameter nicht in der Konfiguration erwähnt, findet kein Export des entsprechenden Ordners statt.
 
-Die Konfiguration des Zielordners kann in den Projekteinstellungen vorgenommen werden. Wenn der Haken bei `Erzeuge Vorgangsverzeichnis` gesetzt ist, wird der Vorgang in einen Unterordner mit seinem Titel als Namen im Zielverzeichnis abgelegt.
+Die Konfiguration des Zielordners kann innerhalb der Projekteinstellungen in der Nutzeroberfläche von Goobi workflow vorgenommen werden. Wenn dort die Checkbox für `Erzeuge Vorgangsverzeichnis` gesetzt ist, wird der Vorgang in einen Unterordner mit seinem Titel als Namen im Zielverzeichnis abgelegt.
 
-![](../.gitbook/assets/plugin_intranda_export_configurable-project.png)
+![Projekteinstellungen innerhalb von Goobi workflow](../.gitbook/assets/plugin_intranda_export_configurable-project.png)
