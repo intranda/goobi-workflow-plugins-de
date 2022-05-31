@@ -23,13 +23,13 @@ Diese Plugin dient zur Validierung von Bildern im Format `TIF` innerhalb von def
 Zur Installation des Plugins muss zunächst die folgende Datei installiert werden:
 
 ```bash
-/opt/digiverso/goobi/plugins/workflow/plugin_intranda_step_tif-validation.jar
+/opt/digiverso/goobi/plugins/step/plugin_intranda_step_tif_validation.jar
 ```
 
 Um zu konfigurieren, wie sich das Plugin verhalten soll, können verschiedene Werte in der Konfigurationsdatei angepasst werden. Die zentrale Konfigurationsdatei befindet sich üblicherweise hier:
 
 ```bash
-/opt/digiverso/goobi/config/plugin_intranda_step_jhove-validation.xml
+/opt/digiverso/goobi/config/plugin_intranda_step_tif_validation.xml
 ```
 
 Innerhalb diese Konfigurationsdatei ist unter anderem der Pfad zu der JHove-Konfiguration benannt. Im Falle des unten aufgeführten Beispiels ist dort der folgende Pfad angegeben:
