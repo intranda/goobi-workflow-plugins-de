@@ -1,6 +1,6 @@
 ---
 description: >-
-	Dieses Step Plugin erlaubt das automatische Generieren von Laufzetteln in verschiedenen Dateiformaten.
+  Dieses Step Plugin erlaubt das automatische Generieren von Laufzetteln in verschiedenen Dateiformaten.
 ---
 
 # Generierung von Laufzetteln
