@@ -75,5 +75,6 @@ Die Konfiguration des Plugins ist folgendermaßen aufgebaut:
 | `dotsPerInch` | Dieser Wert gibt die Auflösung des exportierten Dokumentes an. Die Einheit ist Pixel pro Zoll. Der Standardwert beträgt 150 DPI. |
 
 ## Anwendung des Plugins
+Dieses Plugin wird in den Workflow so integriert, dass es automatisch ausgeführt wird. Eine manuelle Interaktion mit dem Plugin ist nicht notwendig. Zur Verwendung innerhalb eines Arbeitsschrittes des Workflows sollte es wie im nachfolgenden Screenshot konfiguriert werden.
 
-Im Fall einer automatischen Aufgabe wird das Plugin automatisch ausgeführt, sobald die entsprechende Aufgabe ausgeführt wird. Es gibt zusätzlich einen Button bei der enstprechenden Aufgabe in den Vorgangs-Details, mit dem der Laufzettel jederzeit manuell generiert werden kann.
+![Integration des Plugins in den Workflow](../.gitbook/assets/intranda_step_save_docket_file_de.png)
