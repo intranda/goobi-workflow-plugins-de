@@ -23,7 +23,7 @@ Mithilfe dieses Export-Plugins für Goobi können die Goobi-Vorgänge innerhalb 
 
 Dieses Plugin wird in den Workflow so integriert, dass es automatisch ausgeführt wird. Eine manuelle Interaktion mit dem Plugin ist nicht notwendig. Zur Verwendung innerhalb eines Arbeitsschrittes des Workflows sollte es wie im nachfolgenden Screenshot konfiguriert werden.
 
-![Integration des Plugins in den Workflow](../.gitbook/assets/plugin_intranda_export_configurable-step.png)
+![Integration des Plugins in den Workflow](../.gitbook/assets/intranda_plugin_export_configurable1_de.png)
 
 Das Plugin muss zunächst in folgendes Verzeichnis kopiert werden:
 
@@ -118,4 +118,4 @@ Der Defaultwert für jeden dieser Parameter außer `ocr` ist `false`. Wird der j
 
 Die Konfiguration des Zielordners kann innerhalb der Projekteinstellungen in der Nutzeroberfläche von Goobi workflow vorgenommen werden. Wenn dort die Checkbox für `Erzeuge Vorgangsverzeichnis` gesetzt ist, wird der Vorgang in einen Unterordner mit seinem Titel als Namen im Zielverzeichnis abgelegt.
 
-![Projekteinstellungen innerhalb von Goobi workflow](../.gitbook/assets/plugin_intranda_export_configurable-project.png)
+![Projekteinstellungen innerhalb von Goobi workflow](../.gitbook/assets/intranda_plugin_export_configurable2_de.png)
