@@ -80,6 +80,7 @@
 * [GeoNames Annotierung](step/intranda_step_geonamesautoannotator.md)
 * [GeoNames Korrektur](step/intranda_step_geonamescorrection.md)
 * [Laufzettel generieren](step/intranda_step_save_docket_file.md)
+* [Bereinigung von Metadaten](step/intranda_step_kiel_archive_cleanup.md)
 
 
 ## Opac Plugins <a id="opac"></a>
