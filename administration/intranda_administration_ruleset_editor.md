@@ -1,7 +1,7 @@
 ---
 description: >-
-  Dies ist ein Administration Plugin für Goobi workflow. Es ermöglicht die Bearbeitung von Ruleset-Dateien direkt aus der Benutzeroberfläche von Goobi Workflow.
-  
+  Dies ist ein Administration Plugin für Goobi workflow. Es ermöglicht die Bearbeitung von Ruleset-Dateien direkt aus der Benutzeroberfläche.
+
 ---
 
 Regelsatzeditor
@@ -19,7 +19,7 @@ Details             |  Erläuterung
 ------------------- | -----------------------------------------------------
 Identifier          | intranda_administration_ruleset_editor
 Source code         | [https://github.com/intranda/goobi-plugin-administration-ruleset-editor](https://github.com/intranda/goobi-plugin-administration-ruleset-editor)
-Lizenz              | GPL 2.0 oder neuer 
+Lizenz              | GPL 2.0 oder neuer
 Dokumentationsdatum | 20.03.2022
 
 
@@ -34,7 +34,7 @@ Nach dem Öffnen werden auf der linken Seite alle Regelsätze von Goobi aufgelis
 
 ![Geöffnetes Plugin mit geladener Datei](../.gitbook/assets/intranda_administration_ruleset_editor4_de.png)
 
-Öffnet man eine Datei, erscheint auf der rechten Seite ein Texteditor, in dem die Datei bearbeitet werden kann. Bearbeitet und speichert man eine Datei, wird im definierten Backupverzeichnis automatisch ein Backup angelegt. 
+Öffnet man eine Datei, erscheint auf der rechten Seite ein Texteditor, in dem die Datei bearbeitet werden kann. Bearbeitet und speichert man eine Datei, wird im definierten Backupverzeichnis automatisch ein Backup angelegt.
 
 ![Gespeicherte Datei](../.gitbook/assets/intranda_administration_ruleset_editor5_de.png)
 
@@ -72,26 +72,26 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 
 ```xml
 <config_plugin>
-	
+
 	<!-- By editing a ruleset file in the browser GUI, a backup file will be stored in the backup directory -->
 	<rulesetBackupDirectory>/opt/digiverso/goobi/rulesets/backup/</rulesetBackupDirectory>
 	<!-- backup files will be stored as ruleset.xml.1, ruleset.xml.2, ..., ruleset.xml.n -->
 	<numberOfBackupFiles>10</numberOfBackupFiles>
-	
+
 </config_plugin>
 ```
 
 Die Parameter innerhalb dieser Konfigurationsdatei haben folgende Bedeutungen:
 
 Parameter           |  Erläuterung
-------------------- | ----------------------------------------------------- 
+------------------- | -----------------------------------------------------
 `rulesetBackupDirectory`   | Hiermit wird der Pfad für die Backup-Dateien festgelegt, wo nach dem Bearbeiten die Backups der Regelsatzdateien gespeichert werden sollen.
 `numberOfBackupFiles`         | Dieser ganzzahlige Wert gibt an, wie viele Backup-Dateien pro Regelsatzdatei gespeichert bleiben, bevor sie durch neue Backups überschrieben werden.
 
 
 Einrichtung benötigter Berechtigungen
 ---------------------------------------------------------------------------
-Dieses Plugin verfügt über eine eigene Berechtigungsstufe für die Verwendung. Aus diesem Grund müssen Nutzer über die erforderlichen Rechte verfügen. 
+Dieses Plugin verfügt über eine eigene Berechtigungsstufe für die Verwendung. Aus diesem Grund müssen Nutzer über die erforderlichen Rechte verfügen.
 
 ![Kein Zugriff ohne korrekte Rechte](../.gitbook/assets/intranda_administration_ruleset_editor1_de.png)
 

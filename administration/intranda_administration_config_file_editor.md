@@ -1,7 +1,7 @@
 ---
 description: >-
-  Dies ist ein Administration Plugin für den Goobi workflow, mit dem Sie lesend und schreibend auf alle wichtigen Konfigurationsdateien des Goobi-Workflows zugreifen können, die sich normalerweise im Ordner `/opt/digiverso/goobi/config/` befinden.
-  
+  Dies ist ein Plugin für den Goobi workflow, mit dem alle wichtigen Konfigurationsdateien von Goobi workflow bearbeitet werden können.
+
 ---
 
 Konfigurationseditor
@@ -20,7 +20,7 @@ Details             |  Erläuterung
 ------------------- | -----------------------------------------------------
 Identifier          | intranda_administration_config_file_editor
 Source code         | [https://github.com/intranda/goobi-plugin-administration-config-file-editor](https://github.com/intranda/goobi-plugin-administration-config-file-editor)
-Lizenz              | GPL 2.0 oder neuer 
+Lizenz              | GPL 2.0 oder neuer
 Dokumentationsdatum | 20.03.2022
 
 
@@ -39,7 +39,7 @@ Es werden außerdem keine versteckten Dateien und keine Dateien aus versteckten 
 
 ![Geöffnetes Plugin mit geladener Datei](../.gitbook/assets/intranda_administration_config_file_editor4_de.png)
 
-Öffnet man eine Datei, erscheint auf der rechten Seite ein Texteditor, in dem die Datei bearbeitet werden kann. Bearbeitet und speichert man eine Datei, wird im definierten Backupverzeichnis automatisch ein Backup angelegt. 
+Öffnet man eine Datei, erscheint auf der rechten Seite ein Texteditor, in dem die Datei bearbeitet werden kann. Bearbeitet und speichert man eine Datei, wird im definierten Backupverzeichnis automatisch ein Backup angelegt.
 
 ![Gespeicherte Datei](../.gitbook/assets/intranda_administration_config_file_editor5_de.png)
 
@@ -47,7 +47,7 @@ Entsprechend des eingestellten Wertes in der Konfigurationsdatei bleibt hier ein
 
 ![Dateien innerhalb des Backup-Verzeichnisses](../.gitbook/assets/intranda_administration_config_file_editor8.png)
 
-Wurde eine Datei verändert und wird ohne zuvor zu speichern ein Wechsel zu einer anderen Datei versucht, bekommt der Beareiter eine Rückfrage, wie mit den Änderungen zu verfahren ist.
+Wurde eine Datei verändert und wird ohne zuvor zu speichern ein Wechsel zu einer anderen Datei versucht, bekommt der Bearbeiter eine Rückfrage, wie mit den Änderungen zu verfahren ist.
 
 ![Nachfrage bei ungespeicherten Daten](../.gitbook/assets/intranda_administration_config_file_editor6_de.png)
 
@@ -99,7 +99,7 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 Die Parameter innerhalb dieser Konfigurationsdatei haben folgende Bedeutungen:
 
 Parameter           |  Erläuterung
-------------------- | ----------------------------------------------------- 
+------------------- | -----------------------------------------------------
 `configFileDirectories`       | Dies ist die Liste, die alle ausgewählten Konfigurationsdateipfade beinhaltet. Der in Goobi Workflow voreingestellte Konfigurationsdateipfad wird immer verwendet.
 `directory`                   | Konfigurationsdateien aus dem hier angegebenen absoluten Pfad werden in der Benutzeroberfläche angezeigt. Der Pfad wird ignoriert, wenn er nicht existiert.
 `backupFolder`                | Dieser Parameter gibt einen relativen Pfad in `directory` an, in dem die Backup-Dateien gespeichert werden sollen. Standardmäßig wird `backup/` verwendet, wenn der Parameter nicht angegeben wird. Um Backupdateien im selben Verzeichnis wie `directory` speichern zu lassen, überschreiben Sie den Wert mit `backupFolder=""`.
@@ -132,7 +132,7 @@ Zu beachten ist hierbei, dass jeweils der Präfix `plugin_administration_config_
 
 Einrichtung benötigter Berechtigungen
 ---------------------------------------------------------------------------
-Dieses Plugin verfügt über eine eigene Berechtigungsstufe für die Verwendung. Aus diesem Grund müssen Nutzer über die erforderlichen Rechte verfügen. 
+Dieses Plugin verfügt über eine eigene Berechtigungsstufe für die Verwendung. Aus diesem Grund müssen Nutzer über die erforderlichen Rechte verfügen.
 
 ![Kein Zugriff ohne korrekte Rechte](../.gitbook/assets/intranda_administration_config_file_editor1_de.png)
 
