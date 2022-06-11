@@ -81,7 +81,8 @@
 * [GeoNames Korrektur](step/intranda_step_geonamescorrection.md)
 * [Laufzettel generieren](step/intranda_step_save_docket_file.md)
 * [Bereinigung von Metadaten](step/intranda_step_kiel_archive_cleanup.md)
-
+* [Metadatenanreicherung via Excel-Datei](step/intranda_step_excelMetadataenrichment.md)
+* [Metatatenübernahme aus einem Verzeichnis](step/intranda_step_import_from_folder.md)
 
 ## Opac Plugins <a id="opac"></a>
 * [PICA Import](opac/intranda_opac_pica.md)
