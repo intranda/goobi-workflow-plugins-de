@@ -91,6 +91,7 @@
 * [Generischer XML Import](opac/intranda_opac_generic_xml.md)
 * [Generischer JSON Import](opac/intranda_opac_json.md)
 * [Soutron Import](opac/intranda_opac_soutron.md)
+* [Kalliope Import](opac/intranda_opac_kalliope.md)
 
 
 ## Import Plugins <a id="import"></a>
