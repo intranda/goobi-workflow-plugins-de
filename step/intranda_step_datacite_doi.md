@@ -8,7 +8,15 @@ description: >-
 
 ## Einführung
 
-Diese Dokumentation beschreibt die Installation, Konfiguration und Verwendung des Plugins.
+Diese Dokumentation beschreibt die Installation, Konfiguration und Verwendung des Plugins zur Registrierung von DOIs.
+
+{% hint style="info" %}
+Achtung:
+
+Für diese Funktionalität existiert noch ein neueres Plugin, das mittels XSL-Transformation einen höheren Freiheitsgrad der DOI-Registrierung erlaubt. Eine Dokumentation des neuen Plugins findet sich hier: https://docs.goobi.io/goobi-workflow-plugins-de/step/intranda_step_doi
+
+{% endhint %}
+
 
 | Details |  |
 | :--- | :--- |

@@ -83,6 +83,7 @@
 * [Bereinigung von Metadaten](step/intranda_step_kiel_archive_cleanup.md)
 * [Metadatenanreicherung via Excel-Datei](step/intranda_step_excelMetadataenrichment.md)
 * [Metatatenübernahme aus einem Verzeichnis](step/intranda_step_import_from_folder.md)
+* [DOI-Registrierung](step/intranda_step_doi.md)
 
 ## Opac Plugins <a id="opac"></a>
 * [PICA Import](opac/intranda_opac_pica.md)
