@@ -1,7 +1,7 @@
 ---
 description: >-
   Dies ist ein Workflow Plugin für den Goobi workflow. Es ermöglicht die Erstellung mehrerer Goobi Vorgäng auf der Grundlage einer ersten AEON-Anfrage. Es ermöglicht die manuelle Auswahl von Elementen aus der AEON-Antwort, um zu entscheiden, für welche Elemente ein Goobi Vorgang erzeugt werden soll.
-  
+
 ---
 
 AEON Datenübernahme
@@ -20,8 +20,8 @@ Details             |  Erläuterung
 ------------------- | -----------------------------------------------------
 Identifier          | intranda_workflow_aeon_process_creation
 Source code         | [https://github.com/intranda/goobi-plugin-workflow-aeon-process-creation](https://github.com/intranda/goobi-plugin-workflow-aeon-process-creation)
-Lizenz              | GPL 2.0 oder neuer 
-Dokumentationsdatum | 05.11.2021 
+Lizenz              | GPL 2.0 oder neuer
+Dokumentationsdatum | 04.07.2022
 
 
 Arbeitsweise des Plugins
@@ -119,7 +119,7 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
             <variable place="process">Doc type</variable>
             <help>This is my description for the field so that everyone gets some help.</help>
         </field>
-    
+
         <field aeon="username">
             <title>User Name</title>
             <type readonly="false">input</type>
@@ -184,7 +184,7 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
             <help>This is my description for the field so that everyone gets some help.</help>
         </field>
     </properties>
-    
+
     <processes>
         <field aeon="bibId" displayAlways="true" displayInTitle="false">
             <title>Bib Identifier</title>
@@ -237,9 +237,9 @@ Anschließend erfolgt die Konfiguration der angezeigten und importierbaren Felde
 Die Konfiguration innerhalb der drei Bereiche ist annähernd identisch. Jedes Feld wird jeweils durch ein  Element `<field>` definiert. Innerhalb davon sind anschließend folgende Möglichkeiten vorgesehen:
 
 Parameter           |  Erläuterung
-------------------- | ----------------------------------------------------- 
+------------------- | -----------------------------------------------------
 `title`             | Anzeigename des Feldes
-`type`              | Typ des Feldes, mögliche Werte sind `input`, `select`, `vocabulary`, `checkbox`
+`type`              | Typ des Feldes, mögliche Werte sind `input` (Textfeld), `select` (Auswahlfeld), `vocabulary` (Auswahlfeld aus einem Vokabular), `checkbox` (Checkbox), `radio-dont-overwrite` (Radio-Buttons, die im linken Bereich editierbar sind, aber nicht im rechten Bereich)
 `readonly`          | Die Werte `true` oder `false` definieren, ob der Inhalt des Feldes bearbeitet werden darf.
 `aeon`              | Name des json Elements, aus dem das Feld befüllt wird. Dieser Parameter wird für die frei definierbare Eigenschaften nicht ausgewertet.
 `displayAlways`     | Die Werte `true` oder `false` definieren, ob das Feld angezeigt wird, wenn nur ein minimierter Datensatz angezeigt wird. Dieser Parameter wird ausschließlich für die Felder aus der Metadata Cloud ausgewertet.
@@ -249,9 +249,9 @@ Parameter           |  Erläuterung
 `value`             | Mit diesem Parameter kann ein Default Wert festgelegt werden. Falls ein AEON Element konfiguriert und durch die Abfrage erhalten wurde, wird der konfigurierte default Wert mit dem Inhalt aus AEON überschrieben.
 `help`              | Mit diesem Parameter läßt sich ein Hilfetext definieren der optional angezeigt werden kann.
 `validation`        | Dieser Parameter definiert einen regulären Ausdruck, gegen den der Feldinhalt validiert werden kann.
-`strict`            | Die Werte `true` oder `false` definieren, ob ein Verstoß gegen die Validierung zwingend behoben werden muss, bevor Vorgänge angelegt werden können. 
+`strict`            | Die Werte `true` oder `false` definieren, ob ein Verstoß gegen die Validierung zwingend behoben werden muss, bevor Vorgänge angelegt werden können.
 `message`           | Dieser Parameter legt eine Meldung fest, die im Falle von Validierungsfehlern angezeigt werden soll.
-`vocabularyName`    | Dieser Parameter definiert ein zu nutzendes Vokabular. 
+`vocabularyName`    | Dieser Parameter definiert ein zu nutzendes Vokabular.
 `vocabularyField`   | Mit dem Parameter `fieldname=value` kann das Trefferset auf Werte eingeschränkt werden, die diese Definition erfüllen. Das Feld ist wiederholbar, um mehrere Einschränkungen gleichzeitig zu definieren.
 
 Einrichtung benötigter Berechtigungen
