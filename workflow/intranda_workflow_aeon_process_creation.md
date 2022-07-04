@@ -239,7 +239,7 @@ Die Konfiguration innerhalb der drei Bereiche ist annähernd identisch. Jedes Fe
 Parameter           |  Erläuterung
 ------------------- | -----------------------------------------------------
 `title`             | Anzeigename des Feldes
-`type`              | Typ des Feldes, mögliche Werte sind `input` (Textfeld), `select` (Auswahlfeld), `vocabulary` (Auswahlfeld aus einem Vokabular), `checkbox` (Checkbox), `radio-dont-overwrite` (Radio-Buttons, die im linken Bereich editierbar sind, aber nicht im rechten Bereich)
+`type`              | Typ des Feldes, mögliche Werte sind `input` (Textfeld), `select` (Auswahlfeld), `vocabulary` (Auswahlfeld aus einem Vokabular), `checkbox` (Checkbox), `input-dont-overwrite` (Textfeld, das im linken Bereich editierbar ist, aber nicht im rechten Bereich), `radio-dont-overwrite` (Radio-Buttons, die im linken Bereich editierbar sind, aber nicht im rechten Bereich)
 `readonly`          | Die Werte `true` oder `false` definieren, ob der Inhalt des Feldes bearbeitet werden darf.
 `aeon`              | Name des json Elements, aus dem das Feld befüllt wird. Dieser Parameter wird für die frei definierbare Eigenschaften nicht ausgewertet.
 `displayAlways`     | Die Werte `true` oder `false` definieren, ob das Feld angezeigt wird, wenn nur ein minimierter Datensatz angezeigt wird. Dieser Parameter wird ausschließlich für die Felder aus der Metadata Cloud ausgewertet.
