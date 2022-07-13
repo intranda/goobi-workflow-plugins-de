@@ -25,7 +25,7 @@ Dieses Plugin dient zu bedingen Umbenennung von Dateien innerhalb der verschiede
 Zur Installation des Plugins muss die folgende Datei installiert werden:
 
 ```bash
-/opt/digiverso/goobi/plugins/workflow/plugin_intranda_step_rename-files.jar
+/opt/digiverso/goobi/plugins/step/plugin_intranda_step_rename-files.jar
 ```
 
 Um zu konfigurieren, wie sich das Plugin verhalten soll, können verschiedene Werte in der Konfigurationsdatei angepasst werden. Die Konfigurationsdatei befindet sich üblicherweise hier:
@@ -135,4 +135,3 @@ Das Plugin berücksichtigt für die Benennung die Dateien innerhalb der folgende
 Dieses Plugin wird in den Workflow so integriert, dass es automatisch ausgeführt wird. Eine manuelle Interaktion mit dem Plugin ist nicht notwendig. Zur Verwendung innerhalb eines Arbeitsschrittes des Workflows sollte es wie im nachfolgenden Screenshot konfiguriert werden.
 
 ![Integration des Plugins in den Workflow](../.gitbook/assets/intranda_step_rename-files.png)
-

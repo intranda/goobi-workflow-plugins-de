@@ -22,7 +22,7 @@
 
 
 ## Step Plugins <a id="step"></a>
-* [Automatisches Setzen des Repräsentanten](step/intranda-step-representative-creation.md)
+* [Automatisches Setzen des Repräsentanten](step/intranda_step_representative_creation.md)
 * [Elektronische Publikationen](step/intranda_step_pdfupload.md)
 * [LayoutWizzard](step/intranda_step_crop/README.md)
   * [Verwendung des Plugins](step/intranda_step_crop/01_use/README.md)
@@ -51,7 +51,7 @@
 * [Anzeige von Metadaten in einer Aufgabe](step/intranda_step_displaymetadata.md)
 * [Automatische Paginierung auf Basis der Dateinamen](step/intranda_step_imagename_analyse.md)
 * [EWIG Langzeitarchivierung](step/intranda_step_lza_ewig.md)
-* [Umbenennung von Dateien](step/intranda_step-rename-files.md)
+* [Umbenennung von Dateien](step/intranda_step_rename_files.md)
 * [Tif-Validierung](step/intranda_step_jhove-validation.md)
 * [Metadaten-Validierung innerhalb einer Aufgabe](step/intranda_step_metadata_yerusha_validation.md)
 * [Automatische Anreicherung von Metadaten aus eigenen Vokabularen](step/intranda_step_metadata_replacement.md)
