@@ -143,8 +143,7 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 	</mappingSet>
 </config_plugin>
 ```
-
-Das Plugin kennt 4 Elementtypen.
+### Das Plugin kennt 4 Elementtypen.
 
 | Element | Beschreibung |
 | :--- | :--- |
@@ -172,7 +171,7 @@ Das Plugin kennt 4 Elementtypen.
 |`eadNode`| ID des Vaterknotens unter dem der neue EAD-Knoten eingefügt werden soll. Das Attribut ist `optional`.|
 |`rowStart`| Erste Zeile einer Datei im metadataFolder, die gelesen werden soll. Das Attribut ist `optional`.|
 |`rowEnd`| Letzte Zeile des eines Dokumentes im metadataFolder, die gelesen werden soll. Das Attribut ist `optional`.|
-|`useFileNameAsProcessTitle`|Wenn dieser optionale Parameter auf true gesetzt wird, wird der Dateiname|
+|`useFileNameAsProcessTitle`|Wenn dieser optionale Parameter auf true gesetzt wird, wird der Dateiname als Prozesstitel verwendet.|
 
 
 ### Die Elemente mappingSet und field
@@ -185,11 +184,21 @@ Das Element field hat folgende Attribute.
 |`column`| Spalte(n) die gemappt werden soll(en). Der eingelesene Werte wird dann einem METS-Metadatentyp, der im Attribut mets definiert wird, zugeordnet. Alternativ kann der Inhalt der Zelle auch einer Vorgangseigenschaft wie dem Vorgangstitel zugeordnet werden, wenn als type ProcessName spezifiziert wird. Wenn mehrere Spalten in einen Wert abgebildet werden sollen, kann man die Spaltenindexe als Komma separierte Liste übergeben (z.B. "A,B,AA") Das Attribut ist `obligatorisch`. |
 |`label`| Hier kann `optional` der Spaltentitel angegeben werden.|
 |`mets`| Bestimmt welchem METS-Typ der eingelesene Wert zugeordnet wird. Zulässig sind hier alle Werte, die laut Regelsatz ein gültiges Metadatum des entsprechenden Elements sind.|
-|`type`| Dieser Parameter ist `obligatorisch` und kann die Werte: person, metadata, media, FileName, ProcessName  annehmen. Die Werte werden kurz unter der Tabelle erläutert.|
+|`type`| Dieser Parameter ist `obligatorisch` und kann die Werte: person, personWithGnd, metadata, media, FileName, ProcessName  annehmen. Die Werte werden kurz unter der Tabelle erläutert.|
 |`separator`| Dieser Separator wird verwendet, wenn mehrere Elemente in einen Wert abgebildet werden sollen. Der Standardwert ist `;`.  Das Attribut ist `optional`.|
 |`blankBeforeSeparator`| Falls der Inhalt mehrerer Spalten in einen Wert gemappt werden soll, kann hier bestimmt werden, ob ein Leerzeichen vor dem Separator gesetzt werden soll. Der Standardwert ist `false`. Das Attribut ist `optional`.|
 |`blankAfterSeparator`|Falls der Inhalt mehrerer Spalten in einen Wert abgebildet werden soll, kann hier bestimmt werden, ob ein Leerzeichen nach dem Separator gesetzt werden soll. Der Standardwert ist `false`.  Das Attribut ist `optional`.|
-|`ead`| Wenn dieser `optionale` Parameter gesetzt ist, wird der Inhalt der Zelle diesem METS-Metadatentyp zugeordnet.Das Attribut ist `optional`.|
+|`ead`| Wenn dieser `optionale` Parameter gesetzt ist, wird der Inhalt der Zelle diesem ead-Metadatentyp zugeordnet.Das Attribut ist `optional`.|
+
+#### Werte des Type-Attributes
+| Wert | Beschreibung |
+| :--- | :--- |
+|`metadata`| Ein Element vom Typ metadata wird dem im Attribut mets spezifizierten Metadatum in der Metsdatei zugeordnet |
+| `person`| Hierbei handelt es sich um einen METSdatentyp. Wenn der Typ person verwendet wird, sollte immer auch das Attribut mets gesetzt werden. |
+|`personWithGnd` | Hierbei handelt es sich um eine Spzialisierung von person. Das Plugin geht davon aus, dass sich in der letzten Spalte die GND-ID befindet. Es können entweder 2 oder 3 Spalten angegeben werden. Werden nur 2 Spalten angegeben geht, das Plugin davon aus, dass sich in der ersten Spalte Vorname und Nachname befinden.  |
+|`media`|In der angegebenen Spalte muss sich ein Dateiname befinden. Es wird davon ausgegangen, dass sich die Datei im mediaFolder befindet -> siehe Importset.|
+|`FileName`|Dieser Typ muss verwendet werden, um die Spalte mit dem Dateinamen der Prozessbeschreibung anzugeben. Dieser Feldtyp ist also nur in einem descriptionMappingset sinnvoll.  |
+|`ProcessName`   | Dieser Typ muss verwendet werden, um die Spalte mit dem zukünftigen Prozessnamen zu spezifizieren.  |
 
 
 ## Benutzung des Plugins
