@@ -15,7 +15,7 @@ Die vorliegende Dokumentation beschreibt die Installation, die Konfiguration und
 | Source code | [https://github.com/intranda/goobi-plugin-step-urn](https://github.com/intranda/goobi-plugin-step-urn) |
 | Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 2022.03 |
-| Dokumentationsdatum | 06.05.2022 |
+| Dokumentationsdatum | 03.08.2022 |
 
 
 ## Arbeitsweise des Plugins
@@ -46,7 +46,8 @@ Daneben gibt es eine Konfigurationsdatei, die an folgender Stelle liegen muss:
 ```bash
 /opt/digiverso/goobi/config/plugin_intranda_step_urn.xml
 ```
-
+### Hinweis
+Dieses Plugin verwendet eine leicht abgewandelte Tabellenstruktur als das alte URN Plugin. Bei einem Update muss sichergestellt werden, dass die Spalte urn in der entsprechenden Tabelle existiert. Des weiteren muss sichergestellt werden, dass z.B. für Ankerelemente, deren URN vor der Aktualisierung generiert wurde, auch ein URN in der Datenbank steht.
 
 ## Konfiguration
 Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intranda_step_urn.xml` und kann im laufenden Betrieb angepasst werden. Im folgenden ist eine beispielhafte Konfigurationsdatei aufgeführt:
@@ -80,9 +81,23 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 		<namespace>urn:nbn:de:{SIGIL}</namespace>
 
 		<!-- infix that you want to use (optional) -->
-		<infix>-goobi-</infix>
+		<infix>goobi-</infix>
 
-		<!-- example URN urn:nbn:de:gbv:48-goobi-20220404122233 -->
+        <!-- optional Element generationMethod,
+			increment if you want to use incrementation (300,301,302...) to generate the part after the infix
+			timestamp if you want to use a timestamp (2042-09-23-06-30-15) to generate the part after the infix
+			the default method is increment!
+		  -->
+		<generationMethod>timestamp</generationMethod>
+
+        <!-- optional Element checksum,
+			false if you don't want URNs with a Checksum
+			true if you want URNs with a Checksum.the default value is false;
+		-->
+		<checksum>false</checksum>
+
+		<!-- example URN urn:nbn:de:gbv:48-goobi-20220404122233
+        the "-" after the namespace string is always added! -->
 
 		<!--target url the newly generated urn will forward to. {pi.urn} will be
 			replaced with the newly minted urn -->
@@ -124,7 +139,9 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 | `apiPassword` | Das Passwort des API-Nutzers. |
 | `apiUri` | In diesem Parameter muss die URL der API hinterlegt werden. In der Regel kann der Standardeintrag `https://api.nbn-resolving.org/v2/` übernommen werden.  |
 | `namespace` | Der Namensraum in dem der neue URNs angelegt werden. |
-| `infix` | Infix, der in die generierten URNs nach dem Namensraum eingefügt wird. Eine neue URN hätte die Form `{namespace}{infix}{generatedValue}`. |
+| `infix` | Infix, der in die generierten URNs nach dem Namensraum eingefügt wird. Eine neue URN hätte die Form `{namespace}{infix}{generatedValue}`. Der Infix ist optional. |
+ | `generationMethod` | Das Plugin bietet momentan 2 Optionen zur Generierung eines URN an. `timestamp` und `increment`. Der Standardwert ist `increment`. Wenn Sie `timestamp` verwenden, wird der Zeitpunkt der Generierung des URN in der Form `2022-12-23-12-00-35` hinter dem Infix angehangen. Falls Sie sich für increment entscheiden, wird ein Zähler (1,2, ...301,302,..) verwendet.
+| `checksum` | Hier kann spezifiziert werden, ob eine Prüfziffer generiert werden soll (`true`) oder nicht (`false`). |
 | `publicationUrl`   | Die URL unter der das digitalisierte Werk in Zukunft zur Verfügung steht. In der Regel wird die Veröffentlichungs-URL einem Muster folgen, z.B. `https://viewer.example.org/viewer/resolver?urn={pi.urn}`. Der Platzhalter {pi.urn} wird vom Plugin, durch den neuen URN ersetzt. |
 | `work` | Schalter, der das Setzen von Werks-URNs aktiviert (Monographie, Manuscript, Volume, usw.). |
 | `anchor` |Schalter, der das Setzen von URNs für das Ankerelement aktiviert. |
