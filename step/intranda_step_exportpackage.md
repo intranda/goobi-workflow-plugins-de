@@ -57,7 +57,8 @@ Die Konfiguration des Plugins ist folgendermaßen aufgebaut:
         <target>/opt/digiverso/export/</target>
         <!-- use subfolder for each process -->
         <useSubFolderPerProcess>true</useSubFolderPerProcess>
-
+        <!-- a zip file with the subfolder-name will be created -->
+        <createZipPerProcess>true</createZipPerProcess>
         <!-- which image folders to use (master|media|jpeg|source|...) -->
         <imagefolder>master</imagefolder>
         <!-- use the attribute filegroup, if you want to add checksums to the files within the filegroup. The checksums are taken from the configured folder -->
@@ -100,6 +101,8 @@ Der Block `<config>` kann für verschiedene Projekte oder Arbeitsschritte wieder
 | `project` | Dieser Parameter legt fest, für welches Projekt der aktuelle Block `<config>` gelten soll. Verwendet wird hierbei der Name des Projektes. Dieser Parameter kann mehrfach pro `<config>` Block vorkommen. |
 | `step` | Dieser Parameter steuert, für welche Arbeitsschritte der Block `<config>` gelten soll. Verwendet wird hier der Name des Arbeitsschritts. Dieser Parameter kann mehrfach pro `<config>` Block vorkommen. |
 | `target` | Mit diesem Parameter wird der Hauptpfad definiert, wohin der Export des Vorgangs als Unterordner mit dem Vorgangsnamen exportiert werden soll. |
+| `useSubFolderPerProcess` | Mit diesem Parameter wird festgelegt ob für jeden Prozess ein Unterordner angelegt werden soll. |
+| `createZipPerProcess` | Mit diesem Parameter kann festgelegt werden, ob eine zip-Datei je Prozess erstellt werden soll. |
 | `imagefolder` | Es können mehrere Verzeichnisse für die Bilder bzw. Digitalisate angegeben werden. Dies kann unter anderem z.B. die Master-Bilder sowie die Derivate umfassen. Wenn die METS Datei Checksummen für die einzelnen Images enthalten soll, kann hier über das Attribut `filegroup` festgelegt werden, für welche `<mets:fileGrp>` die Checksummen der Dateien aus diesem Ordner genutzt werden sollen. |
 | `ocr` | Mit diesem Parameter wird angegeben, ob die OCR-Ergebnisse mit exportiert werden sollen. |
 | `source` | Wenn die Inhalte des `source` Ordners mit berücksichtigt werden sollen, kann dies hier angegeben werden. |
