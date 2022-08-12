@@ -344,7 +344,7 @@ Ein `setValue`-Element ermöglicht es einen Wert aus einem der erzeugten Reports
 
 ### Lösung für Programme die keinen XML-Output erzeugten
 Eine Grundvoraussetzung dieses Plugins ist es, dass die verwendeten Wertzeuge XML-Output erzeugen. Es kommt jedoch häufig vor, dass das gewünschte Werkzeug keine XML-Ausgabe erzeugt. In diesem Fall raten wir dazu den Output mit einem GAWK-Script nach XML zu transformieren.
-Als Beispiel zeigen sei hier der Output des File-Befehls:
+Als Beispiel dient hier der Output des File-Befehls:
 ```
 LoremIpsum-a3b.pdf: PDF document, version 1.6
 ```
@@ -370,4 +370,11 @@ BEGIN {
 END {
    printf("</file>\n");
 }
+```
+Das Resultat wäre folgender XML-Output:
+```xml
+<?xml version="1.0"?>
+<file>
+  <format>PDF document</format>
+</file>
 ```
