@@ -101,8 +101,7 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 
 		<!--target url the newly generated urn will forward to. {pi.urn} will be
 			replaced with the newly minted urn -->
-		<publicationUrl>https://viewer.example.org/viewer/resolver?urn={pi.urn}
-		</publicationUrl>
+		<url>https://viewer.example.org/viewer/resolver?urn={pi.urn}</url>
 
 		<!--Generate URN for the work (e.g. for Monograph, Manuscript, Volume, etc.)  -->
 		<work>true</work>
@@ -140,9 +139,9 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 | `apiUri` | In diesem Parameter muss die URL der API hinterlegt werden. In der Regel kann der Standardeintrag `https://api.nbn-resolving.org/v2/` übernommen werden.  |
 | `namespace` | Der Namensraum in dem der neue URNs angelegt werden. |
 | `infix` | Infix, der in die generierten URNs nach dem Namensraum eingefügt wird. Eine neue URN hätte die Form `{namespace}{infix}{generatedValue}`. Der Infix ist optional. |
- | `generationMethod` | Das Plugin bietet momentan 2 Optionen zur Generierung eines URN an. `timestamp` und `increment`. Der Standardwert ist `increment`. Wenn Sie `timestamp` verwenden, wird der Zeitpunkt der Generierung des URN in der Form `2022-12-23-12-00-35` hinter dem Infix angehangen. Falls Sie sich für increment entscheiden, wird ein Zähler (1,2, ...301,302,..) verwendet.
+| `generationMethod` | Das Plugin bietet momentan 2 Optionen zur Generierung eines URN an. `timestamp` und `increment`. Der Standardwert ist `increment`. Wenn Sie `timestamp` verwenden, wird der Zeitpunkt der Generierung des URN in der Form `2022-12-23-12-00-35` hinter dem Infix angehangen. Falls Sie sich für increment entscheiden, wird ein Zähler (1,2, ...301,302,..) verwendet. |
 | `checksum` | Hier kann spezifiziert werden, ob eine Prüfziffer generiert werden soll (`true`) oder nicht (`false`). |
-| `publicationUrl`   | Die URL unter der das digitalisierte Werk in Zukunft zur Verfügung steht. In der Regel wird die Veröffentlichungs-URL einem Muster folgen, z.B. `https://viewer.example.org/viewer/resolver?urn={pi.urn}`. Der Platzhalter {pi.urn} wird vom Plugin, durch den neuen URN ersetzt. |
+| `url`   | Die URL unter der das digitalisierte Werk in Zukunft zur Verfügung steht. In der Regel wird die Veröffentlichungs-URL einem Muster folgen, z.B. `https://viewer.example.org/viewer/resolver?urn={pi.urn}`. Der Platzhalter {pi.urn} wird vom Plugin, durch den neuen URN ersetzt. |
 | `work` | Schalter, der das Setzen von Werks-URNs aktiviert (Monographie, Manuscript, Volume, usw.). |
 | `anchor` |Schalter, der das Setzen von URNs für das Ankerelement aktiviert. |
 | `allowed -> type` | Hier können Sie Elemente aufzählen, für die ein URN generiert werden soll. Für jedes Element muss ein `<type>ElementName</type>` Eintrag im `<allowed>` Element angelegt werden. <br/>**Hinweis:** Wenn Sie anchor oder work auf true setzen, erhalten das Ankerelement und das Werkelement eine URN, auch wenn ihre Typnamen nicht in der Liste aufgeführt werden. |
