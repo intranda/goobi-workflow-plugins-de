@@ -121,6 +121,7 @@
 * [Projektexport als Ordner mit Bildern und Excel-Datei](workflow/intranda_workflow_projectexport.md)
 * [Vorgangserstellung durch Dateiupload](workflow/intranda_workflow_fileupload_processcreation.md)
 * [AEON Datenübernahme](workflow/intranda_workflow_aeon_process_creation.md)
+* [Import für das Sammlungsportal der HU](workflow/intranda_workflow_hu_importer.md)
 
 
 ## Statistiken <a id="statistics"></a>
