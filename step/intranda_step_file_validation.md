@@ -385,3 +385,263 @@ Das Resultat wäre dann der folgende XML-Output:
   <format>PDF document</format>
 </file>
 ```
+
+
+## Konfigurationsbeispiele
+
+### Plugin-Konfiguration
+Vollständiges Beispiel für die Pluginskonfiguration innerhalb der Datei `plugin_intranda_step_file_validation.xml`:
+
+```xml
+<config_plugin>
+	<!-- order of configuration is: 1.) project name and step name matches 2.) 
+		step name matches and project is * 3.) project name matches and step name 
+		is * 4.) project name and step name are * -->
+		
+	<config>
+		<!-- which projects to use for (can be more then one, otherwise use *) -->
+		<project>*</project>
+		<!-- which stepss to use for (can be more then one, otherwise use *) -->
+		<step>*</step>
+		<!-- input folder where the documents are located, is only used in the STEP-Plugin -->
+		<inputFolder>/opt/digiverso/pdf</inputFolder>
+		<!-- outputfolder where the folder with the tool reports will be created, is only used in the STEP-Plugin --> 
+		<outputFolder>{processpath}/validation</outputFolder>
+		<!-- fileFilter: regex-Pattern that allows to filter by filename and fileextension -->
+		<fileFilter>(?i).*\.pdf|.*\.epub</fileFilter>
+		<!-- name of the profile that shall be used by this config blog -->
+		<profileName>epubPdf</profileName>
+		<!--targetLevel that must be reached for a successful plugin run -->
+		<targetLevel>4</targetLevel>
+	<config>
+	</config>
+		<!-- which institution to use for (can be more then one, otherwise use *) -->
+		<institution>*</institution>
+		<profileName>epubPdf</profileName>
+		<targetLevel>0</targetLevel>
+	</config>
+	
+	<!-- global has the child elements
+		profile, namespaces and tools
+		
+		profile contains the definition of the ingest levels. It also has the attribute name, 
+		so you can refer to the profile in the config-blog element profileName 
+		the order of the levels defines their numbering, the first level element defines level zero and so on.
+		
+		a level element can contain check- and setValue- elements.
+		
+		a check element has following attributes
+			name:		name of the check
+			dependsOn:	name of the check that must have been successful, if this check shall be executed
+					a check can only depend on a check that was defined before it.
+					the parameter is optional
+			tool:	name of the tool that must be executed to create the report
+			group:  checks can be grouped. grouped checks are OR-operated which means, that the level won't fail if one check
+				of the group is successful. ( i.e. check for isPDF-A and isPDFx in one level)
+			code:	Errorcode or Errormessage that shall be displayed when the check fails /regex doesn't match node does not exist
+			xpathSelector: xpathSelector to selct the node or attribute value
+			regex:	regular expression that will be matched with the read value, if no regular expression is
+				provided the check will only test if the node exists.
+			namespace: (only needed if the specified check uses another namespace than the tool and if 
+					namespaces are used)
+					
+		a setValue element has following attributes
+			name:		name of the check
+			dependsOn:	name of the check that must have been successful if this setValue-Element shall be executed
+					a setValue-Element can only depend on a check not on other setValue Elements. set value Elements will always be 
+					executed after the checks.
+					the parameter is mandatory
+			tool:	name of the tool that must have ben executed to create the report
+			code:	Errorcode or Errormessage that shall be displayed when value retrival fails.
+			xpathSelector: xpathSelector to selct an attribute value
+			namespace: (only needed if the specified setValue-Element uses another namespace than the tool and if 
+					namespaces are used)
+					
+		a tools element contains multiple tool elements
+		a tool element hast the attributes
+			name:		name of the tool
+			cmd:		the command that must be run to create the xml report. you can use the {pv.outputFile} variable to refer to 
+			stdout:		if stdout is true, the reportfile will be generated from the commandline output of the file. if it is set to false 
+					the plugins assumes the tool is able to create the file by itself
+			xmlNamespace:	the name of the xml-namespace the generated report uses "jhove"
+		
+		a namespaces element can contain multiple namespace elements
+		a namespace element has the attributes:
+			name: 	the name of the xml namespace used in the xml and to address it in xmlNamespace attributes of tool-, check- and setValue-Elements 
+			uri:	the uri of the xml namespace
+	-->
+	<global>
+		<profile name="epubPdf" >
+			<level>
+				<!-- 0 DI check Integrity of Document -->
+				<!--checksum test should be done here -->
+			</level>
+			<level>
+				<!-- 1 ID Document with JHOVE -->
+				<check name="isPDF"
+					tool="jhove"
+					group="fileformat"
+					code="This is not a PDF-File" 
+					xpathSelector="//jhove:repInfo/jhove:format"
+					regEx="(?i)pdf$" 
+				/>
+				
+				<check name="isEPUB"
+					tool="jhove" 
+					group="fileformat"
+					code="This is not an EPUB-File" 
+					xpathSelector="//jhove:repInfo/jhove:format"
+					regEx="(?i)epub$" 
+				/>
+			
+			</level>
+			<level>	
+				<!-- 2 BF check for encryption or access restrictions -->
+				<check name="checkEncryption"
+					dependsOn="isPDF"
+					tool="pdfinfo" 
+					code="The file is encrypted or has access restrictions" 
+					xpathSelector="//pdfinfo/Encrypted"
+					regEx="^no$" 
+				/>
+				
+			</level>
+			<level>
+			<!-- 3 MD Extraction of Metadata -->
+				<setValue name="PdfVersion"
+					dependsOn="isPDF"
+					tool="jhove"
+					code="Could not read Version Information!"
+					xpathSelector="//jhove:repInfo/jhove:version"
+					processProperty="PDFVersion"
+				/>
+				<setValue name="FilesizePDF"
+					dependsOn="isPDF"
+					tool="jhove"
+					code="Couldn't obtain Filesize"
+					xpathSelector="//jhove:repInfo/jhove:size"
+					processProperty="Filesize"
+				/>
+				<setValue name="FilesizeEPUB"
+					dependsOn="isEPUB"
+					tool="jhove"
+					code="Couldn't obtain Filesize"
+					xpathSelector="//jhove:repInfo/jhove:version"
+					processProperty="EPUBVersion"
+				/>		
+			</level>
+			<level>
+			<!-- 4 V Validity -->
+				<check name="checkPDFVersion"
+					dependsOn="isPDF"
+					tool="jhove" 
+					code="The Version of the PDF-File is not supported by this Version of JHOVE" 
+					xpathSelector="//jhove:repInfo/jhove:version"
+					regEx="^1\.[012456]$|^2\.0$" 
+				/>
+				<check name="isValidPDF"
+					dependsOn="checkPDFVersion"
+					tool="jhove" 
+					code="PDF Validation failed" 
+					xpathSelector="//jhove:repInfo/jhove:status"
+					regex="Well-Formed and valid"
+				/>
+				<check name="isValidEPUB"
+					dependsOn="isEPUB"
+					tool="jhove" 
+					code="EPUB Validation failed" 
+					xpathSelector="//jhove:repInfo/jhove:status"
+					regex="Well-Formed and valid"
+				/>
+			<!--
+				<check name="pdf-a validation"
+					tool="verapdf" 
+					code="pdfa_validation_failed" 
+					xpathSelector="xpathSelector"
+					regEx="regEx" 
+				/>
+				-->
+			</level>
+		</profile>
+		<namespaces>
+			<namespace name="jhove" uri="http://schema.openpreservation.org/ois/xml/ns/jhove" />
+		</namespaces>
+		<tools>
+			<tool name="jhove" 
+				cmd="/opt/digiverso/tools/jhove/jhove -h XML -m PDF-hul -o {pv.outputFile} {pv.inputFile}"
+				stdout="false"
+				xmlNamespace ="jhove"
+			 />
+			<tool name="verapdf" 
+				cmd="/home/michael/verapdf/verapdf --format mrr {pv.inputFile}"
+				stdout="true"
+			 />
+			<tool name="pdfinfo" 
+				cmd="/opt/digiverso/tools/pdfinfogawk.sh {pv.inputFile}"
+				stdout="true"
+			 /> 			
+		</tools>
+	</global>
+</config_plugin>
+```
+
+### Beispiel für PDF-Validierung
+Beispiel für PDF-Validierungsaufruf mittels `pdfinfogawk.sh`:
+
+```bash
+pdfinfo $1 | gawk -f /opt/digiverso/tools/namedKeys.awk | xmllint --format -
+````
+
+Beispieldatei `namedKeys.awk`:
+
+```bash
+BEGIN { 
+   FS="|";
+   printf("<?xml version=\"1.0\" ?>\n<pdfinfo>\n");
+}
+NF==1 {
+   sub(/:/,"^",$1); 
+   split($1, a, "^"); for (i in a) {
+    if (i == 1) {
+    	gsub(/[ \t]+/,"",a[1]);
+        printf("<%s>", a[1]);
+        }
+    if (i == 2) {
+    	gsub(/^[ \t]+/,"",a[2]);
+        printf("%s", a[2]);
+        printf("</%s>\n", a[1]);
+        }
+   } 
+}
+END {
+   printf("</pdfinfo>\n");
+}
+```
+
+### Beispiel für File-Validierung
+Beispiel für Validierung mittels file-Befehl via `filegawk.sh`:
+
+```bash
+file $1 | gawk -f /opt/digiverso/tools/fileFormat.awk | xmllint --format -
+```
+
+Beispieldatei `fileFormat.awk`:
+
+```bash
+BEGIN { 
+   FS="|";
+   printf("<?xml version=\"1.0\" ?>\n<file>\n");
+}
+NF==1 {
+   sub(/:/,"^",$1); 
+   split($1, a, "^"); for (i in a) {
+      if (i == 2) {
+    	gsub(/^[ \t]+/,"",a[2]);
+        printf("<format>%s</format>\n", a[2]);
+      } 
+   }
+}
+END {
+   printf("</file>\n");
+}
+```
