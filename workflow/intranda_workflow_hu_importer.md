@@ -94,7 +94,7 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 		column: column of the xls-file that will be mapped
         [label]; column header
         [mets] mets of metadata element
-        type: person, metadata, media   //maybe add eadonly
+        type: person, metadata, media, 
         [separator]: default value is ;
         [blankBeforeSeparator]: default value is false
         [blankAfterSeparator]: default value is false
@@ -188,13 +188,17 @@ Ein Element des Typs `mappingSet` verfügt nur über das Attribut `name`. Damit 
 | :--- | :--- |
 |`metadata`| Ein Element vom Typ `metadata` wird dem im Attribut `mets` spezifizierten Metadatum in der METS-Datei zugeordnet |
 | `person`| Hierbei handelt es sich um einen METS-Datentyp. Wenn der Typ `person` verwendet wird, sollte immer auch das Attribut `mets` gesetzt werden. |
-|`media`| In der angegebenen Spalte muss sich ein Dateiname befinden. Es wird davon ausgegangen, dass sich die Datei im `mediaFolder` befindet -> siehe `Importset`.|
+|`personWithGnd` | Hierbei handelt es sich um eine Spezialisierung von `person`. Das Plugin geht davon aus, dass sich in der letzten Spalte die `GND-ID` befindet. Es können entweder 2 oder 3 Spalten angegeben werden. Werden nur 2 Spalten angegeben geht, das Plugin davon aus, dass sich in der ersten Spalte `Vorname` und `Nachname` befinden.  |
+|`media`| In der angegebenen Spalte muss sich ein oder mehrere Dateiname(n) befinden. Der Seperator ist `,` Er kann aber bei Bedarf durch Verwendung des Attributes `separator` angepasst werden. Es wird davon ausgegangen, dass sich die Datei im `mediaFolder` befindet -> siehe `Importset`.|
 |`FileName`| Dieser Typ muss verwendet werden, um die Spalte mit dem Dateinamen der Prozessbeschreibung anzugeben. Dieser Feldtyp ist also nur in einem `descriptionMappingSet` sinnvoll.  |
 |`ProcessName` | Dieser Typ muss verwendet werden, um die Spalte mit dem zukünftigen Prozessnamen zu spezifizieren.  |
+|`structureType`| Wenn der Typ `structureType` verwendet wird, wird der Wert aus der Zelle, als Stukturtyp verwendet. Wenn die Zelle leer ist, wird der im `ImportSet` spezifizierte sturctureType verwendet. Der Typ wird nur für die Auswertung von Typ2 xls-Dateien verwendet.|
 
 
 ## Benutzung des Plugins
 Nach der Installation und Inbetriebnahme des Plugins steht dieses innerhalb des Menüs `Workflow` zur Verfügung. Nach dem Aufruf kann ein ImportSet ausgewählt werden und der Datenimport gestartet werden. Das Plugin wird versuchen im `metadataFolder` die Ordner `processed`und `failure` anzulegen. Es sollte also darauf geachtet werden, dass Goobi in diesem Ordner Schreibrechte hat. Wird eine Datei ohne Fehler eingelesen, wird Sie in den Ordner `processed` verschoben. Falls ein Fehler auftritt, landet sie im Ordner `failure`.
+
+Das Plugin kann mit oder ohne EAD-Anbindung betrieben werden. Wenn die EAD-Anbindung für ein ImportSet nicht verwendet werden soll, müssen im entsprechenden `ImportSet` einfach die Attribute: `eadType`, `eadFile` und `eadNode` weggelassen werden.
 
 Die im `mediaFolder` liegenden Dateien werden während des Imports in die Verzeichnisse der erzeugten Vorgänge kopiert.
 
