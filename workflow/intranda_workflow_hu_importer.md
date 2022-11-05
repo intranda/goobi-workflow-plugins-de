@@ -17,7 +17,7 @@ Dieses Plugin wurde für den Import von Daten der HU Berlin zur Anreicherung des
 | Identifier | intranda\_workflow\_hu\_importer |
 | Source code | [https://github.com/intranda/goobi-plugin-workflow-hu-importer](https://github.com/intranda/goobi-plugin-workflow-hu-importer) |
 | Lizenz | GPL 2.0 oder neuer |
-| Dokumentationsdatum | 01.06.2022 |
+| Dokumentationsdatum | 05.11.2022 |
 
 
 ## Installation
@@ -177,7 +177,7 @@ Ein Element des Typs `mappingSet` verfügt nur über das Attribut `name`. Damit 
 |`label`| Hier kann optional der Spaltentitel angegeben werden. Er wird vom Plugin nicht ausgewertet und dient nur der Dokumentation. |
 |`mets`| Dieses Attribut legt fest, welchem Metadatentyp der eingelesene Wert zugeordnet werden soll. Zulässig sind hier alle Werte, die laut Regelsatz ein gültiges Metadatum für das entsprechende Strukturelements sind. |
 |`type`| Dieser Parameter ist obligatorisch und kann die Werte: `person`, `metadata`, `media`, `FileName` und `ProcessName`  annehmen. Die Werte werden unten näher erläutert.
-|`gndColumn`| Für Mappings deren Attribut type den Wert metadata oder person annimmt kann hier die Spalte angegeben werden, in der sich eine GND-Url befindet, die den Datensatz näher beschreibt (z.B. https://d-nb.info/gnd/118551310). Der Normdatensatz wird dann mit dem Metadatum verknüpft.|
+|`gndColumn`| Für Mappings deren Attribut `type` den Wert `metadata` oder `person` annimmt, kann hier die Spalte angegeben werden, in der sich eine Normdatenbank-URL befindet, die den Datensatz näher beschreibt (z.B. https://d-nb.info/gnd/118551310). Der Normdatensatz wird dann mit dem Metadatum verknüpft. |
 |`separator`| Dieser Separator wird verwendet, wenn mehrere Elemente in einem Wert abgebildet werden sollen. Der Standardwert ist `;`.  Das Attribut ist optional.|
 |`blankBeforeSeparator`| Falls der Inhalt mehrerer Spalten in einen Wert gemappt werden soll, kann hier bestimmt werden, ob ein Leerzeichen vor dem Separator gesetzt werden soll. Der Standardwert ist `false`.|
 |`blankAfterSeparator`| Falls der Inhalt mehrerer Spalten in einen Wert abgebildet werden soll, kann hier bestimmt werden, ob ein Leerzeichen nach dem Separator gesetzt werden soll. Der Standardwert ist `false`. |
@@ -192,13 +192,13 @@ Ein Element des Typs `mappingSet` verfügt nur über das Attribut `name`. Damit 
 |`media`| In der angegebenen Spalte muss sich ein oder mehrere Dateiname(n) befinden. Der Seperator ist `,` Er kann aber bei Bedarf durch Verwendung des Attributes `separator` angepasst werden. Es wird davon ausgegangen, dass sich die Datei im `mediaFolder` befindet -> siehe `Importset`.|
 |`FileName`| Dieser Typ muss verwendet werden, um die Spalte mit dem Dateinamen der Prozessbeschreibung anzugeben. Dieser Feldtyp ist also nur in einem `descriptionMappingSet` sinnvoll.  |
 |`ProcessName` | Dieser Typ muss verwendet werden, um die Spalte mit dem zukünftigen Prozessnamen zu spezifizieren.  |
-|`structureType`| Wenn der Typ `structureType` verwendet wird, wird der Wert aus der Zelle, als Stukturtyp verwendet. Wenn die Zelle leer ist, wird der im `ImportSet` spezifizierte sturctureType verwendet. Der Typ wird nur für die Auswertung von Typ2 xls-Dateien verwendet.|
+|`structureType`| Wenn der Typ `structureType` verwendet wird, wird der Wert aus der Zelle, als Stukturtyp verwendet. Wenn die Zelle leer ist, wird der im `ImportSet` spezifizierte `sturctureType` verwendet. Der Typ wird nur für das Erzeugen von Strukturelementen innerhalb eines Vorgangs als Unterelemente. |
 
 
 ## Benutzung des Plugins
 Nach der Installation und Inbetriebnahme des Plugins steht dieses innerhalb des Menüs `Workflow` zur Verfügung. Nach dem Aufruf kann ein ImportSet ausgewählt werden und der Datenimport gestartet werden. Das Plugin wird versuchen im `metadataFolder` die Ordner `processed`und `failure` anzulegen. Es sollte also darauf geachtet werden, dass Goobi in diesem Ordner Schreibrechte hat. Wird eine Datei ohne Fehler eingelesen, wird Sie in den Ordner `processed` verschoben. Falls ein Fehler auftritt, landet sie im Ordner `failure`.
 
-Das Plugin kann mit oder ohne EAD-Anbindung betrieben werden. Wenn die EAD-Anbindung für ein ImportSet nicht verwendet werden soll, müssen im entsprechenden `ImportSet` einfach die Attribute: `eadType`, `eadFile` und `eadNode` weggelassen werden.
+Das Plugin kann mit oder ohne EAD-Anbindung betrieben werden. Wenn die EAD-Anbindung für ein ImportSet nicht verwendet werden soll, müssen im entsprechenden `ImportSet` einfach die Attribute `eadType`, `eadFile` und `eadNode` weggelassen werden.
 
 Die im `mediaFolder` liegenden Dateien werden während des Imports in die Verzeichnisse der erzeugten Vorgänge kopiert.
 
