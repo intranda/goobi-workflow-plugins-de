@@ -6,7 +6,7 @@ description: >-
 # Massenimport aus Excel-Dateien mit EAD-Anreicherung
 
 ## Einführung
-Dieses Workflow Plugin für Goobi workflow erlaubt einen Massenimport von Metadaten aus Excel-Dateien, wobei nicht nur Vorgänge in Goobi erzeugt werden, zu denen jeweils eine METS-Datei gehört. Zusätzlich wird ausserdem eine vorliegende EAD-Datei mit weiteren Knoten angereichert. 
+Dieses Workflow Plugin für Goobi workflow erlaubt einen Massenimport von Metadaten aus Excel-Dateien, wobei nicht nur Vorgänge in Goobi erzeugt werden, zu denen jeweils eine METS-Datei gehört. Zusätzlich wird ausserdem eine vorliegende EAD-Datei mit weiteren Knoten angereichert.
 
 Dieses Plugin wurde für den Import von Daten der HU Berlin zur Anreicherung des Sammlungsportals entwickelt. In der Regel kommen bei einem solchen Import mindestens zwei verschiedene Exceldateien unterschiedlichen Typs zum Einsatz. Typ 1 spezifiziert dabei die Metadaten für das Objekt selbst (TopStruct mit Metadaten wie Haupttitel, Schlagworte usw.) und Daten für die Eigenschaften des Vorgangs (z.B. zukünftiger Name des Vorgangs). Der Typ 2 hingegen spezifiziert in der Regel diejenigen Strukturelemente, die als Unterelemente innerhalb der METS-Datei erzeugt werden sollen und welche Metadaten diese erhalten sollen (im Fall der HU Berlin z.B. Kapitel/Lochkarte, Name einer Mediendatei usw.).
 
@@ -69,19 +69,22 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 		[rowStart]: first row that will be read
 		[rowEnd]: last row that will be read
 	  -->
-  <importSet name="Lochkarten EAD"
-		metadataFolder="/opt/digiverso/import/mdvos/"
-		mediaFolder ="/opt/digiverso/import/mdvos/Lochkartei_Testdaten"
+    <!-- EAD-> Lochkartei - Grabungsdokumentation Fritz und Ursula Hintze -->
+    <importSet name="Lochkarten EAD Subnodes"
+		metadataFolder="/opt/digiverso/import/mdvos/Sudan-Trenner/"
+		mediaFolder ="/opt/digiverso/import/mdvos/Sudan-Bilder/"
 		workflow="Sample_Workflow"
 		project="Archive_Project"
 		mappingSet="Lochkarten"
-		publicationType="Trenner"
-		structureType="Lochkarte"
-		importSetDescription="/opt/digiverso/import/description/description.xlsx"
+		publicationType="Divider"
+		structureType="PunchCard"
+		importSetDescription="/opt/digiverso/import/mdvos/Sudan-Beschreibungen/SASA_Trenner_Zuordnung.xlsx"
 		descriptionMappingSet="Description"
-		eadType="file"
+		eadType="folder"
 		eadFile="EAD-Store - Sudanarchäologie.xml"
-		eadNode="f91585c7-9cd4-47f1-b9e4-5f26a6744fe3"/>
+		eadNode="f91585c7-9cd4-47f1-b9e4-5f26a6744fe3"
+		eadSubnodeType="file"
+	/>
 
 	<!-- mapping set -> set of fields that describe a mapping
 		name = name of the MappingSet
@@ -97,25 +100,36 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
         [blankAfterSeparator]: default value is false
         [ead] name of the ead metadata type
 	-->
+  <!-- Metadata for each structure element (Punchcard) to be created inside of process (Divider) -->
 	<mappingSet name="Lochkarten">
-		<field column="D" label="Inventar-Nr./Signatur" type="metadata" mets="shelfmarksource"/>
-		<field column="E" label="Institutionsnachweis/ Sammlung" type="metadata" mets="PhysicalLocation"/>
-		<field column="F" label="Titel" type="metadata" mets="TitleDocMain"/>
-		<field column="G" label="Schlagwort" type="metadata" mets="Subject"/> <!--mets="Subject"-->
-		<field column="H" label="Schlagwort" type="metadata" mets="Subject"/>
-		<field column="I" label="Material" type="metadata" mets="FormatSourcePrint"/>
+		<field column="D" label="Inventar-Nr" type="metadata" mets="InventoryNumber"/>
+		<field column="F" label="Titel" type="metadata" mets="TitleDocMain" ead="unittitle"/>
+		<field column="I" label="Material" type="metadata" mets="MaterialDescription"/>
 		<field column="J" label="Maße" type="metadata" mets="SizeSourcePrint"/>
-		<field column="K" label="Trenner" type="metadata" mets="OtherTitle"/>
-		<field column="L" label="Geokoordinaten" type="metadata" mets=""/>
-		<field column="M,N" label="Datei recto" type="metadata" mets="IdentifierRelatedWork"/>
-		<field column="M,N" label="Datei recto" type="media" mets="IdentifierRelatedWork"/>
+		<field column="L,M" label="Datei recto, Datei verso" type="media"/>
 	</mappingSet>
 
+
+	<!-- General description mapping for each process (Divider) -->
 	<mappingSet name="Description">
-		<field column="A" label="Dateiname" type="FileName" />
-		<field column="B" label="Titel" type="metadata" mets="TitleDocMain"  ead="unittitle"/>
-		<field column="D" label="Prozessname" type="ProcessName"/>
-		<field column="E" label="Date" type="metadata" ead="unitdate" />
+		<field column="C" label="Dateiname" type="FileName" />
+		<field column="E" label="Digitale Collection" type="metadata" mets="singleDigCollection" />
+		<field column="F" label="Titel" type="metadata" mets="TitleDocMain"  ead="unittitle"/>
+		<field column="H" label="Haupttitel (englisch)" type="metadata" mets="TitleDocMainEN" />
+		<field column="J" label="Umfang" type="metadata" mets="physicalDescriptionExtent" />
+		<field column="K" label="Datierung/Zeitangabe" type="metadata" mets="OriginationPeriod" ead="unitdate" />
+		<field column="L" label="Entstehungsort" type="metadata" mets="PlaceOfOrigin" />
+		<field column="M" label="Beteiligte Person 1" type="person" mets="Creator" gndColumn="O" />
+		<field column="P" label="Beteiligte Person 2" type="person" mets="Creator" gndColumn="R" />
+		<field column="T" label="Zusätzliche Informationen" type="metadata" mets="AdditionalInformation" />
+		<field column="U" label="Schlagwort (lokal)" type="metadata" mets="SubjectLocal" />
+		<field column="V" label="Formschlagwort" type="metadata" mets="SubjectForm" gndColumn="W" />
+		<field column="X" label="Geographisches Schlagwort 1" type="metadata" mets="SubjectGeographic" gndColumn="Y" />
+		<field column="Z" label="Geographisches Schlagwort 2" type="metadata" mets="SubjectGeographic" gndColumn="AA" />
+		<field column="AB" label="Sachschlagwort 1" type="metadata" mets="SubjectTopic" gndColumn="AC" />
+		<field column="AD" label="Sachschlagwort 2" type="metadata" mets="SubjectTopic" gndColumn="AE" />
+		<field column="AF,AG" blankAfterSeparator="true" label="Geokoordinaten" type="metadata" mets="Coordinates" />
+		<field column="AH" label="Sprache" type="metadata" mets="DocLanguage" />
 	</mappingSet>
 
 </config_plugin>
@@ -162,7 +176,8 @@ Ein Element des Typs `mappingSet` verfügt nur über das Attribut `name`. Damit 
 |`column`| Spalte(n) die gemappt werden soll(en). Der eingelesene Werte wird dann dem Metadatum zugewiesen, das im Attribut `mets` definiert wurde. Alternativ kann der Inhalt der Zelle auch einer Vorgangseigenschaft wie beispielsweise dem Vorgangstitel zugeordnet werden, wenn als type `ProcessName` spezifiziert wird. Wenn mehrere Spalten in einem Wert abgebildet werden sollen, können diese einfach mit Komma getrennt aufgeführt werden (z.B. `A,B,AA`). Das Attribut ist obligatorisch. |
 |`label`| Hier kann optional der Spaltentitel angegeben werden. Er wird vom Plugin nicht ausgewertet und dient nur der Dokumentation. |
 |`mets`| Dieses Attribut legt fest, welchem Metadatentyp der eingelesene Wert zugeordnet werden soll. Zulässig sind hier alle Werte, die laut Regelsatz ein gültiges Metadatum für das entsprechende Strukturelements sind. |
-|`type`| Dieser Parameter ist obligatorisch und kann die Werte: `person`, `personWithGnd`, `metadata`, `media`, `FileName` und `ProcessName`  annehmen. Die Werte werden unten näher erläutert. |
+|`type`| Dieser Parameter ist obligatorisch und kann die Werte: `person`, `metadata`, `media`, `FileName` und `ProcessName`  annehmen. Die Werte werden unten näher erläutert.
+|`gndColumn`| Für Mappings deren Attribut type den Wert metadata oder person annimmt kann hier die Spalte angegeben werden, in der sich eine GND-Url befindet, die den Datensatz näher beschreibt (z.B. https://d-nb.info/gnd/118551310). Der Normdatensatz wird dann mit dem Metadatum verknüpft.|
 |`separator`| Dieser Separator wird verwendet, wenn mehrere Elemente in einem Wert abgebildet werden sollen. Der Standardwert ist `;`.  Das Attribut ist optional.|
 |`blankBeforeSeparator`| Falls der Inhalt mehrerer Spalten in einen Wert gemappt werden soll, kann hier bestimmt werden, ob ein Leerzeichen vor dem Separator gesetzt werden soll. Der Standardwert ist `false`.|
 |`blankAfterSeparator`| Falls der Inhalt mehrerer Spalten in einen Wert abgebildet werden soll, kann hier bestimmt werden, ob ein Leerzeichen nach dem Separator gesetzt werden soll. Der Standardwert ist `false`. |
@@ -181,7 +196,7 @@ Ein Element des Typs `mappingSet` verfügt nur über das Attribut `name`. Damit 
 
 
 ## Benutzung des Plugins
-Nach der Installation und Inbetriebnahme des Plugins steht dieses innerhalb des Menüs `Workflow` zur Verfügung. Nach dem Aufruf kann ein ImportSet ausgewählt werden und der Datenimport gestartet werden. Das Plugin wird versuchen im `metadataFolder` die Ordner `processed`und `failure` anzulegen. Es sollte also darauf geachtet werden, dass Goobi in diesem Ordner Schreibrechte hat. Wird eine Datei ohne Fehler eingelesen, wird Sie in den Ordner `processed` verschoben. Falls ein Fehler auftritt, landet sie im Ordner `failure`. 
+Nach der Installation und Inbetriebnahme des Plugins steht dieses innerhalb des Menüs `Workflow` zur Verfügung. Nach dem Aufruf kann ein ImportSet ausgewählt werden und der Datenimport gestartet werden. Das Plugin wird versuchen im `metadataFolder` die Ordner `processed`und `failure` anzulegen. Es sollte also darauf geachtet werden, dass Goobi in diesem Ordner Schreibrechte hat. Wird eine Datei ohne Fehler eingelesen, wird Sie in den Ordner `processed` verschoben. Falls ein Fehler auftritt, landet sie im Ordner `failure`.
 
 Das Plugin kann mit oder ohne EAD-Anbindung betrieben werden. Wenn die EAD-Anbindung für ein ImportSet nicht verwendet werden soll, müssen im entsprechenden `ImportSet` einfach die Attribute: `eadType`, `eadFile` und `eadNode` weggelassen werden.
 
