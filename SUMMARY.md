@@ -111,6 +111,7 @@
 * [Einzelseitenexport](export/intranda_export_bda_singleImage.md)
 * [Zeitungsexport](export/intranda_export_newspaper.md)
 * [Konfigurierbarer Export](export/intranda_export_configurable.md)
+* [VLM Export](export/intranda_export_vlm.md)
 
 
 ## Workflow Plugins <a id="workflow"></a>
