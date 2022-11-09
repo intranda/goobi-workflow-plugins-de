@@ -21,7 +21,7 @@ Mithilfe dieses Plugins für Goobi können die Goobi-Vorgänge innerhalb eines A
 
 ## Installation
 
-Dieses Plugin wird in den Workflow so integriert, dass es manuell ausgeführt wird. Zur Verwendung innerhalb eines Arbeitsschrittes des Workflows sollte es wie im nachfolgenden Screenshot konfiguriert werden.
+Dieses Plugin wird in den Workflow so integriert, dass es automatisch ausgeführt wird. Zur Verwendung innerhalb eines Arbeitsschrittes des Workflows sollte es wie im nachfolgenden Screenshot konfiguriert werden.
 
 ![Integration des Plugins in den Workflow](../.gitbook/assets/intranda_plugin_export_vlm_de.png)
 
@@ -38,7 +38,7 @@ Daneben gibt es eine Konfigurationsdatei, die an folgender Stelle liegen muss:
 ```
 ## Konfiguration
 
-Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intranda_export_vlm.xml` und über die Projekteinstellungen. Die Konfiguration kann im laufenden Betrieb angepasst werden. Im folgenden ist eine beispielhafte Konfigurationsdatei aufgeführt:
+Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intranda_export_vlm.xml`. Die Konfiguration kann im laufenden Betrieb angepasst werden. Im folgenden ist eine beispielhafte Konfigurationsdatei aufgeführt:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
