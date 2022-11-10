@@ -17,7 +17,7 @@ Mithilfe dieses Plugins für Goobi können die Goobi-Vorgänge innerhalb eines A
 | Source code | [https://github.com/intranda/goobi-plugin-export-vlm](https://github.com/intranda/goobi-plugin-export-vlm) |
 | Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 2022.10 und neuer |
-| Dokumentationsdatum | 07.11.2022 |
+| Dokumentationsdatum | 10.11.2022 |
 
 ## Installation
 
@@ -43,23 +43,62 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <config_plugin>
-  <!-- The object identifier, typically CatalogIDDigital  -->
-  <!-- MANDATORY -->
-  <identifier>CatalogIDDigital</identifier>
+	<!-- 
+	Order of configuration is: 
+	1.) project name matches
+	2.) project is * 
+	-->
 
-  <!-- The name to be used to distinguish between different volumes of multi volume works. -->
-  <!-- Alternatively one may also choose "TitleDocMain", just assure its difference between volumes. -->
-  <!-- MANDATORY -->
-  <volume>CurrentNoSorting</volume>
-
-  <!-- The place you would like to use for the export. -->
-  <!-- Absolute path expected. -->
-  <!-- MANDATORY -->
-  <path>/opt/digiverso/viewer/hotfolder/</path>
-
-  <!-- The prefix you would like to use for subfolders for different volumes. -->
-  <!-- MANDATORY -->
-  <subfolderPrefix>T_34_L_</subfolderPrefix>
+	<!-- There could be multiple config blocks. -->
+	<!-- Please make sure that the project names of different config blocks are also different. -->
+	<!-- Given two config blocks with the same project name, the settings of the first one will be taken. -->
+	<config>
+		<!-- The name of the project. By default settings there are only two possibilities: Archive_Project, Manuscript_Project. -->
+		<!-- To add other options a modification in the database is needed. -->
+		<!-- For more details please check the codes around line 1070 in {GoobiDirectory}/db/start.sql. -->
+		<!-- MANDATORY -->
+		<project>Archive_Project</project>
+		
+		<!-- The name of the system, e.g. AlmaIDDigital, AlephIDDigital, CatalogIDDigital.  -->
+		<!-- MANDATORY -->
+		<identifier>CatalogIDDigital</identifier>
+	    
+		<!-- The name to be used to distinguish between different volumes of one book series. -->
+		<!-- Alternatively one may also choose "TitleDocMain", just assure its difference between volumes. -->
+		<!-- Leave the default value unchanged if the book is a one-volume work. -->
+		<!-- MANDATORY -->
+		<volume>CurrentNoSorting</volume>
+	    
+		<!-- The place you would like to use for the export. -->
+		<!-- Absolute path expected. No difference whether you append the directory separator '/' to the end or not. -->
+		<!-- If left blank, then the default setting '/opt/digiverso/viewer/hotfolder' will be used. -->
+		<path></path>
+	    
+		<!-- The prefix you would like to use for subfolders for different volumes. -->
+		<!-- Leave it blank if no common prefix is needed. -->
+		<subfolderPrefix>T_34_L_</subfolderPrefix>
+	</config>
+	
+	<config>
+		<project>Manuscript_Project</project>		
+		<identifier>CatalogIDDigital</identifier>		
+		<volume>CurrentNoSorting</volume>	
+		<!-- Setting up path using a goobi variable. -->
+		<!-- No difference whether you add a '/' between '}' and '..' or not. -->		
+		<path>{goobiFolder}../viewer/hotfolder/</path>
+		<!-- No common prefix needed. -->
+		<subfolderPrefix></subfolderPrefix>
+	</config>
+	
+	<config>
+		<project>*</project>
+		<identifier>CatalogIDDigital</identifier>
+		<volume>CurrentNoSorting</volume>		
+		<!-- Setting up path using an ABSOLUTE path. -->
+		<path>/opt/digiverso/viewer/hotfolder</path>
+		<!-- No common prefix needed. -->
+		<subfolderPrefix></subfolderPrefix>
+	</config>
 
 </config_plugin>
 ```
