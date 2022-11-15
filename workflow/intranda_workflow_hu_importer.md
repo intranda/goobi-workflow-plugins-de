@@ -17,7 +17,7 @@ Dieses Plugin wurde für den Import von Daten der HU Berlin zur Anreicherung des
 | Identifier | intranda\_workflow\_hu\_importer |
 | Source code | [https://github.com/intranda/goobi-plugin-workflow-hu-importer](https://github.com/intranda/goobi-plugin-workflow-hu-importer) |
 | Lizenz | GPL 2.0 oder neuer |
-| Dokumentationsdatum | 05.11.2022 |
+| Dokumentationsdatum | 07.11.2022 |
 
 
 ## Installation
@@ -188,7 +188,6 @@ Ein Element des Typs `mappingSet` verfügt nur über das Attribut `name`. Damit 
 | :--- | :--- |
 |`metadata`| Ein Element vom Typ `metadata` wird dem im Attribut `mets` spezifizierten Metadatum in der METS-Datei zugeordnet |
 | `person`| Hierbei handelt es sich um einen METS-Datentyp. Wenn der Typ `person` verwendet wird, sollte immer auch das Attribut `mets` gesetzt werden. |
-|`personWithGnd` | Hierbei handelt es sich um eine Spezialisierung von `person`. Das Plugin geht davon aus, dass sich in der letzten Spalte die `GND-ID` befindet. Es können entweder 2 oder 3 Spalten angegeben werden. Werden nur 2 Spalten angegeben geht, das Plugin davon aus, dass sich in der ersten Spalte `Vorname` und `Nachname` befinden.  |
 |`media`| In der angegebenen Spalte muss sich ein oder mehrere Dateiname(n) befinden. Der Seperator ist `,` Er kann aber bei Bedarf durch Verwendung des Attributes `separator` angepasst werden. Es wird davon ausgegangen, dass sich die Datei im `mediaFolder` befindet -> siehe `Importset`.|
 |`FileName`| Dieser Typ muss verwendet werden, um die Spalte mit dem Dateinamen der Prozessbeschreibung anzugeben. Dieser Feldtyp ist also nur in einem `descriptionMappingSet` sinnvoll.  |
 |`ProcessName` | Dieser Typ muss verwendet werden, um die Spalte mit dem zukünftigen Prozessnamen zu spezifizieren.  |
