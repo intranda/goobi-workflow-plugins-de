@@ -17,7 +17,7 @@ Mithilfe dieses Plugins für Goobi können die Goobi-Vorgänge innerhalb eines A
 | Source code | [https://github.com/intranda/goobi-plugin-export-vlm](https://github.com/intranda/goobi-plugin-export-vlm) |
 | Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 2022.10 und neuer |
-| Dokumentationsdatum | 10.11.2022 |
+| Dokumentationsdatum | 15.11.2022 |
 
 ## Installation
 
@@ -77,6 +77,20 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 		<!-- The prefix you would like to use for subfolders for different volumes. -->
 		<!-- Leave it blank if no common prefix is needed. -->
 		<subfolderPrefix>T_34_L_</subfolderPrefix>
+		
+		<!-- Choice of application to perform the checksum validation. -->
+		<!-- Absolute path expected. -->
+		<!-- Options are:
+		1.) /usr/bin/sha1sum
+		2.) /usr/bin/sha224sum
+		3.) /usr/bin/sha256sum
+		4.) /usr/bin/sha384sum
+		5.) /usr/bin/sha512sum
+		6.) /usr/bin/shasum
+		7.) /usr/bin/md5sum
+		 -->
+		 <!-- If left blank, then 1.) will be used as the default setting. -->
+		<checksumValidationCommand></checksumValidationCommand>
 	</config>
 	
 	<config>
@@ -88,6 +102,7 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 		<path>{goobiFolder}../viewer/hotfolder/</path>
 		<!-- No common prefix needed. -->
 		<subfolderPrefix></subfolderPrefix>
+		<checksumValidationCommand>/usr/bin/md5sum</checksumValidationCommand>
 	</config>
 	
 	<config>
@@ -98,6 +113,7 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 		<path>/opt/digiverso/viewer/hotfolder</path>
 		<!-- No common prefix needed. -->
 		<subfolderPrefix></subfolderPrefix>
+		<checksumValidationCommand>/usr/bin/sha1sum</checksumValidationCommand>
 	</config>
 
 </config_plugin>
@@ -109,3 +125,4 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 | `volume`          | Dieser Parameter steuert, mit dem Inhalt welchen Metadatums die Unterverzeichnisse für Bände benannt werden sollen. |
 | `path`            | Dieser Parameter legt den Export-Pfad fest, wohin die Daten exportiert werden sollen. Erwartet wird ein absoluter Pfad. |
 | `subfolderPrefix` | Dieser Parameter beschreibt den Präfix, der für jeden Band eines mehrbändigen Werkes in der Ornderbezeichnung vorangestellt werden soll. (Beispiel `T_34_L_`: Hier steht `T_34` für die Erkennung zur Erstellung eines Strukturknotens des Typs `Band` und das `L` gibt an, dass danach ein Text kommt.) |
+| `checksumValidationCommand` | Dieser Parameter legt fest, welche Application zur Validation von Checksums der Dateien genutzt werden soll. |
