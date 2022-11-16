@@ -85,6 +85,7 @@
 * [Metatatenübernahme aus einem Verzeichnis](step/intranda_step_import_from_folder.md)
 * [DOI-Registrierung](step/intranda_step_doi.md)
 * [Validierung von Dateien](step/intranda_step_file_validation.md)
+* [Umbennen von Vorgängen](step/intranda_step_rename_process.md)
 
 ## Opac Plugins <a id="opac"></a>
 * [PICA Import](opac/intranda_opac_pica.md)
