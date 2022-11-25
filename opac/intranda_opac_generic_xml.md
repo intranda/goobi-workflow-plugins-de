@@ -50,7 +50,7 @@ In der Datei `goobi_opac.xml` muss die Schnittstelle zum gewünschten Katalogsys
 
 ```markup
 <catalogue title="EAD">
-    <config description="EAD database" address="https://example.com/opac?id="
+    <config description="EAD database" address="https://example.com/opac?id={pv.id}"
     port="443" database="x" iktlist="x" ucnf="x" opacType="intranda_opac_xml" />
     <searchFields>
         <searchField label="Identifier" value="12"/>
@@ -61,6 +61,10 @@ In der Datei `goobi_opac.xml` muss die Schnittstelle zum gewünschten Katalogsys
 Das Attribut `title` enthält den Namen, unter dem der Katalog in der Nutzeroberfläche ausgewählt werden kann, `address` die URL zum API Endpoint und `opacType`das zu nutzende Plugin. In diesem Fall muss der Eintrag `intranda_opac_xml` lauten.
 
 Es ist nur eine Suchanfrage konfigurierbar. Daher können die anderen Suchoptionen ausgeblendet werden. Dies geschieht innerhalb des `<searchFields>` Blocks. In der oben beschriebenen Konfiguration kann nur nach einem Identifier gesucht werden.
+
+Der Wert des `address`- Attributes muss den String {pv-id} enthalten, damit das Plugin den Suchwert an der richtigen Stelle einfügt. Z.b. um in einem Hotfolder anhand des Dateinamens zu filtern z.B. `/import/hotfolder/{pv.id}.xml`.
+
+Das Plugin kann bei Bedarf auch Dateien aus dem Dateisystem lesen. Zum Beispiel aus einem Hotfolder in dem Dateien abgelegt werden. Dazu muss folgendes beachtet werden. Der String in `address` muss mit `file://` beginnen und die Datei muss einen eindeutigen Namen haben der z.B. dem Prozesstitel entspricht.
 
 Das Mapping der Inhalte des XML Records hin zu Goobi Metadaten geschieht in der Datei `plugin_intranda_opac_xml.xml`:
 
@@ -119,13 +123,15 @@ Im Fall von `String` können auch Manipulationen wie concat, substring genutzt w
 
 ## Nutzung
 
-Wenn in Goobi nach einem Identifier gesucht wird, wird im Hintergrund eine Anfrage an die konfigurierte URL gestellt:
+Wenn in Goobi nach einem Identifier gesucht wird, wird im Hintergrund eine Anfrage an die konfigurierte URL oder ans Dateisystem gestellt:
 
 ```text
-https://example.com/opac?id=[VALUE]
+https://example.com/opac?id={pv.id}
+file:///import/hotfolder/{pv.id}.xml
+
 ```
 
-Sofern hier ein gültiger Datensatz gefunden wird, wird dieser nach dem Feld gesucht, in dem der Dokumententyp stehen soll. Wenn die Query nicht definiert ist, wird stattdessen der Dokumententyp aus der Konfigurationsdatei gelesen. Mit dem ermittelten Typ wird dann das gewünschte Strukturelement erzeugt.
+Sofern hier ein gültiger Datensatz gefunden wird, wird dieser nach dem Feld durchsucht, in dem der Dokumententyp stehen soll. Wenn die Query nicht definiert ist, wird stattdessen der Dokumententyp aus der Konfigurationsdatei gelesen. Mit dem ermittelten Typ wird dann das gewünschte Strukturelement erzeugt.
 
 Im Anschluß daran werden alle XPath Ausdrücke ausgewertet, die konfiguriert wurden. Sofern mit einem Ausdruck Daten gefunden werden, wird das entsprechend angegebene Metadatum erzeugt. Bei Personen wird geprüft, ob der Wert ein Komma enthält. In diesem Fall werden Vor- und Nachname am Komma getrennt, andernfalls wird der Wert als Nachname interpretiert.
 
