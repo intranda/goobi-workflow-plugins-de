@@ -46,6 +46,7 @@
 * [OCR Seitenauswahl](step/intranda_step_ocrselector.md)
 * [OCR-Durchführung mit gemischten Schrifttypen](step/intranda_step_mixedocr.md)
 * [Schreiben von XMP Metadaten in Bilddateien](step/intranda_step_xmp.md)
+* [Plugin zum Verschieben von Bildern](step/intranda_step_fetch_images_from_metadata.md)
 * [PDFs aufsplitten, Volltext extrahieren und Inhaltsverzeichnis auslesen](step/intranda_step_pdf-extraction.md)
 * [Ändern des Workflows auf Grundlage von Vorgangseigenschaften](step/intranda_step_changeworkflow.md)
 * [Anzeige von Metadaten in einer Aufgabe](step/intranda_step_displaymetadata.md)
