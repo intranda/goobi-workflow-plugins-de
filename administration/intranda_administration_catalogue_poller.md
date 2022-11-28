@@ -6,8 +6,8 @@ description: >-
 
 # Catalogue Poller
 
-## Einführung
 
+## Einführung
 Die vorliegende Dokumentation beschreibt die Installation, die Konfiguration und den Einsatz des Administration Plugins für die automatisiert wiederholte Katalogabfrage zur Aktualisierung von Datensätzen in Goobi workflow.
 
 | Details |  |
@@ -18,8 +18,8 @@ Die vorliegende Dokumentation beschreibt die Installation, die Konfiguration und
 | Kompatibilität | Goobi workflow 2021.02 |
 | Dokumentationsdatum | 20.10.2022 |
 
-## Arbeitsweise des Plugins
 
+## Arbeitsweise des Plugins
 Das Catalogue Poller Plugin wird durch Goobi automatisch aktiviert. Seine Laufzeit beginnt zu der konfigurierten Startzeit und wiederholt sich entsprechend der konfigurierten Anzahl an Stunden.
 
 Möchte ein Nutzer zusätzlich zu dieser Automatik ebenfalls Zugriff auf die Nutzeroberfläche des Plugins haben, so muss er einer Benutzergruppe angehören, die hierfür das folgende Plugin-spezifische Recht erhalten hat:
@@ -40,21 +40,20 @@ Sollte die Berechtigung für die Benutzergruppe neu eingetragen werden, so muss 
 
 ![Heruntergeladene Excel-Datei](../.gitbook/assets/intranda_administration_catalogue_poller_04.png)
 
-## Automatische Backups
 
+## Automatische Backups
 Sollte das Plugin für einen Vorgang aktualisierte Metadaten finden und daher die METS-Datei aktualisieren, so wird zunächst automatisch ein Backup der aktuellen METS-Datei `meta.xml` und sofern relevant auch der `meta_anchor.xml` erzeugt. Das Backup wird neben der aktualisierten METS-Datei gespeichert.
 
 ![Mehrere Versionen der METS-Dateien werden als Backup aufgehoben](../.gitbook/assets/intranda_administration_catalogue_poller_05.png)
 
-## Logging innerhalb des Vorgangslogs
 
+## Logging innerhalb des Vorgangslogs
 Die Updates der Metadaten durch das Plugin finden üblicherweise vollautomatisch im Hintergrund statt. Um dennoch jederzeit für einen Datensatz nachvollziehen zu können, was mit diesem zwischenzeitlich passierte, werden die Ereignisse geloggt. Zu jedem Vorgang, für den es Änderung aus diesem Plugin gab, werden daher automatisch detaillierte Einträge innerhalb des `Vorgangslogs` eingefügt. Diese enthalten neben dem Zeitstempel unter anderem eine genaue Auflistung der geänderten Metadatenfelder samt der Inhalte. Somit ist es jederzeit möglich auch den vorherigen bzw. den neuen Wert nachvollziehen zu können.
 
 ![Innerhalb des Vorgangslogs sind die &#xC4;nderungen des Catalogue Pollers nachvollziehbar](../.gitbook/assets/intranda_administration_catalogue_poller_06_de.png)
 
 
 ## Installation
-
 Das Plugin besteht insgesamt aus den folgenden zu installierenden Dateien
 
 ```text
@@ -75,8 +74,8 @@ Daneben gibt es eine Konfigurationsdatei, die an folgender Stelle liegen muss:
 /opt/digiverso/goobi/config/plugin_intranda_administration_catalogue_poller.xml
 ```
 
-## Konfiguration
 
+## Konfiguration
 Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intranda_administration_catalogue_poller.xml` und kann im laufenden Betrieb angepasst werden. Im folgenden ist eine beispielhafte Konfigurationsdatei aufgeführt:
 
 {% code title="plugin\_intranda\_administration\_catalogue\_poller.xml" %}
@@ -138,10 +137,10 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 
 | Parameter | Erläuterung |
 | :--- | :--- |
+| `rule type`  | Hier kann der Typ der `rule` bestimmt. Es kann zwischen `hotfolder` und `filter` gewählt werden. Je nach Typ, müssen innerhalb der `rule` zusätzliche Parameter angegeben werden. Diese werden in den Unterabschnitten unter dieser Tabelle beschrieben.|
 | `rule title` | An dieser Stelle wird ein interner Name angegeben, der hauptsächlich für die Nutzeroberfläche zur Unterscheidung der unterschiedlichen Regeln dient |
 | `rule startTime` | Mit diesem Parameter wird die Startzeit festgelegt, wann das Plugin diese Regel ausführen soll. |
 | `rule delay` | Hiermit kann festgelegt werden, wie häufig das Plugin ausgeführt werden soll. Die Angabe erfolgt hier in Form von Stunden. |
-| `filter` | Mittels des Filters können ein oder mehrere Goobi-Projekte definiert werden, für die die hier definierten Regeln gelten sollen. Mittels `*` gilt die Regel für sämtliche Projekte. Enthaltene Leerzeichen innerhalb des Filters müssen genau wie innerhalb der Goobi Oberfläche mit Anführungszeichen umschlossen werden. |
 | `catalogue` | Hier kann definiert werden, welcher Katalog für die Abfrage von neuen Daten verwendet werden soll. Hierbei handelt es sich um die Bezeichnung eines Kataloges, wie er innerhalb der globalen Goobi-Katalogkonfiguration innerhalb von `goobi_opac.xml` definiert wurde. |
 | `fieldName` | Dieser Parameter steuert, innerhalb welchen Feldes der Katalog abgefragt werden. Häufig is dieser Wert beispielsweise `12`. |
 | `fieldValue` | Definition desjenigen Metadatums aus der METS-Datei, das für die Abfrage des Katalogs verwendet werden soll. Üblicherweise handelt es sich hierbei um denjenigen Identifier, der auch bei der erstmaligen Katalogabfrage verwendet wurde und der zumeist innerhalb der Metadatums `${meta.CatalogIDDigital}` gespeichert vorliegt. |
@@ -149,3 +148,18 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 | `mergeRecords` | Wenn der Wert `true` gesetzt ist, wird die bestehende METS-Datei mit den aktuellen Daten aus dem Katalog aktualisiert. Eventuelle zusätzliche Metadaten können für die Aktualisierung ausgeschlossen werden. Auch bleibt der logische und physische Strukturbaum innerhalb der METS-Datei unverändert.Wenn der Wert auf `false` gesetzt wird, dann wird die bestehende METS-Datei vollständig durch eine neue METS-Datei ersetzt, die mittels der Katalogabfrage generiert wurde. |
 | `analyseSubElements` | Mit diesem Parameter läßt sich definieren, ob auch Metadaten für bereits innerhalb der METS-Dateien vorhandene Strukturelemente vom Katalog abgefragt werden sollen. Hierfür muss pro Unterelement das festgelegte Metadatum für den abzufragenden Identifier vorhanden sein. |
 | `fieldList` | Hier stehen die Modi `blacklist` und `whitelist` zur Verfügung. Falls der Modus `whitelist` gewählt wird, können hier die Metadatenfelder definiert werden, die durch ein Katalogabfrage aktualisiert werden sollen. Falls der Modus `blacklist` verwendet wird, können mehrere Metadatenfelder definiert werden, die keinesfalls durch eine Katalogabfrage geändert werden sollen. Dies ist insbesondere für diejenigen Felder sinnvoll, die nicht aus einer Katalogabfrage kommen und daher zuvor zusätzlich zu den Katalogdaten erfasst wurden. Typische Beispiele für solche Felder sind unter anderem `singleDigCollection`,`accesscondition` und `pathimagefiles`.Bitte beachten Sie, dass dieser Parameter nur dann Anwendung findet, wenn der Wert für `mergeRecords` auf `true` steht.  |
+
+
+### zusätzliche Elemente/Parameter rule type filter
+| Parameter | Erläuterung |
+| :--- | :--- |
+| `filter` | Mittels des Filters können ein oder mehrere Goobi-Projekte definiert werden, für die die hier definierten Regeln gelten sollen. Mittels `*` gilt die Regel für sämtliche Projekte. Enthaltene Leerzeichen innerhalb des Filters müssen genau wie innerhalb der Goobi Oberfläche mit Anführungszeichen umschlossen werden. |
+
+
+### zustätzliche Elemente/Parameter rule type hotfolder
+| Parameter | Erläuterung |
+| :--- | :--- |
+| `path`  | Hier muss der Pfad des Hotfolders angegeben werden, in dem sich die zu importierenden Dateien befinden.|
+| `createMissingProcesses`  | Wenn dieser Schalter aktiviert wird, werden für Dateien, die keinem vorhandenen Vorgang zugeordnet werden können, neue Vorgänge angelegt.|
+| `workflow`  | Hier kann angegeben werden, welche Vorlage für die neuen Vorgänge verwenden soll. |
+| `fileHandling fileFilter`  | Hier kann ein Regexfilter spezifiziert werden, um die Dateinamen der Dateien im Hotfolder zu filtern. Ein einfacher Filter wäre z.B. `*\.xml`. Dieser Filter würde sicherstellen, dass nur die XML-Dateien im Ordner verarbeitet werden. |
