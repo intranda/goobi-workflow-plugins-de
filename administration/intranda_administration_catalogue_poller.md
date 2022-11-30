@@ -4,7 +4,7 @@ description: >-
   METS-Dateien mit Inhalten aus einer Katalogabfrage
 ---
 
-# Catalogue Poller
+# Data Poller
 
 
 ## Einführung
@@ -12,27 +12,27 @@ Die vorliegende Dokumentation beschreibt die Installation, die Konfiguration und
 
 | Details |  |
 | :--- | :--- |
-| Identifier | intranda\_administration\_catalogue\_poller |
-| Source code | [https://github.com/intranda/goobi-plugin-administration-catalogue-poller](https://github.com/intranda/goobi-plugin-administration-catalogue-poller) |
+| Identifier | intranda\_administration\_data\_poller |
+| Source code | [https://github.com/intranda/goobi-plugin-administration-data-poller](https://github.com/intranda/goobi-plugin-administration-data-poller) |
 | Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 2021.02 |
 | Dokumentationsdatum | 20.10.2022 |
 
 
 ## Arbeitsweise des Plugins
-Das Catalogue Poller Plugin wird durch Goobi automatisch aktiviert. Seine Laufzeit beginnt zu der konfigurierten Startzeit und wiederholt sich entsprechend der konfigurierten Anzahl an Stunden.
+Das Data Poller Plugin wird durch Goobi automatisch aktiviert. Seine Laufzeit beginnt zu der konfigurierten Startzeit und wiederholt sich entsprechend der konfigurierten Anzahl an Stunden.
 
 Möchte ein Nutzer zusätzlich zu dieser Automatik ebenfalls Zugriff auf die Nutzeroberfläche des Plugins haben, so muss er einer Benutzergruppe angehören, die hierfür das folgende Plugin-spezifische Recht erhalten hat:
 
 ```text
-Plugin_Goobi_CataloguePoller
+Plugin_Goobi_DataPoller
 ```
 
 Um dieses Recht zuzuweisen, muss der gewünschten Nutzergruppe zunächst die Berechtigung im rechten Bereich eingetragen werden.
 
 ![Benutzergruppe mit zugewiesener Berechtigung](../.gitbook/assets/intranda_administration_catalogue_poller_01_de.png)
 
-Sollte die Berechtigung für die Benutzergruppe neu eingetragen werden, so muss sich der Nutzer zunächst einmal neu in Goobi einloggen, um diese Berechtigungsstufe verwenden zu können. Anschließend kann er im Menü Administration auf das Plugin Catalogue Poller klicken und dort auch jederzeit eine Aktualisierung der Datensätze mittels Katalogabfrage manuell neu anstoßen.
+Sollte die Berechtigung für die Benutzergruppe neu eingetragen werden, so muss sich der Nutzer zunächst einmal neu in Goobi einloggen, um diese Berechtigungsstufe verwenden zu können. Anschließend kann er im Menü Administration auf das Plugin Data Poller klicken und dort auch jederzeit eine Aktualisierung der Datensätze mittels Katalogabfrage manuell neu anstoßen.
 
 ![Oberfläche des Catalgue Pollers](../.gitbook/assets/intranda_administration_catalogue_poller_02_de.png)
 
@@ -50,35 +50,35 @@ Sollte das Plugin für einen Vorgang aktualisierte Metadaten finden und daher di
 ## Logging innerhalb des Vorgangslogs
 Die Updates der Metadaten durch das Plugin finden üblicherweise vollautomatisch im Hintergrund statt. Um dennoch jederzeit für einen Datensatz nachvollziehen zu können, was mit diesem zwischenzeitlich passierte, werden die Ereignisse geloggt. Zu jedem Vorgang, für den es Änderung aus diesem Plugin gab, werden daher automatisch detaillierte Einträge innerhalb des `Vorgangslogs` eingefügt. Diese enthalten neben dem Zeitstempel unter anderem eine genaue Auflistung der geänderten Metadatenfelder samt der Inhalte. Somit ist es jederzeit möglich auch den vorherigen bzw. den neuen Wert nachvollziehen zu können.
 
-![Innerhalb des Vorgangslogs sind die &#xC4;nderungen des Catalogue Pollers nachvollziehbar](../.gitbook/assets/intranda_administration_catalogue_poller_06_de.png)
+![Innerhalb des Vorgangslogs sind die &#xC4;nderungen des Data Pollers nachvollziehbar](../.gitbook/assets/intranda_administration_catalogue_poller_06_de.png)
 
 
 ## Installation
 Das Plugin besteht insgesamt aus den folgenden zu installierenden Dateien
 
 ```text
-plugin_intranda_administration_catalogue-poller.jar
-plugin_intranda_administration_catalogue-poller-GUI.jar
+plugin_intranda_administration_data-poller.jar
+plugin_intranda_administration_data-poller-GUI.jar
 ```
 
 Diese Dateien müssen in den richtigen Verzeichnissen installiert werden, so dass diese nach der Installation in folgenden Pfaden vorliegen:
 
 ```bash
-/opt/digiverso/goobi/plugins/administration/plugin_intranda_administration_catalogue-poller.jar
-/opt/digiverso/goobi/plugins/GUI/plugin_intranda_administration_catalogue-poller-GUI.jar
+/opt/digiverso/goobi/plugins/administration/plugin_intranda_administration_data-poller.jar
+/opt/digiverso/goobi/plugins/GUI/plugin_intranda_administration_data-poller-GUI.jar
 ```
 
 Daneben gibt es eine Konfigurationsdatei, die an folgender Stelle liegen muss:
 
 ```bash
-/opt/digiverso/goobi/config/plugin_intranda_administration_catalogue_poller.xml
+/opt/digiverso/goobi/config/plugin_intranda_administration_data_poller.xml
 ```
 
 
 ## Konfiguration
-Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intranda_administration_catalogue_poller.xml` und kann im laufenden Betrieb angepasst werden. Im folgenden ist eine beispielhafte Konfigurationsdatei aufgeführt:
+Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intranda_administration_data_poller.xml` und kann im laufenden Betrieb angepasst werden. Im folgenden ist eine beispielhafte Konfigurationsdatei aufgeführt:
 
-{% code title="plugin\_intranda\_administration\_catalogue\_poller.xml" %}
+{% code title="plugin\_intranda\_administration\_data\_poller.xml" %}
 ```
 
 ```
