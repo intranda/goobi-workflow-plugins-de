@@ -1,6 +1,6 @@
 ---
 description: >-
-  Dies ist eine technische Dokumentation für das ZOP Export Plugin. Es ermöglicht, den Export in eine ZOP Instanz.
+  Dies ist eine technische Dokumentation für das ZOP Export Plugin. Es ermöglicht den Export in die ZOP Instanz der ZB Zürich.
 ---
 
 # ZOP Export
@@ -53,13 +53,11 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 	<!-- Please make sure that the project names of different config blocks are also different. -->
 	<!-- Given two config blocks with the same project name, the settings of the first one will be taken. -->
 	<config>
-		<!-- The name of the project. By default settings there are only two possibilities: Archive_Project, Manuscript_Project. -->
-		<!-- To add other options a modification in the database is needed. -->
-		<!-- For more details please check the codes around line 1070 in {GoobiDirectory}/db/start.sql. -->
+		<!-- The name of the project. -->
 		<!-- MANDATORY -->
 		<project>Archive_Project</project>
 
-		<!-- The name of the system, e.g. AlmaIDDigital, AlephIDDigital, CatalogIDDigital.  -->
+		<!-- The name of the item identifier, e.g. CatalogIDDigital.  -->
 		<!-- For one-volume works, the value of this Metadata field will be used as the folder's as well as the .ctl file's name. -->
 		<!-- For multi-volume works, the value of this Metadata field will be used as the name's first part. -->
 		<!-- MANDATORY -->
