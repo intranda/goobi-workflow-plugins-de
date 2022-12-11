@@ -136,6 +136,12 @@ Es folgt eine kommentierte Beispielkonfiguration:
             <propertyCondition>is</propertyCondition>
             <!-- Name of the new process template -->
             <workflow>Manuscript workflow</workflow>
+
+            <!-- write a message into the journal (aka process log) -->
+			<log type="info">My info message</log>
+			<log type="error">My error message</log>
+			<log type="user">My user message</log>
+			<log type="debug">My debug message</log>
         </change>
     </config>
 </config_plugin>
