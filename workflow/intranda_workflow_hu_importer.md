@@ -68,6 +68,7 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 		[eadNode]:"ID of the parent node that this Imporset will use"
 		[rowStart]: first row that will be read
 		[rowEnd]: last row that will be read
+		[processTitleMode]: specifies how the process naming shall be handled
 	  -->
     <!-- EAD-> Lochkartei - Grabungsdokumentation Fritz und Ursula Hintze -->
     <importSet name="Lochkarten EAD Subnodes"
@@ -84,6 +85,7 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 		eadFile="EAD-Store - Sudanarchäologie.xml"
 		eadNode="f91585c7-9cd4-47f1-b9e4-5f26a6744fe3"
 		eadSubnodeType="file"
+		processTitleMode="EAD"
 	/>
 
 	<!-- mapping set -> set of fields that describe a mapping
@@ -94,7 +96,7 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 		column: column of the xls-file that will be mapped
         [label]; column header
         [mets] mets of metadata element
-        type: person, metadata, media, 
+        type: person, metadata, media, structureType 
         [separator]: default value is ;
         [blankBeforeSeparator]: default value is false
         [blankAfterSeparator]: default value is false
@@ -107,6 +109,7 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 		<field column="I" label="Material" type="metadata" mets="MaterialDescription"/>
 		<field column="J" label="Maße" type="metadata" mets="SizeSourcePrint"/>
 		<field column="L,M" label="Datei recto, Datei verso" type="media"/>
+		<field column="N" label="Strukturtyp" type="structureType" />
 	</mappingSet>
 
 
@@ -135,6 +138,7 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 </config_plugin>
 ```
 
+
 ### Elementtypen
 Das Plugin kennt zunächst die folgenden Elementtypen.
 
@@ -145,8 +149,8 @@ Das Plugin kennt zunächst die folgenden Elementtypen.
 | `mappingSet`  |  Ein MappingSet besteht aus einer Menge von `field`-Elementen.|
 | `field`  | `field`-Elemente sind Kindelemente von `mappingSet`. Jedes Element ordnet einer Spalte des Exceldokumentes eine Eigenschaft des zu erzeugenden Vorgangs oder dessen Metadaten zu.  |
 
-### Element: importSet
 
+### Element: importSet
 | Attribut | Beschreibung |
 | :--- | :--- |
 | `name` | Name des ImportSets. Dieser wird später innerhalb der Nutzeroberfläche angezeigt. |
@@ -164,7 +168,7 @@ Das Plugin kennt zunächst die folgenden Elementtypen.
 |`eadNode`| ID des Parent-Knotens, unterhalb dessen der neue EAD-Knoten eingefügt werden soll. Das Attribut ist optional.|
 |`rowStart`| Festlegung für die erste Zeile der Excel-Datei im metadataFolder, die ausgewertet werden soll. Das Attribut ist optional.|
 |`rowEnd`| Festlegung für die letzte Zeile der Excel-Datei im metadataFolder, die ausgewertet werden soll. Das Attribut ist optional. Wird als Wert `0` angegeben, wird die vollständige Datei ausgewertet. |
-|`useFileNameAsProcessTitle`| Wenn dieser optionale Parameter auf `true` gesetzt wird, wird der Dateiname als Prozesstitel verwendet. |
+|`processTitleMode`| Hier kann angegeben werden, wie der Vorgang benannt werden soll. Es stehen die Modi `FILENAME`,`UUID`,`XLSX` und `EAD` zur Auswahl. Standardmäßig wird der Modus UUID verwendet. Wenn der Modus `XLSX` verwendet wird, wird erwartet, dass im `descriptionMappingSet` ein field des typs `ProcessName` vorhanden ist. Im Modus `FILENAME` wird der Dateiname als Prozessname verwendet. Im Modus `UUID` und `EAD` wird für den Prozess eine UUid generiert, falls der Modus `EAD` verwendet wird, wird diese UUID zudem als Id des Dokumentknoten im EAD-Baum verwendet.  |
 
 
 ### Die Elemente mappingSet und field
@@ -183,6 +187,7 @@ Ein Element des Typs `mappingSet` verfügt nur über das Attribut `name`. Damit 
 |`blankAfterSeparator`| Falls der Inhalt mehrerer Spalten in einen Wert abgebildet werden soll, kann hier bestimmt werden, ob ein Leerzeichen nach dem Separator gesetzt werden soll. Der Standardwert ist `false`. |
 |`ead`| Wenn dieser Parameter gesetzt ist, wird der Inhalt der Zelle diesem EAD-Metadatentyp zugeordnet. |
 
+
 #### Werte des Type-Attributes
 | Wert | Beschreibung |
 | :--- | :--- |
@@ -191,7 +196,7 @@ Ein Element des Typs `mappingSet` verfügt nur über das Attribut `name`. Damit 
 |`media`| In der angegebenen Spalte muss sich ein oder mehrere Dateiname(n) befinden. Der Seperator ist `,` Er kann aber bei Bedarf durch Verwendung des Attributes `separator` angepasst werden. Es wird davon ausgegangen, dass sich die Datei im `mediaFolder` befindet -> siehe `Importset`.|
 |`FileName`| Dieser Typ muss verwendet werden, um die Spalte mit dem Dateinamen der Prozessbeschreibung anzugeben. Dieser Feldtyp ist also nur in einem `descriptionMappingSet` sinnvoll.  |
 |`ProcessName` | Dieser Typ muss verwendet werden, um die Spalte mit dem zukünftigen Prozessnamen zu spezifizieren.  |
-|`structureType`| Wenn der Typ `structureType` verwendet wird, wird der Wert aus der Zelle, als Stukturtyp verwendet. Wenn die Zelle leer ist, wird der im `ImportSet` spezifizierte `sturctureType` verwendet. Der Typ wird nur für das Erzeugen von Strukturelementen innerhalb eines Vorgangs als Unterelemente. |
+|`structureType`| Wenn der Typ `structureType` verwendet wird, wird der Wert aus der Zelle, als Stukturtyp verwendet. Wenn die Zelle leer ist, wird der im `ImportSet` spezifizierte `sturctureType` verwendet. Der Typ wird nur für das Erzeugen von Strukturelementen  eines Vorgangs verwendet, also dessen Unterelemente. Bezogen auf ein Buch wären das z.B. Inhaltsverzeichnis und Kapitel |
 
 
 ## Benutzung des Plugins
