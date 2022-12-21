@@ -169,6 +169,7 @@ Das Plugin kennt zunächst die folgenden Elementtypen.
 |`rowStart`| Festlegung für die erste Zeile der Excel-Datei im metadataFolder, die ausgewertet werden soll. Das Attribut ist optional.|
 |`rowEnd`| Festlegung für die letzte Zeile der Excel-Datei im metadataFolder, die ausgewertet werden soll. Das Attribut ist optional. Wird als Wert `0` angegeben, wird die vollständige Datei ausgewertet. |
 |`processTitleMode`| Hier kann angegeben werden, wie der Vorgang benannt werden soll. Es stehen die Modi `FILENAME`,`UUID`,`XLSX` und `EAD` zur Auswahl. Standardmäßig wird der Modus UUID verwendet. Wenn der Modus `XLSX` verwendet wird, wird erwartet, dass im `descriptionMappingSet` ein field des typs `ProcessName` vorhanden ist. Im Modus `FILENAME` wird der Dateiname als Prozessname verwendet. Im Modus `UUID` und `EAD` wird für den Prozess eine UUid generiert, falls der Modus `EAD` verwendet wird, wird diese UUID zudem als Id des Dokumentknoten im EAD-Baum verwendet.  |
+|`processPerRow`|F alls keine importSetDescription verwendet wird und jede Zeile in der zu importierenden Datei einen Vaorgang darstellt, muss dieses Attribut auf `true` gesetzt werden.|
 
 
 ### Die Elemente mappingSet und field
@@ -180,12 +181,14 @@ Ein Element des Typs `mappingSet` verfügt nur über das Attribut `name`. Damit 
 |`column`| Spalte(n) die gemappt werden soll(en). Der eingelesene Werte wird dann dem Metadatum zugewiesen, das im Attribut `mets` definiert wurde. Alternativ kann der Inhalt der Zelle auch einer Vorgangseigenschaft wie beispielsweise dem Vorgangstitel zugeordnet werden, wenn als type `ProcessName` spezifiziert wird. Wenn mehrere Spalten in einem Wert abgebildet werden sollen, können diese einfach mit Komma getrennt aufgeführt werden (z.B. `A,B,AA`). Das Attribut ist obligatorisch. |
 |`label`| Hier kann optional der Spaltentitel angegeben werden. Er wird vom Plugin nicht ausgewertet und dient nur der Dokumentation. |
 |`mets`| Dieses Attribut legt fest, welchem Metadatentyp der eingelesene Wert zugeordnet werden soll. Zulässig sind hier alle Werte, die laut Regelsatz ein gültiges Metadatum für das entsprechende Strukturelements sind. |
-|`type`| Dieser Parameter ist obligatorisch und kann die Werte: `person`, `metadata`, `media`, `FileName` und `ProcessName`  annehmen. Die Werte werden unten näher erläutert.
+|`type`| Dieser Parameter ist obligatorisch und kann die Werte: `person`, `metadata`, `media`,`copy`, `FileName` und `ProcessName`  annehmen. Die Werte werden unten näher erläutert. |
 |`gndColumn`| Für Mappings deren Attribut `type` den Wert `metadata` oder `person` annimmt, kann hier die Spalte angegeben werden, in der sich eine Normdatenbank-URL befindet, die den Datensatz näher beschreibt (z.B. https://d-nb.info/gnd/118551310). Der Normdatensatz wird dann mit dem Metadatum verknüpft. |
 |`separator`| Dieser Separator wird verwendet, wenn mehrere Elemente in einem Wert abgebildet werden sollen. Der Standardwert ist `;`.  Das Attribut ist optional.|
 |`blankBeforeSeparator`| Falls der Inhalt mehrerer Spalten in einen Wert gemappt werden soll, kann hier bestimmt werden, ob ein Leerzeichen vor dem Separator gesetzt werden soll. Der Standardwert ist `false`.|
 |`blankAfterSeparator`| Falls der Inhalt mehrerer Spalten in einen Wert abgebildet werden soll, kann hier bestimmt werden, ob ein Leerzeichen nach dem Separator gesetzt werden soll. Der Standardwert ist `false`. |
 |`ead`| Wenn dieser Parameter gesetzt ist, wird der Inhalt der Zelle diesem EAD-Metadatentyp zugeordnet. |
+|`target`| Wird nur unterstützt, wenn der `type` `copy` verwendet wird. Hier kann der Zielordner für die zu kopierenden Dateien angegeben werden. Das goobi Variablensystem wird unterstützt. |
+|`structureType`| Wird nur unterstützt, wenn der `type` `media` verwendet wird. Falls gewünscht ist, dass die Mediendateien einem extra Strukturelement zugeordnet werden, muss der Typ des Strukturelementes hier spezifiziert werden. |
 
 
 #### Werte des Type-Attributes
@@ -193,10 +196,13 @@ Ein Element des Typs `mappingSet` verfügt nur über das Attribut `name`. Damit 
 | :--- | :--- |
 |`metadata`| Ein Element vom Typ `metadata` wird dem im Attribut `mets` spezifizierten Metadatum in der METS-Datei zugeordnet |
 | `person`| Hierbei handelt es sich um einen METS-Datentyp. Wenn der Typ `person` verwendet wird, sollte immer auch das Attribut `mets` gesetzt werden. |
-|`media`| In der angegebenen Spalte muss sich ein oder mehrere Dateiname(n) befinden. Der Seperator ist `,` Er kann aber bei Bedarf durch Verwendung des Attributes `separator` angepasst werden. Es wird davon ausgegangen, dass sich die Datei im `mediaFolder` befindet -> siehe `Importset`.|
+|`media`| In der angegebenen Spalte muss sich ein (oder mehrere) Dateiname(n) befinden. Der Seperator ist `,` Er kann aber bei Bedarf durch Verwendung des Attributes `separator` angepasst werden. Es wird davon ausgegangen, dass sich die Datei im `mediaFolder` befindet -> siehe `Importset`.|
+|`copy`|In der angegebenen Spalte muss sich ein (oder mehrere) Dateiname(n) befinden. Der Seperator ist `,` Er kann aber bei Bedarf durch Verwendung des Attributes `separator` angepasst werden. Es wird davon ausgegangen, dass sich die Datei im `mediaFolder` befindet -> siehe `Importset`. Die Datei wird in den Ordner verschoben, der im Attribut `target` angegeben wird. Das `target`-Attribut unterstützt das Goobi Variablensystem. |
 |`FileName`| Dieser Typ muss verwendet werden, um die Spalte mit dem Dateinamen der Prozessbeschreibung anzugeben. Dieser Feldtyp ist also nur in einem `descriptionMappingSet` sinnvoll.  |
 |`ProcessName` | Dieser Typ muss verwendet werden, um die Spalte mit dem zukünftigen Prozessnamen zu spezifizieren.  |
+|`PublicationType` | Wenn der Typ `PublicationType` verwendet wird, wird der Wert aus der Zelle, als Publikationstyp verwendet. Wenn die Zelle leer ist, wird der im `ImportSet` spezifizierte `PublicationType` verwendet. Der Typ wird nur für das Erzeugen des TopStructs eines Vorgangs verwendet.|
 |`structureType`| Wenn der Typ `structureType` verwendet wird, wird der Wert aus der Zelle, als Stukturtyp verwendet. Wenn die Zelle leer ist, wird der im `ImportSet` spezifizierte `sturctureType` verwendet. Der Typ wird nur für das Erzeugen von Strukturelementen  eines Vorgangs verwendet, also dessen Unterelemente. Bezogen auf ein Buch wären das z.B. Inhaltsverzeichnis und Kapitel |
+
 
 
 ## Benutzung des Plugins
