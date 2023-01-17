@@ -68,15 +68,15 @@ Diese Datei dient zur Konfiguration des Plugins und muss wie folgt aufgebaut sei
         
         <!-- metadata containing the file name -->
         <filenameMetadata>SeparatedMaterial</filenameMetadata>
-        
-        <!-- path to images -->     
-        <imagesFolder>/opt/digiverso/import/images/</imagesFolder>
-        
-          <!-- image file type -->     
-        <imageType>jpg</imageType>
-        <!-- remove existing filetype -->
-        <removeOldFileType>false</removeOldFileType>    
-
+         <!-- fileHandling:
+               mode: Defines if files are copied or moved. Possible values are "copy" and "move". Defaults to "copy".
+               ignoreFileExtension: If the filenameMetadata is for example "Image1.tif" you can configure here if the plugin
+                                    shall search for the exact filename, or if the file extension shall be ignored which
+                                    allowes to find "Image1.jpg", too. Possible values are "true" and "false". Default is
+                                    "false".
+               folder: Absolut path to the directory where to search for the files to be imported.
+        -->
+        <fileHandling mode="copy|move" ignoreFileExtension="true|false" folder="/opt/digiverso/import/images/" />
     </config>
 
 </config_plugin>
@@ -87,9 +87,14 @@ Diese Datei dient zur Konfiguration des Plugins und muss wie folgt aufgebaut sei
 | `project` | Dieser Parameter legt fest, für welches Projekt der aktuelle Block `<config>` gelten soll. Verwendet wird hierbei der Name des Projektes. Dieser Parameter kann mehrfach pro `<config>` Block vorkommen. |
 | `step` | Dieser Parameter steuert, für welche Arbeitsschritte der Block `<config>` gelten soll. Verwendet wird hier der Name des Arbeitsschritts. Dieser Parameter kann mehrfach pro `<config>` Block vorkommen. |
 | `filenameMetadata` |Der Typ des Metadatums in dem der Dateiname der Bildateien hinterlegt wird. |
-| `imagesFolder` | Der Ordner in dem sich die zu importierenden Bilder befinden. |
-| `imageType` | Der Bildtyp. In der Regel wird im Metadatum nur der Dateiname ohne Dateityp hinterlegt. Hier kann bestimmt werden, welchen Dateityp die Bilder haben. |
-| `removeOldFileType` | Falls im Metadatum doch der komplette Dateiname mit Dateityp hinterlegt wurde, kann hier angegeben werden, dass er bei der Verarbeitung ignoriert wird. |
+
+## Attribute des fileHandling Elements
+
+| Attribut | Erläuterung |
+| :--- | :--- |
+| `mode` | chose copy if you want to copy the image file to the process folder and move if you want to move the image file to the process folder |
+| `ignoreFileExtension` | true if the filextension shall be ignored´ |
+| `folder` | Der Ordner in dem sich die zu importierenden Bilder befinden. |
 
 
 
