@@ -47,16 +47,18 @@ Die Konfiguration des Plugins ist folgendermaßen aufgebaut:
         <!-- size of the thumbnail images -->
         <thumbnailsize>200</thumbnailsize>
 
-        <!-- define if you want to see empty fields for read only values -->
-        <hideEmptyFields>true</hideEmptyFields>
+        <!--  If true and the attribute onlyEmptyReadOnlyFields is set to false all empty fields in the plugin are hidden.
+              If the attribute onlyEmptyReadOnlyFields is true also, only these ones are not rendered.
+              The default value of onlyEmptyReadOnlyFields is true -->
+        <hideEmptyFields onlyEmptyReadOnlyFields="true">true</hideEmptyFields>
 
         <!-- which image folder should be used? Possible values are master/media, default is media -->
         <imageFolder>media</imageFolder>
 
-        <!-- configure here if the images shall be rendered inside of the user interface; 
+        <!-- configure here if the images shall be rendered inside of the user interface;
              if switched off then the representative image cannot be set -->
         <showImages>true</showImages>
-        
+
         <!-- this switch allows to hide the search and import functionality for other processes;
             if switched off the button will disappear -->
         <showImportMetadata>true</showImportMetadata>
@@ -137,7 +139,7 @@ Der Block `<config>` kann für verschiedene Projekte oder Arbeitsschritte wieder
 | `project` | Dieser Parameter legt fest, für welches Projekt der aktuelle Block `<config>` gelten soll. Verwendet wird hierbei der Name des Projektes. Dieser Parameter kann mehrfach pro `<config>` Block vorkommen. |
 | `step` | Dieser Parameter steuert, für welche Arbeitsschritte der Block `<config>` gelten soll. Verwendet wird hier der Name des Arbeitsschritts. Dieser Parameter kann mehrfach pro `<config>` Block vorkommen. |
 | `thumbnailsize` | Mit diesem Parameter wird festgelegt, in welcher Größe die Thumbnails, die zum Bestimmen des Repräsentanten angezeigt werden sollen. |
-| `hideEmptyFields` | Es kann hiermit festgelegt werden, dass Felder, die keine Inhalte haben, dennoch leer eingeblendet werden sollen. |
+| `hideEmptyFields` | Dieses Element kann die Werte `true` und `false`annehmen. Das Element besitzt außerdem das Attribut `onlyEmptyReadOnlyFields`. Wenn das Element den Wert `true` hat, werden leere Metadatenfelder versteckt. Mit dem Attribut `onlyEmptyReadOnlyFields` kann zusätzlich gesteuert werden, ob nur leere "ReadOnly"-Felder (`true`) oder alle leeren Felder (`false`) versteckt werden sollen. Der Standardwert von onlyEmptyReadOnlyFields ist `true`.   |
 | `imageFolder` | Dieser Parameter bestimmt, aus welchem Verzeichnis die Bilder zur Anzeige verwendet werden sollen. Übliche Werte sind hier beispielsweise `master` oder `media`. |
 | `preselectFields` | Mit diesem Parameter kann festgelegt werden, ob die innerhalb der Vorgangssuche dieses Plugins gefundenen Metadaten bereits vorausgewählt sein sollen, so dass eine einfache Übernahme der Metadaten erfolgen kann. |
 | `showImages` | Mit diesem Parameter wird festgelegt, ob der Bildbereich zur Auswahl des Repräsentanten angezeigt werden soll. |
@@ -196,4 +198,3 @@ Innerhalb des Dialogs mit den gefundenen Vorgängen kann nun ausgewählt werden,
 Ein Klick auf eines der angezeigten Thumbnails erlaubt das Setzen des Repräsentanten.
 
 Bitte beachten Sie, dass die Bearbeitungen nur dann gespeichert werden, wenn auf den dafür vorgesehenen Button geklickt wird.
-
