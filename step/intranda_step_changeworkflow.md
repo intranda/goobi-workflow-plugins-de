@@ -84,17 +84,17 @@ Es folgt eine kommentierte Beispielkonfiguration:
                 <title>Some standard step</title>
             </priority>
 			
-            <!-- list of steps of priority 1 (high) -->
+            <!-- list of steps of priority 1 (priority) -->
             <priority value="1">
-                <title>Step of high priority</title>
+                <title>Step of priority</title>
             </priority>
 			
-            <!-- list of steps of priority 2 (higher) -->
+            <!-- list of steps of priority 2 (high priority) -->
             <priority value="2">
-                <title>Step of higher priority</title>
+                <title>Step of high priority</title>
             </priority>
 
-            <!-- list of steps of priority 3 (highest) -->
+            <!-- list of steps of priority 3 (highest priority) -->
             <priority value="3">
                 <title>Step of highest priority</title>
                 <title>another step of highest priority</title>
@@ -237,11 +237,11 @@ Abhängig von vorhandenen Eigenschaften kann die Priorität festgelegter Arbeits
 </priority>
 
 <priority value="1">
-    <title>Step of high priority</title>
+    <title>Step of priority</title>
 </priority>
 
 <priority value="2">
-    <title>Step of higher priority</title>
+    <title>Step of high priority</title>
 </priority>
 
 <priority value="3">
