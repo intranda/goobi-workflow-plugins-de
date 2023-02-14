@@ -18,7 +18,7 @@ Dieses Plugin dient zu bedingen Umbenennung von Dateien innerhalb der verschiede
 | Source code | [https://github.com/intranda/goobi-plugin-step-rename-files](https://github.com/intranda/goobi-plugin-step-rename-files) |
 | Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 2020.02 |
-| Dokumentationsdatum | 06.02.2023 |
+| Dokumentationsdatum | 14.02.2023 |
 
 ## Installation
 
@@ -46,7 +46,7 @@ Dabei sieht der Inhalt dieser Konfigurationsdatei beispielhaft wie folgt aus:
         
         <!-- if configured, the value will be used by the VariableReplacer to search for the prepared replacement in `goobi_config.properties` -->
         <!-- e.g. process.folder.images.greyscale={processtitle}_greyscale -->
-        <!-- if left blank or configured by *, then the default settings will be used -->
+        <!-- if left blank or configured by *, or if there is no folder tag found, then the default settings will be used -->
         <folder>greyscale</folder>
         
         <startValue>1</startValue>
@@ -98,7 +98,7 @@ Die Konfiguration des Plugins erfolgt innerhalb der bereits erwähnten Konfigura
     <tr>
       <td style="text-align:left"><code>folder</code>
       </td>
-      <td style="text-align:left">Dieser Parameter lässt die Nutzer steuern, welche verzeichnis berücksichtigt werden soll. Wenn mit einem * oder gar nicht         konfiguriert ist, wird die defaulte Settings benutzt.</td>
+      <td style="text-align:left">Dieser Parameter lässt die Nutzer steuern, welche verzeichnis berücksichtigt werden soll. Wenn mit einem * oder gar nicht         konfiguriert ist, oder wenn dieser Parameter sogar nicht da ist, wird die defaulte Settings benutzt.</td>
     </tr>
     <tr>
       <td style="text-align:left"><code>startValue</code>
