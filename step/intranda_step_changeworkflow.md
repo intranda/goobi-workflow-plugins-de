@@ -16,7 +16,7 @@ Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den
 | Source code | [https://github.com/intranda/goobi-plugin-step-change-workflow](https://github.com/intranda/goobi-plugin-step-change-workflow) |
 | Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 2021.03 |
-| Dokumentationsdatum | 07.02.2023 |
+| Dokumentationsdatum | 14.02.2023 |
 
 ## Voraussetzung
 
@@ -79,6 +79,8 @@ Es folgt eine kommentierte Beispielkonfiguration:
                 <title>Automatic export to Islandora</title>
             </steps>
 		
+            <!-- If any title under priority is configured with a *, then this priority value will be applied to all steps of this process. -->
+            <!-- If more than two titles are configured with *, then the first match in the order of values 0, 1, 2, 3, 10 will be used. -->
             <!-- list of steps of priority 0 (standard) -->
             <priority value="0">
                 <title>Some standard step</title>
@@ -229,7 +231,7 @@ Abhängig von vorhandenen Eigenschaften kann der Status festgelegter Arbeitsschr
 
 ### Ändern der Priorität von Arbeitsschritten des Workflows
 
-Abhängig von vorhandenen Eigenschaften kann die Priorität festgelegter Arbeitsschritte innerhalb des Workflows automatisiert geändert werden. Mögliche Werte von Prioritäten sind Standard `value="0"`, Priorität `value="1"`, Hohe Priorität `value="2"`, Höchste Priorität `value="3"`, oder Korrektur `value="10"`.
+Abhängig von vorhandenen Eigenschaften kann die Priorität festgelegter Arbeitsschritte innerhalb des Workflows automatisiert geändert werden. Mögliche Werte von Prioritäten sind Standard `value="0"`, Priorität `value="1"`, Hohe Priorität `value="2"`, Höchste Priorität `value="3"`, oder Korrektur `value="10"`. Wenn ein `title` mit `*` konfiguriert ist, dann wird der zugehörige Prioritätswert für alle Schritte von diesem Prozess benutzt. Wenn aber mehr als zwei `title` mit `*` konfiguriert sind, dann wird nur der erste vorkommene in der Reihenfolge 0, 1, 2, 3, 10 berücksichtigt.
 
 ```xml
 <priority value="0">
@@ -257,7 +259,7 @@ Abhängig von vorhandenen Eigenschaften kann die Priorität festgelegter Arbeits
 | Parameter | Erläuterung |
 | :--- | :--- |
 | `value` | Legen Sie fest, welche Priorität die Arbeitsschritte erhalten sollen. |
-| `title` | Definieren Sie hier den Namen der Arbeitsschritte, die auf die gewünschte Priorität gesetzt werden sollen. |
+| `title` | Definieren Sie hier den Namen der Arbeitsschritte, die auf die gewünschte Priorität gesetzt werden sollen. `*` falls alle Schritte so umgesetzt werden sollen. |
 
 
 ### Ändern der Zuständigkeit von Benutzergruppen für Arbeitsschritte
