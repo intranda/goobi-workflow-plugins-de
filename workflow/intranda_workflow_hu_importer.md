@@ -68,6 +68,7 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 		[eadNode]:"ID of the parent node that this Imporset will use"
 		[rowStart]: first row that will be read
 		[rowEnd]: last row that will be read
+		[processTitleMode]: specifies how the process naming shall be handled
 	  -->
     <!-- EAD-> Lochkartei - Grabungsdokumentation Fritz und Ursula Hintze -->
     <importSet name="Lochkarten EAD Subnodes"
@@ -84,6 +85,7 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 		eadFile="EAD-Store - Sudanarchäologie.xml"
 		eadNode="f91585c7-9cd4-47f1-b9e4-5f26a6744fe3"
 		eadSubnodeType="file"
+		processTitleMode="EAD"
 	/>
 
 	<!-- mapping set -> set of fields that describe a mapping
@@ -94,7 +96,7 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 		column: column of the xls-file that will be mapped
         [label]; column header
         [mets] mets of metadata element
-        type: person, metadata, media, 
+        type: person, metadata, media, structureType 
         [separator]: default value is ;
         [blankBeforeSeparator]: default value is false
         [blankAfterSeparator]: default value is false
@@ -107,6 +109,7 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 		<field column="I" label="Material" type="metadata" mets="MaterialDescription"/>
 		<field column="J" label="Maße" type="metadata" mets="SizeSourcePrint"/>
 		<field column="L,M" label="Datei recto, Datei verso" type="media"/>
+		<field column="N" label="Strukturtyp" type="structureType" />
 	</mappingSet>
 
 
@@ -135,6 +138,7 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 </config_plugin>
 ```
 
+
 ### Elementtypen
 Das Plugin kennt zunächst die folgenden Elementtypen.
 
@@ -145,8 +149,8 @@ Das Plugin kennt zunächst die folgenden Elementtypen.
 | `mappingSet`  |  Ein MappingSet besteht aus einer Menge von `field`-Elementen.|
 | `field`  | `field`-Elemente sind Kindelemente von `mappingSet`. Jedes Element ordnet einer Spalte des Exceldokumentes eine Eigenschaft des zu erzeugenden Vorgangs oder dessen Metadaten zu.  |
 
-### Element: importSet
 
+### Element: importSet
 | Attribut | Beschreibung |
 | :--- | :--- |
 | `name` | Name des ImportSets. Dieser wird später innerhalb der Nutzeroberfläche angezeigt. |
@@ -164,7 +168,8 @@ Das Plugin kennt zunächst die folgenden Elementtypen.
 |`eadNode`| ID des Parent-Knotens, unterhalb dessen der neue EAD-Knoten eingefügt werden soll. Das Attribut ist optional.|
 |`rowStart`| Festlegung für die erste Zeile der Excel-Datei im metadataFolder, die ausgewertet werden soll. Das Attribut ist optional.|
 |`rowEnd`| Festlegung für die letzte Zeile der Excel-Datei im metadataFolder, die ausgewertet werden soll. Das Attribut ist optional. Wird als Wert `0` angegeben, wird die vollständige Datei ausgewertet. |
-|`useFileNameAsProcessTitle`| Wenn dieser optionale Parameter auf `true` gesetzt wird, wird der Dateiname als Prozesstitel verwendet. |
+|`processTitleMode`| Hier kann angegeben werden, wie die anzulegenden Vorgänge benannt werden sollen. Es stehen die Modi `FILENAME`,`UUID`,`XLSX` und `EAD` zur Auswahl. Standardmäßig wird der Modus `UUID` verwendet. Wenn der Modus `XLSX` verwendet wird, wird erwartet, dass im Konfigurationselement `descriptionMappingSet` ein `field` des Typs `ProcessName` vorhanden ist. Im Modus `FILENAME` wird der Dateiname als Vorgangsname verwendet. Im Modus `UUID` und `EAD` wird für den Vorgang eine UUID erzeugt. Im Falle des Modus `EAD`, wird diese UUID zudem als ID des Knotens im EAD-Baum genutzt. |
+|`processPerRow`| Falls kein Wert innerhalb der Konfiguration von `importSetDescription` angegeben wurde und soll für jede Zeile der zu importierenden Excel-Datei ein Vorgang erstellt werden, muss dieses Attribut auf `true` gesetzt werden. |
 
 
 ### Die Elemente mappingSet und field
@@ -176,22 +181,28 @@ Ein Element des Typs `mappingSet` verfügt nur über das Attribut `name`. Damit 
 |`column`| Spalte(n) die gemappt werden soll(en). Der eingelesene Werte wird dann dem Metadatum zugewiesen, das im Attribut `mets` definiert wurde. Alternativ kann der Inhalt der Zelle auch einer Vorgangseigenschaft wie beispielsweise dem Vorgangstitel zugeordnet werden, wenn als type `ProcessName` spezifiziert wird. Wenn mehrere Spalten in einem Wert abgebildet werden sollen, können diese einfach mit Komma getrennt aufgeführt werden (z.B. `A,B,AA`). Das Attribut ist obligatorisch. |
 |`label`| Hier kann optional der Spaltentitel angegeben werden. Er wird vom Plugin nicht ausgewertet und dient nur der Dokumentation. |
 |`mets`| Dieses Attribut legt fest, welchem Metadatentyp der eingelesene Wert zugeordnet werden soll. Zulässig sind hier alle Werte, die laut Regelsatz ein gültiges Metadatum für das entsprechende Strukturelements sind. |
-|`type`| Dieser Parameter ist obligatorisch und kann die Werte: `person`, `metadata`, `media`, `FileName` und `ProcessName`  annehmen. Die Werte werden unten näher erläutert.
+|`type`| Dieser Parameter ist obligatorisch und kann die Werte: `person`, `metadata`, `media`, `copy`, `FileName` und `ProcessName`  annehmen. Die Werte werden unten näher erläutert. |
 |`gndColumn`| Für Mappings deren Attribut `type` den Wert `metadata` oder `person` annimmt, kann hier die Spalte angegeben werden, in der sich eine Normdatenbank-URL befindet, die den Datensatz näher beschreibt (z.B. https://d-nb.info/gnd/118551310). Der Normdatensatz wird dann mit dem Metadatum verknüpft. |
 |`separator`| Dieser Separator wird verwendet, wenn mehrere Elemente in einem Wert abgebildet werden sollen. Der Standardwert ist `;`.  Das Attribut ist optional.|
 |`blankBeforeSeparator`| Falls der Inhalt mehrerer Spalten in einen Wert gemappt werden soll, kann hier bestimmt werden, ob ein Leerzeichen vor dem Separator gesetzt werden soll. Der Standardwert ist `false`.|
 |`blankAfterSeparator`| Falls der Inhalt mehrerer Spalten in einen Wert abgebildet werden soll, kann hier bestimmt werden, ob ein Leerzeichen nach dem Separator gesetzt werden soll. Der Standardwert ist `false`. |
 |`ead`| Wenn dieser Parameter gesetzt ist, wird der Inhalt der Zelle diesem EAD-Metadatentyp zugeordnet. |
+|`target`| Wird nur unterstützt, wenn der in dem Attribut `type` als Wert `copy` verwendet wurde. Hier kann der Zielordner für die zu kopierenden Dateien angegeben werden. Hierbei wird das Goobi-Variablensystem unterstützt. |
+|`structureType`| Wird nur unterstützt, wenn im Attribut `type` als Wert `media` verwendet wurde. Falls gewünscht ist, dass die Mediendateien einem spezifischen anzulegendem Strukturelement zugeordnet werden, wird hier der Typ des Strukturelementes hier festgelegt. |
+
 
 #### Werte des Type-Attributes
 | Wert | Beschreibung |
 | :--- | :--- |
 |`metadata`| Ein Element vom Typ `metadata` wird dem im Attribut `mets` spezifizierten Metadatum in der METS-Datei zugeordnet |
 | `person`| Hierbei handelt es sich um einen METS-Datentyp. Wenn der Typ `person` verwendet wird, sollte immer auch das Attribut `mets` gesetzt werden. |
-|`media`| In der angegebenen Spalte muss sich ein oder mehrere Dateiname(n) befinden. Der Seperator ist `,` Er kann aber bei Bedarf durch Verwendung des Attributes `separator` angepasst werden. Es wird davon ausgegangen, dass sich die Datei im `mediaFolder` befindet -> siehe `Importset`.|
+|`media`| In der angegebenen Spalte müssen sich ein oder mehrere Dateinamen befinden. Der Seperator ist hierbei normalerweise `,`. Er kann aber bei Bedarf durch Verwendung des Attributes `separator` anders festgelegt werden. Es wird davon ausgegangen, dass sich die Datei im Verzeichnis `mediaFolder` befindet. Siehe hierzu bei der Konfiguration von `Importset`. |
+|`copy` | In der angegebenen Spalte müssen sich ein oder mehrere Dateinamen befinden. Der Seperator ist hierbei normalerweise `,`. Er kann aber bei Bedarf durch Verwendung des Attributes `separator` anders festgelegt werden. Es wird davon ausgegangen, dass sich die Datei im Verzeichnis `mediaFolder` befindet. Siehe hierzu bei der Konfiguration von `Importset`. Die Dateien werden in den Ordner verschoben, der im Attribut `target` angegeben wird. Das `target`-Attribut unterstützt hierbei auch das Goobi-Variablensystem. |
 |`FileName`| Dieser Typ muss verwendet werden, um die Spalte mit dem Dateinamen der Prozessbeschreibung anzugeben. Dieser Feldtyp ist also nur in einem `descriptionMappingSet` sinnvoll.  |
 |`ProcessName` | Dieser Typ muss verwendet werden, um die Spalte mit dem zukünftigen Prozessnamen zu spezifizieren.  |
-|`structureType`| Wenn der Typ `structureType` verwendet wird, wird der Wert aus der Zelle, als Stukturtyp verwendet. Wenn die Zelle leer ist, wird der im `ImportSet` spezifizierte `sturctureType` verwendet. Der Typ wird nur für das Erzeugen von Strukturelementen innerhalb eines Vorgangs als Unterelemente. |
+|`PublicationType` | Wird der Typ `PublicationType` verwendet, wird der Wert aus der Zelle als Publikationstyp genutzt. Wenn die Zelle leer ist, wird der im Attribut `ImportSet` festgelegte `PublicationType` verwendet. Der Typ wird nur für das Erzeugen des obersten Strukturelements eines Vorgangs verwendet.|
+|`structureType`| Wird der Typ `structureType` verwendet, wird der Wert aus der Zelle, als Stukturtyp verwendet. Wenn die Zelle leer ist, wird der im Attribut `ImportSet` festgelegte `sturctureType` verwendet. Der Typ wird nur für das Erzeugen von Strukturelementen eines Vorgangs verwendet, also von dessen Unterelementen. Bezogen auf ein Buch entspricht dies beispielsweise den Titelblättern und Kapiteln. |
+
 
 
 ## Benutzung des Plugins
