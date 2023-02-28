@@ -177,8 +177,8 @@ Der `includeFolders` Block befindet sich innerhalb von jedem `config`-Element. E
 | `source` | Hier kann definiert werden, ob und wie der source-Ordner exportiert werden soll. |
 | `import` | Hier kann definiert werden, ob und wie der import-Ordner exportiert werden soll. |
 | `export` | Hier kann definiert werden, ob und wie der export-Ordner exportiert werden soll. |
-| `itm` | Hier kann definiert werden, ob der TaskManager-Ordner exportiert werden soll. |
-| `validation` | Hier kann definiert werden, ob der validation-Ordner exportiert werden soll. |
+| `itm` | Hier kann definiert werden, ob und wie der TaskManager-Ordner exportiert werden soll. |
+| `validation` | Hier kann definiert werden, ob und wie der validation-Ordner exportiert werden soll. |
 | `sourceFolderSuffix` | Dieses Unterelement vom `ocr` Element wird benötigt, wenn man OCR-Ordner mit verschiedenen Suffixen verwendet. Es wird das konkrete Suffix zum Export angeben. |
 | `destinationFolder` | Das ist ein Unterelement von allen Ordner-Elementen ausschließlich dem `ocr`-Element, und mithilfe seiner zwei Attributen `name` und `exportFileRegex` kann definiert werden, welche Dateien in welche Verzeichnisse exportiert werden sollen. | 
 
