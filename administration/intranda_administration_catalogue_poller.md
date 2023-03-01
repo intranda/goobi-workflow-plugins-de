@@ -88,13 +88,22 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 <?xml version="1.0" encoding="UTF-8"?>
 <config_plugin>
 
-   <!-- multiple different rules can be defined for individual use cases -->
-   <rule title="SampleProject" startTime="22:00:00" delay="24">
+   <!-- multiple different rules can be defined for individual use cases.
+        you can specify a start time and a delay in hours. the rule will only be executed if
+        enabled is true. A rule can be of type filter or hotfolder. If the type hotfolder is
+        used you must specify the path inside a path element in the rule.
+   -->
+   <rule type="filter" title="SampleProject" startTime="22:00:00" delay="24" enabled="true" >
 
-        <!-- filter which items to run through (can be more then one, otherwise use *)
-        please notice that blanks inside of the filter query need to be surrounded by quotation marks -->
+        <!-- filter which items to run through please notice that filters that contain blanks
+        need to be surrounded by quotation marks -->
         <filter>project:SampleProject</filter>
+        <!--
         <filter>"project:Manuscript items"</filter>
+        -->
+        <!--
+        <path>/opt/digiverso/goobi/import/</path>
+        -->
 
         <!-- which catalogue to use (GBV, Wiener, CBL Adlib ...) -->
         <catalogue>Wiener</catalogue>
@@ -102,7 +111,7 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
         <!-- which catalogue field to use and which identifier to use for the catalogue request (use
         standard variable replacer compatible value here) -->
         <catalogueField fieldName="12" fieldValue="$(meta.CatalogIDDigital)" />
-        
+
         <!-- define if existing structure subelements shall be kept (true),
         otherwise a complete new mets file is created and overwrites the
         existing one (false) -->
@@ -114,10 +123,10 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
         <!-- execute an automatic export of updated records;
         this is only executed if mergeRecords is set to true -->
         <exportUpdatedRecords>false</exportUpdatedRecords>
-       
+
         <!--fieldList: Must have a mode attribute which can contain either blacklist or whitelist as a value.
             blacklist: All fields are updated except the defined ones. This is a potentially dangerous setting!
-            whitelist: Only the definied fields are updated. All others are skipped. 
+            whitelist: Only the definied fields are updated. All others are skipped.
             field: Use the internal metadata names from the ruleset as field definition
          -->
         <fieldList mode="blacklist">
@@ -128,35 +137,49 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
             <field>_representative</field>
         </fieldList>
 
-    </rule>
+        <!--alwaysExecuteStepList: specify steps that shall be performed after each run of the rule
+            step: name of the step that shall be executed
+         -->
+        <alwaysExecuteStepList>
+            <step>resize images</step>
+       </alwaysExecuteStepList>
 
-   <!-- internal timestamp for the plugin to know when it was last executed -->
-   <lastRun>1551731078691</lastRun>
+        <!-- internal timestamp for the plugin to know when the rule was last executed -->
+        <lastRun>1551731078691</lastRun>
+    </rule>
 </config_plugin>
 ```
+### Attribute des rule Elementes
 
-| Parameter | Erläuterung |
+| Attribut | Erläuterung |
 | :--- | :--- |
-| `rule type`  | Hier kann der Typ der `rule` bestimmt. Es kann zwischen `hotfolder` und `filter` gewählt werden. Je nach Typ, müssen innerhalb der `rule` zusätzliche Parameter angegeben werden. Diese werden in den Unterabschnitten unter dieser Tabelle beschrieben.|
-| `rule title` | An dieser Stelle wird ein interner Name angegeben, der hauptsächlich für die Nutzeroberfläche zur Unterscheidung der unterschiedlichen Regeln dient |
-| `rule startTime` | Mit diesem Parameter wird die Startzeit festgelegt, wann das Plugin diese Regel ausführen soll. |
-| `rule delay` | Hiermit kann festgelegt werden, wie häufig das Plugin ausgeführt werden soll. Die Angabe erfolgt hier in Form von Stunden. |
-| `catalogue` | Hier kann definiert werden, welcher Katalog für die Abfrage von neuen Daten verwendet werden soll. Hierbei handelt es sich um die Bezeichnung eines Kataloges, wie er innerhalb der globalen Goobi-Katalogkonfiguration innerhalb von `goobi_opac.xml` definiert wurde. |
-| `fieldName` | Dieser Parameter steuert, innerhalb welchen Feldes der Katalog abgefragt werden. Häufig is dieser Wert beispielsweise `12`. |
-| `fieldValue` | Definition desjenigen Metadatums aus der METS-Datei, das für die Abfrage des Katalogs verwendet werden soll. Üblicherweise handelt es sich hierbei um denjenigen Identifier, der auch bei der erstmaligen Katalogabfrage verwendet wurde und der zumeist innerhalb der Metadatums `${meta.CatalogIDDigital}` gespeichert vorliegt. |
+| `type`  | Hier kann der Typ der `rule` bestimmt. Es kann zwischen `hotfolder` und `filter` gewählt werden. Je nach Typ, müssen innerhalb der `rule` zusätzliche Parameter angegeben werden. Diese werden in den Unterabschnitten unter dieser Tabelle beschrieben.|
+| `title` | An dieser Stelle wird ein interner Name angegeben, der hauptsächlich für die Nutzeroberfläche zur Unterscheidung der unterschiedlichen Regeln dient |
+| `startTime` | Mit diesem Parameter wird die Startzeit festgelegt, wann das Plugin diese Regel ausführen soll. |
+| `delay` | Hiermit kann festgelegt werden, wie häufig das Plugin ausgeführt werden soll. Die Angabe erfolgt hier in Form von Stunden. |
+| `enabled` |Die Regel wird nur ausgeführt wenn das Attribut enabled den Wert Wahr annimmt. |
+
+### Unterelemente des rule Elementes
+
+| Element/Attribut | Erläuterung |
+| :--- | :--- |
+| `catalogue` | Hier kann definiert werden, welcher Katalog für die Abfrage von neuen Daten verwendet werden soll. Hierbei handelt es sich um die Bezeichnung eines Kataloges, wie er innerhalb der globalen Goobi-Katalogkonfiguration innerhalb von `goobi_opac.xml` definiert wurde. `catalogue` hat die Unterelemente `fieldName` und `fieldValue`. |
+| `fieldName` | Ist ein Attribut des `catalogue`-Elementes und steuert, innerhalb welchen Feldes der Katalog abgefragt wird. Häufig ist dieser Wert beispielsweise `12`. |
+| `fieldValue` |  Ist ein Attribut des `catalogue`-Elementes. Definition desjenigen Metadatums aus der METS-Datei, das für die Abfrage des Katalogs verwendet werden soll. Üblicherweise handelt es sich hierbei um denjenigen Identifier, der auch bei der erstmaligen Katalogabfrage verwendet wurde und der zumeist innerhalb der Metadatums `${meta.CatalogIDDigital}` gespeichert vorliegt. |
 | `exportUpdatedRecords` | Wenn dieser Wert auf `true` gesetzt wird, so erfolgt im Anschluß an die Katalogabfrage für all diejenigen Datensätze ein erneuter Datenexport, die im Verlauf der Katalogabfrage auch tatsächlich aktualisiert wurden. Als Datenexport wird in diesem Fall derjenige Arbeitsschritt ausgeführt, der als erster `Export`-Arbeitsschritt innerhalb des Workflows für den Vorgang definiert wurde. Damit ist üblicherweise der Export und damit die Veröffentlichung des Vorgangs innerhalb der Goobi viewers gemeint. Zu beachten ist hierbei, dass die Vorgänge nur dann exportiert werden, wenn der Mechanismus für `mergeRecords` ebenfalls auf `true`gesetzt ist. |
 | `mergeRecords` | Wenn der Wert `true` gesetzt ist, wird die bestehende METS-Datei mit den aktuellen Daten aus dem Katalog aktualisiert. Eventuelle zusätzliche Metadaten können für die Aktualisierung ausgeschlossen werden. Auch bleibt der logische und physische Strukturbaum innerhalb der METS-Datei unverändert.Wenn der Wert auf `false` gesetzt wird, dann wird die bestehende METS-Datei vollständig durch eine neue METS-Datei ersetzt, die mittels der Katalogabfrage generiert wurde. |
-| `analyseSubElements` | Mit diesem Parameter läßt sich definieren, ob auch Metadaten für bereits innerhalb der METS-Dateien vorhandene Strukturelemente vom Katalog abgefragt werden sollen. Hierfür muss pro Unterelement das festgelegte Metadatum für den abzufragenden Identifier vorhanden sein. |
+| `analyseSubElements` | Mit diesem Element läßt sich definieren, ob auch Metadaten für bereits innerhalb der METS-Dateien vorhandene Strukturelemente vom Katalog abgefragt werden sollen. Hierfür muss pro Unterelement das festgelegte Metadatum für den abzufragenden Identifier vorhanden sein. |
 | `fieldList` | Hier stehen die Modi `blacklist` und `whitelist` zur Verfügung. Falls der Modus `whitelist` gewählt wird, können hier die Metadatenfelder definiert werden, die durch ein Katalogabfrage aktualisiert werden sollen. Falls der Modus `blacklist` verwendet wird, können mehrere Metadatenfelder definiert werden, die keinesfalls durch eine Katalogabfrage geändert werden sollen. Dies ist insbesondere für diejenigen Felder sinnvoll, die nicht aus einer Katalogabfrage kommen und daher zuvor zusätzlich zu den Katalogdaten erfasst wurden. Typische Beispiele für solche Felder sind unter anderem `singleDigCollection`,`accesscondition` und `pathimagefiles`.Bitte beachten Sie, dass dieser Parameter nur dann Anwendung findet, wenn der Wert für `mergeRecords` auf `true` steht.  |
+|`alwaysExecuteStepList`   |Hier können die Titel der automatischen Schritte angegeben werden, die bei einem Durchlauf des Datapollers ausgeführt werden sollen. Die Titel befinden sich dabei in einem step - Element. Es können mehrere Schritte angegeben werden  |
 
 
-### zusätzliche Elemente/Parameter rule type filter
+### zusätzliche Elemente/Parameter - rule type filter
 | Parameter | Erläuterung |
 | :--- | :--- |
 | `filter` | Mittels des Filters können ein oder mehrere Goobi-Projekte definiert werden, für die die hier definierten Regeln gelten sollen. Mittels `*` gilt die Regel für sämtliche Projekte. Enthaltene Leerzeichen innerhalb des Filters müssen genau wie innerhalb der Goobi Oberfläche mit Anführungszeichen umschlossen werden. |
 
 
-### zustätzliche Elemente/Parameter rule type hotfolder
+### zustätzliche Elemente/Parameter - rule type hotfolder
 | Parameter | Erläuterung |
 | :--- | :--- |
 | `path`  | Hier muss der Pfad des Hotfolders angegeben werden, in dem sich die zu importierenden Dateien befinden.|
