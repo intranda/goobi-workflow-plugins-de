@@ -86,8 +86,8 @@ Eine Beispielkonfiguration könnte folgendermaßen aussehen:
 | `exportPath` | Dieser OPTIONALE Parameter kann verwendet werden, um einen anderen Pfad für den Export der PDF-Dateien festzulegen. Wenn er verwendet wird, wird ein ABSOLUTER Pfad erwartet. Ist er nicht angegeben, werden die Standardeinstellungen verwendet. |
 
 
-## Settings in Goobi
+## Einstellungen in Goobi
 
-After the plugin has been installed, it can be configured in the user interface in a workflow step.
+Nachdem das Plugin installiert wurde, kann es in der Nutzeroberfläche in einem Workflowschritt konfiguriert werden.
 
-![Configuration of the step in Goobi workflow](../.gitbook/assets/intranda_step_createfullpdf.png)
+![](../.gitbook/assets/intranda_step_createfullpdf.png)
