@@ -9,7 +9,7 @@ description: >-
 
 Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den Einsatz des Selected-Images-Export-Plugins in Goobi.
 
-Mithilfe dieses Plugins für Goobi können die Goobi-Vorgänge innerhalb eines Arbeitsschrittes die ausgewählten Bilder und möglicherweise auch eine erzeugte JSON Datei oder/und METS Datei von diesen Bildern an den konfigurierten Ort exportiert werden.
+Mithilfe dieses Plugins für Goobi können die Goobi-Vorgänge innerhalb eines Arbeitsschrittes die ausgewählten Bilder und möglicherweise auch eine erzeugte JSON Datei oder/und METS Datei von diesen Bildern an den konfigurierten Ort exportieren.
 
 | Details |  |
 | :--- | :--- |
