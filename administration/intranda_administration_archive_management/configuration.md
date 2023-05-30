@@ -12,6 +12,20 @@ Nach der Durchführung der Installation des Plugins und der zugehörigen Datenba
         <archive>*</archive>
         <!-- default title for a new node -->
         <nodeDefaultTitle>Document</nodeDefaultTitle>
+        
+        <!-- configurations for generating process titles -->
+        
+        <!-- maximum length of the body token that will be used to generate a new process title -->
+        <!-- the specifically set HEAD token and TAIL token will not be affected by this limit -->
+        <!-- if the limit is positively configured, then CAMEL_CASE_LENGTH_LIMITED will be applied upon every body token, otherwise CAMEL_CASE will be applied -->
+        <lengthLimit>0</lengthLimit>
+        <!-- separator string that will be used to combine the tokens -->
+        <separator>_</separator>
+        <!-- true if signature should be used preferably, false if uuid should be used -->
+        <useSignature>true</useSignature>
+        
+        <!-- // configurations for generating process titles // -->
+        
         <!-- define metadata fields. All fields are displayed on the UI based on the level and the order within this file.
                 - @name: contains the internal name of the field. The value can be used to translate the field in the messages files. The field must start with a letter and can not contain any white spaces.
                 - @level: metadata level, allowed values are 1-7:
@@ -175,6 +189,11 @@ Mit den beiden Parametern `<basexUrl>` und `<eadExportFolder>` wird die Anbindun
 Anschließend folgt ein wiederholbarer `<config>` Block. Über das wiederholbare Element `<archive>` kann festgelegt werden, für welche Dateien der `<config>` Block gelten soll. Soll es einen Default-Block geben, der für alle Dokumente gelten soll, kann `*` genutzt werden.
 
 Mittels `<processTemplateId>` wird festgelegt, auf Basis welcher Produktionsvorlage die erstellten Goobi-Vorgänge erstellt werden sollen.
+
+Die drei Parameter `<lengthLimit>` `<separator>` und `<useSignature>` werden verwendet, um die Benennungspolitik des zu erzeugenden Prozesses zu konfigurieren:
+* Das `<lengthLimit>` setzt ein Längenlimit für alle Token außer dem manuell gesetzten Kopf und Schwanz, wenn es positiv konfiguriert ist. Voreinstellung `0`, also nicht begrenzt.
+* Der `<separator>` definiert das Trennzeichen, das verwendet werden soll, um alle separaten Token zu kombinieren. Voreinstellung `_`.
+* Der Parameter `<useSignature>` bestimmt, ob die Signatur bei der Generierung der Prozesstitel bevorzugt wird. Wenn `true` gesetzt ist, wird das Plugin versuchen, die Signatur, die im Elternknoten des aktuellen Knotens definiert ist, abzurufen und sie für die Erzeugung des Prozesstitels zu verwenden. Wenn die Signatur jedoch nicht verfügbar ist, wird stattdessen die uuid verwendet, genau wie wenn dieser Parameter auf `false` gesetzt ist. Voreinstellung `false`. 
 
 ## Konfiguratioan der Metadatenfelder
 
