@@ -1,21 +1,20 @@
 ---
 description: >-
   Goobi Administration Plugin für die periodische Aktualisierung bestehender
-  METS-Dateien mit Inhalten aus einer Katalogabfrage
+  METS-Dateien mit Inhalten aus einer Datenabfrage
 ---
 
 # Data Poller
 
 
 ## Einführung
-Die vorliegende Dokumentation beschreibt die Installation, die Konfiguration und den Einsatz des Administration-Plugins für die automatisiert wiederholte Katalogabfrage zur Aktualisierung von Datensätzen in Goobi workflow.
+Die vorliegende Dokumentation beschreibt die Installation, die Konfiguration und den Einsatz des Administration-Plugins für die automatisiert wiederholte Abfrage von Daten (z.B. aus einem Katalog) zur Aktualisierung von Datensätzen in Goobi workflow.
 
 | Details |  |
 | :--- | :--- |
 | Identifier | intranda\_administration\_data\_poller |
 | Source code | [https://github.com/intranda/goobi-plugin-administration-data-poller](https://github.com/intranda/goobi-plugin-administration-data-poller) |
 | Lizenz | GPL 2.0 oder neuer |
-| Kompatibilität | Goobi workflow 23.03.2 |
 | Dokumentationsdatum | 31.05.2023 |
 
 
@@ -32,7 +31,7 @@ Um dieses Recht zuzuweisen, muss der gewünschten Nutzergruppe zunächst die Ber
 
 ![Benutzergruppe mit zugewiesener Berechtigung](../.gitbook/assets/intranda_administration_catalogue_poller_01_de.png)
 
-Sollte die Berechtigung für die Benutzergruppe neu eingetragen werden, so muss sich der Nutzer zunächst einmal neu in Goobi einloggen, um diese Berechtigungsstufe verwenden zu können. Anschließend kann er im Menü `Administration` auf das Plugin Data Poller klicken und dort auch jederzeit eine Aktualisierung der Datensätze mittels Katalogabfrage manuell neu anstoßen.
+Sollte die Berechtigung für die Benutzergruppe neu eingetragen werden, so muss sich der Nutzer zunächst einmal neu in Goobi einloggen, um diese Berechtigungsstufe verwenden zu können. Anschließend kann er im Menü `Administration` auf das Plugin `Data Poller` klicken und dort auch jederzeit eine Aktualisierung der Datensätze mittels Abfrage manuell neu anstoßen.
 
 ![Oberfläche des Data Pollers](../.gitbook/assets/intranda_administration_catalogue_poller_02_de.png)
 
@@ -47,10 +46,10 @@ Sollte das Plugin für einen Vorgang aktualisierte Metadaten finden und daher di
 ![Mehrere Versionen der METS-Dateien werden als Backup aufgehoben](../.gitbook/assets/intranda_administration_catalogue_poller_05.png)
 
 
-## Logging innerhalb des Vorgangslogs
-Die Updates der Metadaten durch das Plugin finden üblicherweise vollautomatisch im Hintergrund statt. Um dennoch jederzeit für einen Datensatz nachvollziehen zu können, was mit diesem zwischenzeitlich passierte, werden die Ereignisse geloggt. Zu jedem Vorgang, für den es Änderung aus diesem Plugin gab, werden daher automatisch detaillierte Einträge innerhalb des `Vorgangslogs` eingefügt. Diese enthalten neben dem Zeitstempel unter anderem eine genaue Auflistung der geänderten Metadatenfelder samt der Inhalte. Somit ist es jederzeit möglich, auch den vorherigen bzw. den neuen Wert nachvollziehen zu können.
+## Logging innerhalb des Journals
+Die Updates der Metadaten durch das Plugin finden üblicherweise vollautomatisch im Hintergrund statt. Um dennoch jederzeit für einen Datensatz nachvollziehen zu können, was mit diesem zwischenzeitlich passierte, werden die Ereignisse geloggt. Zu jedem Vorgang, für den es Änderungen aus diesem Plugin gab, werden daher automatisch detaillierte Einträge innerhalb des `Journals` eingefügt. Diese enthalten neben dem Zeitstempel unter anderem eine genaue Auflistung der geänderten Metadatenfelder samt der Inhalte. Somit ist es jederzeit möglich, auch den vorherigen bzw. den neuen Wert nachvollziehen zu können.
 
-![Innerhalb des Vorgangslogs sind die &#xC4;nderungen des Data Pollers nachvollziehbar](../.gitbook/assets/intranda_administration_catalogue_poller_06_de.png)
+![Innerhalb des Vorgangslogs sind die Änderungen des Data Pollers nachvollziehbar](../.gitbook/assets/intranda_administration_catalogue_poller_06_de.png)
 
 
 ## Installation
@@ -124,7 +123,7 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
         this is only executed if mergeRecords is set to true -->
         <exportUpdatedRecords>false</exportUpdatedRecords>
 
-        <!--fieldList: Must have a mode attribute which can contain either blacklist or whitelist as a value.
+        <!-- fieldList: Must have a mode attribute which can contain either blacklist or whitelist as a value.
             blacklist: All fields are updated except the defined ones. This is a potentially dangerous setting!
             whitelist: Only the definied fields are updated. All others are skipped.
             field: Use the internal metadata names from the ruleset as field definition
@@ -137,7 +136,7 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
             <field>_representative</field>
         </fieldList>
 
-        <!--alwaysExecuteStepList: specify steps that shall be performed after each run of the rule
+        <!-- alwaysExecuteStepList: specify steps that shall be performed after each run of the rule
             step: name of the step that shall be executed
          -->
         <alwaysExecuteStepList>
@@ -179,10 +178,10 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 | `filter` | Mittels des Filters können ein oder mehrere Goobi-Projekte definiert werden, für die die hier definierten Regeln gelten sollen. Mittels `*` gilt die Regel für sämtliche Projekte. Enthaltene Leerzeichen innerhalb des Filters müssen genau wie innerhalb der Goobi-Oberfläche mit Anführungszeichen umschlossen werden. |
 
 
-### zustätzliche Elemente/Parameter - rule type hotfolder
+### Zusätzliche Elemente/Parameter - rule type hotfolder
 | Parameter | Erläuterung |
 | :--- | :--- |
 | `path` | Hier muss der Pfad des Hotfolders angegeben werden, in dem sich die zu importierenden Dateien befinden. |
 | `createMissingProcesses` | Wenn dieser Schalter aktiviert wird, werden für Dateien, die keinem vorhandenen Vorgang zugeordnet werden können, neue Vorgänge angelegt.|
 | `workflow` | Hier kann angegeben werden, welche Vorlage für die neuen Vorgänge verwenden soll. |
-| `fileHandling fileFilter` | Hier kann ein Regexfilter spezifiziert werden, um die Dateinamen der Dateien im Hotfolder zu filtern. Ein einfacher Filter wäre z. B. `*\.xml`. Dieser Filter würde sicherstellen, dass nur XML-Dateien im Ordner verarbeitet werden. |
+| `fileHandling fileFilter` | Hier kann ein Regex-Filter spezifiziert werden, um die Dateinamen der Dateien im Hotfolder zu filtern. Ein einfacher Filter wäre z. B. `*\.xml`. Dieser Filter würde sicherstellen, dass nur XML-Dateien im Ordner verarbeitet werden. |

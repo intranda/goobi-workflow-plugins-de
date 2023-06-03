@@ -3,7 +3,7 @@
 
 
 ## Administration Plugins <a id="administration"></a>
-* [Catalogue Poller](administration/intranda_administration_catalogue_poller.md)
+* [Data Poller](administration/intranda_administration_data_poller.md)
 * [Copy Master-Anchor](administration/intranda_administration_copyanchor.md)
 * [Goobi-to-Goobi](administration/intranda_administration_goobi2goobi/README.md)
   * [Installation und Konfiguration](administration/intranda_administration_goobi2goobi/installation.md)
