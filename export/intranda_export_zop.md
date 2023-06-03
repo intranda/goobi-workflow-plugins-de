@@ -16,8 +16,7 @@ Mithilfe dieses Plugins für Goobi können die Goobi-Vorgänge innerhalb eines A
 | Identifier | intranda_export_zop |
 | Source code | [https://github.com/intranda/goobi-plugin-export-zop](https://github.com/intranda/goobi-plugin-export-zop) |
 | Lizenz | GPL 2.0 oder neuer |
-| Kompatibilität | Goobi workflow 2022.11.2 und neuer |
-| Dokumentationsdatum | 26.01.2023 |
+| Dokumentationsdatum | 02.06.2023 |
 
 ## Installation
 
@@ -131,7 +130,7 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 | `identifier`      | Dieser Parameter legt fest, welches Metadatum als Ordnername verwendet werden soll. |
 | `volume`          | Dieser Parameter steuert, mit dem Inhalt welchen Metadatums die Unterverzeichnisse für Bände benannt werden sollen. |
 | `path`            | Dieser Parameter legt den Export-Pfad fest, wohin die Daten exportiert werden sollen. Erwartet wird ein absoluter Pfad. |
-| `sftp`            | Dieser Parameter legt fest, ob man den Exportprozess per SFTP machen möchten oder nicht. |
-| `username`        | Dieser Parameter legt fest, unter welchem Namen beim Remote-Host anzumelden ist. |
-| `hostname`        | Dieser Parameter legt fest, wie der Remote-Host heißt, oder wo er sich befindet als IP-Addresse. |
-| `keyPath`        | Dieser Parameter legt fest, mit welcher privaten Schlüssel bei `username`@`hostname` anzumelden ist. |
+| `sftp`            | Dieser Parameter legt fest, ob der Export mittels SFTP stattfinden soll. |
+| `username`        | Dieser Parameter legt fest, welcher Nutzername für die Anmeldung bei dem Remote-Host verwendet werden soll. |
+| `hostname`        | Dieser Parameter legt fest, wie der Remote-Host heißt. |
+| `keyPath`        | Dieser Parameter legt fest, mit welcher privaten Schlüssel bei `username`@`hostname` verwendet werden soll. |
