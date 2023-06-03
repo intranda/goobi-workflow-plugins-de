@@ -16,7 +16,6 @@ Mithilfe dieses Plugins für Goobi können die Goobi-Vorgänge innerhalb eines A
 | Identifier | intranda_export_vlm |
 | Source code | [https://github.com/intranda/goobi-plugin-export-vlm](https://github.com/intranda/goobi-plugin-export-vlm) |
 | Lizenz | GPL 2.0 oder neuer |
-| Kompatibilität | Goobi workflow 2022.11.2 und neuer |
 | Dokumentationsdatum | 12.01.2023 |
 
 ## Installation
@@ -144,8 +143,8 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 | `volume`          | Dieser Parameter steuert, mit dem Inhalt welchen Metadatums die Unterverzeichnisse für Bände benannt werden sollen. |
 | `path`            | Dieser Parameter legt den Export-Pfad fest, wohin die Daten exportiert werden sollen. Erwartet wird ein absoluter Pfad. |
 | `subfolderPrefix` | Dieser Parameter beschreibt den Präfix, der für jeden Band eines mehrbändigen Werkes in der Ornderbezeichnung vorangestellt werden soll. (Beispiel `T_34_L_`: Hier steht `T_34` für die Erkennung zur Erstellung eines Strukturknotens des Typs `Band` und das `L` gibt an, dass danach ein Text kommt.) |
-| `sftp`            | Dieser Parameter legt fest, ob man den Exportprozess per SFTP machen möchten oder nicht. |
-| `knownHosts`      | Dieser Parameter legt fest, wo die Datei namens `known_hosts` ist. Wenn leer verlassen, dann wird der Default `{user.home}/.ssh/known_hosts` genutzt. Sonst wird hier ein absoluter Pfad erwartet. |
-| `username`        | Dieser Parameter legt fest, unter welchem Namen beim Remote-Host anzumelden ist. |
-| `hostname`        | Dieser Parameter legt fest, wie der Remote-Host heißt, oder wo er sich befindet als IP-Addresse. |
-| `password`        | Dieser Parameter legt fest, mit welchem Passwort bei `username`@`hostname` anzumelden ist. |
+| `sftp`            | Dieser Parameter legt fest, ob der Export mittels SFTP stattfinden soll. |
+| `knownHosts`      | Dieser Parameter legt fest, wo die Datei namens `known_hosts` ist. Wenn keine Datei angegeben wurde, dann wird der Pfad `{user.home}/.ssh/known_hosts` genutzt. Sonst wird hier ein absoluter Pfad erwartet. |
+| `username`        | Dieser Parameter legt fest, welcher Nutzername für die Anmeldung bei dem Remote-Host verwendet werden soll. |
+| `hostname`        | Dieser Parameter legt fest, wie der Remote-Host heißt. |
+| `password`        | Dieser Parameter definiert das Passwort, das für die Anmldung mittels `username`@`hostname` verwendet werden soll. |
