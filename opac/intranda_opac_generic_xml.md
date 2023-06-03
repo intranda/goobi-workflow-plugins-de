@@ -13,8 +13,7 @@ Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den
 | Identifier | intranda\_opac\_xml |
 | Source code | [https://github.com/intranda/goobi-plugin-opac-generic-xml](https://github.com/intranda/goobi-plugin-opac-generic-xml) |
 | Lizenz | GPL 2.0 oder neuer |
-| Kompatibilität | Goobi workflow 2019.11 |
-| Dokumentationsdatum | 11.11.2019 |
+| Dokumentationsdatum | 02.06.2023 |
 
 ## Installation
 
@@ -123,7 +122,7 @@ Im Fall von `String` können auch Manipulationen wie concat, substring genutzt w
 
 ## Nutzung
 
-Wenn in Goobi nach einem Identifier gesucht wird, wird im Hintergrund eine Anfrage an die konfigurierte URL oder ans Dateisystem gestellt:
+Wenn in Goobi nach einem Identifier gesucht wird, wird im Hintergrund eine Anfrage an die konfigurierte URL oder an das Dateisystem gestellt:
 
 ```text
 https://example.com/opac?id={pv.id}
