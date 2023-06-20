@@ -13,8 +13,8 @@ Die vorliegende Dokumentation beschreibt die Installation, die Konfiguration und
 | Identifier | intranda\_administration\_archive\_management |
 | Source code | [https://github.com/intranda/goobi-plugin-administration-archive-management](https://github.com/intranda/goobi-plugin-administration-archive-management) |
 | Lizenz | GPL 2.0 oder neuer |
-| Kompatibilität | Goobi workflow 2020.12 |
-| Dokumentationsdatum | 28.03.2021 |
+| Kompatibilität | Goobi workflow 2023.05 |
+| Dokumentationsdatum | 20.06.2023 |
 
 ## Installation des Plugins
 
