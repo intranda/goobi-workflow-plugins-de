@@ -12,6 +12,24 @@ Nach der Durchführung der Installation des Plugins und der zugehörigen Datenba
         <archive>*</archive>
         <!-- default title for a new node -->
         <nodeDefaultTitle>Document</nodeDefaultTitle>
+
+        <!-- configurations for generating process titles -->
+        
+        <!-- maximum length of the body token that will be used to generate a new process title -->
+        <!-- the specifically set HEAD token and TAIL token will not be affected by this limit -->
+        <!-- if the limit is positively configured, then CAMEL_CASE_LENGTH_LIMITED will be applied upon every body token, otherwise CAMEL_CASE will be applied -->
+        <lengthLimit>0</lengthLimit>
+        <!-- separator string that will be used to combine the tokens -->
+        <separator>_</separator>
+        
+        <!-- use id from parent node instead of id from node -->
+        <useIdFromParent>false</useIdFromParent>
+        
+        <!-- use shelfmark preferably instead of node id if it is available -->
+        <useShelfmarkAsId>false</useShelfmarkAsId>
+        
+        <!-- // configurations for generating process titles // -->
+
         <!-- define metadata fields. All fields are displayed on the UI based on the level and the order within this file.
                 - @name: contains the internal name of the field. The value can be used to translate the field in the messages files. The field must start with a letter and can not contain any white spaces.
                 - @level: metadata level, allowed values are 1-7:
@@ -176,7 +194,17 @@ Anschließend folgt ein wiederholbarer `<config>` Block. Über das wiederholbare
 
 Mittels `<processTemplateId>` wird festgelegt, auf Basis welcher Produktionsvorlage die erstellten Goobi-Vorgänge erstellt werden sollen.
 
-## Konfiguratioan der Metadatenfelder
+## Konfiguration der Generierung von Vorgangstiteln
+
+Der Parameter `<lengthLimit>` legt eine Längenbegrenzung für alle Zeichen fest, mit Ausnahme des erstens, wenn dieses positiv konfiguriert ist.
+
+Der Parameter `<separator>` konfiguriert die Zeichenkette, die verwendet werden soll, um alle Token zu einem Vorgangstitel zu kombinieren.
+
+Der Parameter `<useIdFromParent>` konfiguriert, wessen ID für die Erstellung des Vorgangstitels verwendet werden soll. Wenn er auf `true` gesetzt ist, wird die ID vom Elternknoten des aktuellen Knotens abgerufen. Andernfalls wird die ID des aktuellen Knotens verwendet.
+
+Der Parameter `<useShelfmarkAsId>` konfiguriert, ob das Shelfmark vorzugsweise für die Generierung des Vorgangstitels verwendet werden soll oder nicht. Wenn er auf `true` gesetzt ist und tatsächlich ein Shelfmark in einem Vorgängerknoten vorhanden ist, wird das Shelfmark verwendet. Andernfalls wird die ID des aktuellen Knotens oder des übergeordneten Knotens verwendet, abhängig von der Konfiguration des Parameters `<useIdFromParent>`. 
+
+## Konfiguration der Metadatenfelder
 
 Anschließend folgt eine Liste von `<metadata>` Elementen. Darüber wird gesteuert, welche Felder angezeigt werden, importiert werden können, wie sie sich verhalten sollen und ob es Validierungsregeln gibt.
 
