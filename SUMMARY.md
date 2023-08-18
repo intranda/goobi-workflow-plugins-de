@@ -108,6 +108,7 @@
 * [Fedora Export](export/intranda_export_fedora.md)
 * [Fedora Export PROV](export/intranda_export_fedora_prov.md)
 * [HAAB Export](export/intranda_export_haab.md)
+* [HERIS Export](export/intranda_export_heris.md)
 * [Einzelseitenexport](export/intranda_export_bda_singleImage.md)
 * [Zeitungsexport](export/intranda_export_newspaper.md)
 * [Konfigurierbarer Export](export/intranda_export_configurable.md)
