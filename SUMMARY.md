@@ -126,6 +126,7 @@
 * [AEON Datenübernahme](workflow/intranda_workflow_aeon_process_creation.md)
 * [Massenimport aus Excel-Dateien mit EAD-Anreicherung](workflow/intranda_workflow_hu_importer.md)
 * [Entitäten Editor - Artist Dictionary](workflow/intranda_workflow_artist_dictionary.md)
+* [Generisches Import Plugin für JSON-Dateien](workflow/intranda_workflow_import_json.md)
 
 
 ## Statistiken <a id="statistics"></a>
