@@ -158,10 +158,10 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 | `path`            | Dieser Parameter legt den Export-Pfad fest, wohin die Daten exportiert werden sollen. Erwartet wird ein absoluter Pfad. |
 | `subfolderPrefix` | Dieser Parameter beschreibt den Präfix, der für jeden Band eines mehrbändigen Werkes in der Ornderbezeichnung vorangestellt werden soll. (Beispiel `T_34_L_`: Hier steht `T_34` für die Erkennung zur Erstellung eines Strukturknotens des Typs `Band` und das `L` gibt an, dass danach ein Text kommt.) |
 | `sftp`            | Dieser Parameter legt fest, ob der Export mittels SFTP stattfinden soll. |
-| `useSshKey`        | Dieser Parameter legt fest, ob die Verbindung zum SFTP-Server mithilfe einer SSH Schlüssel Datei zu erledigen. |
+| `useSshKey`        | Dieser Parameter legt fest, ob die Verbindung zum Remote-Host mithilfe einer SSH Schlüssel Datei zu erledigen. |
 | `knownHosts`      | Dieser Parameter legt fest, wo die Datei namens `known_hosts` ist. Wenn keine Datei angegeben wurde, dann wird der Pfad `{user.home}/.ssh/known_hosts` genutzt. Sonst wird hier ein absoluter Pfad erwartet. |
 | `username`        | Dieser Parameter legt fest, welcher Nutzername für die Anmeldung bei dem Remote-Host verwendet werden soll. |
 | `hostname`        | Dieser Parameter legt fest, wie der Remote-Host heißt. |
-| `port`        | Dieser Parameter definiert die Portnummer des Servers. DEFAULT 22. |
+| `port`        | Dieser Parameter definiert die Portnummer des Remote-Hosts. DEFAULT 22. |
 | `password`        | Dieser Parameter definiert das Passwort, das für die Anmeldung mittels `username`@`hostname` verwendet werden soll. |
 | `keyPath`        | Dieser Parameter legt fest, wo sich die SSH Schlüssel Datei befindet, die für die Anmeldung mittels `username`@`hostname` verwendet werden soll. |
