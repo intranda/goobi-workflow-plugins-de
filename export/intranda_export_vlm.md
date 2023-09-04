@@ -16,7 +16,7 @@ Mithilfe dieses Plugins für Goobi können die Goobi-Vorgänge innerhalb eines A
 | Identifier | intranda_export_vlm |
 | Source code | [https://github.com/intranda/goobi-plugin-export-vlm](https://github.com/intranda/goobi-plugin-export-vlm) |
 | Lizenz | GPL 2.0 oder neuer |
-| Dokumentationsdatum | 12.01.2023 |
+| Dokumentationsdatum | 04.09.2023 |
 
 ## Installation
 
@@ -80,8 +80,11 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 		<!-- If left blank, then the default setting 'false' will be used. -->
 		<sftp>true</sftp>
 		
+		<!-- If true then use ssh key for connection. If false then use password. OPTIONAL. DEFAULT false. -->
+		<useSshKey>false</useSshKey>
+		
 		<!-- Absolute path to the location of the file 'known_hosts'. -->
-		<!-- If left blank, then the default setting '{user.home}/.ssh/known_hosts' will be used. -->
+		<!-- If left blank, then the default setting '{user.home}/.ssh/known_hosts' will be used. OPTIONAL. -->
 		<knownHosts></knownHosts>
 		
 		<!-- User name at the remote host. -->
@@ -92,8 +95,19 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 		<!-- MANDATORY if sftp is set to be true. -->
 		<hostname>CHANGE_ME</hostname>
 		
+		<!-- Port of the remote host. -->
+		<!-- OPTIONAL. DEFAULT 22. -->
+		<port>CHANGE_ME</port>
+		
 		<!-- Password to log into the remote host 'username'@'hostname'. -->
+		<!-- MANDATORY if sftp is set to be true, while useSshKey is set to be false or not set. -->
 		<password>CHANGE_ME</password>
+		
+		<!-- Path to the private key file, e.g. ~/.ssh/id_rsa -->
+		<!-- The key is expected to be of PEM format, beginning with `BEGIN RSA PRIVATE KEY`. -->
+		<!-- The OPENSSH format, beginning with `BEGIN OPENSSH PRIVATE KEY`, is not supported yet. -->
+		<!-- MANDATORY if sftp and useSshKey are both set to be true. -->
+		<keyPath>CHANGE_ME</keyPath>
 	</config>
 	
 	<config>
@@ -144,7 +158,10 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 | `path`            | Dieser Parameter legt den Export-Pfad fest, wohin die Daten exportiert werden sollen. Erwartet wird ein absoluter Pfad. |
 | `subfolderPrefix` | Dieser Parameter beschreibt den Präfix, der für jeden Band eines mehrbändigen Werkes in der Ornderbezeichnung vorangestellt werden soll. (Beispiel `T_34_L_`: Hier steht `T_34` für die Erkennung zur Erstellung eines Strukturknotens des Typs `Band` und das `L` gibt an, dass danach ein Text kommt.) |
 | `sftp`            | Dieser Parameter legt fest, ob der Export mittels SFTP stattfinden soll. |
+| `useSshKey`        | Dieser Parameter legt fest, ob die Verbindung zum SFTP-Server mithilfe einer SSH Schlüssel Datei zu erledigen. |
 | `knownHosts`      | Dieser Parameter legt fest, wo die Datei namens `known_hosts` ist. Wenn keine Datei angegeben wurde, dann wird der Pfad `{user.home}/.ssh/known_hosts` genutzt. Sonst wird hier ein absoluter Pfad erwartet. |
 | `username`        | Dieser Parameter legt fest, welcher Nutzername für die Anmeldung bei dem Remote-Host verwendet werden soll. |
 | `hostname`        | Dieser Parameter legt fest, wie der Remote-Host heißt. |
-| `password`        | Dieser Parameter definiert das Passwort, das für die Anmldung mittels `username`@`hostname` verwendet werden soll. |
+| `port`        | Dieser Parameter definiert die Portnummer des Servers. DEFAULT 22. |
+| `password`        | Dieser Parameter definiert das Passwort, das für die Anmeldung mittels `username`@`hostname` verwendet werden soll. |
+| `keyPath`        | Dieser Parameter legt fest, wo sich die SSH Schlüssel Datei befindet, die für die Anmeldung mittels `username`@`hostname` verwendet werden soll. |
