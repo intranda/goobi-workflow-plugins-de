@@ -101,7 +101,9 @@ Zur Inbetriebnahme des Plugins muss dieses für einen oder mehrere gewünschte A
 4. Neue Bilder können per Drag & Drop ausgewählt werden. Wenn die relative Position zum Ablegen korrekt erfasst wird, wird das neu ausgewählte Bild dort eingefügt, andernfalls wird es am Ende angehängt.
 5. Wenn das konfigurierte `max` bereits erreicht ist, oder wenn das auszuwählende Bild bereits einmal ausgewählt wurde, dann funktioniert die Auswahl nicht.
 6. Ausgewählte Bilder können per Drag & Drop abgewählt werden. Ziehen Sie einfach das Bild aus der rechten Box und legen Sie es in der linken Box ab.
-7. Ausgewählte Bilder können per Drag & Drop neu sortiert werden, mit einer Einschränkung bezüglich des letzten Bildes: die letzte Position wird noch nicht für das Ablegen unterstützt, wenn man also ein anderes Bild die letzte Position einnehmen lassen will, muss man einige Vertauschungen vornehmen.
-8. Vergessen Sie nicht, auf Schaltfläche "Save Property" zu klicken, um die Informationen des ausgewählten Bildes in der Prozesseigenschaft zu speichern. Andernfalls werden die Änderungen verworfen und können beim nächsten Start des Plugins nicht wiederhergestellt werden.
-9. Man kann das Plugin auch verlassen, ohne die Änderungen zu speichern, indem man auf die Schaltfläche neben "Save Property" klickt.
+7. Ausgewählte Bilder können per Drag & Drop neu sortiert werden.
+8. Die relative Position eines ausgewälten Bildes kann mit seinem Nachbarn getauscht werden, indem man die obere bzw. untere Hälfte des Bildes anklickt. Es gibt hierbei zwei Ausnahmen ohne Tauschen: wenn man die obere Hälfte des ersten ausgewälten Bildes anklickt, dann wird es zum Ende der Liste angehängt; wenn man die untere Hälfte des letzten Bildes anklickt, dann wird es zum Top der Liste verschoben.
+9. Um ein ausgewähltes Bild zum Top der Liste zu verschieben, kann man auch auf diesem Bild die rechte Maustaste anklicken.
+10. Vergessen Sie nicht, auf Schaltfläche "Save Property" zu klicken, um die Informationen des ausgewählten Bildes in der Prozesseigenschaft zu speichern. Andernfalls werden die Änderungen verworfen und können beim nächsten Start des Plugins nicht wiederhergestellt werden.
+11. Man kann das Plugin auch verlassen, ohne die Änderungen zu speichern, indem man auf die Schaltfläche neben "Save Property" klickt.
 
