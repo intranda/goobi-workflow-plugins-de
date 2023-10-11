@@ -65,13 +65,15 @@ Die Konfiguration des Plugins ist folgendermaßen aufgebaut:
 
         <!-- A command is a step to perform. There can be several commands configured, and if so, they will be run one by one in the same order as they are defined.
               @method: get | put | post | patch
+              @accept: json | xml. Used to set up the header parameter 'Accept'. OPTIONAL. DEFAULT json.
+              @content-type: json | xml. Used to set up the header parameter 'Content-type'. OPTIONAL. DEFAULT json.
               @endpoint: raw endpoint string without replacing the placeholders enclosed by {}. For every placeholder say {PLACEHOLDER}, one has to configure it in a
-                         sub-tag, and in our example it would be <PLACEHOLDER>. Options for values of these sub-tags are:
-                         - plain text value
-                         - any variable defined by a <variable> tag before all <command> blocks
-                         - any variable defined by a <target> sub-tag of any previous <command> block
-         -->     
-        <command method="get" endpoint="/almaws/v1/bibs/{mms_id}/holdings/ALL/items">
+                                sub-tag, and in our example it would be <PLACEHOLDER>. Options for values of these sub-tags are:
+                                - plain text value
+                                - any variable defined by a <variable> tag before all <command> blocks
+                                - any variable defined by a <target> sub-tag of any previous <command> block
+        -->      
+        <command method="get" accept="json" content-type="json" endpoint="/almaws/v1/bibs/{mms_id}/holdings/ALL/items">
         	<!-- define the value of the placeholder {mms_id} using the variable named MMS_ID -->
         	<mms_id>{$MMS_ID}</mms_id>
 
@@ -108,7 +110,7 @@ Die Konfiguration des Plugins ist folgendermaßen aufgebaut:
         	<!-- define the value of the placeholder {item_pid} using the variable named ITEM_PID -->
         	<item_pid>{$ITEM_PID}</item_pid>
 
-          <!-- A parameter tag can be used to define parameters that shall be sent by the REST request. There can be multiple parameters configured.
+          <!-- A parameter tag can be used to define parameters that shall be sent by the REST request. There can be multiple parameters configured. OPTIONAL.
                   @name: parameter name
                   @value: parameter value, which can only be plain text values here
             -->
@@ -119,23 +121,123 @@ Die Konfiguration des Plugins ist folgendermaßen aufgebaut:
         	<parameter name="done" value="false" />
         </command>
 
-        <!-- A property tag is used to define a process property that is to be saved after running all previous commands. OPTIONAL.
-              @name: name of the new process property
+        <!-- A save tag is used to define an entry that is to be saved after running all previous commands. OPTIONAL.
+              @type: type of the entry, OPTIONS are property | metadata
+                         - property: save the entry as a process property
+                         - metadata: save the entry as a metadata
+              @name: name of the entry, which means
+                           - property name if @type is "property"
+                           - metadata type name if @type is "metadata"
               @value: value of the new process property, possible values are
-                      - a plain text value
-                      - a variable defined before all <command> blocks via a <variable> tag
-                      - a variable defined within some <command> block via a <target> tag
+                           - a plain text value
+                           - a variable defined before all <command> blocks via a <variable> tag
+                           - a variable defined within some <command> block via a <target> tag
               @choice: indicates how many items should be saved into this new property, OPTIONS are first | last | all | random.
-                       - first: save only the first one among all retrieved values
-                       - last: save only the last one among all retrieved values
-                       - random: save a random one from all retrieved values
-                       - all: join all retrieved values to formulate a single string separated by commas and save it. DEFAULT.
+                            - first: save only the first one among all retrieved values
+                            - last: save only the last one among all retrieved values
+                            - random: save a random one from all retrieved values
+                            - all: join all retrieved values to formulate a single string separated by commas and save it. DEFAULT.
               @overwrite: true if the old property named so should be reused, false if a new property should be created, DEFAULT false.
-        -->
-        <property name="holding_id" value="{$HOLDING_ID}" choice="all" overwrite="true" />
-        <!-- There can be multiple property tags configured. -->
-        <property name="item_pid" value="{$ITEM_PID}" choice="all" />
+        -->     
+        <save type="property" name="holding_id" value="{$HOLDING_ID}" choice="first" overwrite="true" />
+        <!-- There can be multiple save tags configured. -->
+        <save type="property" name="item_pid" value="{$ITEM_PID}" choice="first" overwrite="true" />
 
+    </config>
+
+    <config>
+        <!-- which projects to use for (can be more then one, otherwise use *) -->
+        <project>*</project>
+        <step>upload marc and portfolio</step>
+
+        <!-- Base URL -->
+        <url>https://api-eu.hosted.exlibrisgroup.com</url>
+
+        <!-- API key -->
+        <api-key>CHANGE_ME</api-key>
+
+        <variable name="MARC_FOLDER" value="/opt/digiverso/g2g/workspace/workflow/marcexport/{processid}" />
+        <variable name="PORTFOLIO_PATH" value="/opt/digiverso/g2g/workspace/demo_content/portfolio.xml" />
+
+        <command method="post" accept="json" content-type="xml" endpoint="/almaws/v1/bibs">
+            <parameter name="normalization" value="43588" />
+            <parameter name="validate" value="false" />
+            <parameter name="override_warning" value="true" />
+            <parameter name="check_match" value="false" />
+
+            <!-- Set up request body. OPTIONAL.
+                 @src: absolute path to the file whose contents shall be used as request body. OPTIONAL. It accepts one of the following both:
+                          - a plain text value stating the absolute path
+                          - a predefined variable containing the absolute path
+                          ATTENTION: one can also use the absolute path of the folder containing this file here, in which case the content of the first file in that folder will be used.
+                 @wrapper: wrappers separated by space that shall be wrapped around the content read from the file. ONLY applicable if @src is configured. OPTIONAL.
+                                  The precise way of wrapping depends on the setting of @content-type of the command tag.
+                                  For example, say one has wrapper configured as "wrapper1 wrapper2 wrapper3" then:
+                                  - If @content-type="json", the file content will be wrapped as {wrapper1: {wrapper2: {wrapper3: {FILE_CONTENT}}}}
+                                  - If @content-type="xml", the file content will be wrapped as <wrapper1><wrapper2><wrapper3>{FILE_CONTENT}</wrapper3></wrapper2></wrapper1>
+                 @value: use a plain text value or a predefined variable instead of the content of a file. OPTIONAL. ATTENTION:
+                              - to use a plain text value one has to assure that its format matches the configured @content-type correctly
+                              - to use a variable one has to assure that the format of the variable's value matches the configured @content-type correctly
+              -->
+            <body src="{$MARC_FOLDER}" wrapper="bib" />
+
+            <target var="MMS_ID" path="mms_id" />
+        </command>
+
+        <command method="post" accept="json" content-type="xml" endpoint="/almaws/v1/bibs/{mms_id}/portfolios">
+            <mms_id>{$MMS_ID}</mms_id>
+            <!-- use content of the file as request body, no wrapper needed -->
+            <body src="{$PORTFOLIO_PATH}" wrapper="" />
+            <!-- create a new variable to hold the value on this JSON path  -->
+            <target var="PORTFOLIO_ID" path="id" />         
+        </command>       
+
+        <!-- save values of variables as process properties  -->
+        <save type="metadata" name="MMS_ID" value="{$MMS_ID}" choice="first" overwrite="true" />
+        <save type="metadata" name="PortfolioId" value="{$PORTFOLIO_ID}" choice="first" overwrite="true" />
+    </config>
+
+    <config>
+        <!-- which projects to use for (can be more then one, otherwise use *) -->
+        <project>*</project>
+        <step>update portfolio</step>
+
+        <!-- Base URL -->
+        <url>https://api-eu.hosted.exlibrisgroup.com</url>
+
+        <!-- API key -->
+        <api-key>CHANGE_ME</api-key>
+
+        <!-- create variables using values read from process properties -->
+        <variable name="MMS_ID" value="{meta.MMS_ID}" />
+        <variable name="PORTFOLIO_ID" value="{meta.PortfolioId}" />
+
+        <command method="get" accept="json" content-type="json" endpoint="/almaws/v1/bibs/{mms_id}/portfolios/{portfolio_id}">
+            <!-- define the value of the placeholder {mms_id} using the value of the variable named MMS_ID -->
+            <mms_id>{$MMS_ID}</mms_id>
+            <!-- define the value of the placeholder {portfolio_id} using the value of the variable named PORTFOLIO_ID -->
+            <portfolio_id>{$PORTFOLIO_ID}</portfolio_id>      
+
+            <!-- An update tag is used to save the MAYBE updated response JSONObject as an variable. AT MOST ONE allowed. OPTIONAL.
+                   ATTENTION: to use this tag, one has to assure that the @accept configured in the command tag is json.
+                   @var: name of the variable that shall be used to save the JSONObject.
+               -->
+            <update var="UPDATED_PORTFOLIO" >
+                <!-- An entry tag is used to define modifications that shall be made on the response JSONObject. OPTIONAL. Multiple entry sub-tags possible.
+                       @path: JSON path(s) of the item(s) that shall be modified, where plural comes into use when there is a JSONArray with multiple elements mixed in this JSON path
+                       @value: new value of the item(s) selected by the JSON path
+                    -->
+                <entry path="availability.value" value="11" />
+            </update>
+        </command>
+
+        <!-- use default settings of @accept and @content-type, which are both json -->
+        <command method="put" endpoint="/almaws/v1/bibs/{mms_id}/portfolios/{portfolio_id}">
+            <mms_id>{$MMS_ID}</mms_id>
+            <portfolio_id>{$PORTFOLIO_ID}</portfolio_id>        
+            <!-- use the JSONObject saved by the last command as the request body --> 	
+            <body value="{$UPDATED_PORTFOLIO}" />        	
+        </command>                     
     </config>
 
 </config_plugin>
@@ -150,8 +252,8 @@ Die Konfiguration des Plugins ist folgendermaßen aufgebaut:
 | `url` | Hier wird die Basis-URL des Systems angegeben. |
 | `api-key` | Hier wird der API-Schlüssel für die Verbindung zum System konfiguriert. |
 | `variable` | Mit diesem Tag kann man eine Variable definieren, die von allen nachfolgenden Befehlen verwendet werden kann. Dieses Tag hat zwei Attribute, wobei `@name` den Namen und `@value` den Wert definiert. `@value` erwartet einen einfachen Textwert oder eine Goobi-Variable. |
-| `command` | Ein Befehlsblock definiert einen Befehl, der im Auftrag ausgeführt werden soll. Er hat selbst zwei Attribute, wobei `@method` die zu verwendende Methode angibt und `@endpoint` den rohen Endpunktpfad, deren Platzhalter nicht ersetzt werden. Weitere Einzelheiten finden Sie in der nachstehenden Tabelle und in der obigen Beispielkonfiguration. |
-| `property` | Ein optionales Property-Tag definiert eine Prozesseigenschaft, die nach der Ausführung aller Befehle gespeichert werden soll. Es hat zwei obligatorische Attribute, wobei `@name` den Namen der Prozesseigenschaft definiert und `@value` den Wert der Eigenschaft bestimmt, der ein einfacher Textwert oder eine zuvor definierte Variable sein kann. Es hat auch zwei optionale Attribute, wobei `@choice` angibt, welcher Wert gespeichert werden soll, wenn mehrere gefunden werden, und `@overwrite` bestimmt, ob eine zuvor erstellte Prozesseigenschaft mit demselben Namen wiederverwendet werden soll oder nicht. |
+| `command` | Ein Befehlsblock definiert einen Befehl, der im Auftrag ausgeführt werden soll. Es hat selbst zwei obligatorische Attribute, wobei `@method` die zu verwendende Methode angibt und `@endpoint` den rohen Endpunktpfad, bei dem alle Platzhalter nicht ersetzt werden. Es hat auch zwei optionale Attribute, nämlich `@accept` und `@content-type`, die verwendet werden, um die Request-Parameters `Accept` und `Content-type` anzugeben. Beide erwarten entweder `json` oder `xml`. Wird einer der beiden Parameter weggelassen, wird der Standardwert "json" verwendet. Weitere Einzelheiten finden Sie in der nachstehenden Tabelle und in der obigen Beispielkonfiguration. |
+| `save` | Ein optionales Save-Tag definiert einen Wert, der nach der Ausführung aller Befehle gespeichert werden soll. Es hat drei obligatorische Attribute, wobei `type` angibt, ob der Wert als Prozesseigenschaft oder als Metadaten gespeichert werden soll, `@name` definiert den Namen der Prozesseigenschaft oder des Metadatentyps, und `@value` bestimmt den Wert, der ein einfacher Textwert oder eine zuvor definierte Variable sein kann. Es hat auch zwei optionale Attribute, wobei `@choice` angibt, welcher Wert gespeichert werden soll, wenn mehrere gefunden werden, und `@overwrite` bestimmt, ob eine zuvor erstellte Prozesseigenschaft oder ein Metadatum desselben Namens wiederverwendet werden soll oder nicht. |
 
 ### Konfigurationen innerhalb von Befehlsblöcken
 
@@ -160,3 +262,5 @@ Die Konfiguration des Plugins ist folgendermaßen aufgebaut:
 | `filter` | Hier wird angegeben, welche Teile der JSON-Antwort für die Suche nach den "target"-Werten verwendet werden sollen. Es hat vier Attribute, wobei `@key` und `@value` obligatorisch sind, während `@fallback` und `@alt` optional sind. Weitere Einzelheiten finden Sie in den Kommentaren in der Beispielkonfiguration. |
 | `target` | Hier gibt man an, welche Werte als Variablen zur späteren Verwendung gespeichert werden sollen. Sie hat zwei Attribute, wobei `@var` den Variablennamen und `@path` den JSON-Pfad zum Abrufen der Werte angibt. |
 | `parameter` | Hier wird ein Parameter angegeben, der zusammen mit einer Anfrage an das System gesendet werden soll. Er hat zwei Attribute, nämlich `@name` für den Parameternamen und `@value` für den Parameterwert, der NUR aus reinen Textwerten bestehen kann. |
+| `body` | Hier spezifiziert man den Request Body. Er hat drei Attribute, wobei eines von `@src` und `@value` angegeben werden muss, und wenn `@src` gesetzt ist, wird auch `@wrapper` anwendbar. Mit `@src` gibt man die Datei an, deren Inhalt als Request-Body verwendet werden soll, während man mit `@value` den Wert einer Variable verwenden kann, den man durch vorherige Befehle erhalten hat. Für die Verwendung von `@wrapper` beachten Sie bitte die Kommentare in der Beispielkonfiguration.  |
+| `update` | Dieses Tag wird verwendet, um das JSON-Objekt der Antwort als Variable zu speichern. Es hat ein Attribut `@var`, das den Namen der Variablen angibt. Jedes `Command`-Tag kann höchstens einen `Update`-Untertag haben, aber innerhalb des "Update"-Untertags kann es mehrere "Entry"-Untertags geben, von denen jeder eine Änderung am JSON-Antwortobjekt angibt. |
