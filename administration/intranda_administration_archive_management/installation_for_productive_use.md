@@ -123,7 +123,7 @@ Zum Einloggen müssen vorher Zugangsdaten festgelegt werden. Dies geht mit dem f
 /opt/digiverso/basex/bin/basexhttp -c PASSWORD
 ```
 
-Nachdem BaseX heruntergeladen und gestartet wurde, können XML-Dateien als neue Datenbanken eingespielt werden. Dazu wird zunächst der Menüpunkt `Database Administration` geöffnet, wo ein Login mit den vorher definierten Zugangsdaten erfolgen kann:
+Nachdem BaseX heruntergeladen und gestartet wurde, können XML-Dateien als neue Datenbanken eingespielt werden. Dazu wird zunächst der Menüpunkt `Database Administration` geöffnet, wo ein Login mit den vorher definierten Zugangsdaten erfolgen kann.
 
 
 ![Login f&#xFC;r die Datenbank-Administration](../../.gitbook/assets/intranda_administration_archive_management_install_03.png)
