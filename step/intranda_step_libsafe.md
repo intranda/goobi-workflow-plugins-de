@@ -65,7 +65,7 @@ Die zuvor vorbereiteten Ordner und Dateien werden zu einer Tar Datei zusammgenge
 
 ### Datenlieferung
 
-Die Datenlieferung erfolgt per SFTP Upload. Hierzu wird die zuvor erzeugte bagit tar Datei auf den entfernten Server hochgeladen.
+Die Datenlieferung erfolgt per SFTP Upload. Hierzu wird die zuvor erzeugte SIP Datei auf den entfernten Server hochgeladen. Alternativ kann der Export in ein lokales Verzeichnis auf dem Server oder einen Netzwerk-Share durchgeführt werden. Der Dateiname entspricht dem Bag-Namen und dem Suffix _bag.tar.
 
 ### Rückmeldung an Goobi
 
@@ -77,18 +77,18 @@ Bei allen Anfragen wird die processid benötigt. Diese Information wird an zwei 
 
 #### Übermittlung der Libsafe ID
 
-Um die generierte Libsafe ID in Goobi bekannt zu machen, muss eine `PUT` Anfrage an `/process/<process id>/metadata` gestellt werden.
+Um die generierte Libsafe ID in Goobi bekannt zu machen, muss eine `POST` Anfrage an `/process/<process id>/metadata` gestellt werden.
 
 ```text
-curl -H Authorization: Basic <TOKEN> -H 'Content-Type: application/json' -X PUT <GOOBI URL>/api/process/<PROCESSID>/metadata -d '{"name":"LibsafeID","value":"<LIBSAFE ID>","metadataLevel":"topstruct"}'
+curl -H Authorization: Basic <TOKEN> -H 'Content-Type: application/json' -X POST <GOOBI URL>/api/process/<PROCESSID>/metadata -d '{"name":"LibsafeID","value":"<LIBSAFE ID>","metadataLevel":"topstruct"}'
 ```
 
 #### Erfolgs-/Fehlermeldung
 
-Eine Meldung im Vorgangsjournal kann via `PUT` Anfrage an `/process/<process id>/journal` erstellt werden.
+Eine Meldung im Vorgangsjournal kann via `POST` Anfrage an `/process/<process id>/journal` erstellt werden.
 
 ```text
-curl -H Authorization: Basic <TOKEN> -H 'Content-Type: application/json' -X PUT <GOOBI URL>/api/process/<PROCESSID>/journal -d '{"userName": "<USERNAME>", "type": "<TYPE>", "message": "<MESSAGE>"}'
+curl -H Authorization: Basic <TOKEN> -H 'Content-Type: application/json' -X POST <GOOBI URL>/api/process/<PROCESSID>/journal -d '{"userName": "<USERNAME>", "type": "<TYPE>", "message": "<MESSAGE>"}'
 ```
 
 Die Variable `USERNAME` und `MESSAGE` können beliebigen Text beinhalten, `TYPE` muss ein Wert aus der Liste `error`, `warn`, `info` oder `debug` kommen.
@@ -101,11 +101,11 @@ Um den Ingest-Vorgang in Goobi abzuschließen, muss die ID des zu schließenden 
 curl -H Authorization: Basic <TOKEN> -H 'Accept: application/json'  <GOOBI URL>/api/process/<PROCESSID>/steps
 ```
 
-Aus der Antwort kann entweder über `steptitle` oder `status` der richtige Schritt und dessen ID gefunden werden. Anschließend kann ein `POST` Request den Schritt abschließen:
+Aus der Antwort kann entweder über `steptitle` oder `status` der richtige Schritt und dessen ID gefunden werden. Anschließend kann ein `PUT` Request den Schritt abschließen:
 
 
 ```text
-curl -H Authorization: Basic <TOKEN> -H 'Content-Type: application/json' -X POST <GOOBI URL>/api/process/<PROCESSID>/step/<STEPID>/close
+curl -H Authorization: Basic <TOKEN> -H 'Content-Type: application/json' -X PUT <GOOBI URL>/api/process/<PROCESSID>/step/<STEPID>/close
 ```
 
 ## Konfiguration
