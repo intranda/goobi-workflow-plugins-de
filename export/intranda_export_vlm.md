@@ -56,9 +56,15 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 		<!-- MANDATORY -->
 		<project>Archive_Project</project>
 		
-		<!-- The field to use as identifier e.g. CatalogIDDigital.  -->
+		<!-- The name of the system, e.g. AlmaIDDigital, AlephIDDigital, CatalogIDDigital.  -->
+		<!-- This tag has the following two OPTIONAL attributes:
+				- @anchorSplitter: if configured with a non-blank string, then it will be used to split the metadata value into two parts, where its head will be used 
+						as the main folder's name, while its tail will be used as part of the volume's name. DEFAULT value is an empty string, i.e. no splitting expected.
+				- @volumeFormat: only works when @anchorSplitter is configured with a non-blank string.
+						It is used as the left padding if the volume's name is shorter than it. DEFAULT value is an empty string, i.e. no padding needed.
+		 -->
 		<!-- MANDATORY -->
-		<identifier>CatalogIDDigital</identifier>
+		<identifier anchorSplitter="" volumeFormat="000">CatalogIDDigital</identifier>
 	    
 		<!-- The name to be used to distinguish between different volumes of one book series. -->
 		<!-- Alternatively one may also choose "TitleDocMain", just assure its difference between volumes. -->
@@ -153,7 +159,7 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 
 | Parameter         | Erläuterung                                                                                                            |
 |:----------------- |:---------------------------------------------------------------------------------------------------------------------- |
-| `identifier`      | Dieser Parameter legt fest, welches Metadatum als Ordnername verwendet werden soll. |
+| `identifier`      | Dieser Parameter legt fest, welches Metadatum als Ordnername verwendet werden soll. Er hat zwei optionale Attribute `@anchorSplitter` und `@volumeFormat`, die für den Fall verwendet werden, dass der Wert dieses `Identifier`s selbst sowohl den Namen des Hauptordners als auch den Namen des Datenträgers enthält, getrennt durch den konfigurierten `@anchorSplitter`. `@volumeFormat` wird in diesem Fall als linker Auffüller für den Namen des Datenträgers verwendet.  |
 | `volume`          | Dieser Parameter steuert, mit dem Inhalt welchen Metadatums die Unterverzeichnisse für Bände benannt werden sollen. |
 | `path`            | Dieser Parameter legt den Export-Pfad fest, wohin die Daten exportiert werden sollen. Erwartet wird ein absoluter Pfad. |
 | `subfolderPrefix` | Dieser Parameter beschreibt den Präfix, der für jeden Band eines mehrbändigen Werkes in der Ornderbezeichnung vorangestellt werden soll. (Beispiel `T_34_L_`: Hier steht `T_34` für die Erkennung zur Erstellung eines Strukturknotens des Typs `Band` und das `L` gibt an, dass danach ein Text kommt.) |
