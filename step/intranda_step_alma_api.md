@@ -132,11 +132,12 @@ Die Konfiguration des Plugins ist folgendermaßen aufgebaut:
                            - a plain text value
                            - a variable defined before all <command> blocks via a <variable> tag
                            - a variable defined within some <command> block via a <target> tag
-              @choice: indicates how many items should be saved into this new property, OPTIONS are first | last | all | random.
-                            - first: save only the first one among all retrieved values
-                            - last: save only the last one among all retrieved values
-                            - random: save a random one from all retrieved values
-                            - all: join all retrieved values to formulate a single string separated by commas and save it. DEFAULT.
+              @choice: indicates how many items should be saved into this new property, OPTIONS are first | last | random, or any non-blank strings following a colon.
+                           - first: save only the first one among all retrieved values
+                           - last: save only the last one among all retrieved values
+                           - random: save a random one from all retrieved values
+                           - For any non-blank strings following a colon: the substring following this colon will be used as a whole delimiter to combine all results.
+                           - For all other cases, including the case where there is only one single colon configured: all results will be combined using commas.
               @overwrite: true if the old property named so should be reused, false if a new property should be created, DEFAULT false.
         -->     
         <save type="property" name="holding_id" value="{$HOLDING_ID}" choice="first" overwrite="true" />
