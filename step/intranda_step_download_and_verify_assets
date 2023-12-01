@@ -1,0 +1,105 @@
+---
+description: >-
+  Dieses Step-Plugin ermöglicht es Ihnen, mehrere Dateien aus den per Prozesseigenschaften konfigurierten URLs herunterzuladen und mittels den auch per Prozesseigenschaften definierten Checksumcodes zu Verifizieren. Am Ende können auch mehrere Rückmeldungen zu verschiedenen Systemen oder lokal beim Journal gegeben werden.
+---
+
+# Downloaden und Verifizieren von Dateien
+
+## Einführung
+
+Dieses Plugin liest URL-Werte bzw. Hash-Werte aus mehreren konfigurierten Prozesseigenschaften ein, ladet Dateien herunter und verglicht sie jeweils mit dem zugehörigen Hash-Wert. Am Ende werden möglicherweise auch mehrere Rückmeldungen gegeben, je nachdem ob der Status `success` oder `error` ist. Diese Rückmeldungen können per REST zu einem anderen System geschickt, oder einfach beim Journal geloggt werden.
+
+## Übersicht
+
+| Details |  |
+| :--- | :--- |
+| Identifier | intranda\_step\_download\_and\_verify\_assets |
+| Source code | [https://gitea.intranda.com/goobi-workflow/goobi-plugin-step-download-and-verify-assets](https://github.com/intranda/goobi-plugin-step-download-and-verify-assets) |
+| Lizenz | GPL 2.0 or newer |
+| Kompatibilität | Goobi workflow 23.10 |
+| Dokumentationsdatum | 01.12.2023 |
+
+## Installation
+
+Zur Installation des Plugins muss die folgende Datei installiert werden:
+
+```bash
+/opt/digiverso/goobi/plugins/step/plugin_intranda_step_download_and_verify_assets.jar
+```
+
+Die Konfigurationsdatei befindet sich üblicherweise hier:
+
+```bash
+/opt/digiverso/goobi/config/plugin_intranda_step_download_and_verify_assets.xml
+```
+
+## Konfiguration
+
+Der Inhalt dieser Konfigurationsdatei sieht beispielhaft wie folgt aus:
+
+```xml
+<config_plugin>
+    <!--
+        order of configuration is:
+          1.) project name and step name matches
+          2.) step name matches and project is *
+          3.) project name matches and step name is *
+          4.) project name and step name are *
+    -->
+
+    <config>
+        <!-- which projects to use for (can be more then one, otherwise use *) -->
+        <project>*</project>
+        <step>*</step>
+
+        <!-- Configure here how many times shall be maximally tried before reporting final results. OPTIONAL. DEFAULT 1. -->
+        <maxTryTimes>3</maxTryTimes>
+
+        <!-- This tag accepts the following three attributes:
+            - @urlProperty: name of the property that holds the URL of the file
+            - @hashProperty: name of the property that holds the checksum of the file
+            - @folder: configured name of the target folder that shall be used to download the file. OPTIONAL. DEFAULT master.
+        -->
+        <fileNameProperty urlProperty="DraftUri" hashProperty="DraftHash" folder="master" />
+        <fileNameProperty urlProperty="AssetUriSplitted" hashProperty="AssetHashSplitted" folder="master" />
+
+        <!-- A response tag accepts four attributes:
+            - @type: success | error. Determines by which cases this configured response shall be activated.
+            - @method: OPTIONAL. If not configured or configured blankly, then the response will be performed via journal logs. Non-blank configuration options are: put | post | patch.
+            - @url: URL to the target system expecting this response. MANDATORY if @method is not blank..
+            - @message: Message that shall be logged into journal. ONLY needed when @method is blank.
+            - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+            One can also define a JSON string inside a pair of these tags, which will be used as JSON body to shoot a REST request.
+        -->
+        <!-- Usage of Goobi variables in @url as well as @message is allowed. -->
+        <response type="success" method="put" url="URL_ZU_BACH/upload_successful/{meta.ThesisId}" />
+
+        <!-- For error cases there is no need for a response back to BACH, but an error message should be logged into journal. -->
+        <!-- Log ERROR_MESSAGE into journal as a signal of errors -->
+        <response type="error" message="ERROR_MESSAGE" />
+
+        <!-- Example for REST calls with json body -->
+        <!--
+        <response type="success" method="put" url="CHANGE_ME">
+        {
+           "id": 0,
+           "name": "string",
+           "value": "string"
+        }
+        </response>
+        -->
+
+    </config>
+
+</config_plugin>
+```
+
+Der Block `<config>` kann für verschiedene Projekte oder Arbeitsschritte wiederholt vorkommen, um innerhalb verschiedener Workflows unterschiedliche Aktionen durchführen zu können.
+
+| Wert | Beschreibung |
+| :--- | :--- |
+| `project` | Dieser Parameter legt fest, für welches Projekt der aktuelle Block `<config>` gelten soll. Verwendet wird hierbei der Name des Projektes. Dieser Parameter kann mehrfach pro `<config>` Block vorkommen. |
+| `step` | Dieser Parameter steuert, für welche Arbeitsschritte der Block `<config>` gelten soll. Verwendet wird hier der Name des Arbeitsschritts. Dieser Parameter kann mehrfach pro `<config>` Block vorkommen. |
+| `maxTryTimes` | Dieser Wert legt fest, wie viele Versuche können wiederholt werden können bevor Rückmeldungen gegeben werden müssen. OPTIONAL. DEFAULT 1.  |
+| `fileNameProperty` | Dieser Parameter steuert den Teil fürs Unterladen und Verifizieren der Dateien. Er akzeptiert drei Attribute. `@urlProperty` definiert den Namen der Prozesseigenschaft, die den URL der Datei enthält. `@hashProperty` definiert den Namen der Prozesseigenschaft, die die Checksumcodes der Datei enthält. `@folder` ist OPTIONAL mit dem DEFAULTEN Wert `master`, und es steuert wohin die heruntergeladenen Dateien abgelegt werden sollen.  |
+| `response` | Dieser OPTIONALE Parameter kann verwendet werden, um mehrere Rückmeldungen nach dem Downloaden und Verifizieren aller Dateien zu geben. Er akzeptiert vier Attribute und möglicherweise auch einen JSON-Text für REST-Requests mit JSON-Body. Mehr Details und Beispiele sieht man in den Kommentaren der Konfigurationsdatei von oben. |
