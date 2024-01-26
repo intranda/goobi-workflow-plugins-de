@@ -38,29 +38,7 @@ Die Konfiguration des Plugins wird unter folgendem Pfad erwartet:
 /opt/digiverso/goobi/config/plugin_intranda_step_pdf-extraction.xml
 ```
 
-Eine Beispielkonfiguration könnte folgendermaßen aussehen:
-
-```markup
-<config>
-    <docType>
-        <parent>Chapter</parent>
-        <children>Chapter</children>
-    </docType>
-
-    <images>
-        <resolution>300</resolution>
-        <format>tif</format>
-    </images>
-
-    <properties>
-        <fulltext>
-            <name>OCRDone</name>
-            <value exists="true">YES</value>
-            <value exists="false">NO</value>
-        </fulltext>
-    </properties>
-</config>
-```
+Eine Beispielkonfiguration gibt es hier: [https://github.com/intranda/goobi-plugin-step-pdf-extraction/blob/master/plugin/plugin\_intranda\_step\_pdf-extraction.xml](https://github.com/intranda/goobi-plugin-step-pdf-extraction/blob/master/plugin/plugin_intranda_step_pdf-extraction.xml)
 
 Über `<docType>` wird geregelt, welche Strukturtypen die aus dem PDF-Inhaltsverzeichnis extrahierten Einträge in der METS-Datei erhalten. Das `<parent>`-Element ist dabei das Hauptelement in dem alle anderen Inhaltsverzeichnis-Einträge landen. Wird es weggelassen, werden alle Einträge direkt in das Hauptelement der METS-Datei eingetragen.
 
