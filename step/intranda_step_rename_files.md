@@ -50,6 +50,15 @@ Dabei sieht der Inhalt dieser Konfigurationsdatei beispielhaft wie folgt aus:
     </config>
 
     <config>
+        <project>Archive_Project</project>
+        <step>*</step>
+        <!-- use default settings -->
+        <folder>*</folder>
+        <namepart type="originalfilename" />
+        <namepart type="static">_ARCHIVE</namepart>
+    </config>
+
+    <config>
         <project>*</project>
         <step>*</step>
         <startValue>1</startValue>
@@ -99,10 +108,13 @@ Die Konfiguration des Plugins erfolgt innerhalb der bereits erwähnten Konfigura
       <td style="text-align:left">
         <p>Dieser ebenfalls mehrfach verwendbare Parameter steuert die Generierung
           der Dateinamen. Er kann statische Elemente beinhalten (<code>static</code>),
+          den originale Dateinamen verwenden (<code>originalfilename</code>),
           Variablen aus Goobi nutzen (<code>variable</code>) sowie einen Z&#xE4;hler
-          erzeugen (<code>counter</code>). F&#xFC;r die Generierung des Z&#xE4;hlers
-          ist entscheidend, welche Anzahl an Stellen definiert wurden. Der Wert <code>00000</code> w&#xFC;rde
-          beispielsweise f&#xFC;nfstellige Zahlen mit ggf. vorangestellten Nullen
+          erzeugen (<code>counter</code>). Der Parameter <code>originalfilename</code> 
+          entspricht dem originalen Dateinamen der Datei bevor das Plugin erstmalig 
+          ausgef&#xFC;hrt wird. F&#xFC;r die Generierung des Z&#xE4;hlers ist entscheidend, 
+          welche Anzahl an Stellen definiert wurden. Der Wert <code>00000</code> w&#xFC;rde
+          beispielsweise f&#xFC;nfstellige Zahlen mit ggf. vorangestellten Nullen 
           erzeugen.</p>
         <p>Die so definierten Bestandteile des Dateinamens werden f&#xFC;r die Benennung
           miteinander verkettet und anschlie&#xDF;end um die eigentliche Dateiendung
@@ -115,6 +127,8 @@ Die Konfiguration des Plugins erfolgt innerhalb der bereits erwähnten Konfigura
 ## Arbeitsweise
 
 Das Plugin wird üblicherweise vollautomatisch innerhalb des Workflows ausgeführt. Es ermittelt zunächst, ob sich innerhalb der Konfigurationsdatei ein Block befindet, der für den aktuellen Workflow bzgl. des Projektnamens und Arbeitsschrittes konfiguriert wurde. Wenn dies der Fall ist, werden die einzelnen Elemente `<namepart>` ausgewertet, mit den entsprechenden Werten für den Zähler und die Variablen aus Goobi workflow ausgestattet und anschließend miteinander verkettet. Die somit erzeugten Dateinamen werden nun für sämtliche relevanten Verzeichnisse des Goobi Vorgangs angewendet und mit den jeweils korrekten Dateinamenerweiterungen ergänzt \(z.B. `.tif`\).
+
+Um eine korrekte Umbennenung gewährleisten zu können, die auf dem originalen Dateinamen basiert, merkt sich das Plugin die originalen Dateinamen jeder Datei in einer Vorgangseigenschaft namens `plugin_intranda_step_rename_files`. Mit dieser Vorgangseigenschaft wird sichergestellt, dass mehrfache Ausführungen des Plugins, mit möglichen Änderungen der Konfiguration, den ursprünglichen Dateinamen korrekt auflösen.
 
 Sollte innerhalb des Dateien eine Datei vorgefunden werden, die `barcode` innerhalb des Dateinamens enthält, so wird diese ebenfalls entsprechend des Namensschemas benannt. Als Zähler wird hier jedoch der Wert `0` gesetzt.
 
