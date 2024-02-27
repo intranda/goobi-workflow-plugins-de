@@ -283,15 +283,17 @@ Als letztes wird noch konfiguriert, wie die Suche nach Verweisen funktioniert:
 
 Dazu wird in <searchfield> festgelegt, in welchen Metadatenfeldern nach den gewünschten Werten gesucht werden soll und in <display> wird definiert, welche Metadatenfelder in der Trefferliste angezeigt werden sollen.
 
-
-
-
-
-
 ## Integration des Plugins in den Workflow
 
 Zur Inbetriebnahme des Plugins muss dieses für einen oder mehrere gewünschte Aufgaben im Workflow aktiviert werden. Dies erfolgt durch Auswahl des Plugins `intranda_step_metadata_per_image` aus der Liste der installierten Plugins.
 
 ## Arbeitsweise und Bedienung des Plugins
 
-TODO
+Wenn das Plugin betreten wird, werden für alle Dateien eigene Strukturelemente erstellt. Die Strukturelemente werden aufgelistet. Links sind die Metadatenfelder zu sehen, rechts das Bild bzw. die Video- oder Audiodatei. Durch einen Klick auf das Bild lässt es sich im Vollbildmodus öffnen.
+Die einzelnen Strukturelemente lassen sich umsortieren, um so die Dateien in die gewünschte Reihenfolge zu bringen.
+
+Für jedes Strukturelement werden die konfigurierten Metadaten angezeigt. Je nach Konfiguration gibt es im linken Bereich Optionen, um ein einzelnes Feld zu duplizieren, zu löschen oder einen Wert in allen Strukturelementen gleichzeitig hinzuzufügen.
+
+Eine Besonderheit stellen die Verweise dar. Hiermit ist es möglich, eine Verknüpfung zwischen dem aktuellen Strukturelement und einem anderen Vorgang zu erstellen. Dabei wird ein Popup geöffnet, in dem nach anderen Vorgängen gesucht werden kann. Anschließend kann aus der Trefferliste der gewünschte Vorgang ausgewählt weren. Im Strukturelement wird dann eine Verknüpfung auf den ausgewählten Vorgang erstellt und im anderen Vorgang wird eine Verknüpfung auf das aktuelle Strukturelement erzeugt. 
+
+Wenn ein Verweis wieder entfernt wird, dann wird er auch aus dem ausgewählten Vorgang entfernt.
