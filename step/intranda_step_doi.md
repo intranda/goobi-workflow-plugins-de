@@ -23,8 +23,8 @@ Zu beachten ist, dass dieses Plugin eine Neuimplementierung des [datacite-doi-Pl
 | Identifier | intranda_step_doi |
 | Source code | [https://github.com/intranda/goobi-plugin-step-doi](https://github.com/intranda/goobi-plugin-step-doi) |
 | Lizenz | GPL 2.0 or newer |
-| Kompatibilität | Goobi workflow 2022.05 |
-| Dokumentationsdatum | 21.06.2022 |
+| Kompatibilität | Goobi workflow 2023.02 |
+| Dokumentationsdatum | 04.03.2023 |
 
 ## Installation
 
@@ -70,6 +70,9 @@ Die Konfiguration erfolgt über die Konfigurationsdatei `plugin_intranda_step_do
 
     		<!-- use debug mode if the temporary xml shall be saved in the Goobi tmp folder -->
     		<debugMode>true</debugMode>
+
+            <!-- use draft if the doi should only be registered in draft state -->
+		    <draft>true</draft>
 
     		<!-- authentication and main information -->
     		<!-- For testing: https://mds.test.datacite.org/ -->
@@ -122,8 +125,8 @@ Die Konfiguration erfolgt über die Konfigurationsdatei `plugin_intranda_step_do
     			<data content="{meta.PublicationYear}"/>
     		</field>
 
-    		<field name="CREATOR" default="- NO CREATOR DEFINED -">
-    			<data content="{meta.Author}"/>
+    		<field name="CREATOR" default="- NO CREATOR DEFINED -" repeatable="true">
+    			<data content="{metas.Author}"/>
     		</field>
 
     		<field name="PUBLISHER" default="- NO PUBLISHER DEFINED -">
@@ -139,6 +142,9 @@ Die Konfiguration erfolgt über die Konfigurationsdatei `plugin_intranda_step_do
     			<data content="{meta.CurrentNoSorting}"/>
     		</field>
 
+            <field name="SUBJECT" default="- UNKNOWN SUBJECT -" repeatable="true">
+        	    <data content="{metas.SubjectTopic}"/>
+            </field>
     </config>
 </config_plugin>
 ```
@@ -151,6 +157,7 @@ Der Block `<config>` kann für verschiedene Projekte oder Workflow-Schritte mehr
 | `step` | Dieser Parameter steuert, für welche Arbeitsschritte der Block `<config>` gelten soll. Verwendet wird hier der Name des Arbeitsschritts. Dieser Parameter kann mehrfach pro `<config>` Block vorkommen. |
 | `serviceAddress` | Dieser Parameter definiert die URL für den DataCite-Dienst. Im obigen Beispiel ist es der Testserver. |
 | `debugMode` | Mit diesem Parameter kann der Debug-Modus aktiviert werden. Dieser erlaubt, dass die XML-Datei mit den definierten Field-Variablen (`doi_in.xml`) sowie die transformierte DataCite-XML-Datei (`doi_out.xml`) innerhalb des Verzeichnisses `tmp` von Goobi workflow gespeichert werden. Dies erlaubt einen Einblick in die tatsächlich verwendeten oder angepassten Metadaten, die zur DOI-Registrierung verwendet werden. |
+| `draft` | Mit diesem Parameter kann festgelegt werden, dass die DOIs bisher nur als Draft reserviert werden aber noch nicht offiziell registriert werden. Sie werden somit von DataCite noch nicht öffentlich erreichbar aufgelöst und auch noch nicht in Rechnung gestellt. |
 | `base` | Dieser Parameter definiert die DOI-Basis für die Einrichtung, die bei DataCite registriert wurde. |
 | `viewer` | Der Parameter `viewer` definiert den Präfix, den jeder DOI-Link erhält. Ein DOI "10.80831/goobi-1" erhält hier z. B. den Hyperlink "[https://viewer.goobi.io/idresolver?doi=10.80831/goobi-1](https://viewer.goobi.io/idresolver?doi=10.80831/goobi-1)" |
 | `username` | Dies ist der Benutzername, der für die DataCite-Registrierung verwendet wird. |
@@ -162,6 +169,7 @@ Der Block `<config>` kann für verschiedene Projekte oder Workflow-Schritte mehr
 | `xslt` | Mit diesem Parameter wird die Transformationsdatei festgelegt, die für die DOI-Registrierung verwendet werden soll. |
 | `field` - `name` | Mit dem Parameter `name` kann eine Field-Variable benannt werden, die für das Mapping zur Verfügung stehen soll. |
 | `field` - `default` | Mit diesem Parameter kann ein Wert festgelegt werden, den die Field-Variable erhalten soll, wenn keines der aufgeführten Metadaten aus den Elementen `data` gefunden werden kann. |
+| `field` - `repeatable` | Hiermit kann gesteuert werden, dass mehrfach vorkommende Werte (abgefragt z.B. durch Verwendung von `{metas.SubjectTopic}` anstelle von `{meta.SubjectTopic}`) anhand eines Semikolons separiert und als Einzelwerte verwendet werden. |
 | `field` - `data` - `content` | Innerhalb dieses Elements können Metadaten oder auch statische Texte festgelegt werden, die als Wert der Field-Variable zugewiesen werden sollen. Hierbei ist die Reihenfolge der aufgeführten `data`-Elemente entscheidend. Sobald ein Feld mit dem Inhalt gefunden werden konnte, werden die nachfolgenden `data`-Elemente übersprungen. Es handelt sich hier also um eine absteigende Priorität der aufgeführten Elemente. |
 
 
@@ -182,14 +190,21 @@ Die Transformationsdatei `doi.xsl` sieht in etwa so aus:
   </titles>
   <publisher><xsl:value-of select="//PUBLISHER"/></publisher>
   <publicationYear><xsl:value-of select="//PUBLICATIONYEAR"/></publicationYear>
+  <subjects>
+      <xsl:for-each select="//SUBJECT">
+          <subject xml:lang="de-DE"><xsl:value-of select="."/></subject>
+      </xsl:for-each>
+  </subjects>
   <resourceType resourceTypeGeneral="Text"><xsl:value-of select="//GOOBI-DOCTYPE"/></resourceType>
   <language><xsl:value-of select="//LANGUAGE"/></language>
   <creators>
-      <creator>
-          <creatorName><xsl:value-of select="//CREATOR"/></creatorName>
-          <givenName><xsl:value-of select="substring-before(//CREATOR, ', ')"/></givenName>
-          <familyName><xsl:value-of select="substring-after(//CREATOR, ', ')"/></familyName>
-      </creator>
+      <xsl:for-each select="//CREATOR">
+          <creator>
+            <creatorName><xsl:value-of select="."/></creatorName>
+            <givenName><xsl:value-of select="substring-before(., ', ')"/></givenName>
+            <familyName><xsl:value-of select="substring-after(., ', ')"/></familyName>
+          </creator>
+      </xsl:for-each>
   </creators>
   <sizes>
       <size><xsl:value-of select="//FORMAT"/></size>

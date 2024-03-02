@@ -39,7 +39,7 @@ Die Konfiguration des Plugins wird unter folgendem Pfad erwartet:
 
 Eine Beispielkonfiguration könnte folgendermaßen aussehen:
 
-```markup
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <configs>
 
