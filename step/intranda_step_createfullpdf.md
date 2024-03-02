@@ -4,7 +4,7 @@ description: >-
   automatische Generieren von PDF-Dateien aus Bildern
 ---
 
-# PDFs Generierung
+# Generierung von PDF-Dateien
 
 ## Einführung
 
