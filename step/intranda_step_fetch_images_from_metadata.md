@@ -4,28 +4,25 @@ description: >-
   Anreichern des Prozesses mit Bildern basierend auf Metadaten mit den Dateinamen im Vorgang.
 ---
 
-# Automatische Paginierung auf Basis der Dateinamen
+# Kopieren von Dateien aus Metadatenfeldern
 
 ## Einführung
-Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den Einsatz des Plugins. Mit Hilfe dieses Plugins können Bilder anhand des im Vorgangs hinterlegten Dateinamens in den gewünschte Ordner des Prozesses kopiert werden.
+Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den Einsatz des Plugins. Mit Hilfe dieses Plugins können Bilder anhand des im Vorgangs hinterlegten Dateinamens in den gewünschte Ordner des Vorgangs kopiert oder bewegt werden. 
 
 | Details |  |
 | :--- | :--- |
-| Identifier | intranda\_step\_imagename\_analyse |
+| Identifier | intranda-step-fetch-images-from-metadata |
 | Source code | [https://github.com/intranda/goobi-plugin-step-fetch-images-from-metadata](https://github.com/intranda/goobi-plugin-step-fetch-images-from-metadata) |
 | Lizenz | GPL 2.0 oder neuer |
-| Kompatibilität | Goobi workflow 3.0.10 |
 | Dokumentationsdatum | 25.11.2022 |
 
 
 ## Arbeitsweise des Plugins
-Das Plugin wird üblicherweise vollautomatisch innerhalb des Workflows ausgeführt. Es ermittelt zunächst, ob das in der Konfiguration spezifizierte Metadatum vorhanden ist und kopiert anschließend das Bild mit dem im Metadatum spezifizierten Namen und der in der Konfiguration spezifizierten Dateiendung in den media-Ordner des Vorgangs.
+Das Plugin wird üblicherweise vollautomatisch innerhalb des Workflows ausgeführt. Es ermittelt zunächst, ob das in der Konfiguration spezifizierte Metadatum vorhanden ist und wertet dieses anschließend aus. Die in dem Metadatum angegebene Datei wird anschließend anhand ihres Namens und der Dateiendung in den media-Ordner des Vorgangs kopiert oder bewegt.
 
 
 ## Bedienung des Plugins
-Dieses Plugin wird in den Workflow so integriert, dass es automatisch ausgeführt wird. Eine manuelle Interaktion mit dem Plugin ist nicht notwendig. Zur Verwendung innerhalb eines Arbeitsschrittes des Workflows sollte es wie im nachfolgenden Screenshot konfiguriert werden.
-
-![Integration des Plugins in den Workflow](../.gitbook/assets/intranda_step_fetch-images-from-metadata.png)
+Dieses Plugin wird in den Workflow so integriert, dass es automatisch ausgeführt wird. Eine manuelle Interaktion mit dem Plugin ist nicht notwendig. Zur Verwendung innerhalb eines Arbeitsschrittes muss der Workflow entsprechend konfiguriert und dort das Plugin ausgewählt werden. Eine manuelle Verwendung dieses Plugins durch einen Anwender ist nicht notwendig.
 
 
 ## Installation und Konfiguration
@@ -42,13 +39,13 @@ Die Datei `plugin_intranda_step_fetch_images_from_metadata.jar` enthält die Pro
 /opt/digiverso/goobi/plugins/step/
 ```
 
-Die Datei `plugin_intranda_step_fetch_images_from_metadata.xml` muss ebenfalls für den `tomcat`-Nutzer lesbar sein und in folgendes Verzeichnis installiert werden:
+Die Konfigurationsdatei `plugin_intranda_step_fetch_images_from_metadata.xml` muss ebenfalls für den `tomcat`-Nutzer lesbar sein und in folgendes Verzeichnis installiert werden:
 
 ```bash
 /opt/digiverso/goobi/config/
 ```
 
-Diese Datei dient zur Konfiguration des Plugins und muss wie folgt aufgebaut sein:
+Diese Konfigurationsdatei ist in etwa wie folgt aufgebaut:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -69,12 +66,11 @@ Diese Datei dient zur Konfiguration des Plugins und muss wie folgt aufgebaut sei
         <!-- metadata containing the file name -->
         <filenameMetadata>SeparatedMaterial</filenameMetadata>
          <!-- fileHandling:
-               mode: Defines if files are copied or moved. Possible values are "copy" and "move". Defaults to "copy".
-               ignoreFileExtension: If the filenameMetadata is for example "Image1.tif" you can configure here if the plugin
-                                    shall search for the exact filename, or if the file extension shall be ignored which
-                                    allowes to find "Image1.jpg", too. Possible values are "true" and "false". Default is
-                                    "false".
-               folder: Absolut path to the directory where to search for the files to be imported.
+              mode: Defines if files are copied or moved. Possible values are "copy" and "move". Defaults to "copy".
+              ignoreFileExtension: If the filenameMetadata contains the value "image1.tif" for example you can configure here if the plugin
+              shall search for the exact filename or if the file extension shall be ignored which
+              allowes to find "image1.jpg", too. Possible values are "true" and "false". Default is "false".
+              folder: Absolut path to the directory where to search for the files to be imported.
         -->
         <fileHandling mode="copy|move" ignoreFileExtension="true|false" folder="/opt/digiverso/import/images/" />
     </config>
@@ -82,19 +78,18 @@ Diese Datei dient zur Konfiguration des Plugins und muss wie folgt aufgebaut sei
 </config_plugin>
 ```
 
+Die einzelnen Parameter haben die folgende Funktion:
+
 | Parameter | Erläuterung |
 | :--- | :--- |
-| `project` | Dieser Parameter legt fest, für welches Projekt der aktuelle Block `<config>` gelten soll. Verwendet wird hierbei der Name des Projektes. Dieser Parameter kann mehrfach pro `<config>` Block vorkommen. |
-| `step` | Dieser Parameter steuert, für welche Arbeitsschritte der Block `<config>` gelten soll. Verwendet wird hier der Name des Arbeitsschritts. Dieser Parameter kann mehrfach pro `<config>` Block vorkommen. |
-| `filenameMetadata` |Der Typ des Metadatums in dem der Dateiname der Bildateien hinterlegt wird. |
+| `project` | Dieser Parameter legt fest, für welches Projekt der aktuelle Block `<config>` gelten soll. Verwendet wird hierbei der Name des Projektes. Dieser Parameter kann mehrfach pro `<config>`-Block vorkommen. |
+| `step` | Dieser Parameter steuert, für welche Arbeitsschritte der Block `<config>` gelten soll. Verwendet wird hier der Name des Arbeitsschritts. Dieser Parameter kann mehrfach pro `<config>`-Block vorkommen. |
+| `filenameMetadata` | Hier ist der Name des Metadatenfeldes (üblicherweise aus der METS-Datei) angegeben, der den Dateinamen der zu importierenden Datei enthält. |
 
-## Attribute des fileHandling Elements
+Die Attribute des für das Element `fileHandling` werden wie folgt konfiguriert:
 
 | Attribut | Erläuterung |
 | :--- | :--- |
-| `mode` | chose copy if you want to copy the image file to the process folder and move if you want to move the image file to the process folder |
-| `ignoreFileExtension` | true if the filextension shall be ignored´ |
-| `folder` | Der Ordner in dem sich die zu importierenden Bilder befinden. |
-
-
-
+| `mode` | Dieses Attribut legt fest, ob die zu übernehmenden Dateien in den Ordner des Vorgangs kopiert werden sollen oder ob sie dorthin bewegt werden. |
+| `ignoreFileExtension` | Dieses Attribut steuert, ob die Dateiendung für den Kopiervorgang ignoriert werden soll oder exakt stimmen muss. |
+| `folder` | Dieses Attribut gibt den Ordner an, in dem sich die zu importierenden Dateien befinden. |
