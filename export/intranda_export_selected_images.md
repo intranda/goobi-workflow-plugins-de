@@ -1,22 +1,21 @@
 ---
 description: >-
-  Dies ist eine technische Dokumentation für das Selected Images Export Plugin. Es ermöglicht, den Export von ausgewählten Bildern an den konfigurierten Ort.
+  Dies ist eine technische Dokumentation für das Plugin zum Export ausgewählter Bilder. Es ermöglicht, den Export von ausgewählten Bildern an den konfigurierten Ort im Dateisystem oder per SCP.
 ---
 
-# Selected Images Export
+# Export ausgewählter Bilder
 
 ## Einführung
 
-Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den Einsatz des Selected-Images-Export-Plugins in Goobi.
+Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den Einsatz des Plugin zum Export ausgewählter Bilder in Goobi workflow.
 
-Mithilfe dieses Plugins für Goobi können die Goobi-Vorgänge innerhalb eines Arbeitsschrittes die ausgewählten Bilder und möglicherweise auch eine METS Datei von diesen Bildern an den konfigurierten Ort exportieren.
+Mithilfe dieses Plugins für Goobi workflow können die Goobi-Vorgänge innerhalb eines Arbeitsschrittes die zuvor ausgewählten Bilder und auf Wunsch ebenso auch die zugehörige METS-Datei an einen konfigurierten Ort entweder im Dateisystem oder per SCP exportieren.
 
 | Details |  |
 | :--- | :--- |
 | Identifier | intranda_export_selected_images |
 | Source code | [https://github.com/intranda/goobi-plugin-export-selected-images](https://github.com/intranda/goobi-plugin-export-selected-images) |
 | Lizenz | GPL 2.0 oder neuer |
-| Kompatibilität | Goobi workflow 23.04 und neuer |
 | Dokumentationsdatum | 12.05.2023 |
 
 ## Installation
@@ -27,15 +26,16 @@ Dieses Plugin wird in den Workflow so integriert, dass es automatisch ausgeführ
 
 Das Plugin muss zunächst in folgendes Verzeichnis kopiert werden:
 
-```text
+```bash
 /opt/digiverso/goobi/plugins/export/plugin_intranda_export_selected_images.jar
 ```
 
 Daneben gibt es eine Konfigurationsdatei, die an folgender Stelle liegen muss:
 
-```text
+```bash
 /opt/digiverso/goobi/config/plugin_intranda_export_selected_images.xml
 ```
+
 ## Konfiguration
 
 Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intranda_export_selected_images.xml`. Die Konfiguration kann im laufenden Betrieb angepasst werden. Im folgenden ist eine beispielhafte Konfigurationsdatei aufgeführt:
@@ -73,8 +73,7 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 		<!-- password to login to the remote server via ssh, MANDATORY if useScp is set true -->
 		<scpPassword>CHANGE_ME</scpPassword>
 		<!-- name or ip of the remote host that awaits the export, MANDATORY if useScp is set true -->
-		<scpHostname>CHANGE_ME</scpHostname>
-		
+		<scpHostname>CHANGE_ME</scpHostname>		
 	</config>
         
 	<config>
@@ -93,7 +92,6 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 		<scpLogin>CHANGE_ME</scpLogin>
 		<scpPassword>CHANGE_ME</scpPassword>
 		<scpHostname>CHANGE_ME</scpHostname>
-		
 	</config>
 
 </config_plugin>
