@@ -16,7 +16,6 @@ Dieses Plugin erlaubt die Bearbeitung von konfigurierbaren Eigenschaften und Met
 | Identifier | intranda\_step\_metadata\_edition |
 | Source code | [https://github.com/intranda/goobi-plugin-step-metadata-edition](https://github.com/intranda/goobi-plugin-step-metadata-edition) |
 | Lizenz | GPL 2.0 oder neuer |
-| Kompatibilität | Goobi workflow 2021.06 |
 | Dokumentationsdatum | 19.07.2021 |
 
 ## Installation
@@ -139,7 +138,7 @@ Der Block `<config>` kann für verschiedene Projekte oder Arbeitsschritte wieder
 | `project` | Dieser Parameter legt fest, für welches Projekt der aktuelle Block `<config>` gelten soll. Verwendet wird hierbei der Name des Projektes. Dieser Parameter kann mehrfach pro `<config>` Block vorkommen. |
 | `step` | Dieser Parameter steuert, für welche Arbeitsschritte der Block `<config>` gelten soll. Verwendet wird hier der Name des Arbeitsschritts. Dieser Parameter kann mehrfach pro `<config>` Block vorkommen. |
 | `thumbnailsize` | Mit diesem Parameter wird festgelegt, in welcher Größe die Thumbnails, die zum Bestimmen des Repräsentanten angezeigt werden sollen. |
-| `hideEmptyFields` | Dieses Element kann die Werte `true` und `false`annehmen. Das Element besitzt außerdem das Attribut `onlyEmptyReadOnlyFields`. Wenn das Element den Wert `true` hat, werden leere Metadatenfelder versteckt. Mit dem Attribut `onlyEmptyReadOnlyFields` kann zusätzlich gesteuert werden, ob nur leere "ReadOnly"-Felder (`true`) oder alle leeren Felder (`false`) versteckt werden sollen. Der Standardwert von onlyEmptyReadOnlyFields ist `true`.   |
+| `hideEmptyFields` | Dieses Element kann die Werte `true` und `false` annehmen. Das Element besitzt außerdem das Attribut `onlyEmptyReadOnlyFields`. Wenn das Element den Wert `true` hat, werden leere Metadatenfelder versteckt. Mit dem Attribut `onlyEmptyReadOnlyFields` kann zusätzlich gesteuert werden, ob nur leere `ReadOnly`-Felder (`true`) oder alle leeren Felder (`false`) versteckt werden sollen. Der Standardwert von `onlyEmptyReadOnlyFields` ist `true`.   |
 | `imageFolder` | Dieser Parameter bestimmt, aus welchem Verzeichnis die Bilder zur Anzeige verwendet werden sollen. Übliche Werte sind hier beispielsweise `master` oder `media`. |
 | `preselectFields` | Mit diesem Parameter kann festgelegt werden, ob die innerhalb der Vorgangssuche dieses Plugins gefundenen Metadaten bereits vorausgewählt sein sollen, so dass eine einfache Übernahme der Metadaten erfolgen kann. |
 | `showImages` | Mit diesem Parameter wird festgelegt, ob der Bildbereich zur Auswahl des Repräsentanten angezeigt werden soll. |
