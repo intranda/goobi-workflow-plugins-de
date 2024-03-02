@@ -85,7 +85,9 @@
 * [Metatatenübernahme aus einem Verzeichnis](step/intranda_step_import_from_folder.md)
 * [DOI-Registrierung](step/intranda_step_doi.md)
 * [Validierung von Dateien](step/intranda_step_file_validation.md)
+* [Umbenennung von Dateien vor dem Rosetta-Ingest](step/intranda_step_rename_files_before_rosetta.md)
 
+Renaming files before Rosetta
 ## Opac Plugins <a id="opac"></a>
 * [PICA Import](opac/intranda_opac_pica.md)
 * [MARC Import](opac/intranda_opac_marc.md)

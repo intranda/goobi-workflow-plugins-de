@@ -1,14 +1,13 @@
 ---
 description: >-
-  Dieses Step Plugin erlaubt die automatische Anpassung von Dateinamen in den media und Ocr-Ordnern und von der METS-Datei innerhalb
-  von Goobi Vorgängen.
+  Dieses Step Plugin erlaubt die automatische Anpassung von Dateinamen in den media- und OCR-Verzeichnissen sowie in der METS-Datei innerhalb von Goobi Vorgängen bevor der Ingest in Rosetta stattfindet.
 ---
 
-# Umbenennung von Dateien vorm Einsatz von Rosetta
+# Umbenennung von Dateien vor dem Rosetta-Ingest
 
 ## Einführung
 
-Dieses Plugin dient der bedingten Umbenennung von Dateien innerhalb der Medien- und Ocr-Ordner eines Vorgangs des Goobi-Workflows. Die Benennung erfolgt in Abhängigkeit vom Prozesstitel und einem konfigurierbaren Format.
+Dieses Plugin dient der bedingten Umbenennung von Dateien innerhalb der Medien- und OCR-Verzeichnissen eines Vorgangs innerhalb von Goobi workflow. Die Benennung erfolgt in Abhängigkeit vom Vorgangstitel und einem konfigurierbaren Format.
 
 ## Übersicht
 
@@ -17,7 +16,6 @@ Dieses Plugin dient der bedingten Umbenennung von Dateien innerhalb der Medien- 
 | Identifier | intranda\_step\_rename\_files\_before\_rosetta |
 | Source code | [https://github.com/intranda/goobi-plugin-step-rename-files-before-rosetta](https://github.com/intranda/goobi-plugin-step-rename-files-before-rosetta) |
 | Lizenz | GPL 2.0 oder neuer |
-| Kompatibilität | Goobi workflow 23.03 |
 | Dokumentationsdatum | 27.04.2023 |
 
 ## Installation
@@ -36,7 +34,7 @@ Um zu konfigurieren, wie sich das Plugin verhalten soll, können verschiedene We
 
 Dabei sieht der Inhalt dieser Konfigurationsdatei beispielhaft wie folgt aus:
 
-```markup
+```xml
 <config_plugin>
     <!--
         order of configuration is:
@@ -61,7 +59,7 @@ Dabei sieht der Inhalt dieser Konfigurationsdatei beispielhaft wie folgt aus:
 
 ## Allgemeine Konfiguration des Plugins
 
-Die Konfiguration des Plugins erfolgt innerhalb der bereits erwähnten Konfigurationsdatei. Dort können verschiedene Parameter konfiguriert werden. Der Block `<config>` kann für verschiedene Projekte oder Arbeitsschritte wiederholt vorkommen, um innerhalb verschiedener Workflows unterschiedliche Aktionen durchführen zu können. Die Elemente `<namepart>` sind hierbei maßgeblich für die Generierung der Dateinamen.
+Die Konfiguration des Plugins erfolgt innerhalb der bereits erwähnten Konfigurationsdatei. Dort können verschiedene Parameter konfiguriert werden. Der Block `<config>` kann für verschiedene Projekte oder Arbeitsschritte wiederholt vorkommen, um innerhalb verschiedener Workflows unterschiedliche Aktionen durchführen zu können. Die Elemente `<format>` sind hierbei maßgeblich für die Generierung der Dateinamen.
 
 | Wert | Beschreibungen |
 | :--- | :--- |
@@ -75,9 +73,9 @@ Das Plugin wird üblicherweise vollautomatisch innerhalb des Workflows ausgefüh
 
 Es ermittelt zunächst, ob sich innerhalb der Konfigurationsdatei ein Block befindet, der für den aktuellen Workflow bzgl. des Projektnamens und Arbeitsschrittes konfiguriert wurde. 
 
-Wenn dies der Fall ist, Wenn dies der Fall ist, benennt das Plugin alle Dateien aus den entsprechenden Ordnern nach der Formel `{Schluss von process_title nach dem ersten _ }_{formatierte Reihenfolge der Datei in diesem Ordner}` um.
+Wenn dies der Fall ist, benennt das Plugin alle Dateien aus den entsprechenden Ordnern nach dem Format `{Hinterer Teil des Vorgangstitels nach dem ersten _ }_{formatierte Reihenfolge der Datei in diesem Ordner}` um.
 
-Danach wird die METS-Datei aktualisiert, um sicherzustellen, dass Workflow und Rosetta weiterhin mit den aktualisierten Informationen arbeiten können.
+Im Anschluß daran wird die METS-Datei aktualisiert, um sicherzustellen, dass Goobi workflow und Rosetta weiterhin mit den aktualisierten Informationen arbeiten können.
 
 Das Plugin berücksichtigt für die Benennung die Dateien innerhalb der folgenden Unterverzeichnisse:
 
@@ -91,4 +89,4 @@ Das Plugin berücksichtigt für die Benennung die Dateien innerhalb der folgende
 
 Dieses Plugin wird in den Workflow so integriert, dass es automatisch ausgeführt wird. Eine manuelle Interaktion mit dem Plugin ist nicht notwendig. Zur Verwendung innerhalb eines Arbeitsschrittes des Workflows sollte es wie im nachfolgenden Screenshot konfiguriert werden.
 
-![Integration des Plugins in den Workflow](../.gitbook/assets/intranda_step_rename_files_before_rosetta.png)
+![Integration des Plugins in den Workflow](../.gitbook/assets/intranda_step_rename_files_before_rosetta_de.png)
