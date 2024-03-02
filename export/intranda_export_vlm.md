@@ -16,8 +16,7 @@ Mithilfe dieses Plugins für Goobi können die Goobi-Vorgänge innerhalb eines A
 | Identifier | intranda_export_vlm |
 | Source code | [https://github.com/intranda/goobi-plugin-export-vlm](https://github.com/intranda/goobi-plugin-export-vlm) |
 | Lizenz | GPL 2.0 oder neuer |
-| Kompatibilität | Goobi workflow 2022.10 und neuer |
-| Dokumentationsdatum | 16.11.2022 |
+| Dokumentationsdatum | 12.01.2023 |
 
 ## Installation
 
@@ -75,6 +74,26 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 		<!-- The prefix you would like to use for subfolders for different volumes. -->
 		<!-- Leave it blank if no common prefix is needed. -->
 		<subfolderPrefix>T_34_L_</subfolderPrefix>
+		
+		<!-- Whether or not use SFTP for the export. -->
+		<!-- If true then use SFTP. If false then perform local export. -->
+		<!-- If left blank, then the default setting 'false' will be used. -->
+		<sftp>true</sftp>
+		
+		<!-- Absolute path to the location of the file 'known_hosts'. -->
+		<!-- If left blank, then the default setting '{user.home}/.ssh/known_hosts' will be used. -->
+		<knownHosts></knownHosts>
+		
+		<!-- User name at the remote host. -->
+		<!-- MANDATORY if sftp is set to be true. -->
+		<username>CHANGE_ME</username>
+		
+		<!-- Name of the remote host. -->
+		<!-- MANDATORY if sftp is set to be true. -->
+		<hostname>CHANGE_ME</hostname>
+		
+		<!-- Password to log into the remote host 'username'@'hostname'. -->
+		<password>CHANGE_ME</password>
 	</config>
 	
 	<config>
@@ -86,6 +105,14 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 		<path>{goobiFolder}../viewer/hotfolder/</path>
 		<!-- No common prefix needed. -->
 		<subfolderPrefix></subfolderPrefix>
+		
+		<sftp>false</sftp>
+		<!-- Use the default setting '{user.home}/.ssh/known_hosts'. -->
+		<knownHosts></knownHosts>
+		
+		<username></username>
+		<hostname></hostname>
+		<password></password>
 	</config>
 	
 	<config>
@@ -96,6 +123,15 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 		<path>/opt/digiverso/viewer/hotfolder</path>
 		<!-- No common prefix needed. -->
 		<subfolderPrefix></subfolderPrefix>
+		
+		<!-- Use the default setting 'false'. -->
+		<sftp></sftp>
+		<!-- Use the default setting '{user.home}/.ssh/known_hosts'. -->
+		<knownHosts></knownHosts>
+		
+		<username></username>
+		<hostname></hostname>
+		<password></password>
 	</config>
 
 </config_plugin>
@@ -107,3 +143,8 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 | `volume`          | Dieser Parameter steuert, mit dem Inhalt welchen Metadatums die Unterverzeichnisse für Bände benannt werden sollen. |
 | `path`            | Dieser Parameter legt den Export-Pfad fest, wohin die Daten exportiert werden sollen. Erwartet wird ein absoluter Pfad. |
 | `subfolderPrefix` | Dieser Parameter beschreibt den Präfix, der für jeden Band eines mehrbändigen Werkes in der Ornderbezeichnung vorangestellt werden soll. (Beispiel `T_34_L_`: Hier steht `T_34` für die Erkennung zur Erstellung eines Strukturknotens des Typs `Band` und das `L` gibt an, dass danach ein Text kommt.) |
+| `sftp`            | Dieser Parameter legt fest, ob der Export mittels SFTP stattfinden soll. |
+| `knownHosts`      | Dieser Parameter legt fest, wo die Datei namens `known_hosts` ist. Wenn keine Datei angegeben wurde, dann wird der Pfad `{user.home}/.ssh/known_hosts` genutzt. Sonst wird hier ein absoluter Pfad erwartet. |
+| `username`        | Dieser Parameter legt fest, welcher Nutzername für die Anmeldung bei dem Remote-Host verwendet werden soll. |
+| `hostname`        | Dieser Parameter legt fest, wie der Remote-Host heißt. |
+| `password`        | Dieser Parameter definiert das Passwort, das für die Anmldung mittels `username`@`hostname` verwendet werden soll. |

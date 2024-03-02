@@ -33,7 +33,7 @@ unzip BaseX944.zip
 chown -R tomcat. basex/
 ```
 
-Nach dem Herunterladen und Entpacken muss die Jetty-Konfiguration angepasst werden, so dass die Applikation nur auf `localhost` erreichbar ist. Dafür muss in der Konfigurationsdatei `/opt/digiverso/basex/webapp/WEB-INF/jetty.xml` sichergestellt werden, dass der `host` auf `127.0.0.1` steht:
+Nach dem Herunterladen und Entpacken muss die Jetty-Konfiguration angepasst werden, so dass die Applikation nur auf `localhost` erreichbar ist. Dafür muss in der Konfigurationsdatei `/opt/digiverso/basex/webapp/WEB-INF/jetty.xml` sichergestellt werden, dass der `host` auf `127.0.0.1` und der `port` auf `8984` steht:
 
 ```xml
 <?xml version="1.0"?>
@@ -57,6 +57,8 @@ Nach dem Herunterladen und Entpacken muss die Jetty-Konfiguration angepasst werd
 </Configure>
 
 ```
+Der Port zum stoppen von BaseX muss auch angepasst werden. Dafür muss unter `/opt/digiverso/basex/.basex` folgendes stehen `STOPPORT = 8985`.
+
 
 Anschließend wird die `Systemd Unit File` an diesen Pfad installiert:
 
@@ -115,12 +117,14 @@ Die XML Datenbank kann nach der Installation unter folgender URL erreicht werden
 
 ## Datenbank administrieren und EAD-Datei einspielen
 
-Nachdem BaseX heruntergeladen und gestartet wurde, können XML-Dateien als neue Datenbanken eingespielt werden. Dazu wird zunächst der Menüpunkt `Database Administration` geöffnet, wo ein Login mit diesen Zugangsdaten erfolgen kann:
+Zum Einloggen müssen vorher Zugangsdaten festgelegt werden. Dies geht mit dem folgendem Befehl:
 
 ```text
-Login:      admin
-Passwort:   admin
+/opt/digiverso/basex/bin/basexhttp -c PASSWORD
 ```
+
+Nachdem BaseX heruntergeladen und gestartet wurde, können XML-Dateien als neue Datenbanken eingespielt werden. Dazu wird zunächst der Menüpunkt `Database Administration` geöffnet, wo ein Login mit den vorher definierten Zugangsdaten erfolgen kann.
+
 
 ![Login f&#xFC;r die Datenbank-Administration](../../.gitbook/assets/intranda_administration_archive_management_install_03.png)
 
@@ -130,7 +134,7 @@ Nach dem erfolgreichen Login erhält man einen Überblick über die installierte
 
 ![Administrativer &#xDC;bersicht](../../.gitbook/assets/intranda_administration_archive_management_install_04.png)
 
-Unter dem Menüpunkt `Databases` können neue Datenbanken für die EAD Dateien erzeugt werden.
+Unter dem Menüpunkt `Databases` können neue Datenbanken für die EAD Dateien erzeugt werden. Das Archiv Management Plugin benötigt eine erstelle Datenbank.
 
 ![Neue Datenbank anlegen](../../.gitbook/assets/intranda_administration_archive_management_install_05.png)
 
@@ -156,15 +160,30 @@ Im Administrationsbereich von BaseX können auch Dateien entfernt werden. Dazu m
 
 Um BaseX für Abfrage aus Goobi einzurichten, muss der Datenbank bekannt gemacht werden, wie eine solche Anfrage aussieht, was mit dem Ergebnis der Abfrage geschehen soll und wie das Ergebnis der Abfrage auszusehen hat. Dafür bietet BaseX verschiedene Optionen an. Wir haben uns für `RESTXQ` entschieden, da diese im Gegensatz zur REST Schnittstelle keine zusätzliche Authentifizierung benötigt.
 
-Zur Konfiguration der Abfragen müssen im Pfad `/opt/digiverso/basex/webapp/` mehrere neue Dateien erzeugt werden. Diese befinden sich innerhalb des Plugin-Repositories unterhalb des Pfades `plugin/src/main/resources/` und können von dort auch in den Ordner `/opt/digiverso/basex/webapp/` kopiert werden. Alternativ können sie auch mit den folgenden Befehlen automatisch angelegt werden:
+Zur Konfiguration der Abfragen müssen im Pfad `/opt/digiverso/basex/webapp/` mehrere neue Dateien erzeugt werden. Diese befinden sich innerhalb des Plugin-Repositories unterhalb des Pfades `plugin/src/main/resources/(basex9|basex10)` und können von dort auch in den Ordner `/opt/digiverso/basex/webapp/` kopiert werden. Alternativ können sie auch mit den folgenden Befehlen automatisch angelegt werden:
 
+Für BaseX 9:
 ```bash
 cd /opt/digiverso/basex/webapp/
-sudo -u tomcat wget https://raw.githubusercontent.com/intranda/goobi-plugin-administration-archive-management/master/plugin/src/main/resources/importFile.xq
-sudo -u tomcat wget https://raw.githubusercontent.com/intranda/goobi-plugin-administration-archive-management/master/plugin/src/main/resources/listDatabases.xq
-sudo -u tomcat wget https://raw.githubusercontent.com/intranda/goobi-plugin-administration-archive-management/master/plugin/src/main/resources/openDatabase.xq
-sudo -u tomcat wget https://raw.githubusercontent.com/intranda/goobi-plugin-administration-archive-management/master/plugin/src/main/resources/findDb.xq
+sudo -u tomcat wget https://raw.githubusercontent.com/intranda/goobi-plugin-administration-archive-management/master/plugin/src/main/resources/basex9/importFile.xq
+sudo -u tomcat wget https://raw.githubusercontent.com/intranda/goobi-plugin-administration-archive-management/master/plugin/src/main/resources/basex9/listDatabases.xq
+sudo -u tomcat wget https://raw.githubusercontent.com/intranda/goobi-plugin-administration-archive-management/master/plugin/src/main/resources/basex9/openDatabase.xq
+sudo -u tomcat wget https://raw.githubusercontent.com/intranda/goobi-plugin-administration-archive-management/master/plugin/src/main/resources/basex9/findDb.xq
 ```
+
+Für BaseX 10:
+```bash
+cd /opt/digiverso/basex/webapp/
+sudo -u tomcat wget https://raw.githubusercontent.com/intranda/goobi-plugin-administration-archive-management/master/plugin/src/main/resources/basex10/createDatabase.xq
+sudo -u tomcat wget https://raw.githubusercontent.com/intranda/goobi-plugin-administration-archive-management/master/plugin/src/main/resources/basex10/eadNode.xq
+sudo -u tomcat wget https://raw.githubusercontent.com/intranda/goobi-plugin-administration-archive-management/master/plugin/src/main/resources/basex10/eadRecord.xq
+sudo -u tomcat wget https://raw.githubusercontent.com/intranda/goobi-plugin-administration-archive-management/master/plugin/src/main/resources/basex10/findDb.xq
+sudo -u tomcat wget https://raw.githubusercontent.com/intranda/goobi-plugin-administration-archive-management/master/plugin/src/main/resources/basex10/importFile.xq
+sudo -u tomcat wget https://raw.githubusercontent.com/intranda/goobi-plugin-administration-archive-management/master/plugin/src/main/resources/basex10/listDatabases.xq
+sudo -u tomcat wget https://raw.githubusercontent.com/intranda/goobi-plugin-administration-archive-management/master/plugin/src/main/resources/basex10/openDatabase.xq
+sudo -u tomcat wget https://raw.githubusercontent.com/intranda/goobi-plugin-administration-archive-management/master/plugin/src/main/resources/basex10/uploadFile.xq
+```
+
 
 ![\*.xq-Dateien aus dem ausgecheckten Plugin](../../.gitbook/assets/intranda_administration_archive_management_install_10.png)
 
@@ -257,10 +276,11 @@ Je nachdem, wo die BaseX-Datenbank installiert wurde, müssen noch zwei Anpassun
 /opt/digiverso/basex/import/
 ```
 
-Um auf dieses angegebene Verzeichnis zugreifen zu können, muss es natürlich auf dem System auch tatsächlich existieren und daher ggf. noch angelegt werden:
+Um auf dieses angegebene Verzeichnis zugreifen zu können, muss es natürlich auf dem System auch tatsächlich existieren und daher ggf. noch angelegt werden und die Rechte angepasst werden:
 
 ```bash
 mkdir /opt/digiverso/basex/import
+chown tomcat: /opt/digiverso/basex/import
 ```
 
 Dieses Verzeichnis muss nun innerhalb von zwei Konfigurationsdateien richtig konfiguriert werden. Zunächst einmal erfolgt die Anpassung in Konfigurationsdatei `plugin_intranda_administration_archive_management.xml` so, dass dort der Pfad definiert wird:
