@@ -1,31 +1,27 @@
 ---
 description: >-
-  Goobi Step Plugin zur Speicherung von OCR-Ergebnissen in einem konfigurierbaren Metadatenfeld.
+  Dieses Goobi-Workflow-Step-Plugin ermöglicht es, den OCR-Volltext aller Bilder eines Vorgangs zu lesen und als Klartext in ein vorgegebenes Metadatenfeld zu schreiben.
 ---
 
-# OCR zu Metadaten
-
+# OCR-Ergebnis in Metadatenfeld übernehmen
 
 ## Einführung
-Dieses Step-Plugin für den Goobi-Workflow liest die OCR-Ergebnisse automatisch ein, kombiniert sie und speichert sie in einem konfigurierbaren Metadatenfeld in der Mets-Datei.
+Dieses Step-Plugin für Goobi Workflow liest die OCR-Ergebnisse aller zugehörigen Dateien automatisch ein, kombiniert diese miteinander und speichert sie anschließend in einem konfigurierbaren Metadatenfeld innerhalb der METS-Datei.
 
 | Details |  |
 | :--- | :--- |
 | Identifier | intranda_step_ocr_to_metadata |
 | Source code | [https://github.com/intranda/goobi-plugin-step-ocr-to-metadata](https://github.com/intranda/goobi-plugin-step-ocr-to-metadata) |
 | Lizenz | GPL 2.0 oder neuer |
-| Kompatibilität | Goobi workflow 2023.04 |
 | Dokumentationsdatum | 30.05.2023 |
 
-
 ## Arbeitsweise des Plugins
-Das Plugin prüft zunächst, ob der OCR-Text-Ordner oder der OCR-Alto-Ordner bereits existiert, wenn ja, wird der Inhalt seiner Dateien eingelesen und kombiniert und dann in einem Metadatenfeld mit dem konfigurierten Namen wie folgendermaßen gespeichert:
-Wenn ein solches Metadatenfeld bereits existiert, wird sein Inhalt ersetzt. Andernfalls wird ein neues Metadatenfeld mit diesem Namen hinzugefügt. 
+Das Plugin prüft zunächst, ob das Verzeichnis mit OCR-Ergebnissen im Format TXT oder ALTO bereits existiert. Sofern diese vorhanden sind, wird der Inhalt der dort verfügbaren Dateien eingelesen und zu einem gesamten Volltext kombiniert. Abschließend wird dieser kombinierte Volltext in dem Metadatenfeld der METS-Datei gespeichert, das in der Konfigurationsdatei festgelegt wurde. Dabei wird ggf. bereits vorhandener Inhalt des Metadatenfeldes mit dem Volltext überschrieben. 
 
 ## Installation
 Das Plugin besteht aus folgenden Dateien:
 
-```text
+```bash
 plugin_intranda_step_ocr_to_metadata.jar
 plugin_intranda_step_ocr_to_metadata.xml
 ```
@@ -64,7 +60,6 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
         
         <!-- Name of the field where to store the OCR result -->
         <metadataField>AdditionalInformation</metadataField>
-        
     </config>
 
 </config_plugin>
@@ -74,10 +69,10 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 | :--- | :--- |
 | `project` | Dieser Parameter legt fest, für welches Projekt der aktuelle Block `<config>` gelten soll. Verwendet wird hierbei der Name des Projektes. Dieser Parameter kann mehrfach pro `<config>` Block vorkommen. |
 | `step` | Dieser Parameter steuert, für welche Arbeitsschritte der Block `<config>` gelten soll. Verwendet wird hier der Name des Arbeitsschritts. Dieser Parameter kann mehrfach pro `<config>` Block vorkommen. |
-| `metadataField` | Dieser Parameter legt den Namen des Typs des Metadatenfeldes fest, das zur Speicherung des OCR-Ergebnisses verwendet werden soll.  |
+| `metadataField` | Dieser Parameter legt den Typ des Metadatenfeldes fest, das zur Speicherung des OCR-Ergebnisses verwendet werden soll.  |
 
 
 ## Integration des Plugins in den Workflow
-Dieses Plugin wird in den Workflow so integriert, dass es automatisch ausgeführt wird. Eine manuelle Interaktion mit dem Plugin ist nicht notwendig. Zur Verwendung innerhalb eines Arbeitsschrittes des Workflows sollte es wie im nachfolgenden Screenshot konfiguriert werden.
+Dieses Plugin wird in den Workflow so integriert, dass es automatisch ausgeführt wird. Eine manuelle Interaktion mit dem Plugin ist nicht notwendig. Zur Verwendung innerhalb eines Arbeitsschrittes des Workflows sollte es wie im nachfolgenden Screenshot in dem Workflow konfiguriert werden.
 
 ![Integration des Plugins in den Workflow](../.gitbook/assets/intranda_step_ocr_to_metadata_de.png)
