@@ -7,7 +7,7 @@ description: >-
 
 
 ## Einführung
-Dieses Step Plugin für Goobi workflow benennt den Vorgang mit dem in der Konfiguration angegebenen Namen um.
+Dieses Step Plugin für Goobi workflow benennt den Vorgang mit dem in der Konfiguration angegebenen Namen um. Hierbei können für die Festlegung der Umbenennung von Vorgängen auch Variablen des Variablen-Replacers verwendet werden.
 
 
 | Details |  |
@@ -15,18 +15,17 @@ Dieses Step Plugin für Goobi workflow benennt den Vorgang mit dem in der Konfig
 | Identifier | intranda_step_rename_process |
 | Source code | [https://github.com/intranda/goobi-plugin-step-rename-process](https://github.com/intranda/goobi-plugin-step-rename-process) |
 | Lizenz | GPL 2.0 oder neuer |
-| Kompatibilität | Goobi workflow 2022.10 und neuer |
 | Dokumentationsdatum | 16.11.2022 |
 
 
 ## Installation
 Das Plugin besteht aus der folgenden Datei:
 
-```text
+```bash
 plugin_intranda_step_rename_process.jar
 ```
 
-Diese Datei muss in dem richtigen Verzeichnis installiert werden, so dass diese nach der Installation an folgendem Pfad vorliegt:
+Diese Datei muss in dem richtigen Verzeichnis installiert werden, so dass diese nach der Installation üblicherweise an folgendem Pfad vorliegt:
 
 ```bash
 /opt/digiverso/goobi/plugins/step/plugin_intranda_step_rename_process.jar
@@ -95,8 +94,5 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 </config_plugin>
 ```
 
-
 ## Integration des Plugins in den Workflow
-Zur Inbetriebnahme des Plugins muss dieses für einen oder mehrere gewünschte automatische Aufgaben im Workflow aktiviert werden. Dies erfolgt wie im folgenden Screenshot aufgezeigt durch Auswahl des Plugins `intranda_step_rename_process` aus der Liste der installierten Plugins.
-
-![Integration des Plugins in den Workflow](../.gitbook/assets/intranda_step_rename_process_de.png)
+Zur Inbetriebnahme des Plugins muss dieses für einen oder mehrere gewünschte automatische Aufgaben im Workflow aktiviert werden. Dies erfolgt durch Auswahl des Plugins `intranda_step_rename_process` aus der Liste der installierten Plugins innerhalb der Schrittekonfiguration des Workflows.
