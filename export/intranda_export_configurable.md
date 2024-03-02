@@ -16,7 +16,6 @@ Mithilfe dieses Export-Plugins für Goobi können die Goobi-Vorgänge innerhalb 
 | Identifier | intranda_export_configurable |
 | Source code | [https://github.com/intranda/goobi-plugin-export-configurable](https://github.com/intranda/goobi-plugin-export-configurable) |
 | Lizenz | GPL 2.0 oder neuer |
-| Kompatibilität | Goobi workflow 2022.03 und neuer |
 | Dokumentationsdatum | 28.02.2023 |
 
 ## Installation
@@ -179,11 +178,11 @@ Der `includeFolders` Block befindet sich innerhalb von jedem `config`-Element. E
 | `export` | Hier kann definiert werden, ob und wie der export-Ordner exportiert werden soll. |
 | `itm` | Hier kann definiert werden, ob und wie der TaskManager-Ordner exportiert werden soll. |
 | `validation` | Hier kann definiert werden, ob und wie der validation-Ordner exportiert werden soll. |
-| `genericFolder` | Hier kann ein generic-Ordner definiert werden, der exportiert werden soll. |
+| `genericFolder` | Hier kann ein Ordner frei definiert werden, der exportiert werden soll. |
 | `sourceFolderSuffix` | Dieses Unterelement vom `ocr` Element wird benötigt, wenn man OCR-Ordner mit verschiedenen Suffixen verwendet. Es wird das konkrete Suffix zum Export angeben. |
-| `destinationFolder` | Das ist ein Unterelement von allen Ordner-Elementen ausschließlich dem `ocr`-Element, und mithilfe seiner zwei Attributen `name` und `exportFileRegex` kann definiert werden, welche Dateien in welche Verzeichnisse exportiert werden sollen. | 
+| `destinationFolder` | Das ist ein Unterelement von allen Ordner-Elementen ausschließlich dem `ocr`-Element. Mithilfe seiner zwei Attribute `name` und `exportFileRegex` kann definiert werden, welche Dateien in welche Verzeichnisse exportiert werden sollen. | 
 
-Wird das jeweilige Attribut `enabled` als false konfiguriert wird, findet kein Export des entsprechenden Ordners statt.
+Wird das jeweilige Attribut `enabled` als `false` konfiguriert wird, findet kein Export des entsprechenden Ordners statt.
 
 Die Konfiguration des Zielordners kann innerhalb der Projekteinstellungen in der Nutzeroberfläche von Goobi workflow vorgenommen werden. Wenn dort die Checkbox für `Erzeuge Vorgangsverzeichnis` gesetzt ist, wird der Vorgang in einen Unterordner mit seinem Titel als Namen im Zielverzeichnis abgelegt.
 
