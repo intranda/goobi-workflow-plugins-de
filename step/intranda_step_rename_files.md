@@ -98,7 +98,7 @@ Die Konfiguration des Plugins erfolgt innerhalb der bereits erwähnten Konfigura
     <tr>
       <td style="text-align:left"><code>folder</code>
       </td>
-      <td style="text-align:left">Dieser Parameter lässt die Nutzer steuern, welche verzeichnis berücksichtigt werden soll. Wenn mit einem * oder gar nicht         konfiguriert ist, oder wenn dieser Parameter sogar nicht da ist, wird die defaulte Settings benutzt.</td>
+      <td style="text-align:left">Dieser Parameter lässt die Nutzer steuern, welche Verzeichniss für die Umbenennung berücksichtigt werden sollen. Wenn hier als Wert `*` angegeben wird, der Parameter fehlt oder der Wert nicht konfiguriert ist, werden die default-Settings verwendet.</td>
     </tr>
     <tr>
       <td style="text-align:left"><code>startValue</code>
