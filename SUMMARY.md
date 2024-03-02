@@ -87,6 +87,7 @@
 * [DOI-Registrierung](step/intranda_step_doi.md)
 * [Validierung von Dateien](step/intranda_step_file_validation.md)
 * [Umbenennen von Vorgängen](step/intranda_step_rename_process.md)
+* [Auswahl von Bildern](step/intranda_step_image_selection.md)
 
 ## Opac Plugins <a id="opac"></a>
 * [PICA Import](opac/intranda_opac_pica.md)
