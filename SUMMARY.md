@@ -89,6 +89,7 @@
 * [Umbenennen von Vorgängen](step/intranda_step_rename_process.md)
 * [Auswahl von Bildern](step/intranda_step_image_selection.md)
 * [Generierung von PDF-Dateien](step/intranda_step_createfullpdf.md)
+* [Umbenennung von Dateien vor dem Rosetta-Ingest](step/intranda_step_rename_files_before_rosetta.md)
 
 
 ## Opac Plugins <a id="opac"></a>
