@@ -18,7 +18,7 @@ Dieses Plugin dient zu bedingen Umbenennung von Dateien innerhalb der verschiede
 | Source code | [https://github.com/intranda/goobi-plugin-step-rename-files](https://github.com/intranda/goobi-plugin-step-rename-files) |
 | Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 2020.02 |
-| Dokumentationsdatum | 10.05.2020 |
+| Dokumentationsdatum | 14.02.2023 |
 
 ## Installation
 
@@ -43,6 +43,12 @@ Dabei sieht der Inhalt dieser Konfigurationsdatei beispielhaft wie folgt aus:
         <project>Monographs 1900-1950</project>
         <project>Monographs 1950-2000</project>
         <step>Automatic renaming</step>
+        
+        <!-- if configured, the value will be used by the VariableReplacer to search for the prepared replacement in `goobi_config.properties` -->
+        <!-- e.g. process.folder.images.greyscale={processtitle}_greyscale -->
+        <!-- if left blank or configured by *, or if there is no folder tag found, then the default settings will be used -->
+        <folder>greyscale</folder>
+        
         <startValue>1</startValue>
         <namepart type="counter">00000</namepart>
         <namepart type="static">-</namepart>
@@ -52,6 +58,8 @@ Dabei sieht der Inhalt dieser Konfigurationsdatei beispielhaft wie folgt aus:
     <config>
         <project>*</project>
         <step>*</step>
+        <!-- use default settings -->
+        <folder>*</folder>
         <startValue>1</startValue>
         <namepart type="variable">{processtitle}</namepart>
         <namepart type="static">_</namepart>
@@ -88,6 +96,11 @@ Die Konfiguration des Plugins erfolgt innerhalb der bereits erwähnten Konfigura
         kann mehrfach pro <code>&lt;config&gt;</code> Block vorkommen.</td>
     </tr>
     <tr>
+      <td style="text-align:left"><code>folder</code>
+      </td>
+      <td style="text-align:left">Dieser Parameter lässt die Nutzer steuern, welche Verzeichniss für die Umbenennung berücksichtigt werden sollen. Wenn hier als Wert <code>*</code> angegeben wird, der Parameter fehlt oder der Wert nicht konfiguriert ist, werden die default-Settings verwendet.</td>
+    </tr>
+    <tr>
       <td style="text-align:left"><code>startValue</code>
       </td>
       <td style="text-align:left">Dieser Wert steuert, mit welchem Startwert der hochz&#xE4;hlende <code>counter</code> beginnen
@@ -120,7 +133,7 @@ Sollte innerhalb des Dateien eine Datei vorgefunden werden, die `barcode` innerh
 
 Details über die in diesem Plugin verwendbaren Variablen aus Goobi workflow finden sich[ innerhalb dieser Dokumentation](https://docs.intranda.com/goobi-workflow-de/manager/8).
 
-Das Plugin berücksichtigt für die Benennung die Dateien innerhalb der folgenden Unterverzeichnisse:
+Standardmäßig berücksichtigt das Plugin für die Benennung die Dateien innerhalb der folgenden Unterverzeichnisse:
 
 * master
 * media
