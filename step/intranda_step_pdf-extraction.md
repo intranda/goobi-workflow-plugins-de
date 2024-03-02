@@ -15,7 +15,6 @@ Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den
 | Identifier | intranda\_step\_pdf-extraction |
 | Source code | [https://github.com/intranda/goobi-plugin-step-pdf-extraction](https://github.com/intranda/goobi-plugin-step-pdf-extraction) |
 | Lizenz | GPL 2.0 oder neuer |
-| Kompatibilität | Goobi Workflow 3.0.6 |
 | Dokumentationsdatum | 09.04.2019 |
 
 ## Voraussetzung
@@ -115,18 +114,18 @@ Eine Beispielkonfiguration könnte folgendermaßen aussehen:
 
 ## Einstellungen in der Konfigurationsdatei
 
-In der Konfigurationsdatei können beliebig viele Konfigurationen für Projekte oder Arbeitsschritte mit bestimmten Namen definiert werden. Dazu werden können verschiedene `<config>`-Blöcke untereinander verwendet, wobei in jedem die Eigenschaften `<project>` und `<step>` anzugeben sind. Die `<config>`-Blöcke werden in der folgenden Reihenfolge auf einen bestimmten Arbeitsschritt angewandt:
+In der Konfigurationsdatei können beliebig viele Konfigurationen für Projekte oder Arbeitsschritte mit bestimmten Namen definiert werden. Dazu können verschiedene `<config>`-Blöcke untereinander verwendet werden, wobei in jedem die Eigenschaften `<project>` und `<step>` anzugeben sind. Die `<config>`-Blöcke werden in der folgenden Reihenfolge auf einen bestimmten Arbeitsschritt angewandt:
 
 1) `<project>` und `<step>` entsprechen dem aktuellen Projekt und Arbeitsschritt
 2) `<step>` entspricht dem aktuellen Arbeitsschritt und `<project>` ist auf `*` gesetzt
 3) `<project>` entspricht dem aktuellen Projekt und `<step>` ist auf  `*` gesetzt
 4) `<project>` und `<step>` sind auf `*` gesetzt
 
-Das `<failOnMissingPDF>` Tag innerhalb des `<validation>` Tags kann auf `true` gesetzt werden, um eine Warnung auszugeben, wenn keine PDF-Dateien gefunden werden konnten. Warnungen werden dann in das Journal und die server-internen Log-Dateien geschrieben. Wird diese Option mit `false` deaktiviert, so wird der Fall ignoriert, dass eventuell keine PDF-Dateien existieren.
+Das `<failOnMissingPDF>`-Tag innerhalb des `<validation>`-Tags kann auf `true` gesetzt werden, um eine Warnung auszugeben, wenn keine PDF-Dateien gefunden werden konnten. Warnungen werden dann in das Journal und die server-internen Log-Dateien geschrieben. Wird diese Option mit `false` deaktiviert, so wird der Fall ignoriert, dass eventuell keine PDF-Dateien existieren.
 
-Mit dem `<overwriteExistingData>` Tag kann global für dieses Plugin eingestellt werden, ob existierende PDF-Dateien überschrieben werden dürfen, oder nicht.
+Mit dem `<overwriteExistingData>`-Tag kann global für dieses Plugin eingestellt werden, ob existierende PDF-Dateien überschrieben werden dürfen.
 
-Über `<docType>` wird geregelt, welche Strukturtypen die aus dem PDF-Inhaltsverzeichnis extrahierten Einträge in der METS-Datei erhalten. Das `<parent>`-Element ist dabei das Hauptelement in dem alle anderen Inhaltsverzeichnis-Einträge landen. Wird es weggelassen, werden alle Einträge direkt in das Hauptelement der METS-Datei eingetragen. Mit dem `<children>` Element wird angegeben, welchen Strukturtyp die Unterelemente des aus dem PDF-Inhaltsverzeichnis extrahierten Eintrags bekommen sollen.
+Mittels `<docType>` wird geregelt, welche Strukturtypen die aus dem PDF-Inhaltsverzeichnis extrahierten Einträge in der METS-Datei erhalten. Das `<parent>`-Element ist dabei das Hauptelement in dem alle anderen Inhaltsverzeichnis-Einträge landen. Wird es weggelassen, werden alle Einträge direkt in das Hauptelement der METS-Datei eingetragen. Mit dem `<children>` Element wird angegeben, welchen Strukturtyp die Unterelemente des aus dem PDF-Inhaltsverzeichnis extrahierten Eintrags bekommen sollen.
 
 Die Elemente `<pagePdfs>`, `<alto>`, `<plaintext>`, `<images>` und `<mets>` haben jeweils eine Eigenschaft `<write>` und `<failOnError>`. Damit kann entsprechend des XML-Elements für PDF-Dateien, ALTO-Dateien, TXT-Dateien, allgemeine Bilddateien und die METS-Datei eingestellt werden, ob Dateien dieser Typen jeweils geschrieben oder überschrieben werden sollen und ob eine Fehlermeldung ausgegeben und die weitere Ausführung abgebrochen werden soll, wenn diese nicht geschrieben werden konnten.
 
