@@ -2,17 +2,13 @@
 description: >-
   Goobi Step Plugin für die Erstellung von Archival Resource Keys (ARK) mit Metadaten nach dem DataCite Schema.
 ---
-
- [!WARNING]
- Dieses Update ist seit 2024-01-01 nur sehr eingeschränkt einzusetzen. Die Erzeugung von ARKs im Plugin erfolgte über die Rest-API von [arketype.ch](https://arketype.ch), einem Dienst der Fachhochschule Genf, der im Laufe des Jahres 2024 abgedreht wird. Arketype ist ein Fork von [EZID](https://github.com/CDLUC3/ezid) und könnte theoretisch damit bedient werden.
- Empfohlen wird aber ein lokales ARK-Service mittels des [ARK-Services](https://gitlab.com/zhbluzern/zentralgut-ark-service) der ZHB Luzern für [ZentralGut](https://zentralgut.ch). Dieses Python-Skript erzeugt lokale Identifier, registrierte diese im globalen Resolver und trägt sie in Goobi Workflow in die Vorgänge ein. 
-
-
 # Erzeugen von Archival Resource Keys (ARK)
-
 
 ## Einführung
 Die vorliegende Dokumentation beschreibt die Installation, die Konfiguration und den Einsatz des Step Plugins für die Generierung von ARK-Identifiern in Goobi workflow.
+
+ [!WARNING]
+ Dieses Update ist seit dem 01.01.2024 nur sehr eingeschränkt einzusetzen. Die Erzeugung von ARKs im Plugin erfolgte über die Rest-API von [arketype.ch](https://arketype.ch), einem Dienst der Fachhochschule Genf, der im Laufe des Jahres 2024 abgeschaltet wird. Arketype ist ein Fork von [EZID](https://github.com/CDLUC3/ezid) und könnte theoretisch damit bedient werden. Empfohlen wird aber der Betrieb eines lokalen ARK-Services mittels des [ARK-Services](https://gitlab.com/zhbluzern/zentralgut-ark-service) der ZHB Luzern für [ZentralGut](https://zentralgut.ch). Dieses Python-Skript erzeugt lokale Identifier, registriert diese im globalen Resolver und trägt sie in Goobi Workflow in die Vorgänge ein. 
 
 | Details |  |
 | :--- | :--- |
