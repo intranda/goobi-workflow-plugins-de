@@ -21,8 +21,12 @@ Nach der Durchführung der Installation des Plugins und der zugehörigen Datenba
         <lengthLimit>0</lengthLimit>
         <!-- separator string that will be used to combine the tokens -->
         <separator>_</separator>
-        <!-- true if shelfmark/signature should be used preferably, false if uuid should be used -->
-        <useSignature>true</useSignature>
+        
+        <!-- use id from parent node instead of id from node -->
+        <useIdFromParent>false</useIdFromParent>
+        
+        <!-- use shelfmark preferably instead of node id if it is available -->
+        <useShelfmarkAsId>false</useShelfmarkAsId>
         
         <!-- // configurations for generating process titles // -->
         
@@ -190,10 +194,14 @@ Anschließend folgt ein wiederholbarer `<config>` Block. Über das wiederholbare
 
 Mittels `<processTemplateId>` wird festgelegt, auf Basis welcher Produktionsvorlage die erstellten Goobi-Vorgänge erstellt werden sollen.
 
-Die drei Parameter `<lengthLimit>` `<separator>` und `<useSignature>` werden verwendet, um die Benennung des zu erzeugenden Vorgangs zu konfigurieren:
+## Konfiguration der Generierung von Vorgangstiteln
+Die Parameter `<lengthLimit>` `<separator>` `<useIdFromParent>` und `<useSignature>` werden verwendet, um die Benennung des zu erzeugenden Vorgangs zu konfigurieren:
+
 * Der Wert `<lengthLimit>` setzt ein Längenlimit für alle Tokens außer dem manuell gesetzten Präfix und Suffix. Die Voreinstellung ist `0`, begrenzt die Länge also nicht.
 * Der Parameter `<separator>` definiert das Trennzeichen, das verwendet werden soll, um alle separaten Tokens zu kombinieren. Die Voreinstellung ist `_`.
-* Der Parameter `<useSignature>` bestimmt, ob die Signatur bei der Generierung der Vorgangstitel bevorzugt wird. Wenn `true` gesetzt ist, wird das Plugin versuchen, die Signatur, die im Elternknoten des aktuellen Knotens definiert ist, abzurufen und sie für die Erzeugung des Vorgangstitels zu verwenden. Wenn die Signatur jedoch nicht verfügbar ist, wird stattdessen die uuid verwendet, genau wie wenn dieser Parameter auf `false` gesetzt ist. Die Voreinstellung ist `false`. 
+- Der Parameter `<useIdFromParent>` konfiguriert, wessen ID für die Erstellung des Vorgangstitels verwendet werden soll. Wenn er auf `true` gesetzt ist, wird die ID des übergeordneten Knotens verwendet. Andernfalls wird die ID des aktuellen Knotens verwendet.
+- Der Parameter `<useShelfmarkAsId>` konfiguriert, ob die Signatur vorzugsweise für die Generierung des Vorgangstitels verwendet werden soll. Wenn er auf `true` gesetzt ist und tatsächlich eine Signatur in einem Vorgängerknoten vorhanden ist, wird diese Signatur verwendet. Andernfalls wird die ID des aktuellen Knotens oder des übergeordneten Knotens verwendet, abhängig von der Konfiguration des Parameters `<useIdFromParent>`. 
+
 
 ## Konfiguratioan der Metadatenfelder
 
