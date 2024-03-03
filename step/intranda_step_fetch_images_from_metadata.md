@@ -25,13 +25,7 @@ In den beiden folgenden Fällen wird die Reihenfolge der importierten Bilder akt
 - wenn `useUrl` auf `false` oder gar nicht gesetzt ist, wird der Name jeder Datei geprüft, um zu ermitteln, ob an sie als erste Datei des Verzeichnis behandelt werden soll, während die anderen Bilder einfach nach ihren Namen sortiert werden.
 
 
-## Bedienung des Plugins
-Dieses Plugin wird in den Workflow so integriert, dass es automatisch ausgeführt wird. Eine manuelle Interaktion mit dem Plugin ist nicht notwendig. Zur Verwendung innerhalb eines Arbeitsschrittes muss der Workflow entsprechend konfiguriert und dort das Plugin ausgewählt werden. Eine manuelle Verwendung dieses Plugins durch einen Anwender ist nicht notwendig.
-
-![Auswahl des Plugins innerhalb der Workflowkonfiguration](../.gitbook/assets/intranda_step_fetch_images_from_metadata_de.png)
-
-
-## Installation und Konfiguration
+## Installation
 Das Plugin besteht aus zwei Dateien:
 
 ```bash
@@ -51,7 +45,9 @@ Die Konfigurationsdatei `plugin_intranda_step_fetch_images_from_metadata.xml` mu
 /opt/digiverso/goobi/config/
 ```
 
-Diese Konfigurationsdatei ist in etwa wie folgt aufgebaut:
+## Konfiguration
+
+Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intranda_step_fetch_images_from_metadata.xml` und kann im laufenden Betrieb angepasst werden. Im folgenden ist eine beispielhafte Konfigurationsdatei aufgeführt:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -96,3 +92,8 @@ Die einzelnen Parameter haben die folgende Funktion:
 | `fileHandling` | Das Attribut `@mode` definiert, ob die Bilder durch Kopieren oder Verschieben importiert werden sollen. Das Attribut `@ignoreFileExtension` steuert, ob die Dateiendung für den Kopiervorgang ignoriert werden soll oder exakt stimmen muss. Das Attribut `@folder` gibt den Ordner an, in dem sich die zu importierenden Dateien befinden.   |
 | `export` | Das Attribut `@enabled` legt fest, ob der Vorgang exportiert werden soll oder nicht, während das Attribut `@exportImages` definiert, ob hierbei die Bilder berücksichtig werden sollen.  |
 
+
+## Integration des Plugins in den Workflow
+Dieses Plugin wird in den Workflow so integriert, dass es automatisch ausgeführt wird. Eine manuelle Interaktion mit dem Plugin ist nicht notwendig. Zur Verwendung innerhalb eines Arbeitsschrittes des Workflows sollte es wie im nachfolgenden Screenshot konfiguriert werden.
+
+![Integration des Plugins in den Workflow](../.gitbook/assets/intranda_step_fetch_images_from_metadata_de.png)
