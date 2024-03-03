@@ -18,7 +18,7 @@ Dieses Plugin dient zu bedingen Umbenennung von Dateien innerhalb der verschiede
 | Source code | [https://github.com/intranda/goobi-plugin-step-rename-files](https://github.com/intranda/goobi-plugin-step-rename-files) |
 | Lizenz | GPL 2.0 oder neuer |
 | Kompatibilität | Goobi workflow 2020.02 |
-| Dokumentationsdatum | 10.05.2020 |
+| Dokumentationsdatum | 14.02.2023 |
 
 ## Installation
 
@@ -108,6 +108,11 @@ Die Konfiguration des Plugins erfolgt innerhalb der bereits erwähnten Konfigura
         kann mehrfach pro <code>&lt;config&gt;</code> Block vorkommen.</td>
     </tr>
     <tr>
+      <td style="text-align:left"><code>folder</code>
+      </td>
+      <td style="text-align:left">Dieser Parameter lässt die Nutzer steuern, welche Verzeichniss für die Umbenennung berücksichtigt werden sollen. Wenn hier als Wert <code>*</code> angegeben wird, der Parameter fehlt oder der Wert nicht konfiguriert ist, werden die default-Settings verwendet.</td>
+    </tr>
+    <tr>
       <td style="text-align:left"><code>startValue</code>
       </td>
       <td style="text-align:left">Dieser Wert steuert, mit welchem Startwert der hochz&#xE4;hlende <code>counter</code> beginnen
@@ -157,7 +162,7 @@ Um eine korrekte Umbennenung gewährleisten zu können, die auf dem originalen D
 
 Details über die in diesem Plugin verwendbaren Variablen aus Goobi workflow finden sich[ innerhalb dieser Dokumentation](https://docs.intranda.com/goobi-workflow-de/manager/8).
 
-Das Plugin berücksichtigt für die Benennung die Dateien innerhalb der folgenden Unterverzeichnisse:
+Standardmäßig berücksichtigt das Plugin für die Benennung die Dateien innerhalb der folgenden Unterverzeichnisse:
 
 * master
 * media
