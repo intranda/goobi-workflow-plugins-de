@@ -1,26 +1,22 @@
 ---
 description: >-
-  Dieses Step-Plugin ermöglicht es Ihnen, mehrere Dateien aus den per Prozesseigenschaften konfigurierten URLs herunterzuladen und mittels den auch per Prozesseigenschaften definierten Checksumcodes zu Verifizieren. Am Ende können auch mehrere Rückmeldungen zu verschiedenen Systemen oder lokal beim Journal gegeben werden.
+  Dieses Step-Plugin ermöglicht es, mehrere Dateien von URLs herunterzuladen und mit Checksummen zu verifizieren, die als Vorgangseigenschaften festgelegt wurden. Rückmeldungen über den Verlauf können zu verschiedenen Systemen oder auch lokal innerhalb des Journals gespeichert werden.
 ---
 
-# Downloaden und Verifizieren von Dateien
+# Download und Verifizieren von Dateien
 
 ## Einführung
-
-Dieses Plugin liest URL-Werte bzw. Hash-Werte aus mehreren konfigurierten Prozesseigenschaften ein, ladet Dateien herunter und verglicht sie jeweils mit dem zugehörigen Hash-Wert. Am Ende werden möglicherweise auch mehrere Rückmeldungen gegeben, je nachdem ob der Status `success` oder `error` ist. Diese Rückmeldungen können per REST zu einem anderen System geschickt, oder einfach beim Journal geloggt werden.
+Dieses Plugin liest URLs bzw. Hash-Werte aus mehreren konfigurierten Vorgangseigenschaften ein, lädt die Dateien von der definierten URL herunter und verglicht sie anschließend mit dem zugehörigen Hash-Wert. Abschließend können mehrere Rückmeldungen gegeben werden, je nachdem ob der Status `success` oder `error` lautet. Diese Rückmeldungen können per REST zu einem anderen System geschickt oder einfach innerhalb des Journals geloggt werden.
 
 ## Übersicht
-
 | Details |  |
 | :--- | :--- |
 | Identifier | intranda\_step\_download\_and\_verify\_assets |
 | Source code | [https://gitea.intranda.com/goobi-workflow/goobi-plugin-step-download-and-verify-assets](https://github.com/intranda/goobi-plugin-step-download-and-verify-assets) |
-| Lizenz | GPL 2.0 or newer |
-| Kompatibilität | Goobi workflow 23.10 |
+| Lizenz | GPL 2.0 oder neuer |
 | Dokumentationsdatum | 01.12.2023 |
 
 ## Installation
-
 Zur Installation des Plugins muss die folgende Datei installiert werden:
 
 ```bash
@@ -100,6 +96,6 @@ Der Block `<config>` kann für verschiedene Projekte oder Arbeitsschritte wieder
 | :--- | :--- |
 | `project` | Dieser Parameter legt fest, für welches Projekt der aktuelle Block `<config>` gelten soll. Verwendet wird hierbei der Name des Projektes. Dieser Parameter kann mehrfach pro `<config>` Block vorkommen. |
 | `step` | Dieser Parameter steuert, für welche Arbeitsschritte der Block `<config>` gelten soll. Verwendet wird hier der Name des Arbeitsschritts. Dieser Parameter kann mehrfach pro `<config>` Block vorkommen. |
-| `maxTryTimes` | Dieser Wert legt fest, wie viele Versuche können wiederholt werden können bevor Rückmeldungen gegeben werden müssen. OPTIONAL. DEFAULT 1.  |
-| `fileNameProperty` | Dieser Parameter steuert den Teil fürs Unterladen und Verifizieren der Dateien. Er akzeptiert drei Attribute. `@urlProperty` definiert den Namen der Prozesseigenschaft, die den URL der Datei enthält. `@hashProperty` definiert den Namen der Prozesseigenschaft, die die Checksumcodes der Datei enthält. `@folder` ist OPTIONAL mit dem DEFAULTEN Wert `master`, und es steuert wohin die heruntergeladenen Dateien abgelegt werden sollen.  |
-| `response` | Dieser OPTIONALE Parameter kann verwendet werden, um mehrere Rückmeldungen nach dem Downloaden und Verifizieren aller Dateien zu geben. Er akzeptiert vier Attribute und möglicherweise auch einen JSON-Text für REST-Requests mit JSON-Body. Mehr Details und Beispiele sieht man in den Kommentaren der Konfigurationsdatei von oben. |
+| `maxTryTimes` | Dieser Wert legt fest, wie viele Versuche maximal erfolgen sollen, bevor Rückmeldungen gegeben werden müssen. Dieser Parameter ist optional und hat den Standardwert `1`. |
+| `fileNameProperty` | Dieser Parameter steuert den Teil für das Herunterladen und Verifizieren der Dateien. Er akzeptiert drei Attribute. `@urlProperty` definiert den Namen der Vorgangseigenschaft, die die URL der Datei enthält. `@hashProperty` definiert den Namen der Vorgangseigenschaft, die die Checksumme der Datei enthält. Das Attribut `@folder` ist optional und hat den Standardwert `master`. Es steuert, wo die heruntergeladenen Dateien abgespeichert werden sollen.  |
+| `response` | Dieser optionale Parameter kann verwendet werden, um mehrere Rückmeldungen nach dem Downloaden und Verifizieren der Dateien zu geben. Er akzeptiert vier Attribute und einen JSON-Text für REST-Requests mit JSON-Body. Mehr Details und Beispiele sind innerhalb der Kommentare der beispielhaften Konfigurationsdatei ersichtlich. |
