@@ -46,6 +46,7 @@
 * [OCR Seitenauswahl](step/intranda_step_ocrselector.md)
 * [OCR-Durchführung mit gemischten Schrifttypen](step/intranda_step_mixedocr.md)
 * [Schreiben von XMP Metadaten in Bilddateien](step/intranda_step_xmp.md)
+* [Kopieren von Dateien aus Metadatenfeldern](step/intranda_step_fetch_images_from_metadata.md)
 * [PDFs aufsplitten, Volltext extrahieren und Inhaltsverzeichnis auslesen](step/intranda_step_pdf-extraction.md)
 * [Ändern des Workflows auf Grundlage von Vorgangseigenschaften](step/intranda_step_changeworkflow.md)
 * [Anzeige von Metadaten in einer Aufgabe](step/intranda_step_displaymetadata.md)
@@ -85,8 +86,16 @@
 * [Metatatenübernahme aus einem Verzeichnis](step/intranda_step_import_from_folder.md)
 * [DOI-Registrierung](step/intranda_step_doi.md)
 * [Validierung von Dateien](step/intranda_step_file_validation.md)
+* [Umbenennen von Vorgängen](step/intranda_step_rename_process.md)
+* [Auswahl von Bildern](step/intranda_step_image_selection.md)
+* [Generierung von PDF-Dateien](step/intranda_step_createfullpdf.md)
+* [Umbenennung von Dateien vor dem Rosetta-Ingest](step/intranda_step_rename_files_before_rosetta.md)
+* [OCR-Ergebnis in Metadatenfeld übernehmen](step/intranda_step_ocr_to_metadata.md)
+* [Libsafe Ingest mittels BagIt](step/intranda_step_libsafe.md)
+* [ALMA und REST-API-Kommunikation](step/intranda_step_alma_api.md)
+* [Duplizieren von Arbeitsschritten](step/intranda_step_duplicate_tasks.md)
+* [Download und Verifizieren von Dateien](step/intranda_step_download_and_verify_assets.md)
 * [Metadaten pro Bild erfassen](step/intranda_step_metadata_per_image.md)
-
 
 ## Opac Plugins <a id="opac"></a>
 * [PICA Import](opac/intranda_opac_pica.md)
@@ -111,11 +120,13 @@
 * [Fedora Export](export/intranda_export_fedora.md)
 * [Fedora Export PROV](export/intranda_export_fedora_prov.md)
 * [HAAB Export](export/intranda_export_haab.md)
+* [HERIS Export](export/intranda_export_heris.md)
 * [Einzelseitenexport](export/intranda_export_bda_singleImage.md)
 * [Zeitungsexport](export/intranda_export_newspaper.md)
 * [Konfigurierbarer Export](export/intranda_export_configurable.md)
 * [VLM Export](export/intranda_export_vlm.md)
 * [ZOP Export](export/intranda_export_zop.md)
+* [Export ausgewählter Bilder](export/intranda_export_selected_images.md)
 
 
 ## Workflow Plugins <a id="workflow"></a>
@@ -129,6 +140,8 @@
 * [AEON Datenübernahme](workflow/intranda_workflow_aeon_process_creation.md)
 * [Massenimport aus Excel-Dateien mit EAD-Anreicherung](workflow/intranda_workflow_hu_importer.md)
 * [Entitäten Editor - Artist Dictionary](workflow/intranda_workflow_artist_dictionary.md)
+* [Import von JSON-Dateien](workflow/intranda_workflow_import_json.md)
+* [Liechtenstein Volksblatt Importer](workflow/intranda_workflow_liechtenstein_volksblatt_importer.md)
 
 
 ## Statistiken <a id="statistics"></a>
