@@ -38,34 +38,46 @@ Dabei sieht der Inhalt dieser Konfigurationsdatei beispielhaft wie folgt aus:
 
 ```markup
 <config_plugin>
+    <config>
+        <project>Manuscript_Project</project>
+        <step>*</step>
+        <folder>*</folder>
+        <startValue>2</startValue>
+        <!-- Replacement removed anything in the process title before and including the '_' -->
+        <namepart type="variable">
+            {processtitle}
+            <replace regex="^.*?_" replacement=""/>
+            <condition value="{meta._imageFilePrefix}" matches="^$"/>
+        </namepart>
+        <namepart type="static">_</namepart>
+        <namepart type="counter">00000</namepart>
+    </config>
 
     <config>
-        <project>Monographs 1900-1950</project>
-        <project>Monographs 1950-2000</project>
-        <step>Automatic renaming</step>
-        
-        <!-- if configured, the value will be used by the VariableReplacer to search for the prepared replacement in `goobi_config.properties` -->
-        <!-- e.g. process.folder.images.greyscale={processtitle}_greyscale -->
-        <!-- if left blank or configured by *, or if there is no folder tag found, then the default settings will be used -->
-        <folder>greyscale</folder>
-        
-        <startValue>1</startValue>
-        <namepart type="counter">00000</namepart>
-        <namepart type="static">-</namepart>
-        <namepart type="variable">{projectid}</namepart>
+        <project>Archive_Project</project>
+        <step>*</step>
+        <folder>*</folder>
+        <namepart type="originalfilename" />
+        <namepart type="static">_ARCHIVE</namepart>
     </config>
 
     <config>
         <project>*</project>
         <step>*</step>
-        <!-- use default settings -->
         <folder>*</folder>
-        <startValue>1</startValue>
+        <startValue>0</startValue>
         <namepart type="variable">{processtitle}</namepart>
         <namepart type="static">_</namepart>
-        <namepart type="counter">00000</namepart>
+        <!-- Conditional name parts (mimic old barcode feature) -->
+        <namepart type="counter">
+            0000
+            <condition value="{originalfilename}" matches="^(?!.*barcode).*$" />
+        </namepart>
+        <namepart type="static">
+            0000
+            <condition value="{originalfilename}" matches="^.*barcode.*$" />
+        </namepart>
     </config>
-
 </config_plugin>
 ```
 
@@ -112,10 +124,13 @@ Die Konfiguration des Plugins erfolgt innerhalb der bereits erwähnten Konfigura
       <td style="text-align:left">
         <p>Dieser ebenfalls mehrfach verwendbare Parameter steuert die Generierung
           der Dateinamen. Er kann statische Elemente beinhalten (<code>static</code>),
+          den originale Dateinamen verwenden (<code>originalfilename</code>),
           Variablen aus Goobi nutzen (<code>variable</code>) sowie einen Z&#xE4;hler
-          erzeugen (<code>counter</code>). F&#xFC;r die Generierung des Z&#xE4;hlers
-          ist entscheidend, welche Anzahl an Stellen definiert wurden. Der Wert <code>00000</code> w&#xFC;rde
-          beispielsweise f&#xFC;nfstellige Zahlen mit ggf. vorangestellten Nullen
+          erzeugen (<code>counter</code>). Der Parameter <code>originalfilename</code> 
+          entspricht dem originalen Dateinamen der Datei bevor das Plugin erstmalig 
+          ausgef&#xFC;hrt wird. F&#xFC;r die Generierung des Z&#xE4;hlers ist entscheidend, 
+          welche Anzahl an Stellen definiert wurden. Der Wert <code>00000</code> w&#xFC;rde
+          beispielsweise f&#xFC;nfstellige Zahlen mit ggf. vorangestellten Nullen 
           erzeugen.</p>
         <p>Die so definierten Bestandteile des Dateinamens werden f&#xFC;r die Benennung
           miteinander verkettet und anschlie&#xDF;end um die eigentliche Dateiendung
@@ -125,11 +140,25 @@ Die Konfiguration des Plugins erfolgt innerhalb der bereits erwähnten Konfigura
   </tbody>
 </table>
 
+Darüber hinaus können `<namepart>` Elemente mehrere `<condition>` und `<replace>` Elemente beinhalten um Bedingungen oder Ersetzungsanweisungen zu spezifizieren.
+
+Bedingungselemente haben die Form
+```markup
+<condition value="{VARIABLE}" matches="REGEX" />
+```
+und können den Wert jeder `VARIABLE` gegen einen regulären Ausdruck `REGEX` prüfen. Wenn mehrere Bedingungen spezifiziert sind müssen alle erfüllt sein, damit das jeweilige `<namepart>` Element aktiviert wird.
+
+Ersetzungselemente haben die Form
+```markup
+<replace regex="REGEX" replacement="REPLACEMENT"/>
+```
+und können beliebige reguläre Ausdrücke `REGEX` in dem Wert des `<namepart>` Elements durch `REPLACEMENT` ersetzen (dies kann auch leer sein). Wenn mehrere Ersetzungen spezifiziert sind werden sie in der Reihenfolge ausgeführt, wie sie konfiguriert wurden, sodass am Ende ein finaler Wert des `<namepart>` Elements entsteht.
+
 ## Arbeitsweise
 
 Das Plugin wird üblicherweise vollautomatisch innerhalb des Workflows ausgeführt. Es ermittelt zunächst, ob sich innerhalb der Konfigurationsdatei ein Block befindet, der für den aktuellen Workflow bzgl. des Projektnamens und Arbeitsschrittes konfiguriert wurde. Wenn dies der Fall ist, werden die einzelnen Elemente `<namepart>` ausgewertet, mit den entsprechenden Werten für den Zähler und die Variablen aus Goobi workflow ausgestattet und anschließend miteinander verkettet. Die somit erzeugten Dateinamen werden nun für sämtliche relevanten Verzeichnisse des Goobi Vorgangs angewendet und mit den jeweils korrekten Dateinamenerweiterungen ergänzt \(z.B. `.tif`\).
 
-Sollte innerhalb des Dateien eine Datei vorgefunden werden, die `barcode` innerhalb des Dateinamens enthält, so wird diese ebenfalls entsprechend des Namensschemas benannt. Als Zähler wird hier jedoch der Wert `0` gesetzt.
+Um eine korrekte Umbennenung gewährleisten zu können, die auf dem originalen Dateinamen basiert, merkt sich das Plugin die originalen Dateinamen jeder Datei in einer Vorgangseigenschaft namens `plugin_intranda_step_rename_files`. Mit dieser Vorgangseigenschaft wird sichergestellt, dass mehrfache Ausführungen des Plugins, mit möglichen Änderungen der Konfiguration, den ursprünglichen Dateinamen korrekt auflösen.
 
 Details über die in diesem Plugin verwendbaren Variablen aus Goobi workflow finden sich[ innerhalb dieser Dokumentation](https://docs.intranda.com/goobi-workflow-de/manager/8).
 
@@ -148,3 +177,29 @@ Standardmäßig berücksichtigt das Plugin für die Benennung die Dateien innerh
 Dieses Plugin wird in den Workflow so integriert, dass es automatisch ausgeführt wird. Eine manuelle Interaktion mit dem Plugin ist nicht notwendig. Zur Verwendung innerhalb eines Arbeitsschrittes des Workflows sollte es wie im nachfolgenden Screenshot konfiguriert werden.
 
 ![Integration des Plugins in den Workflow](../.gitbook/assets/intranda_step_rename-files.png)
+
+# Migration
+Dieser Abschnitt beschreibt notwendige Schritte zum Migrieren auf eine neue Plugin Version.
+
+## Barcode
+In älteren Versionen gab es die folgende Funktionalität:
+> Sollte innerhalb des Ordners eine Datei vorgefunden werden, die `barcode` innerhalb des Dateinamens enthält, so wird diese ebenfalls entsprechend des Namensschemas benannt. Als Zähler wird hier jedoch der Wert `0` gesetzt.
+
+Diese Funktionalität wurde in der aktuellen Version des Plugins entfernt. Durch die Einführung von Bedingungen (`<condition>` Blöcke) in den `<namepart>` Elementen, kann diese Funktionalität jetzt selbst flexibel konfiguriert werden.
+
+Die Funktionalität wurde zuvor immer bedingungslos angewandt und hat den Zähler des `<namepart>` mit dem Typ `counter` auf `0` gesetzt, wenn der Dateiname das Wort `barcode` beinhaltete. Dieses Verhalten kann jetzt explizit erzwungen werden. Wir zeigen im Folgenden ein Beispiel anhand eines `counter` Elements mit vier Ziffern:
+
+```markup
+        <namepart type="counter">
+            0000
+            <condition value="{originalfilename}" matches="^(?!.*barcode).*$" />
+        </namepart>
+        <namepart type="static">
+            0000
+            <condition value="{originalfilename}" matches="^.*barcode.*$" />
+        </namepart>
+```
+
+Dieser Auszug enthält zwei `<namepart>` Elemente die nicht gleichzeitig aktiv sein können. Das erste `<namepart>` Element ist ein Zähler und dann aktiv, wenn der `{originalfilename}` (der originale Dateiname) nicht das Wort `barcode` enthält. Das zweite `<namepart>` Element ist das statische Wort `0000` und wird dann aktiviert, wenn der Dateiname das Wort `barcode` enthält.
+
+Das führt zu exakt dem selben Verhalten wie zuvor. Jetzt hingegen kann der Nutzer selbst entscheiden ob und wie er diese Funktionalität verwenden möchte und ggf. die Konfiguration anpassen.
