@@ -1,26 +1,22 @@
 ---
 description: >-
-  Dieses Step-Plugin ermöglicht es Ihnen, eine Aufgabe automatisch entsprechend dem Wert einer Prozesseigenschaft zu duplizieren.
+  Dieses Step-Plugin ermöglicht es, eine Arbeitsschritt innerhalb des Workflow automatisch entsprechend einer Vorgangseigenschaft mehrfach zu duplizieren.
 ---
 
-# Duplikation des Schrittes
+# Duplikation von Arbeitsschritten
 
 ## Einführung
-
-Dieses Plugin liest den Wert einer Prozesseigenschaft ein und entsprechend davon kann es eine Aufgabe automatisch duplizieren und neue Eigenschaften speichern, die auf diese Duplizierung verweisen.
+Dieses Plugin liest den Wert einer Vorgangseigenschaft ein und kann abhängig von den Inhalten der Eigenschaft eine definierten Arbeitsschritt des Workflows automatisch mehrfach duplizieren. Außerdem kann dabei die ursprünglich ausgewertete Eigenschaft aufgesplittet und als jeweils eigene neue Eigenschaften gespeichert werden, die auf diese Duplizierung verweisen.
 
 ## Übersicht
-
 | Details |  |
 | :--- | :--- |
 | Identifier | intranda\_step\_duplicate\_tasks |
 | Source code | [https://github.com/intranda/goobi-plugin-step-duplicate-tasks](https://github.com/intranda/goobi-plugin-step-duplicate-tasks) |
-| Lizenz | GPL 2.0 or newer |
-| Kompatibilität | Goobi workflow 23.10 |
+| Lizenz | GPL 2.0 oder neuer |
 | Dokumentationsdatum | 16.11.2023 |
 
 ## Installation
-
 Zur Installation des Plugins muss die folgende Datei installiert werden:
 
 ```bash
@@ -34,7 +30,6 @@ Die Konfigurationsdatei befindet sich üblicherweise hier:
 ```
 
 ## Konfiguration
-
 Der Inhalt dieser Konfigurationsdatei sieht beispielhaft wie folgt aus:
 
 ```xml
@@ -82,17 +77,17 @@ Der Block `<config>` kann für verschiedene Projekte oder Arbeitsschritte wieder
 | :--- | :--- |
 | `project` | Dieser Parameter legt fest, für welches Projekt der aktuelle Block `<config>` gelten soll. Verwendet wird hierbei der Name des Projektes. Dieser Parameter kann mehrfach pro `<config>` Block vorkommen. |
 | `step` | Dieser Parameter steuert, für welche Arbeitsschritte der Block `<config>` gelten soll. Verwendet wird hier der Name des Arbeitsschritts. Dieser Parameter kann mehrfach pro `<config>` Block vorkommen. |
-| `property` | Dieser Wert legt fest, welche Prozesseigenschaft zur Kontrolle der Duplizierung verwendet werden soll. Er akzeptiert vier Attribute, wobei nur `@name` obligatorisch ist. Sehe die Konfiguration oben für mehr Details. |
-| `stepToDuplicate` | Dieser OPTIONALE Parameter kann verwendet werden, um den Namen der Aufgabe zu konfigurieren, die dupliziert werden soll. Wenn nicht konfiguriert, wird der nächste Schritt nach dem aktuellen Schritt standardmäßig verwendet. Er akzeptiert auch ein OPTIONALES Attribut `@enabled` mit einem DEFAULTEN Wert `true`, das steuert ob es einen Arbeitsschritt zu duplizieren gibt. |
+| `property` | Dieser Wert legt fest, welche Vorgangseigenschaft zur Prüfung der gewünschten Duplizierung verwendet werden soll. Er akzeptiert vier Attribute, wobei nur `@name` obligatorisch ist. Details der möglichen Konfiguration sind in der Beispielkonfiguration aufgeführt. |
+| `stepToDuplicate` | Dieser optionale Parameter kann verwendet werden, um den Namen der Arbeitsschritte festzulegen, die dupliziert werden soll. Wenn dieser Wert nicht konfiguriert wird, wird derjenige Arbeitsschritt für die Duplizierung verwendet, der im Workflow als nächster Arbeitsschritt folgt. Der Parameter akzeptiert außerdem ein optionales Attribut `@enabled` mit einem Standardwert `true`, das steuert ob es einen Arbeitsschritt zu duplizieren gibt. |
 
-## Arbeitslogik dieses Plugins
+## Arbeitsweise des Plugins
 
-### Mit Duplikation eines Schritts
-1. Das Plugin holt sich den Wert der konfigurierten Prozesseigenschaft und teilt ihn unter Verwendung des eventuell konfigurierten Trennzeichens *(oder `\n`, falls nicht)* in Teile auf.
-2. Für jeden Teil der ursprünglichen Eigenschaft wird der möglicherweise konfigurierte Schritt *(oder der nächste Schritt des aktuellen Schritts, wenn er nicht konfiguriert ist)* noch einmal dupliziert, und die Namen dieser duplizierten neuen Schritte sind der Name des ursprünglichen Schritts plus jeweilige Bestellnummer unter diesen Duplikaten.
-3. Für jeden duplizierten neuen Schritt wird eine neue Prozesseigenschaft oder ein Metadatum erstellt, je nachdem wie das Attribut `@target` konfiguriert ist. Der Wert dieser neuen Prozesseigenschaft bzw. dieses neuen Metadatums ist genau der Teil der ursprünglichen Eigenschaft, auf dessen Grundlage dieser Schritt dupliziert wurde.
-4. Wenn Duplikate für jeden Teil der ursprünglichen Eigenschaft durchgeführt werden, wird der ursprüngliche Schritt zum Duplizieren deaktiviert.
+### Mit Duplikation eines Arbeitsschritts
+1. Das Plugin holt sich den Wert der konfigurierten Vorgangseigenschaft und teilt ihn unter Verwendung des eventuell konfigurierten Trennzeichens *(oder `\n`, falls nicht)* in Teile auf.
+2. Für jeden Teil der ursprünglichen Eigenschaft wird der möglicherweise konfigurierte Arbeitsschritt *(oder der nächste Arbeitsschritt des aktuellen Arbeitsschritts, wenn er nicht konfiguriert ist)* noch einmal dupliziert. Die Namen dieser duplizierten neuen Arbeitsschritte erhalten den Namen des ursprünglichen Arbeitsschritts plus einen hochgezählten Wert.
+3. Für jeden duplizierten neuen Arbeitsschritt wird eine neue Vorgangseigenschaft oder ein Metadatum erstellt, je nachdem wie das Attribut `@target` konfiguriert ist. Der Wert dieser neuen Vorgangseigenschaft bzw. dieses neuen Metadatums entspricht dabei dem Teil der ursprünglichen Eigenschaft, auf dessen Grundlage dieser Arbeitsschritt dupliziert wurde.
+4. Wenn Duplikate für jeden Teil der ursprünglichen Eigenschaft erzeugt werden, wird der ursprüngliche Arbeitsschritt deaktiviert.
 
-### Ohne Duplikation eines Schritts
-1. Das Plugin holt sich den Wert der konfigurierten Prozesseigenschaft und teilt ihn unter Verwendung des eventuell konfigurierten Trennzeichens *(oder `\n`, falls nicht)* in Teile auf.
-2. Für jeden Teil der ursprünglichen Eigenschaft wird eine neue Prozesseigenschaft oder ein Metadatum erstellt, je nachdem wie das Attribut `@target` konfiguriert ist. Der Wert dieser neuen Prozesseigenschaft bzw. dieses neuen Metadatums ist genau dieser Teil der ursprünglichen Eigenschaft.
+### Ohne Duplikation eines Arbeitsschritts
+1. Das Plugin holt sich den Wert der konfigurierten Vorgangseigenschaft und teilt ihn unter Verwendung des eventuell konfigurierten Trennzeichens *(oder `\n`, falls nicht)* in Teile auf.
+2. Für jeden Teil der ursprünglichen Eigenschaft wird eine neue Vorgangseigenschaft oder ein Metadatum erstellt, je nachdem wie das Attribut `@target` konfiguriert ist. Der Wert dieser neuen Vorgangseigenschaft bzw. dieses neuen Metadatums entspricht dabei dem Teil der ursprünglichen Eigenschaft.
