@@ -191,7 +191,9 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 | `knownHosts`      | Dieser Parameter legt fest, wo die Datei namens `known_hosts` ist. Wenn keine Datei angegeben wurde, dann wird der Pfad `{user.home}/.ssh/known_hosts` genutzt. Sonst wird hier ein absoluter Pfad erwartet. |
 | `username`        | Dieser Parameter legt fest, welcher Nutzername für die Anmeldung bei dem Remote-Host verwendet werden soll. |
 | `hostname`        | Dieser Parameter legt fest, wie der Remote-Host heißt. |
-| `password`        | Dieser Parameter definiert das Passwort, das für die Anmldung mittels `username`@`hostname` verwendet werden soll. |
+| `port`        | Dieser Parameter definiert die Portnummer des Remote-Hosts. DEFAULT 22. |
+| `password`        | Dieser Parameter definiert das Passwort, das für die Anmeldung mittels `username`@`hostname` verwendet werden soll. |
+| `keyPath`        | Dieser Parameter legt fest, wo sich die SSH Schlüssel Datei befindet, die für die Anmeldung mittels `username`@`hostname` verwendet werden soll. |
 
 
 ### Format der Bedingungen
