@@ -2,7 +2,7 @@
 
 Nach der Durchführung der Installation des Plugins und der zugehörigen Datenbank muss ebenfalls noch eine Konfiguration des Plugins erfolgen. Diese findet innerhalb der Konfigurationsdatei `plugin_intranda_administration_archive_management.xml` statt. und ist beispielhaft wie folgt aufgebaut:
 
-```markup
+```xml
 <config_plugin>
 
     <basexUrl>http://localhost:8984/</basexUrl>
@@ -21,7 +21,7 @@ Nach der Durchführung der Installation des Plugins und der zugehörigen Datenba
         <lengthLimit>0</lengthLimit>
         <!-- separator string that will be used to combine the tokens -->
         <separator>_</separator>
-        <!-- true if signature should be used preferably, false if uuid should be used -->
+        <!-- true if shelfmark/signature should be used preferably, false if uuid should be used -->
         <useSignature>true</useSignature>
         
         <!-- // configurations for generating process titles // -->
@@ -190,10 +190,10 @@ Anschließend folgt ein wiederholbarer `<config>` Block. Über das wiederholbare
 
 Mittels `<processTemplateId>` wird festgelegt, auf Basis welcher Produktionsvorlage die erstellten Goobi-Vorgänge erstellt werden sollen.
 
-Die drei Parameter `<lengthLimit>` `<separator>` und `<useSignature>` werden verwendet, um die Benennungspolitik des zu erzeugenden Prozesses zu konfigurieren:
-* Das `<lengthLimit>` setzt ein Längenlimit für alle Token außer dem manuell gesetzten Kopf und Schwanz, wenn es positiv konfiguriert ist. Voreinstellung `0`, also nicht begrenzt.
-* Der `<separator>` definiert das Trennzeichen, das verwendet werden soll, um alle separaten Token zu kombinieren. Voreinstellung `_`.
-* Der Parameter `<useSignature>` bestimmt, ob die Signatur bei der Generierung der Prozesstitel bevorzugt wird. Wenn `true` gesetzt ist, wird das Plugin versuchen, die Signatur, die im Elternknoten des aktuellen Knotens definiert ist, abzurufen und sie für die Erzeugung des Prozesstitels zu verwenden. Wenn die Signatur jedoch nicht verfügbar ist, wird stattdessen die uuid verwendet, genau wie wenn dieser Parameter auf `false` gesetzt ist. Voreinstellung `false`. 
+Die drei Parameter `<lengthLimit>` `<separator>` und `<useSignature>` werden verwendet, um die Benennung des zu erzeugenden Vorgangs zu konfigurieren:
+* Der Wert `<lengthLimit>` setzt ein Längenlimit für alle Tokens außer dem manuell gesetzten Präfix und Suffix. Die Voreinstellung ist `0`, begrenzt die Länge also nicht.
+* Der Parameter `<separator>` definiert das Trennzeichen, das verwendet werden soll, um alle separaten Tokens zu kombinieren. Die Voreinstellung ist `_`.
+* Der Parameter `<useSignature>` bestimmt, ob die Signatur bei der Generierung der Vorgangstitel bevorzugt wird. Wenn `true` gesetzt ist, wird das Plugin versuchen, die Signatur, die im Elternknoten des aktuellen Knotens definiert ist, abzurufen und sie für die Erzeugung des Vorgangstitels zu verwenden. Wenn die Signatur jedoch nicht verfügbar ist, wird stattdessen die uuid verwendet, genau wie wenn dieser Parameter auf `false` gesetzt ist. Die Voreinstellung ist `false`. 
 
 ## Konfiguratioan der Metadatenfelder
 
@@ -233,7 +233,7 @@ Des weiteren gibt es noch eine Reihe weiterer optionaler Angaben:
 
 ### Einfaches Eingabefeld
 
-```markup
+```xml
 <metadata xpath="./ead:control/ead:maintenanceagency/ead:agencycode" xpathType="element" name="agencycode" level="1" repeatable="false" fieldType="input"/>
 ```
 
@@ -245,7 +245,7 @@ Des weiteren gibt es noch eine Reihe weiterer optionaler Angaben:
 
 ### Auswahlliste
 
-```markup
+```xml
 <metadata xpath="(./ead:archdesc/@level | ./@level)[1]" xpathType="attribute" name="descriptionLevel" level="1" repeatable="false" fieldType="dropdown">
     <value>collection</value>
     <value>fonds</value>
@@ -263,7 +263,7 @@ Des weiteren gibt es noch eine Reihe weiterer optionaler Angaben:
 
 ### Mehrfachauswahl
 
-```markup
+```xml
 <metadata xpath="(./ead:archdesc/ead:did/ead:langmaterial[@label='Language']/ead:language | ./ead:did/ead:langmaterial[@label='Language']/ead:language)[1]" xpathType="element" name="langmaterial" level="4" repeatable="false" fieldType="multiselect" rulesetName="DocLanguage" importMetadataInChild="false">
     <value>eng</value>
     <value>ger</value>
@@ -280,7 +280,7 @@ Des weiteren gibt es noch eine Reihe weiterer optionaler Angaben:
 
 ### Validierung von Datumsangaben
 
-```markup
+```xml
 <metadata xpath="(./ead:archdesc/ead:did/ead:unitdate | ./ead:did/ead:unitdate)[1]" xpathType="element" name="unitdate" level="1" repeatable="false" rulesetName="PublicationYear" importMetadataInChild="false" regularExpression="^([0-9]{4}\\-[0-9]{2}\\-[0-9]{2}|[0-9]{4})(\\s?\\-\s?([0-9]{4}\\-[0-9]{2}\\-[0-9]{2}|[0-9]{4}))?$" validationType="regex">
   <validationError>Der Wert ist keine Datumsangabe. Erlaubte Werte sind entweder Jahreszahlen (YYYY), exakte Datumsangaben (YYYY-MM-DD) oder Zeiträume (YYYY - YYYY, YYYY-MM-DD-YYYY-MM-DD)</validationError>
 </metadata>
@@ -288,7 +288,7 @@ Des weiteren gibt es noch eine Reihe weiterer optionaler Angaben:
 
 ### Anbindung eines kontrollierten Vokabulars
 
-```markup
+```xml
 <metadata xpath="(./ead:archdesc/ead:dsc/ead:acqinfo | ./ead:dsc/ead:acqinfo)[1]" xpathType="element" name="acqinfo" level="2" repeatable="false" fieldType="vocabulary" rulesetName="AquisitionInformation" >
   <vocabulary>Aquisition</vocabulary>
   <searchParameter>type=visible</searchParameter>
