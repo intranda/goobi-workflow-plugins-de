@@ -87,6 +87,6 @@ Eine Beispielkonfiguration könnte folgendermaßen aussehen:
 
 ## Einstellungen in Goobi
 
-Nachdem das Plugin korrekt installiert wurde, kann es in der Nutzeroberfläche für die Verwendung innerhalb des Workflows bei dem gewünschten Arbeitsschritt konfiguriert werden. Hierfür muss als Plugin der Wert `` ausgewählt und die Ausfühlung sollte als automatisch festgelegt werden.
+Nachdem das Plugin korrekt installiert wurde, kann es in der Nutzeroberfläche für die Verwendung innerhalb des Workflows bei dem gewünschten Arbeitsschritt konfiguriert werden. Hierfür muss als Plugin der Wert `intranda_step_createfullpdf` ausgewählt und die Ausfühlung sollte als automatisch festgelegt werden.
 
 ![Auswahl des Plugins innerhalb der Workflowkonfiguration](../.gitbook/assets/intranda_step_createfullpdf_de.png)

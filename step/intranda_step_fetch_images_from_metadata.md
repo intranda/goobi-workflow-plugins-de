@@ -7,22 +7,28 @@ description: >-
 # Kopieren von Dateien aus Metadatenfeldern
 
 ## Einführung
-Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den Einsatz des Plugins. Mit Hilfe dieses Plugins können Bilder anhand des im Vorgangs hinterlegten Dateinamens in den gewünschte Ordner des Vorgangs kopiert oder bewegt werden. 
+Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den Einsatz des Plugins. Mit Hilfe dieses Plugins können Bilder aus einem konfigurierten Ordner oder von bestimmten URLs anhand des im Vorgangs hinterlegten Dateinamens in den gewünschte Ordner des Vorgangs kopiert oder bewegt werden. 
 
 | Details |  |
 | :--- | :--- |
 | Identifier | intranda-step-fetch-images-from-metadata |
 | Source code | [https://github.com/intranda/goobi-plugin-step-fetch-images-from-metadata](https://github.com/intranda/goobi-plugin-step-fetch-images-from-metadata) |
 | Lizenz | GPL 2.0 oder neuer |
-| Dokumentationsdatum | 25.11.2022 |
+| Dokumentationsdatum | 04.06.2023 |
 
 
 ## Arbeitsweise des Plugins
-Das Plugin wird üblicherweise vollautomatisch innerhalb des Workflows ausgeführt. Es ermittelt zunächst, ob das in der Konfiguration spezifizierte Metadatum vorhanden ist und wertet dieses anschließend aus. Die in dem Metadatum angegebene Datei wird anschließend anhand ihres Namens und der Dateiendung in den media-Ordner des Vorgangs kopiert oder bewegt.
+Das Plugin wird üblicherweise vollautomatisch innerhalb des Workflows ausgeführt. Es ermittelt zunächst, ob das in der Konfiguration spezifizierte Metadatum vorhanden ist und wertet dieses anschließend aus. Die in dem Metadatum angegebene Datei wird anschließend anhand ihres Namens und der Dateiendung in den media-Ordner des Vorgangs kopiert oder bewegt. Dabei prüft das Plugin die vorhandenen Bilder im `media`-Ordner des Vorgangs, um zu sehen, ob das gewünschte Bild bereits importiert wurde, und wenn nicht:
+
+In den beiden folgenden Fällen wird die Reihenfolge der importierten Bilder aktualisiert und in der Mets-Datei gespeichert:	
+- wenn `useUrl` auf `true` gesetzt ist, wird das Plugin das Bild von der angegebenen URL herunterladen 
+- wenn `useUrl` auf `false` oder gar nicht gesetzt ist, wird der Name jeder Datei geprüft, um zu ermitteln, ob an sie als erste Datei des Verzeichnis behandelt werden soll, während die anderen Bilder einfach nach ihren Namen sortiert werden.
 
 
 ## Bedienung des Plugins
 Dieses Plugin wird in den Workflow so integriert, dass es automatisch ausgeführt wird. Eine manuelle Interaktion mit dem Plugin ist nicht notwendig. Zur Verwendung innerhalb eines Arbeitsschrittes muss der Workflow entsprechend konfiguriert und dort das Plugin ausgewählt werden. Eine manuelle Verwendung dieses Plugins durch einen Anwender ist nicht notwendig.
+
+![Auswahl des Plugins innerhalb der Workflowkonfiguration](../.gitbook/assets/intranda_step_fetch_images_from_metadata_de.png)
 
 
 ## Installation und Konfiguration
@@ -63,6 +69,9 @@ Diese Konfigurationsdatei ist in etwa wie folgt aufgebaut:
         <project>*</project>
         <step>*</step>
         
+        <!-- true if the images should be fetched from a url, false if the images should be fetched from the following configured folder. DEFAULT false -->
+        <useUrl>false</useUrl>
+        
         <!-- metadata containing the file name -->
         <filenameMetadata>SeparatedMaterial</filenameMetadata>
          <!-- fileHandling:
@@ -84,6 +93,7 @@ Die einzelnen Parameter haben die folgende Funktion:
 | :--- | :--- |
 | `project` | Dieser Parameter legt fest, für welches Projekt der aktuelle Block `<config>` gelten soll. Verwendet wird hierbei der Name des Projektes. Dieser Parameter kann mehrfach pro `<config>`-Block vorkommen. |
 | `step` | Dieser Parameter steuert, für welche Arbeitsschritte der Block `<config>` gelten soll. Verwendet wird hier der Name des Arbeitsschritts. Dieser Parameter kann mehrfach pro `<config>`-Block vorkommen. |
+| `useUrl` | Dieser Parameter bestimmt den Quellort der abzurufenden Bilder. Wenn er auf `true` gesetzt ist, werden die Bilder von den registrierten URLs in der mets-Datei geholt, wenn er auf `false` oder gar nicht gesetzt ist, werden die Bilder aus dem folgenden konfigurierten Ordner geholt. |
 | `filenameMetadata` | Hier ist der Name des Metadatenfeldes (üblicherweise aus der METS-Datei) angegeben, der den Dateinamen der zu importierenden Datei enthält. |
 
 Die Attribute des für das Element `fileHandling` werden wie folgt konfiguriert:
