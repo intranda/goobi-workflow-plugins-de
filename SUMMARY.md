@@ -91,6 +91,7 @@
 * [Generierung von PDF-Dateien](step/intranda_step_createfullpdf.md)
 * [Umbenennung von Dateien vor dem Rosetta-Ingest](step/intranda_step_rename_files_before_rosetta.md)
 * [OCR-Ergebnis in Metadatenfeld übernehmen](step/intranda_step_ocr_to_metadata.md)
+* [Libsafe Ingest mittels BagIt](step/intranda_step_libsafe.md)
 
 
 ## Opac Plugins <a id="opac"></a>
