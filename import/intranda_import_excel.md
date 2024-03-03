@@ -222,6 +222,8 @@ Das Element `processTitleRule` dient zur Generierung des Vorgangstitel. Hier ste
 <processTitleRule>'StaticPrefix_'+Identifier</processTitleRule>
 ```
 
+Hierbei kann die `processTitleRule` mit dem zusätzlichen Parameter `replacewith` versehen werden. Das hierbei angegebene Zeichen (bspw. `replacewith="_"`) ersetzt alle Sonderzeichen durch ebendieses Zeichen.
+
 ### Übernahme von Bildern
 
 Mit Hilfe der Elemente `imageFolderHeaderName`, `imageFolderPath` und `moveFiles` können zusätzlich zu den Metadaten auch Bilder importiert werden. In `imageFolderHeaderName` wird hierfür der Spaltenname eingetragen, in dem in der Excel-Datei die Ordnernamen zu finden sind, die die Bilder enthalten. Dort kann entweder ein absoluter Pfad oder auch ein relativer Pfad angegeben werden. Wenn hierbei ein relativer Pfad angegeben wird, muss das Element `imageFolderPath` den `root` Pfad zu den Bildern enthalten.
