@@ -95,6 +95,7 @@
 * [ALMA und REST-API-Kommunikation](step/intranda_step_alma_api.md)
 * [Duplizieren von Arbeitsschritten](step/intranda_step_duplicate_tasks.md)
 * [Download und Verifizieren von Dateien](step/intranda_step_download_and_verify_assets.md)
+* [Metadaten pro Bild erfassen](step/intranda_step_metadata_per_image.md)
 
 ## Opac Plugins <a id="opac"></a>
 * [PICA Import](opac/intranda_opac_pica.md)
@@ -112,6 +113,7 @@
 * [Import von Datensätzen aus einer Excel-Datei](import/intranda_import_excel.md)
 * [Import von Sisis SunRise Dateien](import/intranda_import_sisis_sunrise_file.md)
 * [Import von Datensätzen des BDA Österreich](import/intranda_import_bka_bda.md)
+* [Archiv-Daten-Import](import/intranda_import_crown.md)
 
 
 ## Export Plugins <a id="export"></a>
