@@ -137,6 +137,7 @@
 * [Massenimport aus Excel-Dateien mit EAD-Anreicherung](workflow/intranda_workflow_hu_importer.md)
 * [Entitäten Editor - Artist Dictionary](workflow/intranda_workflow_artist_dictionary.md)
 * [Import von JSON-Dateien](workflow/intranda_workflow_import_json.md)
+* [Liechtenstein Volksblatt Importer](workflow/intranda_workflow_liechtenstein_volksblatt_importer.md)
 
 
 ## Statistiken <a id="statistics"></a>
