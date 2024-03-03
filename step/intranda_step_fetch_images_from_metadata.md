@@ -71,17 +71,15 @@ Diese Konfigurationsdatei ist in etwa wie folgt aufgebaut:
         
         <!-- true if the images should be fetched from a url, false if the images should be fetched from the following configured folder. DEFAULT false -->
         <useUrl>false</useUrl>
-        
+
         <!-- metadata containing the file name -->
         <filenameMetadata>SeparatedMaterial</filenameMetadata>
-         <!-- fileHandling:
-              mode: Defines if files are copied or moved. Possible values are "copy" and "move". Defaults to "copy".
-              ignoreFileExtension: If the filenameMetadata contains the value "image1.tif" for example you can configure here if the plugin
-              shall search for the exact filename or if the file extension shall be ignored which
-              allowes to find "image1.jpg", too. Possible values are "true" and "false". Default is "false".
-              folder: Absolut path to the directory where to search for the files to be imported.
-        -->
-        <fileHandling mode="copy|move" ignoreFileExtension="true|false" folder="/opt/digiverso/import/images/" />
+        
+        <!-- mode="copy|move"   ignoreFileExtension="true|false"-->
+        <fileHandling mode="copy" ignoreFileExtension="true" folder="/opt/digiverso/import/images/" />
+        
+        <!-- enabled= true|false exportImages=true|false -->
+        <export enabled="true" exportImages="true" />
     </config>
 
 </config_plugin>
@@ -94,12 +92,7 @@ Die einzelnen Parameter haben die folgende Funktion:
 | `project` | Dieser Parameter legt fest, für welches Projekt der aktuelle Block `<config>` gelten soll. Verwendet wird hierbei der Name des Projektes. Dieser Parameter kann mehrfach pro `<config>`-Block vorkommen. |
 | `step` | Dieser Parameter steuert, für welche Arbeitsschritte der Block `<config>` gelten soll. Verwendet wird hier der Name des Arbeitsschritts. Dieser Parameter kann mehrfach pro `<config>`-Block vorkommen. |
 | `useUrl` | Dieser Parameter bestimmt den Quellort der abzurufenden Bilder. Wenn er auf `true` gesetzt ist, werden die Bilder von den registrierten URLs in der mets-Datei geholt, wenn er auf `false` oder gar nicht gesetzt ist, werden die Bilder aus dem folgenden konfigurierten Ordner geholt. |
-| `filenameMetadata` | Hier ist der Name des Metadatenfeldes (üblicherweise aus der METS-Datei) angegeben, der den Dateinamen der zu importierenden Datei enthält. |
+| `filenameMetadata` | Hier ist der Name des Metadatenfeldes (üblicherweise aus der METS-Datei) angegeben, das den Dateinamen der zu importierenden Datei enthält. |
+| `fileHandling` | Das Attribut `@mode` definiert, ob die Bilder durch Kopieren oder Verschieben importiert werden sollen. Das Attribut `@ignoreFileExtension` steuert, ob die Dateiendung für den Kopiervorgang ignoriert werden soll oder exakt stimmen muss. Das Attribut `@folder` gibt den Ordner an, in dem sich die zu importierenden Dateien befinden.   |
+| `export` | Das Attribut `@enabled` legt fest, ob der Vorgang exportiert werden soll oder nicht, während das Attribut `@exportImages` definiert, ob hierbei die Bilder berücksichtig werden sollen.  |
 
-Die Attribute des für das Element `fileHandling` werden wie folgt konfiguriert:
-
-| Attribut | Erläuterung |
-| :--- | :--- |
-| `mode` | Dieses Attribut legt fest, ob die zu übernehmenden Dateien in den Ordner des Vorgangs kopiert werden sollen oder ob sie dorthin bewegt werden. |
-| `ignoreFileExtension` | Dieses Attribut steuert, ob die Dateiendung für den Kopiervorgang ignoriert werden soll oder exakt stimmen muss. |
-| `folder` | Dieses Attribut gibt den Ordner an, in dem sich die zu importierenden Dateien befinden. |
