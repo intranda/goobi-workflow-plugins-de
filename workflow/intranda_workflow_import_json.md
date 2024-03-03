@@ -1,13 +1,13 @@
 ---
 description: >-
-  Dieses Workflow-Plugin erlaubt den Massenimport von Daten aus JSON-Dateien
+  Dieses generische Import-Plugin erlaubt den Massenimport von Daten aus JSON-Dateien
 ---
 
-# Generisches Import Plugin für JSON-Dateien
+# Generisches Import-Plugin für JSON-Dateien
 
 ## Einführung
 
-Dieses Workflow-Plugin wurde implementiert, um Metadaten aus mehreren JSON Dateien auszulesen und in einen Workflow zu importieren.
+Dieses dies die technische Dokumentation für das Workflow-Plugin für Goobi workflow, das dazu dient, Metadaten aus mehreren JSON-Dateien auszulesen und darauf Vorgänge zu erstellen.
 
 ## Übersicht
 
@@ -16,35 +16,38 @@ Dieses Workflow-Plugin wurde implementiert, um Metadaten aus mehreren JSON Datei
 | Identifier | intranda\_workflow\_import\_json |
 | Source code | [https://github.com/intranda/goobi-plugin-workflow-import-json](https://github.com/intranda/goobi-plugin-workflow-import-json) |
 | Lizenz | GPL 2.0 oder neuer |
-| Kompatibilität | Goobi workflow 23.07 |
 | Dokumentationsdatum | 01.09.2023 |
 
 ## Installation
 
-* Für die Installation braucht man `plugin_intranda_workflow_import_json.jar` und `plugin_intranda_workflow_import_json-GUI.jar`
-```bash
-{PATH_TO_GOOBI}/plugins/workflow/plugin_intranda_workflow_import_json.jar
-{PATH_TO_GOOBI}/plugins/GUI/plugin_intranda_workflow_import_json-GUI.jar
-```
-* Die Konfigurationsdatei `plugin_intranda_workflow_import_json.xml` muss kopiert zu
-```bash
-{PATH_TO_GOOBI}/config/plugin_intranda_workflow_import_json.xml
-```
-Es können verschiedene Werte in der Konfigurationsdatei angepasst werden. Ein Beispiel sieht wie folgt aus:
+Zur Installation des Plugins müssen folgende beiden Dateien installiert werden:
 
-```markup
+```bash
+/opt/digiverso/goobi/plugins/workflow/plugin_intranda_workflow_import_json.jar
+/opt/digiverso/goobi/plugins/GUI/plugin_intranda_workflow_import_json-GUI.jar
+```
+
+Um zu konfigurieren, wie sich das Plugin verhalten soll, können verschiedene Werte in der Konfigurationsdatei angepasst werden. Die Konfigurationsdatei befindet sich üblicherweise hier:
+
+```bash
+/opt/digiverso/goobi/config/plugin_intranda_workflow_import_json.xml
+```
+
+Der Inhalt dieser Konfigurationsdatei sieht wie folgt aus:
+
+```xml
 <config_plugin>
 	<!-- folder that contains the json files -->
-	<jsonFolder>/opt/digiverso/g2g/workspace/demo_content/</jsonFolder>
+	<jsonFolder>/opt/digiverso/goobi/import/</jsonFolder>
 
 	<!-- folder used to hold the downloaded images temporarily -->
-	<importFolder>/opt/digiverso/g2g/workspace/workflow/tmp/</importFolder>
+	<importFolder>/opt/digiverso/goobi/tmp/</importFolder>
 
 	<!-- which workflow to use -->
-	<workflow>KHM_Giza_Import_Workflow</workflow>
+	<workflow>Sample_Workflow</workflow>
 
 	<!-- which publication type to use -->
-	<publicationType>GizaDocument</publicationType>
+	<publicationType>Monograph</publicationType>
 
 	<!-- URL types that hold downloadable resources, could be none or multiple -->
 	<downloadableUrl>GizaPhotosMain</downloadableUrl>
@@ -112,50 +115,52 @@ Es können verschiedene Werte in der Konfigurationsdatei angepasst werden. Ein B
 
 ## Allgemeine Konfiguration des Plugins
 
+Die Konfiguration des Plugins gestaltet sich wie folgt:
+
 | Wert | Beschreibung |
 | :--- | :--- |
-| `jsonFolder` | Pfad zur Verzeichnis wo sich die JSON Dateien befinden. |
-| `importFolder` | Pfad zur Verzeichnis wo die herunterzuladenden Bilder landen, bevor sie importiert werden. |
-| `workflow` | Name des Workflows als Template. |
-| `publicationType` | Publikationstyp des neuen Prozesses. |
-| `downloadableUrl` | Name des Typs der URL Metadaten, woraus Bilder herunterzuladen sind. Man kann hier auch mehrere Fälle konfigurieren. |
-| `metadata` | Aus jedem Tag wird schließlich ein Metadata Objekt erzeugt. Das Attribut `@source` bezieht sich auf einen JSON-Pfad, wenn es mit `$` startet. Aus diesem Pfad wird der Wert des Metadatums ausgelesen. In diesem Falle bezieht sich das Attribut auf eine Liste wenn es zusätzlich noch mit `[:]` endet. Wenn es weder mit `$` noch mit `@` startet, dann wird es selbst als Wert des Metadatums benutzt. Das Attribut `@target` konfiguriert den Namen des MetadataTypes. |
-| `group` | Hier werden MetadataGroups konfiguriert. Es gibt sechs Attribute, siehe unten für Details. Unter einem `group` Tag können mehrere `metadata` Tags konfiguriert werden, deren `@source` Attribute mit `@` starten sollen.  |
-| `child` | Hier werden Kinder DocStructs konfiguriert. Es gibt fünf Attribute, siehe unten für Details. Unter einem `child` Tag können mehrere `metadata` Tags konfiguriert werden, deren `@source` Attribute mit `@` starten sollen. |
+| `jsonFolder` | Pfad zum Verzeichnis, wo sich die JSON-Dateien befinden. |
+| `importFolder` | Pfad zum Verzeichnis, wo die herunterzuladenden Bilder gespeichert werden sollen, bevor sie in die Vorgänge importiert werden. |
+| `workflow` | Name des Produktionsvorlage, die verwendet werden soll. |
+| `publicationType` | Publikationstyp für die anzulegenden Vorgänge. |
+| `downloadableUrl` | Typs des Metadatums, in dem die URL angegeben ist, von der die Bilder herunterzuladen sind. Dieser Wert ist wiederholbar. |
+| `metadata` | Aus jedem Tag wird ein Metadata-Objekt erzeugt. Das Attribut `@source` bezieht sich auf einen JSON-Pfad, wenn dieser mit `$` beginnt. Aus diesem Pfad wird der Wert des Metadatums ausgelesen. In diesem Falle bezieht sich das Attribut auf eine Liste, wenn es außerdem mit `[:]` endet. Wenn es weder mit `$` noch mit `@` startet, wird es hingeben selbst als Wert des Metadatums verwendet. Das Attribut `@target` konfiguriert den Namen des Metadatentyps. |
+| `group` | Hier werden Metadatengruppen konfiguriert. Es gibt sechs Attribute, die nachfolgend erläutert werden. Unter einem `group`-Element können mehrere `metadata`-Elemente konfiguriert werden, deren `@source` Attribute mit `@` starten sollen.  |
+| `child` | Hier werden Strukturelemente konfiguriert. Es gibt fünf Attribute, die nachfolgend erläutert werden. Unter einem `child`-Element können mehrere `metadata`-Elemente konfiguriert werden, deren `@source` Attribute mit `@` starten sollen. |
 
 ## Konfiguration der Attribute eines MetadataGroups
 
-Die folgenden Attribute können in einem `group` Tag konfiguriert werden:
+Die folgenden Attribute können in einem `group`-Element konfiguriert werden:
 
 | Wert | Beschreibung |
 | :--- | :--- |
-| `@source` | JSON-Pfad zum Eltern-Tag einer Liste. Startet mit einem `$`. |
-| `@type` | Name des MetadataGroupTypes. |
-| `@altType` | Name eines alternativen MetadataGroupTypes. Wenn der alternative Typ richtig konfiguriert wird, wird dann aus allen ausgefilterten Einträgen eine MetadataGroup von diesem Typ erzeugt. Wenn das Attribut nicht konfiguriert ist, oder wenn der konfigurierte Typ nicht zu finden ist, wird dann alle ausgefilterten Einträge nicht importiert. OPTIONAL. |
-| `@key` | Schlüssel der JSONObjekten fürs Filtern. OPTIONAL. |
-| `@value` | Wert zum Vergleich beim Filtern. OPTIONAL. |
-| `@method` | Logik zu nutzen beim Filtern. Möglichkeiten sind `is`, `not`, `startsWith`, `endsWith` und `contains`. OPTIONAL. DEFAULT `is`. |
+| `@source` | JSON-Pfad zum Eltern-Element einer Liste. Startet mit einem `$`. |
+| `@type` | Typ der Metadatengruppe. |
+| `@altType` | Alternativer Typ der Metadatengruppe. Wenn der alternative Typ richtig konfiguriert wird, wird aus allen gefilterten Einträgen eine Metadatengruppe diesen Typs erzeugt. Wenn das Attribut nicht konfiguriert ist oder wenn der konfigurierte Typ nicht zu finden ist, werden alle gefilterten Einträge nicht importiert. Dieser Parameter ist optional. |
+| `@key` | Schlüssel der JSON-Objekte für die Filterung. Dieser Parameter ist optional. |
+| `@value` | Wert zum Vergleich beim Filtern. Dieser Parameter ist optional. |
+| `@method` | Zu verwendende Logik für das Filtern. Möglichkeiten sind hierbei `is`, `not`, `startsWith`, `endsWith` und `contains`. Dieser Parameter ist optional. Der Default-Wert lautet `is`. |
 
 ## Konfiguration der Attribute eines DocStructs als Kind
 
-Die folgenden Attribute können in einem `child` Tag konfiguriert werden:
+Die folgenden Attribute können in einem `child`-Element konfiguriert werden:
 
 | Wert | Beschreibung |
 | :--- | :--- |
-| `@source` | JSON-Pfad zum Eltern-Tag einer Liste. Startet mit einem `$`. |
-| `@type` | Name des DocStructTypes. |
-| `@key` | Schlüssel der JSONObjekten fürs Filtern. OPTIONAL. |
-| `@value` | Wert zum Vergleich beim Filtern. OPTIONAL. |
-| `@method` | Logik zu nutzen beim Filtern. Möglichkeiten sind `is`, `not`, `startsWith`, `endsWith` und `contains`. OPTIONAL. DEFAULT `is`. |
+| `@source` | JSON-Pfad zum Eltern-Element einer Liste. Startet mit einem `$`. |
+| `@type` | Typ des Strukturelements. |
+| `@key` | Schlüssel der JSON-Objekte für die Filterung. Dieser Parameter ist optional. |
+| `@value` | Wert zum Vergleich beim Filtern. Dieser Parameter ist optional. |
+| `@method` | Zu verwendende Logik für das Filtern. Möglichkeiten sind hierbei `is`, `not`, `startsWith`, `endsWith` und `contains`. Dieser Parameter ist optional. Der DEFAULT-Wert lautet `is`. |
 
 ## Konfiguration des Metadatums für den URL des Partners
 
-Es gibt eine Möglichkeit, ein Metadatum für den URL des Partners zu erzeugen und zu speichern. Der zu erzeugende URL wird formuliert als `{urlBase}/{urlPart_1}/{urlPart_2}/.../{urlPart_k}/{urlTail}/`.
+Es gibt eine Möglichkeit, ein Metadatum für die URL des Partners zu erzeugen und zu speichern. Die zu erzeugende URL wird wie folgt festlegt: `{urlBase}/{urlPart_1}/{urlPart_2}/.../{urlPart_k}/{urlTail}/`
 
 | Wert | Beschreibung |
 | :--- | :--- |
-| `partnerUrl` | Das Attribut `save` konfiguriert ob ein Metadatum für den URL des Partners erzeugt werden soll. DEFAULT `false`. |
-| `urlBase` | Hier konfiguriert man den URL zum Server des Partners. OPTIONAL. MAXIMAL ein Treffer. |
-| `urlPart` | Hier konfiguriert man die Teile, deren Werte aus den JSONObjekten an die `urlBase` nacheinander anhängen werden. OPTIONAL. Mehrere Treffer möglich. |
-| `urlTail` | Hier konfiguriert man den letzten Teil des URLs. OPTIONAL. MAXIMAL ein Treffer. |
-| `urlMetadata` | Name des MetadataTypes für dieses Metadatum. |
+| `partnerUrl` | Das Attribut `save` konfiguriert ob ein Metadatum für die URL des Partners erzeugt werden soll. Der DEFAULT-Wert lautet `false`. |
+| `urlBase` | Hier konfiguriert man den URL zum Server des Partners. Dieser Parameter ist optional. Maximal ein Treffer ist möglich. |
+| `urlPart` | Hier werden die Teile der URL konfiguriert, deren Werte aus den JSON-Objekten an die `urlBase` nacheinander anhängen werden sollen. Dieser Parameter ist optional. Mehrere Treffer sind möglich. |
+| `urlTail` | Hier wird der hintere Teil der URL konfiguriert. Dieser Parameter ist optional. Maximal ein Treffer ist möglich. |
+| `urlMetadata` | Typ des Metadatums. |
