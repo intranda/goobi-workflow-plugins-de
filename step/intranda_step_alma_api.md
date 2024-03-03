@@ -6,34 +6,30 @@ Beschreibung: >-
 # ALMA API Plugin
 
 ## Einführung
-
-Dieses Plugin wird verwendet, um Anfragen an ein Dienstsystem, z.B. ALMA, zu senden und die zurückgegebenen Antworten zu verarbeiten. Mehrere Befehle können konfiguriert werden, um eine komplizierte Aufgabe zusammenzustellen, und das Plugin führt diese Befehle nacheinander in derselben Reihenfolge aus.
+Dieses Plugin wird verwendet, um Anfragen an REST-APIs, z.B. ALMA, zu senden und die zurückgegebenen Antworten zu verarbeiten. Mehrere Befehle können konfiguriert werden, um eine komplizierte Aufgabe zusammenzustellen. Das Plugin führt diese Befehle nacheinander in definierten Reihenfolge aus.
 
 | Details |  |
 | :--- | :--- |
 | Identifier | intranda\_step\_alma\_api |
 | Source code | [https://github.com/intranda/goobi-plugin-step-alma-api](https://github.com/intranda/goobi-plugin-step-alma-api) |
 | Lizenz | GPL 2.0 oder neuer |
-| Kompatibilität | Goobi workflow 2023.09 |
 | Dokumentationsdatum | 05.10.2023 |
 
 ## Installation
+Zur Nutzung des Plugins muss die Datei `plugin_intranda_step_alma_api.jar` an folgendem Ort gespeichert werden:
 
-Zur Nutzung des Plugins muss die folgende JAR Datei ans folgende Ort kopiert werden:
-
-```text
-{GOOBI_INSTALLATION_PFAD}/plugins/step/plugin_intranda_step_alma_api.jar
+```bash
+/opt/digiverso/goobi/plugins/step/plugin_intranda_step_alma_api.jar
 ```
 
 Die Konfigurationsdatei `plugin_intranda_step_alma_api.xml` wird unter folgendem Pfad erwartet:
 
-```text
-{GOOBI_INSTALLATION_PFAD}/config/plugin_intranda_step_alma_api.xml
+```bash
+/opt/digiverso/goobi/config/plugin_intranda_step_alma_api.xml
 ```
 
 ## Konfiguration des Plugins
-
-Die Konfiguration des Plugins ist folgendermaßen aufgebaut:
+Die Konfiguration des Plugins ist beispielhaft folgendermaßen aufgebaut:
 
 ```xml
 <config_plugin>
@@ -59,7 +55,7 @@ Die Konfiguration des Plugins ist folgendermaßen aufgebaut:
               @name: name of the variable, e.g. VARIABLE. To use this variable's value, one can simply use {$VARIABLE}.
               @value: value to initialize this variable. It can be plain string value, or a Goobi variable, e.g. {meta.NAME} for a Metadata named NAME.
          -->
-        <variable name="MMS_ID" value="{meta.RezenssionsZssDBID}" />
+        <variable name="MMS_ID" value="{meta.CatalogIDDigital}" />
         <!-- There can be multiple variables defined before all commands. -->
         <variable name="SIGNATURE" value="{meta.shelfmarksource}" />
 
@@ -245,23 +241,30 @@ Die Konfiguration des Plugins ist folgendermaßen aufgebaut:
 ```
 
 ### Allgemeine Konfigurationen
+Die Konfiguration des Plugins erfolgt wie hier beschrieben:
 
 | Wert | Beschreibung |
 | :--- | :--- |
-| `project` | Dieser Parameter legt fest, für welches Projekt der aktuelle Block <config> gelten soll. Verwendet wird hierbei der Name des Projektes. Dieser Parameter kann mehrfach pro <config> Block vorkommen. |
-| `step` | Dieser Parameter steuert, für welche Arbeitsschritte der Block <config> gelten soll. Verwendet wird hier der Name des Arbeitsschritts. Dieser Parameter kann mehrfach pro <config> Block vorkommen. |
-| `url` | Hier wird die Basis-URL des Systems angegeben. |
-| `api-key` | Hier wird der API-Schlüssel für die Verbindung zum System konfiguriert. |
-| `variable` | Mit diesem Tag kann man eine Variable definieren, die von allen nachfolgenden Befehlen verwendet werden kann. Dieses Tag hat zwei Attribute, wobei `@name` den Namen und `@value` den Wert definiert. `@value` erwartet einen einfachen Textwert oder eine Goobi-Variable. |
-| `command` | Ein Befehlsblock definiert einen Befehl, der im Auftrag ausgeführt werden soll. Es hat selbst zwei obligatorische Attribute, wobei `@method` die zu verwendende Methode angibt und `@endpoint` den rohen Endpunktpfad, bei dem alle Platzhalter nicht ersetzt werden. Es hat auch zwei optionale Attribute, nämlich `@accept` und `@content-type`, die verwendet werden, um die Request-Parameters `Accept` und `Content-type` anzugeben. Beide erwarten entweder `json` oder `xml`. Wird einer der beiden Parameter weggelassen, wird der Standardwert "json" verwendet. Weitere Einzelheiten finden Sie in der nachstehenden Tabelle und in der obigen Beispielkonfiguration. |
-| `save` | Ein optionales Save-Tag definiert einen Wert, der nach der Ausführung aller Befehle gespeichert werden soll. Es hat drei obligatorische Attribute, wobei `type` angibt, ob der Wert als Prozesseigenschaft oder als Metadaten gespeichert werden soll, `@name` definiert den Namen der Prozesseigenschaft oder des Metadatentyps, und `@value` bestimmt den Wert, der ein einfacher Textwert oder eine zuvor definierte Variable sein kann. Es hat auch zwei optionale Attribute, wobei `@choice` angibt, welcher Wert gespeichert werden soll, wenn mehrere gefunden werden, und `@overwrite` bestimmt, ob eine zuvor erstellte Prozesseigenschaft oder ein Metadatum desselben Namens wiederverwendet werden soll oder nicht. |
+| `project` | Dieser Parameter legt fest, für welches Projekt der aktuelle Block `<config>` gelten soll. Verwendet wird hierbei der Name des Projektes. Dieser Parameter kann mehrfach pro `<config>`-Block vorkommen. |
+| `step` | Dieser Parameter steuert, für welche Arbeitsschritte der Block `<config>` gelten soll. Verwendet wird hier der Name des Arbeitsschritts. Dieser Parameter kann mehrfach pro `<config>` Block vorkommen. |
+| `url` | Hier wird die Basis-URL der REST-API angegeben. |
+| `api-key` | Hier wird der API-Schlüssel für die Verbindung zu der REST-API konfiguriert. |
+| `variable` | Mit diesem Tag kann eine Variable definiert werden, die von allen nachfolgenden Befehlen verwendet werden kann. Dieses Tag hat zwei Attribute, wobei `@name` den Namen und `@value` den Wert definiert. `@value` erwartet einen einfachen Textwert oder eine Goobi-Variable. |
+| `command` | Ein Befehlsblock definiert einen Befehl, der im Auftrag ausgeführt werden soll. Es hat selbst zwei obligatorische Attribute, wobei `@method` die zu verwendende Methode angibt und `@endpoint` den Pfad zum Endpoint, bei dem alle Platzhalter nicht ersetzt werden. Es verfügt auch über die zwei optionalen Attribute `@accept` und `@content-type`, die verwendet werden, um die Request-Parameter `Accept` und `Content-type` anzugeben. Beide erwarten entweder `json` oder `xml`. Wird einer der beiden Parameter weggelassen, wird der Standardwert `json` verwendet. Weitere Einzelheiten finden Sie in der nachstehenden Tabelle und in der obigen Beispielkonfiguration. |
+| `save` | Ein optionales `save`-Element definiert einen Wert, der nach der Ausführung aller Befehle gespeichert werden soll. Es hat drei obligatorische Attribute, wobei `type` angibt, ob der Wert als Vorgangseigenschaft oder als Metadatum gespeichert werden soll. Das Attribut `@name` definiert den Namen der Vorgangseigenschaft oder des Metadatentyps. Das Attribut `@value` bestimmt den Wert, der ein einfacher Textwert oder eine zuvor definierte Variable sein kann. Es verfügt über zwei optionale Attribute, wobei `@choice` angibt, welcher Wert gespeichert werden soll, wenn mehrere gefunden werden, und `@overwrite` bestimmt, ob eine zuvor erstellte Vorgangseigenschaft oder ein Metadatum desselben Namens wiederverwendet werden soll. |
 
 ### Konfigurationen innerhalb von Befehlsblöcken
+Die Konfiguration innerhalb der Befehlsblöcke erfolgt wie hier beschrieben:
 
 | Wert | Beschreibung |
 | :--- | :--- |
-| `filter` | Hier wird angegeben, welche Teile der JSON-Antwort für die Suche nach den "target"-Werten verwendet werden sollen. Es hat vier Attribute, wobei `@key` und `@value` obligatorisch sind, während `@fallback` und `@alt` optional sind. Weitere Einzelheiten finden Sie in den Kommentaren in der Beispielkonfiguration. |
-| `target` | Hier gibt man an, welche Werte als Variablen zur späteren Verwendung gespeichert werden sollen. Sie hat zwei Attribute, wobei `@var` den Variablennamen und `@path` den JSON-Pfad zum Abrufen der Werte angibt. |
-| `parameter` | Hier wird ein Parameter angegeben, der zusammen mit einer Anfrage an das System gesendet werden soll. Er hat zwei Attribute, nämlich `@name` für den Parameternamen und `@value` für den Parameterwert, der NUR aus reinen Textwerten bestehen kann. |
-| `body` | Hier spezifiziert man den Request Body. Er hat drei Attribute, wobei eines von `@src` und `@value` angegeben werden muss, und wenn `@src` gesetzt ist, wird auch `@wrapper` anwendbar. Mit `@src` gibt man die Datei an, deren Inhalt als Request-Body verwendet werden soll, während man mit `@value` den Wert einer Variable verwenden kann, den man durch vorherige Befehle erhalten hat. Für die Verwendung von `@wrapper` beachten Sie bitte die Kommentare in der Beispielkonfiguration.  |
-| `update` | Dieses Tag wird verwendet, um das JSON-Objekt der Antwort als Variable zu speichern. Es hat ein Attribut `@var`, das den Namen der Variablen angibt. Jedes `Command`-Tag kann höchstens einen `Update`-Untertag haben, aber innerhalb des "Update"-Untertags kann es mehrere "Entry"-Untertags geben, von denen jeder eine Änderung am JSON-Antwortobjekt angibt. |
+| `filter` | Hier wird angegeben, welche Teile der JSON-Antwort für die Suche nach den `target`-Werten verwendet werden sollen. Es hat vier Attribute, wobei `@key` und `@value` obligatorisch sind, während `@fallback` und `@alt` optional sind. Weitere Einzelheiten finden sich in den Kommentaren in der Beispielkonfiguration. |
+| `target` | Hier wird angegeben, welche Werte als Variablen zur späteren Verwendung gespeichert werden sollen. Der Parameter hat zwei Attribute, wobei `@var` den Variablennamen und `@path` den JSON-Pfad zum Abrufen der Werte angibt. |
+| `parameter` | Hier wird ein Parameter angegeben, der zusammen mit einer Anfrage an die REST-API gesendet werden soll. Er verfügt über zwei Attribute, wobei `@name` für den Parameternamen und `@value` für den Parameterwert verwendet wird, der auschließlich aus reinen Textwerten bestehen kann. |
+| `body` | Hier wird der Request-Body festgelegt. Er verfügt über drei Attribute, wobei eines von `@src` und `@value` angegeben werden muss. Ist `@src` gesetzt, wird auch `@wrapper` anwendbar. Mit `@src` wird dabei die Datei angegeben, deren Inhalt als Request-Body verwendet werden soll, während `@value` den Wert einer Variable festlegt, die von vorherige Befehle erhalten worden ist. Für die Verwendung von `@wrapper` ist eine Berücksichtigung der Kommentare in der Beispielkonfiguration empfehlenswert.  |
+| `update` | Dieses Element wird verwendet, um das JSON-Objekt der Antwort als Variable zu speichern. Es hat ein Attribut `@var`, das den Namen der Variablen angibt. Jedes `Command`-Tag kann höchstens ein `update`-Unterelement haben. Innhalb des `update`-Unterelement kann es mehrere `Entry`-Unterelemente geben, von denen jedes eine Änderung am JSON-Antwortobjekt angibt. |
+
+## Bedienung des Plugins
+Dieses Plugin wird in den Workflow so integriert, dass es automatisch ausgeführt wird. Eine manuelle Interaktion mit dem Plugin ist nicht notwendig. Zur Verwendung innerhalb eines Arbeitsschrittes des Workflows sollte es wie im nachfolgenden Screenshot konfiguriert werden.
+
+![Integration des Plugins in den Workflow](../.gitbook/assets/intranda_step_alma_api_de.png)
