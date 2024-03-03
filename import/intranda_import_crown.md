@@ -165,4 +165,4 @@ Zusätzlich muss ein Feld als `identifier="true"` markiert werden. Der Inhalt di
 ## Nutzung in Goobi
 Um den Import zu nutzen, muss in den Produktionsvorlagen der Massenimportbereich geöffnet werden und im Reiter Dateiupload-Import das Plugin `intranda_import_crown` ausgewählt werden. Anschließend kann eine Excel-Datei hochgeladen und importiert werden.
 
-[Auswahl des Plugins zur Durchführung des Imports](../.gitbook/assets/intranda_import_crown_de.png)
+![Auswahl des Plugins zur Durchführung des Imports](../.gitbook/assets/intranda_import_crown_de.png)

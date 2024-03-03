@@ -274,13 +274,13 @@ Dazu wird in <searchfield> festgelegt, in welchen Metadatenfeldern nach den gew�
 ## Integration des Plugins in den Workflow
 Zur Inbetriebnahme des Plugins muss dieses für einen oder mehrere gewünschte Aufgaben im Workflow aktiviert werden. Dies erfolgt durch Auswahl des Plugins `intranda_step_metadata_per_image` aus der Liste der installierten Plugins.
 
-[Einrichtung des Plugins im Workflow](../.gitbook/assets/intranda_metadata_per_image1_de.png)
+![Einrichtung des Plugins im Workflow](../.gitbook/assets/intranda_metadata_per_image1_de.png)
 
 ## Arbeitsweise und Bedienung des Plugins
 Wenn das Plugin betreten wird, werden für alle Dateien eigene Strukturelemente erstellt. Die Strukturelemente werden aufgelistet. Links sind die Metadatenfelder zu sehen, rechts das Bild bzw. die Video- oder Audiodatei. Durch einen Klick auf das Bild lässt es sich im Vollbildmodus öffnen.
 Die einzelnen Strukturelemente lassen sich umsortieren, um so die Dateien in die gewünschte Reihenfolge zu bringen.
 
-[Nutzeroberfläche des Plugins](../.gitbook/assets/intranda_metadata_per_image2_de.png)
+![Nutzeroberfläche des Plugins](../.gitbook/assets/intranda_metadata_per_image2_de.png)
 
 Für jedes Strukturelement werden die konfigurierten Metadaten angezeigt. Je nach Konfiguration gibt es im linken Bereich Optionen, um ein einzelnes Feld zu duplizieren, zu löschen oder einen Wert in allen Strukturelementen gleichzeitig hinzuzufügen.
 
@@ -288,4 +288,4 @@ Eine Besonderheit stellen die Verweise dar. Hiermit ist es möglich, eine Verkn�
 
 Wenn ein Verweis wieder entfernt wird, dann wird er auch aus dem ausgewählten Vorgang entfernt.
 
-[Zugewiesene Verweise zu anderen Vorgängen](../.gitbook/assets/intranda_metadata_per_image3_de.png)
+![Zugewiesene Verweise zu anderen Vorgängen](../.gitbook/assets/intranda_metadata_per_image3_de.png)
