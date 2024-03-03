@@ -26,7 +26,7 @@ Um den Heris Export nutzen zu können, müssen folgende Dateien installiert werd
 /opt/digiverso/goobi/config/plugin_intranda_export_heris.xml
 ```
 
-Im Workflow muss ein automaticher Schritt eingefügt werden, bei dem das Plugin `intranda_export_heris` ausgewählt wurde. Dieser Schritt muss nach dem Arbeitsschritt mit dem Plugin `Image Selection` ausgeführt werden, in dem die Auswahl der zu exportierenden Bilder erfolgt.
+Im Workflow muss ein automatischer Schritt eingefügt werden, bei dem das Plugin `intranda_export_heris` ausgewählt wurde. Dieser Schritt muss nach dem Arbeitsschritt mit dem Plugin `Image Selection` ausgeführt werden, in dem die Auswahl der zu exportierenden Bilder erfolgt.
 
 
 ## Überblick und Funktionsweise
