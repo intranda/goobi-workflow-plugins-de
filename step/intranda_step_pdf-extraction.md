@@ -7,7 +7,6 @@ description: >-
 # PDFs aufsplitten, Volltext extrahieren und Inhaltsverzeichnis auslesen
 
 ## Einführung
-
 Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den Einsatz eines Plugins zum Extrahieren von Bildern, Volltexten und dem Inhaltsverzeichnis aus PDF-Dateien. Das Plugin extrahiert immer nur, was in der PDF vorhanden ist und schreibt keine Fehlermeldung wenn kein Volltext oder Inhaltsverzeichnis gefunden werden kann.
 
 | Details |  |
@@ -15,213 +14,206 @@ Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den
 | Identifier | intranda\_step\_pdf-extraction |
 | Source code | [https://github.com/intranda/goobi-plugin-step-pdf-extraction](https://github.com/intranda/goobi-plugin-step-pdf-extraction) |
 | Lizenz | GPL 2.0 oder neuer |
-| Kompatibilität | Goobi Workflow 3.0.6 |
 | Dokumentationsdatum | 06.09.2023 |
 
 ## Voraussetzung
-
-Voraussetzung für die Verwendung des Plugins ist der Einsatz von Goobi workflow in Version 3.0.6 oder höher, die korrekte Installation und Konfiguration des Plugins sowie die korrekte Einbindung des Plugins in die gewünschten Arbeitsschritte des Workflows.
+Voraussetzung für die Verwendung des Plugins ist die korrekte Installation und Konfiguration des Plugins sowie die korrekte Einbindung des Plugins in die gewünschten Arbeitsschritte des Workflows.
 
 Außerdem wird das Kommandozeilenprogramm `Ghostscript` und/oder das Tool `pdftoppm` aus dem Paket `poppler-utils` benötigt, abhängig davon wie man den `<generator>` konfiguriert. Es kann über die Paketquellen des Systems installiert werden.
 
 ## Installation und Konfiguration <a id="installation-und-konfiguration"></a>
-
 Zur Nutzung des Plugins muss es an folgenden Ort kopiert werden:
 
-```text
+```bash
 /opt/digiverso/goobi/plugins/step/plugin_intranda_step_pdf-extraction.jar
 ```
 
 Die Konfiguration des Plugins wird unter folgendem Pfad erwartet:
 
-```text
+```bash
 /opt/digiverso/goobi/config/plugin_intranda_step_pdf-extraction.xml
 ```
 
 Eine Beispielkonfiguration könnte folgendermaßen aussehen:
 
-```markup
+```xml
+<config>
 
-	<config>
+	<project>*</project>
+	<step>OCR-Extraktion</step>
 
-		<project>*</project>
-		<step>OCR-Extraktion</step>
-
-		<validation>
-			<!-- set to false to skip this step if no PDF files exist in the source folder -->
-			<!-- DEFAULT true -->
-			<failOnMissingPDF>true</failOnMissingPDF>
-		</validation>
-		
-		<!-- if true then all old data from tifFolder, pdfFolder, textFolder and altoFolder will be deleted, and all file references will be removed if current book is not empty -->
+	<validation>
+		<!-- set to false to skip this step if no PDF files exist in the source folder -->
 		<!-- DEFAULT true -->
-		<overwriteExistingData>true</overwriteExistingData>
+		<failOnMissingPDF>true</failOnMissingPDF>
+	</validation>
+	
+	<!-- if true then all old data from tifFolder, pdfFolder, textFolder and altoFolder will be deleted, and all file references will be removed if current book is not empty -->
+	<!-- DEFAULT true -->
+	<overwriteExistingData>true</overwriteExistingData>
 
-		<mets>
-			<!-- DEFAULT true -->
-			<write>false</write>
-			<!-- DEFAULT true -->
-			<failOnError>false</failOnError>
-			<!-- Settings for writing Mets-Structure -->
-			<docType>
-				<!-- If this element exists and is not empty then for each imported pdf 
-				a new StructElement of the given type is created within the top StructElement. -->
-				<parent>Chapter</parent>
-				<!-- If this element exists and is not empty then the table-of-content structure of the pdf is
-				written into the Mets file. Each structure element of the PDF is written as a StructElement of the given type. -->
-				<children>Chapter</children>
-			</docType>
-		</mets>
+	<mets>
+		<!-- DEFAULT true -->
+		<write>false</write>
+		<!-- DEFAULT true -->
+		<failOnError>false</failOnError>
+		<!-- Settings for writing Mets-Structure -->
+		<docType>
+			<!-- If this element exists and is not empty then for each imported pdf 
+			a new StructElement of the given type is created within the top StructElement. -->
+			<parent>Chapter</parent>
+			<!-- If this element exists and is not empty then the table-of-content structure of the pdf is
+			written into the Mets file. Each structure element of the PDF is written as a StructElement of the given type. -->
+			<children>Chapter</children>
+		</docType>
+	</mets>
 
-		<images>
-			<!-- DEFAULT true -->
-			<write>false</write>
-			<!-- DEFAULT true -->
-			<failOnError>true</failOnError>
-			<!-- The resolution with which to scan the PDF file. This has a large impact on both image file size and quality. DEFAULT 300. -->
-			<resolution>300</resolution>
-			<!-- The image format for the image files written. DEFAULT tif. -->
-			<!-- Allowed formats for the generator pdftoppm are png, jpg, jpeg, jpegcmyk, tif, tiff.  -->
-			<format>tif</format>
-			<!-- Select the command line tool which should be used to create the images. Either 'ghostscript' or 'pdftoppm'. -->
-			<generator>pdftoppm</generator>						
-			<!-- A parameter to add to the generator call. Repeatable -->
-			<generatorParameter>-cropbox</generatorParameter>
-			<!-- Hardcoded parameters for ghostscript are: -dUseCropBox, -SDEVICE, -r<res>, -sOutputFile, -dNOPAUSE, -dBATCH.
-			     Useful parameters for configuration are:
-			     ===================================================
-			     -q                         `quiet`, fewer messages
-			     ...................................................
-			     -g<width>x<height>          page size in pixels 
-			     ===================================================
-			-->
-			<!-- Hardcoded parameters for pdftoppm are: -{format}, -r.
-			     Useful parameters for configuration are:
-			     ======================================================================================================
-			     -f <int>                           first page to print
-			     ......................................................................................................
-			     -l <int>                           last page to print
-			     ......................................................................................................
-			     -o                                 print only odd pages
-			     ......................................................................................................
-			     -e                                 print only even pages
-			     ......................................................................................................
-			     -singlefile                        write only the first page and do not add digits
-			     ......................................................................................................
-			     -scale-dimension-before-rotation   for rotated pdf, resize dimensions before the rotation
-			     ......................................................................................................
-			     -rx <fp>                           X resolution, in DPI
-			     ......................................................................................................
-			     -ry <fp>                           Y resolution, in DPI
-			     ......................................................................................................
-			     -scale-to <int>                    scales each page to fit within scale-to*scale-to pixel box
-			     ......................................................................................................
-			     -scale-to-x <int>                  scales each page horizontally to fit in scale-to-x pixels
-			     ......................................................................................................
-			     -scale-to-y <int>                  scales each page vertically to fit in scale-to-y pixels
-			     ......................................................................................................
-			     -x <int>                           x-coordinate of the crop area top left corner
-			     ......................................................................................................
-			     -y <int>                           y-coordinate of the crop area top left corner
-			     ......................................................................................................
-			     -W <int>                           width of crop area in pixels (DEFAULT 0)
-			     ......................................................................................................
-			     -H <int>                           height of crop area in pixels (DEFAULT 0)
-			     ......................................................................................................
-			     -sz <int>                          size of crop square in pixels (sets W and H)
-			     ......................................................................................................
-			     -cropbox                           use the crop box rather than media box
-			     ......................................................................................................
-			     -hide-annotations                  do not show annotations
-			     ......................................................................................................
-			     -mono                              generate a monochrome PBM file
-			     ......................................................................................................
-			     -gray                              generate a grayscale PGM file
-			     ......................................................................................................
-			     -sep <string>                      single character separator between name and page number (DEFAULT -)
-			     ......................................................................................................
-			     -forcenum                          force page number even if there is only one page
-			     ......................................................................................................
-			     -overprint                         enable overprint
-			     ......................................................................................................
-			     -freetype <string>                 enable FreeType font rasterizer: yes, no
-			     ......................................................................................................
-			     -thinlinemode <string>             set thin line mode: none, solid, shape. DEFAULT none.
-			     ......................................................................................................
-			     -aa <string>                       enable font anti-aliasing: yes, no
-			     ......................................................................................................
-			     -aaVector <string>                 enable vector anti-aliasing: yes, no
-			     ......................................................................................................
-			     -opw <string>                      owner password (for encrypted files)
-			     ......................................................................................................
-			     -upw <string>                      user password (for encrypted files)
-			     ......................................................................................................
-			     -q                                 don't print any messages or errors
-			     ......................................................................................................
-			     -progress                          print progress info
-			     ......................................................................................................
-			     -tiffcompression <string>          set TIFF compression: none, packbits, jpeg, lzw, deflate
-			     ======================================================================================================
-			-->
-		</images>
+	<images>
+		<!-- DEFAULT true -->
+		<write>false</write>
+		<!-- DEFAULT true -->
+		<failOnError>true</failOnError>
+		<!-- The resolution with which to scan the PDF file. This has a large impact on both image file size and quality. DEFAULT 300. -->
+		<resolution>300</resolution>
+		<!-- The image format for the image files written. DEFAULT tif. -->
+		<!-- Allowed formats for the generator pdftoppm are png, jpg, jpeg, jpegcmyk, tif, tiff.  -->
+		<format>tif</format>
+		<!-- Select the command line tool which should be used to create the images. Either 'ghostscript' or 'pdftoppm'. -->
+		<generator>pdftoppm</generator>						
+		<!-- A parameter to add to the generator call. Repeatable -->
+		<generatorParameter>-cropbox</generatorParameter>
+		<!-- Hardcoded parameters for ghostscript are: -dUseCropBox, -SDEVICE, -r<res>, -sOutputFile, -dNOPAUSE, -dBATCH.
+				Useful parameters for configuration are:
+				===================================================
+				-q                         `quiet`, fewer messages
+				...................................................
+				-g<width>x<height>          page size in pixels 
+				===================================================
+		-->
+		<!-- Hardcoded parameters for pdftoppm are: -{format}, -r.
+				Useful parameters for configuration are:
+				======================================================================================================
+				-f <int>                           first page to print
+				......................................................................................................
+				-l <int>                           last page to print
+				......................................................................................................
+				-o                                 print only odd pages
+				......................................................................................................
+				-e                                 print only even pages
+				......................................................................................................
+				-singlefile                        write only the first page and do not add digits
+				......................................................................................................
+				-scale-dimension-before-rotation   for rotated pdf, resize dimensions before the rotation
+				......................................................................................................
+				-rx <fp>                           X resolution, in DPI
+				......................................................................................................
+				-ry <fp>                           Y resolution, in DPI
+				......................................................................................................
+				-scale-to <int>                    scales each page to fit within scale-to*scale-to pixel box
+				......................................................................................................
+				-scale-to-x <int>                  scales each page horizontally to fit in scale-to-x pixels
+				......................................................................................................
+				-scale-to-y <int>                  scales each page vertically to fit in scale-to-y pixels
+				......................................................................................................
+				-x <int>                           x-coordinate of the crop area top left corner
+				......................................................................................................
+				-y <int>                           y-coordinate of the crop area top left corner
+				......................................................................................................
+				-W <int>                           width of crop area in pixels (DEFAULT 0)
+				......................................................................................................
+				-H <int>                           height of crop area in pixels (DEFAULT 0)
+				......................................................................................................
+				-sz <int>                          size of crop square in pixels (sets W and H)
+				......................................................................................................
+				-cropbox                           use the crop box rather than media box
+				......................................................................................................
+				-hide-annotations                  do not show annotations
+				......................................................................................................
+				-mono                              generate a monochrome PBM file
+				......................................................................................................
+				-gray                              generate a grayscale PGM file
+				......................................................................................................
+				-sep <string>                      single character separator between name and page number (DEFAULT -)
+				......................................................................................................
+				-forcenum                          force page number even if there is only one page
+				......................................................................................................
+				-overprint                         enable overprint
+				......................................................................................................
+				-freetype <string>                 enable FreeType font rasterizer: yes, no
+				......................................................................................................
+				-thinlinemode <string>             set thin line mode: none, solid, shape. DEFAULT none.
+				......................................................................................................
+				-aa <string>                       enable font anti-aliasing: yes, no
+				......................................................................................................
+				-aaVector <string>                 enable vector anti-aliasing: yes, no
+				......................................................................................................
+				-opw <string>                      owner password (for encrypted files)
+				......................................................................................................
+				-upw <string>                      user password (for encrypted files)
+				......................................................................................................
+				-q                                 don't print any messages or errors
+				......................................................................................................
+				-progress                          print progress info
+				......................................................................................................
+				-tiffcompression <string>          set TIFF compression: none, packbits, jpeg, lzw, deflate
+				======================================================================================================
+		-->
+	</images>
 
-		<plaintext>
-			<!-- DEFAULT true -->
-			<write>true</write>
-			<!-- DEFAULT true -->
-			<failOnError>false</failOnError>
-		</plaintext>
+	<plaintext>
+		<!-- DEFAULT true -->
+		<write>true</write>
+		<!-- DEFAULT true -->
+		<failOnError>false</failOnError>
+	</plaintext>
 
-		<alto>
-			<!-- DEFAULT true -->
-			<write>true</write>
-			<!-- DEFAULT true -->
-			<failOnError>false</failOnError>
-		</alto>
+	<alto>
+		<!-- DEFAULT true -->
+		<write>true</write>
+		<!-- DEFAULT true -->
+		<failOnError>false</failOnError>
+	</alto>
 
-		<pagePdfs>
-			<!-- DEFAULT true -->
-			<write>true</write>
-			<!-- DEFAULT true -->
-			<failOnError>true</failOnError>
-		</pagePdfs>
+	<pagePdfs>
+		<!-- DEFAULT true -->
+		<write>true</write>
+		<!-- DEFAULT true -->
+		<failOnError>true</failOnError>
+	</pagePdfs>
 
-		<properties>
-			<!-- Write this process property after extraction is done. The value depends on whether any ocr files with content have been written. -->
-			<!-- If there exist some properties named so, then the first one will be picked up to accept the value.
-			Otherwise a new process property will be created for this purpose. ONLY 1 fulltext tag is allowed.  -->
-			<fulltext>
-				<!-- process property name. If blank, no property will be written -->
-				<name>OCRDone</name>
-				<!-- property value when there are alto contents or text contents created. DEFAULT TRUE. -->
-				<value exists="true">YES</value>
-				<!-- property value when there are neither contents nor text contents created. DEFAULT FALSE. -->
-				<value exists="false">NO</value>
-			</fulltext>
-		</properties>
+	<properties>
+		<!-- Write this process property after extraction is done. The value depends on whether any ocr files with content have been written. -->
+		<!-- If there exist some properties named so, then the first one will be picked up to accept the value.
+		Otherwise a new process property will be created for this purpose. ONLY 1 fulltext tag is allowed.  -->
+		<fulltext>
+			<!-- process property name. If blank, no property will be written -->
+			<name>OCRDone</name>
+			<!-- property value when there are alto contents or text contents created. DEFAULT TRUE. -->
+			<value exists="true">YES</value>
+			<!-- property value when there are neither contents nor text contents created. DEFAULT FALSE. -->
+			<value exists="false">NO</value>
+		</fulltext>
+	</properties>
 
-	</config>
+</config>
 ```
 
-Der `<mets>`-tag regelt die Generierung der Mets-Dateien, unter dem kann man mehere Sachen konfigurieren. Wie z.B. kann man über `<docType>` regeln, welche Strukturtypen die aus dem PDF-Inhaltsverzeichnis extrahierten Einträge in der METS-Datei erhalten. Das `<parent>`-Element ist dabei das Hauptelement in dem alle anderen Inhaltsverzeichnis-Einträge landen. Wird es weggelassen, werden alle Einträge direkt in das Hauptelement der METS-Datei eingetragen.
+Das Element `<mets>` regelt die Generierung der METS-Dateien und erlaubt verschiedene Konfigurationen. So läßt sich z.B. über `<docType>` steuern, welche Strukturtypen für die aus dem PDF-Inhaltsverzeichnis extrahierten Einträge erzeugt werden sollen. Das `<parent>`-Element ist dabei das Hauptelement in dem alle anderen Inhaltsverzeichniseinträge landen. Wird es weggelassen, werden alle Einträge direkt in das Hauptelement der METS-Datei eingetragen.
 
-Der `<images>`-tag regelt die Auflösung \(in DPI\) und das Ausgabeformat für die extrahierten Bilder.
+Das `<images>`-Element regelt die Auflösung \(in DPI\) und das Ausgabeformat für die extrahierten Bilder.
 
-Die `<plaintext>` `<alto>` und `<pagePdfs>` Tags regeln die Generierungen der Text-Dateien, der Alto-Dateien und der Pdf-Dateien aller einzigen Seiten.
+Die Elemente `<plaintext>`, `<alto>` und `<pagePdfs>` regeln die Generierungen der Text-Dateien, der Alto-Dateien und der Pdf-Dateien aller Einzelseiten.
 
-Mit `<properties>` werden Vorgangseigenschaften je nach Ergebnis der Extraktion geschrieben. Die hier als Beispiel gegebene Konfiguration schreibt die Vorgangseigenschaft `OCRDone` mit Wert `YES`, wenn Volltext im PDF gefunden wurde und mit Wert `NO`, wenn es keinen Volltext in der PDF-Datei gab. Dies ist besonders hilfreich, wenn der Workflow im Nachhinein geändert werden soll, um zum Beispiel einen OCR-Schritt auszulassen, wenn schon Volltext existiert.
-
+Mit `<properties>` werden Vorgangseigenschaften je nach Ergebnis der Extraktion geschrieben. Die hier als Beispiel verwendete Konfiguration schreibt die Vorgangseigenschaft `OCRDone` mit Wert `YES`, wenn Volltext innerhalb der PDF-Datei gefunden wurde und den Wert `NO`, wenn es keinen Volltext in der PDF-Datei gab. Dies ist besonders hilfreich, wenn der Workflow im Nachhinein geändert werden soll, um zum Beispiel einen OCR-Schritt auszulassen, wenn schon Volltext existiert.
 
 
 ## Einstellungen in Goobi
+Nachdem das Plugin installiert wurde, kann es in der Nutzeroberfläche in einem Workflowschritt beispielhaft wie auf diesem Screenshot konfiguriert werden.
 
-Nachdem das Plugin installiert wurde, kann es in der Nutzeroberfläche in einem Workflowschritt konfiguriert werden.
-
-![](../.gitbook/assets/intranda_step_pdf_extraction.png)
+![Einbindung innerhalb eines Arbeitsschrits im Workflow](../.gitbook/assets/intranda_step_pdf_extraction_de.png)
 
 ## Nutzung
-
-Für die Nutzung des Plugins muss zum Ausführungszeitpunkt im Master-Ordner des Vorgangs eine PDF-Datei liegen. Diese wird dann automatisch in Einzelseiten aufgeteilt. Außerdem wird \(falls vorhanden\) der Volltext extrahiert und das Inhaltsverzeichnis der PDF-Datei ausgelesen um dann als Strukturelemente in die METS-Datei eingetragen zu werden.
+Für die Nutzung des Plugins muss zum Ausführungszeitpunkt im Master-Ordner des Vorgangs eine PDF-Datei liegen. Diese wird dann automatisch in Einzelseiten aufgeteilt. Außerdem wird \(falls vorhanden\) der Volltext extrahiert und das Inhaltsverzeichnis der PDF-Datei ausgelesen, um dann als Strukturelemente in die METS-Datei eingetragen zu werden.
 
 Es ist also zu empfehlen, dem Workflowschritt mit diesem Plugin einen anderen Workflowschritt vorzulagern, in dem Dateien in den Master-Ordner geladen werden. Dies kann per Verlinken des Vorgangsordners in den Home-Ordner des Nutzers oder zum Beispiel im File-Upload-Plugin geschehen.
 
