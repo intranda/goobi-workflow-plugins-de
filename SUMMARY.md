@@ -92,7 +92,7 @@
 * [Umbenennung von Dateien vor dem Rosetta-Ingest](step/intranda_step_rename_files_before_rosetta.md)
 * [OCR-Ergebnis in Metadatenfeld übernehmen](step/intranda_step_ocr_to_metadata.md)
 * [Libsafe Ingest mittels BagIt](step/intranda_step_libsafe.md)
-
+* [ALMA und REST-API-Kommunikation](step/intranda_step_alma_api.md)
 
 ## Opac Plugins <a id="opac"></a>
 * [PICA Import](opac/intranda_opac_pica.md)
