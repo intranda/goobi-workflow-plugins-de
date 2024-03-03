@@ -16,8 +16,7 @@ Mithilfe dieses Export-Plugins für Goobi können die Goobi-Vorgänge innerhalb 
 | Identifier | intranda_export_configurable |
 | Source code | [https://github.com/intranda/goobi-plugin-export-configurable](https://github.com/intranda/goobi-plugin-export-configurable) |
 | Lizenz | GPL 2.0 oder neuer |
-| Kompatibilität | Goobi workflow 2022.03 und neuer |
-| Dokumentationsdatum | 12.05.2022 |
+| Dokumentationsdatum | 28.02.2023 |
 
 ## Installation
 
@@ -43,50 +42,117 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <config_plugin>
-	<!--
-        order of configuration is:
-          1.) project name matches
-          2.) project is *
-	-->
+	<!-- order of configuration is: 
+	1.) project name matches 
+	2.) project is * -->
 	<config>
-		<project>testocr</project>
-    <includeMarcXml>false</includeMarcXml>
-		<folder>
-			<includeMedia>true</includeMedia>
-			<includeMaster>true</includeMaster>
-			<includeSource>false</includeSource>
-			<includeImport>false</includeImport>
-			<includeExort>false</includeExort>
-			<includeITM>false</includeITM>
-			<includeOcr>true</includeOcr>
-      <includeValidation>false</includeValidation>
-			<ocr>
-				<suffix>alto</suffix>
+		<project>Manuscript_Project</project>
+		<!-- List of folders that are included in the export. Each option can be included with the element attribute. -->
+		<includeFolders>
+			<!-- By default, all images in media will be exported to a _media folder, in master to a _master, etc. -->
+			<media enabled="true" />
+			<master enabled="true" />
+			<source enabled="false" />
+			<import enabled="false" />
+			<export enabled="false" />
+			<itm enabled="false" />
+			<!-- By default all ocr folders are exported. If the optional and repeatable sub-element 'sourceFolderSuffix' is specified, only the folders 
+			with the explicitly configured suffix will be copied. -->
+			<ocr enabled="true">
+				<!-- Export ocr folders whose names end with 'txt' or 'alto'. -->
+				<sourceFolderSuffix>txt</sourceFolderSuffix>
+				<sourceFolderSuffix>alto</sourceFolderSuffix>
 			</ocr>
-		</folder>
+			<validation enabled="false" />
+		</includeFolders>
 	</config>
-
-
+	
+	<config>
+		<project>Archive_Project</project>
+		<!-- For all folders except 'ocr' configured inside the element 'includeFolders', one can use a sub-element 'destinationFolder' to configure whether a default export
+		or a configured export should be used. For 'ocr' folders this does not apply, since 'ocr' folder may contain folders in itself, which makes this configuration nonsense. -->
+		<includeFolders>
+			<!-- If any sub-element 'destinationFolder' is configured, then the default export will be replaced with a configured export. -->
+			<!-- The sub-element 'destinationFolder' is optional and repeatable. -->
+			<!-- For any configured sub-element 'destinationFolder', the attribute '@name' is MANDATORY, while the attribute '@exportFileRegex' is optional. -->
+			<media enabled="true">
+				<!-- If the sub-element 'destinationFolder' has no '@exportFileRegex' attribute, then an empty folder with the configured '@name' will be created if it does not exist yet. -->
+				<destinationFolder name="Images" />
+				<!--
+				<destinationFolder name="Survey Forms" exportFileRegex=".*Survey Form.*" />
+				<destinationFolder name="Images/PLINExterior" exportFileRegex=".*Exterior.*" />
+				-->
+			</media>
+			<master enabled="true" >
+				<!-- If the sub-element 'destinationFolder' has both attributes configured, then a folder with the configured '@name' will be created if it does not exist yet,
+				and all files whose names match the configured regular expression will be copied into that new folder. -->
+				<destinationFolder name="Files_ending_with_1/files" exportFileRegex=".*1\..*" />
+				<!-- ATTENTION: the regular expression configured here should be of JAVA style. -->
+				<destinationFolder name="Files containing 7" exportFileRegex=".*7.*" />
+			</master>
+			<source enabled="false" />
+			<import enabled="false" />
+			<export enabled="false" />
+			<itm enabled="false" />
+			<!-- By default all ocr folders are exported. If the optional and repeatable sub-element 'sourceFolderSuffix' is specified, only the folders 
+			with the explicitly configured suffix will be copied. -->
+			<ocr enabled="false">
+				<!--
+				<sourceFolderSuffix>txt</sourceFolderSuffix>
+				<sourceFolderSuffix>alto</sourceFolderSuffix>
+				-->
+			</ocr>
+			<validation enabled="false" />
+			<!-- To make a generic folder configuration work, one also has to configure the goobi_config.properties. -->
+			<!-- The element 'genericFolder' is optional and repeatable. -->
+			<!-- ATTENTION: all folders configured inside 'genericFolder' will be exported, and there is no '@enabled' attribute to configure that. Make sure that all folders are
+			also correctly configured in the goobi_config.properties, otherwise it would be problematic. -->
+			<genericFolder>
+				<!-- In order to use 'some_folder' to configure a generic folder, say 'some_image_folder', one has to configure the goobi_config.properties in the following way: -->
+				<!-- process.folder.images.some_folder=some_image_folder -->
+				<!-- The path to this 'some_image_folder' should be '{imagepath}/some_image_folder', e.g. /opt/digiverso/goobi/metadata/27/images/some_image_folder -->
+				some_folder
+				<!-- No attribute '@exportFileRegex' configured, create an empty folder with '@name' if it does not exist yet. -->
+				<destinationFolder name="empty_folder" />
+				<destinationFolder name="first" exportFileRegex="^1.*" />
+				<destinationFolder name="second" exportFileRegex="^2.*" />
+				<destinationFolder name="txt" exportFileRegex=".*\.txt" />
+			</genericFolder>
+			<genericFolder>
+				anotherFolder
+				<destinationFolder name="third" exportFileRegex="3.*" />
+			</genericFolder>
+		</includeFolders>
+	</config>
+	
 	<config>
 		<project>*</project>
-		<target key="{meta.ViewerInstance}" value="evifaanddigihub" projectName="evifExportProject"/>
-		<target key="{meta.ViewerInstance}" value="evifaanddigihub" projectName="digihubExportProject"/>
-		<target key="{meta.ViewerInstance}" value="" projectName=""/>
-    <includeMarcXml>false</includeMarcXml>
-		<folder>
-      <!-- as configured in goobi_config.properties -->
-      <!--genericFolder>thumbs</genericFolder-->
-			<includeMedia>true</includeMedia>
-			<includeMaster>true</includeMaster>
-			<includeOcr>false</includeOcr>
-			<includeSource>false</includeSource>
-			<includeImport>false</includeImport>
-			<includeExort>false</includeExort>
-			<includeITM>false</includeITM>
-			<includeValidation>false</includeValidation>
-		</folder>
+		<!-- An export is triggered for each 'target' condition that applies. If no 'target' condition is set, then a normal export will be performed. -->
+		<!-- The 'target' element is optional, but if configured, then all three attributes are MANDATORY: -->
+		<!-- 1. The '@key' attribute accepts a Goobi variable of the form '{meta.metadata name}'. -->
+		<!-- 2. The '@value' attribute will be used to specify the desired value of '@key'. If set "", then the condition will be met if the metadata is empty or not set. -->
+		<!-- 3. The '@projectName' attribute should contain the name of the export project with whose settings the export is to take place. If set "", then the settings
+		of the project of the operation will be used for export. -->
+		<target key="{meta.ViewerInstance}" value="eivfaanddigihub" projectName="eivfExportProject" />
+		<target key="{meta.ViewerInstance}" value="eivfaanddigihub" projectName="gihubExportProject" />
+		<target key="{meta.ViewerInstance}" value="" projectName="" />
+		<!-- Whether any existing MARC-XML data should be embedded in the exported metafile. If not configured, then the default value false will be used. -->
+		<includeMarcXml>false</includeMarcXml>
+		<!-- List of folders that are included in the export. Each option can be included with the element attribute. -->
+		<includeFolders>
+			<media enabled="false" />
+			<master enabled="false" />
+			<source enabled="false" />
+			<import enabled="false" />
+			<export enabled="false" />
+			<itm enabled="false" />
+			<!-- Use default settings to export all ocr folders. -->
+			<ocr enabled="true" />
+			<validation enabled="false" />
+		</includeFolders>
 	</config>
 </config_plugin>
+
 
 ```
 
@@ -100,21 +166,23 @@ Der Block `<config>` ist wiederholbar und kann so in unterschiedlichen Projekten
 
 ### Der folder-Block
 
-Der `folder` Block befindet sich innerhalb von jedem `config`-Element. Er steuert, welche Verzeichnisse für den Export berücksichtigt werden sollen.
+Der `includeFolders` Block befindet sich innerhalb von jedem `config`-Element. Er steuert, welche Verzeichnisse für den Export berücksichtigt werden sollen.
 
 | Parameter | Erläuterung |
 | :--- | :--- |
-| `includeMedia` | Hier kann definiert werden, ob der media-Ordner exportiert werden soll.|
-| `includeMaster` | Hier kann definiert werden, ob der master-Ordner exportiert werden soll. |
-| `includeOcr` | Hier kann definiert werden, ob der ocr-Ordner exportiert werden soll. |
-| `includeSource` | Hier kann definiert werden, ob der source-Ordner exportiert werden soll. |
-| `includeImport` | Hier kann definiert werden, ob der import-Ordner exportiert werden soll. |
-| `includeExort` | Hier kann definiert werden, ob der export-Ordner exportiert werden soll. |
-| `includeITM` | Hier kann definiert werden, ob der TaskManager-Ordner exportiert werden soll. |
-| `includeValidation` | Hier kann definiert werden, ob der validation-Ordner exportiert werden soll. |
-| `ocr` | Das `ocr` Element wird benötigt, wenn man OCR-Ordner mit verschiedenen Suffixen verwendet. Das konkrete Suffix kann dann im Unterelement `suffix` angegeben werden. |
+| `media` | Hier kann definiert werden, ob und wie der media-Ordner exportiert werden soll.|
+| `master` | Hier kann definiert werden, ob und wie der master-Ordner exportiert werden soll. |
+| `ocr` | Hier kann definiert werden, ob und wie der ocr-Ordner exportiert werden soll. |
+| `source` | Hier kann definiert werden, ob und wie der source-Ordner exportiert werden soll. |
+| `import` | Hier kann definiert werden, ob und wie der import-Ordner exportiert werden soll. |
+| `export` | Hier kann definiert werden, ob und wie der export-Ordner exportiert werden soll. |
+| `itm` | Hier kann definiert werden, ob und wie der TaskManager-Ordner exportiert werden soll. |
+| `validation` | Hier kann definiert werden, ob und wie der validation-Ordner exportiert werden soll. |
+| `genericFolder` | Hier kann ein Ordner frei definiert werden, der exportiert werden soll. |
+| `sourceFolderSuffix` | Dieses Unterelement vom `ocr` Element wird benötigt, wenn man OCR-Ordner mit verschiedenen Suffixen verwendet. Es wird das konkrete Suffix zum Export angeben. |
+| `destinationFolder` | Das ist ein Unterelement von allen Ordner-Elementen ausschließlich dem `ocr`-Element. Mithilfe seiner zwei Attribute `name` und `exportFileRegex` kann definiert werden, welche Dateien in welche Verzeichnisse exportiert werden sollen. | 
 
-Der Defaultwert für jeden dieser Parameter außer `ocr` ist `false`. Wird der jeweilige Parameter nicht in der Konfiguration erwähnt, findet kein Export des entsprechenden Ordners statt.
+Wird das jeweilige Attribut `enabled` als `false` konfiguriert wird, findet kein Export des entsprechenden Ordners statt.
 
 Die Konfiguration des Zielordners kann innerhalb der Projekteinstellungen in der Nutzeroberfläche von Goobi workflow vorgenommen werden. Wenn dort die Checkbox für `Erzeuge Vorgangsverzeichnis` gesetzt ist, wird der Vorgang in einen Unterordner mit seinem Titel als Namen im Zielverzeichnis abgelegt.
 
