@@ -1,41 +1,35 @@
 ---
 description: >-
-  Dies ist eine technische Dokumentation für das Import Plugin für die Reichskrone. Es ermöglicht den Import einer hierarchisch organisierten Exceldatei.
+  Dies ist eine technische Dokumentation für das Import Plugin von Archiv-Daten aus einer hierarchisch organisierten Exceldatei.
 ---
 
-# Reichskrone Import
+# Archiv-Daten-Import
 
 ## Einführung
+Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den Einsatz des Importplugins für Archiv-Daten aus einer hierarchisch organisierten Exceldatei.
 
-Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den Einsatz des Importplugins für die Reichskrone in Goobi.
-
-Mithilfe dieses Plugins kann eine Exceldatei importiert werden. Die einzelnen Zeilen werden zu Goobi-Vorgängen konvertiert, es können Bilder importiert werden und es wird eine hierarchische EAD-Tektonik erstellt.
+Mithilfe dieses Plugins können Daten aus einer Exceldatei importiert werden. Dabei werden die einzelnen Zeilen zu Goobi-Vorgängen konvertiert und es können Bilder automatisch mit importiert werden. Darüber hinaus wird ebenfalls eine hierarchische EAD-Tektonik erstellt.
 
 | Details |  |
 | :--- | :--- |
 | Identifier | intranda_import_crown |
 | Source code | [https://gitea.intranda.com/goobi-workflow/goobi-plugin-import-crown](https://gitea.intranda.com/goobi-workflow/goobi-plugin-import-crown) |
 | Lizenz | GPL 2.0 oder neuer |
-| Kompatibilität | Goobi workflow 23.05 und neuer |
-| Dokumentationsdatum | 21.08.2023 |
+| Dokumentationsdatum | 02.04.2024 |
 
 ## Installation
-
 Um das Plugin nutzen zu können, müssen folgende Dateien installiert werden:
 
-```text
+```bash
 /opt/digiverso/goobi/plugins/import/plugin_intranda_import_crown.jar
 /opt/digiverso/goobi/config/plugin_intranda_import_crown.xml
 ```
 
-
-Außerdem muss die XML-Datenbank BaseX im Hintergrund laufen und eingerichtet sein. Die Installation wird [hier](https://docs.goobi.io/goobi-workflow-plugins-de/administration/intranda_administration_archive_management/installation_for_productive_use) beschrieben.
-
+Außerdem muss die XML-Datenbank `BaseX` im Hintergrund laufen und korrekt eingerichtet sein. Die Installation wird [hier](https://docs.goobi.io/goobi-workflow-plugins-de/administration/intranda_administration_archive_management/installation_for_productive_use) detailliert beschrieben.
 
 
 ## Überblick und Funktionsweise
-
-Die zu importierende Exceldatei muss folgende Struktur beinhalten:
+Die zu importierende Exceldatei muss beispielhaft eine folgende Struktur beinhalten:
 
 |  |  |          |                       |                                |          |     |                                                  |
 |:---|:---|:---|:---|:---|:---|:---|:---|
@@ -68,28 +62,24 @@ Die zu importierende Exceldatei muss folgende Struktur beinhalten:
 |      |             |          |                       | **CR_1_A_RoeG_2**                  | <font color="grey">Röhrchen mit Kugelpyramide</font>                             |   |   |
 
 
-
-Die Datei wird zeilenweise eingelesen und analysiert. Dabei wird zuerst geprüft, wie weit die aktuelle Zeile eingerückt wurde. Ist keine Einrückung vorhanden, liegt das root-Element der Tektonik vor. Ansonsten handelt es sich um Unterelemente. Das übergeordnete Element einer jeden Zeile ist dabei jeweils das letzte Element mit einer geringeren Einrückung.
+Diese Excel-Datei wird während des Imports zeilenweise eingelesen und analysiert. Dabei wird zuerst geprüft, wie tief die aktuelle Zeile eingerückt wurde. Ist keine Einrückung vorhanden, liegt das root-Element der Tektonik vor. Ansonsten handelt es sich um Unterelemente. Das übergeordnete Element einer jeden Zeile ist dabei jeweils das letzte Element mit einer geringeren Einrückung.
 
 Als nächstes wird der Inhalt der Zellen gelesen. Dabei werden sowohl die hierarchisch eingerückten Zellen als auch eventuell vorhandene fest definierte Spalten beachtet.
 
 Welcher Inhalt zu welchem EAD- oder Metadatenfeld importiert wird, wird in der dazugehörigen Konfigurationsdatei festgelegt.
 
-Wenn die erste Information **fett** ist, dann wird für diese Zeile auch ein Vorgang erstellt und nach Bildern gesucht.
-
-Die Bilder werden innerhalb eines konfigurierten Ordners in Unterordnern erwartet, die nach der Inventarnummer benannt sind. Diese können entweder flach in einer Ordnerliste organisiert sein oder der gleichen hierarchischen Struktur folgen wie die Tektonik.
+Wenn die erste Information innerhalb der Excel-Datei **fett** formatiert ist, wird für diese Zeile auch ein Vorgang erstellt und nach zugehörigen Bildern gesucht. Diese Bilder werden innerhalb eines konfigurierten Ordners in Unterordnern erwartet, die nach der Inventarnummer benannt sind. Diese können entweder flach in einer Ordnerliste organisiert sein oder der gleichen hierarchischen Struktur folgen wie die Tektonik.
 
 Wird ein Ordner gefunden, werden alle darin enthaltenen Dateien aufgelistet und nach folgenden Regeln geprüft:
 
-1. ignoriere alle Daten, die kein tif, jpg oder wmv sind
-2. ignoriere alle Dateien, die das Wort "komprimiert" enthalten
-3. wenn eine Datei ohne den suffix "_bearbeitet" gefunden wurde, prüfe, ob es eine Datei mit dem gleichen Namen und dem suffix "_bearbeitet" gibt. Falls ja, ignoriere die aktuelle Datei un nutze die Version mit "_bearbeitet"
-4. wenn eine jpg Datei gefunden wurde, prüfe, ob es ein tif mit dem gleichen Namen gibt, falls ja, ignoriere die jpg Datei und nutze das tif
+1. ignoriere alle Daten, die kein `tif`, `jpg` oder ´wmv` sind
+2. ignoriere alle Dateien, die das Wort `komprimiert`´` enthalten
+3. wenn eine Datei ohne den suffix `_bearbeitet` gefunden wurde, prüfe, ob es eine Datei mit dem gleichen Namen und dem suffix `_bearbeitet` gibt. Falls ja, ignoriere die aktuelle Datei un nutze die Version mit `_bearbeitet`
+4. wenn eine `jpg`-Datei gefunden wurde, prüfe, ob es ein `tif` mit dem gleichen Namen gibt, falls ja, ignoriere die `jpg`-Datei und nutze das `tif`
 
 
 ## Konfiguration
-
-Die Konfiguration erfolgt in der Datei plugin_intranda_import_crown.xml:
+Die Konfiguration erfolgt in der Datei `plugin_intranda_import_crown.xml`:
 
 ```xml
 <config_plugin>
@@ -152,7 +142,7 @@ Die Konfiguration erfolgt in der Datei plugin_intranda_import_crown.xml:
 </config_plugin>
 ```
 
-Im Feld `<template>` wird definiert, für welche Produktionsvorlage die vorliegende Konfiguration angewendet werden soll, da das `<config>` wiederholbar ist, sind unterschiedliche Konfigurationen für verschiedene Produktionsvorlagen möglich. So kann es zum Beispiel für die Reichskrone eine andere Konfiguration geben als für den Reichsapfel.
+Im Feld `<template>` wird definiert, für welche Produktionsvorlage die vorliegende Konfiguration angewendet werden soll. Da das `<config>`-Element wiederholbar ist, sind unterschiedliche Konfigurationen für verschiedene Produktionsvorlagen möglich. So kann es zum Beispiel für die Reichskrone eine andere Konfiguration geben als für den Reichsapfel.
 
 Das Feld `<runAsGoobiScript>` steuert, ob der Import direkt in der Nutzersession oder im Hintergrund als GoobiScript ausgeführt wird. Bei größeren Exceldateien empfielt sich die Nutzung von GoobiScript.
 
@@ -160,18 +150,19 @@ Das Feld `<runAsGoobiScript>` steuert, ob der Import direkt in der Nutzersession
 
 Der Bereich `<basex>` legt fest, wo die EAD-Tektonik gespeichert wird. Das Unterelement `<database>` enthält den Namen der BaseX-Datenbank, diese muss bereits existieren. In `<filename>` wird der Name der EAD-Datei festgelegt. Wenn dieser Name bereits verwendet wird, werden vorhandene Daten überschrieben.
 
-Der root-Ordner der Bilder wird im `<images>` Element festgelegt und `<metadata>` enthält die zu verwendenden Metadaten. Mittels `<doctype>` wird der Strukturtyp definiert und die Felder `<title>`, `<identifier>` und `<description>` enthalten die Namen der Metadaten für Titel, Inventarnummer und Beschreibungstext.
+Der root-Ordner der Bilder wird im `<images>` Element festgelegt. `<metadata>` enthält die zu verwendenden Metadaten. Mittels `<doctype>` wird der Strukturtyp definiert und die Felder `<title>`, `<identifier>` und `<description>` enthalten die Namen der Metadaten für Titel, Inventarnummer und Beschreibungstext.
 
-Das Mapping der Metadaten passiert innerhalb des `<metadata>` Blocks. Hier wird in `<doctype>` festgelegt, welcher Publikationstyp für die einzelnen METS Dateien verwendet werden soll.
+Das Mapping der Metadaten passiert innerhalb des `<metadata>` Blocks. Hier wird in `<doctype>` festgelegt, welcher Publikationstyp für die einzelnen METS-Dateien verwendet werden soll.
 
 Anschließend kann der zu verwendende Knotentyp definiert werden, falls dieser als Excelspalte vorhanden ist. Dies passiert in `<nodetype>`. Wenn dies nicht der Fall ist, kann das Feld leer gelassen werden. Dann wird für alle Knoten, für die ein Vorgang erstellt wurde, `file` genutzt, alle anderen Knoten bekommen den Typ `folder`. 
 
 In `<title>` wird die Generierung der Vorgangstitel konfiguiert. Hier gelten die selben Regeln wie in der normalen Anlegemaske. Zusätzlich stehen die beiden Schlüsselworte `first` und `second` zur Verfügung, um auf den Inhalt der beiden hierarchischen Felder zugreifen zu können.
 
-Anschließend erfolgt die Konfiguration des Metadatenmappings zu EAD und METS/MODS. In `<firstField>` wird das erste hierarchische Feld definiert, `<secondField>` enthält optional den Inhalt des zweiten Feldes. Wenn nur mit einem Feld gearbeitet wird, kann es mittels `enabled="false"` deaktiviert werden. Zusätzliche, fest definierte Spalten lassen sich mittels `<additionalField>` konfigurieren. Hier muss im Attribut `column` angegeben werden, wie die Überschrift der Spalte lautet. Die anderen Konfigurationsoptionen sind identisch zu den anderen beiden. Das Feld `metadataField` definiert das zu verwendende Metadatum innerhalb der METS/MODS Datei, in `eadField` wird das entsprechend Feld im EAD Knoten definiert und `level` gibt an, in welchem Bereich sich das Metadatum befindet. 
+Anschließend erfolgt die Konfiguration des Metadatenmappings zu EAD und METS/MODS. In `<firstField>` wird das erste hierarchische Feld definiert, `<secondField>` enthält optional den Inhalt des zweiten Feldes. Wenn nur mit einem Feld gearbeitet wird, kann es mittels `enabled="false"` deaktiviert werden. Zusätzliche, fest definierte Spalten lassen sich mittels `<additionalField>` konfigurieren. Hier muss im Attribut `column` angegeben werden, wie die Überschrift der Spalte lautet. Die anderen Konfigurationsoptionen sind identisch zu den anderen beiden. Das Feld `metadataField` definiert das zu verwendende Metadatum innerhalb der METS/MODS Datei. In `eadField` wird das entsprechende Feld im EAD-Knoten definiert und `level` gibt an, in welchem Bereich sich das Metadatum befindet. 
 
-Zusätzlich muss ein Feld als `identifier="true"` markiert werden. Der Inhalt dieses Feldes muss für jede Zeile innerhalb des Dokuments eindeutig sein und wird für die `id` der EAD Knoten und das Metadatum `NodeId` verwendet. Es dient zur Verknüpfung zwischen EAD Knoten und Goobi-Vorgang.
+Zusätzlich muss ein Feld als `identifier="true"` markiert werden. Der Inhalt dieses Feldes muss für jede Zeile innerhalb des Dokuments eindeutig sein und wird für die `id` der EAD-Knoten und das Metadatum `NodeId` verwendet. Es dient zur Verknüpfung zwischen EAD-Knoten und Goobi-Vorgang.
 
 ## Nutzung in Goobi
+Um den Import zu nutzen, muss in den Produktionsvorlagen der Massenimportbereich geöffnet werden und im Reiter Dateiupload-Import das Plugin `intranda_import_crown` ausgewählt werden. Anschließend kann eine Excel-Datei hochgeladen und importiert werden.
 
-Um den Import zu nutzen, muss in den Produktionsvorlagen der Massenimportbereich geöffnet werden und im Reiter Dateiupload-Import das Plugin intranda_import_crown ausgewählt werden. Anschließend kann eine Excel-Datei hochgeladen und importiert werden.
+[Auswahl des Plugins zur Durchführung des Imports](../.gitbook/assets/intranda_import_crown_de.png)

@@ -1,20 +1,18 @@
 ---
 description: >-
-  Dieses Step Plugin für Goobi workflow erlaubt die direkte Bearbeitung von Metadaten aus einer geöffneten Aufgabe heraus. Dabei lassen sich pro Bild Verknüpfungen zu anderen Vorgängen erstellen.
+  Dieses Step-Plugin für Goobi workflow erlaubt die direkte Bearbeitung von Metadaten aus einer geöffneten Aufgabe heraus. Dabei lassen sich pro Bild Verknüpfungen zu anderen Vorgängen erstellen.
 ---
 
-# Metadaten bearbeiten
+# Metadaten pro Bild erfassen
 
 ## Einführung
-
-Dieses Plugin erlaubt die Bearbeitung von konfigurierbaren Metadaten innerhalb der Nutzeroberfläche eine geöffneten Aufgabe, ohne dass dafür der METS-Editor betreten werden muss. Dabei lassen sich für jede Audio-, Video- oder  Bilddatei eigene Metadaten erstellen.
+Dieses Plugin erlaubt die Bearbeitung von konfigurierbaren Metadaten innerhalb der Nutzeroberfläche eine geöffneten Aufgabe, ohne dass dafür der Metadaten-Editor betreten werden muss. Dabei lassen sich für jede Audio-, Video- oder  Bilddatei eigene Metadaten erstellen.
 
 | Details |  |
 | :--- | :--- |
 | Identifier | intranda\_step\_metadata\_per\_image |
 | Source code | [https://gitea.intranda.com/goobi-workflow/goobi-plugin-step-metadata-per-image](https://gitea.intranda.com/goobi-workflow/goobi-plugin-step-metadata-per-image) |
 | Lizenz | GPL 2.0 oder neuer |
-| Kompatibilität | Goobi workflow 24.01 und neuer |
 | Dokumentationsdatum | 26.02.2024 |
 
 ## Installation
@@ -96,7 +94,7 @@ Die Konfiguration des Plugins ist folgendermaßen aufgebaut:
 
 Der Block `<config>` kann für verschiedene Projekte oder Arbeitsschritte wiederholt vorkommen, um innerhalb verschiedener Workflows unterschiedliche Aktionen durchführen zu können. Durch die Angaben in den Feldern `<project>` und `<step>` wird gesteuert, für welche Aufgabe ein Bereich gültig ist. Die Felder sind wiederholbar und die Nutzung des Platzhalters `*` ist möglich.
 
-Anschließend erfolgt die Definition der Eingabefelder. Jedes dieser `<field>` Elemente besteht aus einer Reihe von Pflichtangaben. Das Attribut `label` enthält den anzuzeigenden Namen. Mehrsprachigkeit wird unerstützt, statt dem Label kann hier auch ein message-key eingetragen werden. `helpText` enthält einen Hilfetext, der optional eingeblendet werden kann. Auch hier kann ein message-key genutzt werden.
+Anschließend erfolgt die Definition der Eingabefelder. Jedes dieser `<field>` Elemente besteht aus einer Reihe von Pflichtangaben. Das Attribut `label` enthält den anzuzeigenden Namen. Mehrsprachigkeit wird unterstützt. Statt des Labels kann hier auch ein message-key eingetragen werden. `helpText` enthält einen Hilfetext, der optional eingeblendet werden kann. Auch hier kann ein message-key genutzt werden.
 
 In `metadataField` steht das Metadatum, aus dem vorhandene Werte ausgelesen bzw in das neue Werte gespeichert werden sollen, in `defaultValue` kann ein Default definiert werden, der genutzt wird, wenn das Feld leer ist. Optional kann in `validation` ein regulärer Ausdruck eingetragen werden. Wenn das Feld nicht leer ist, wird geprüft, ob der eingetragene Wert dem Ausdruck entspricht. In dem Fall kann in `validationErrorMessage` eine Fehlermeldung definiert werden.
 
@@ -105,7 +103,6 @@ Mittels `repeatable="true/false"` wird gesteuert, ob ein Feld wiederholbar ist, 
 Der Feldtyp wird im Attribut `displayType` definiert. Es stehen folgende Typen zur Verfügung:
 
 ### Einzeliges Eingabefeld
-
 ```xml
         <field
             label="language"
@@ -119,7 +116,6 @@ Der Feldtyp wird im Attribut `displayType` definiert. Es stehen folgende Typen z
 ```
 
 ### Mehrzeiliges Eingabefeld
-
 ```xml
         <field 
             label="Beschreibung"
@@ -134,7 +130,6 @@ Der Feldtyp wird im Attribut `displayType` definiert. Es stehen folgende Typen z
 ```
 
 ### Auswahlliste
-
 Hier gibt es zwei Optionen zur Konfiguration der möglichen Werte. Zum einen lässt sich ein Vokabular angeben, dass bereits in Goobi erstellt wurde:
 
 ```xml
@@ -152,7 +147,6 @@ Hier gibt es zwei Optionen zur Konfiguration der möglichen Werte. Zum einen lä
 ```
 
 Oder die Liste der Werte wird in der Konfigurationsdatei angegeben:
-
 ```xml
         <field
             label="Art der Datei/Aufnahmesituation"
@@ -170,7 +164,6 @@ Oder die Liste der Werte wird in der Konfigurationsdatei angegeben:
 ```
 
 ### Mehrfachauswahl 
-
 Auch hier stehen zwei Optionen zur Konfiguration der möglichen Werte zur Verfügung, die Nutzung eines Vokabulares oder Angabe der Werte in der Konfigurationsdatei:
 
 ```xml
@@ -201,7 +194,7 @@ Auch hier stehen zwei Optionen zur Konfiguration der möglichen Werte zur Verfü
         </field>
 ```
 
-Dieses Feld definiert eine Auswahlliste mit den gewünschten Werten. Wenn ein Wert ausgewählt wurde, wird er aus der Auswahlliste entfernt und als badge unterhalb des Feldes angezeigt. Klickt man auf den Badge, wird er entfernt und der Wert steht in der Auswahlliste wieder zur Verfügung. 
+Dieses Feld definiert eine Auswahlliste mit den gewünschten Werten. Wenn ein Wert ausgewählt wurde, wird er aus der Auswahlliste entfernt und als Badge unterhalb des Feldes angezeigt. Klickt man auf den Badge, wird er entfernt und der Wert steht in der Auswahlliste wieder zur Verfügung. 
 
 
 ### GND Suche 
@@ -217,11 +210,10 @@ Dieses Feld definiert eine Auswahlliste mit den gewünschten Werten. Wenn ein We
             readonly="false" />
 ```
 
-Dieses Feld definiert ein GND-Suchfeld. Damit ist es nicht möglich, den Wert von Hand zu editieren. Stattdessen gibt es die Opption in der GND zu suchen und dort einen Wert auszuwählen, der dann importiert wird. 
+Dieses Feld definiert ein GND-Suchfeld. Damit ist es nicht möglich, den Wert von Hand zu editieren. Stattdessen gibt es die Option in der GND zu suchen und dort einen Wert auszuwählen, der dann importiert wird. 
 
 
 ### Geonames Suche 
-
 ```xml
         <field
             label="Place"
@@ -233,11 +225,9 @@ Dieses Feld definiert ein GND-Suchfeld. Damit ist es nicht möglich, den Wert vo
             readonly="false" />
 ```
 
-
-Dieses Feld definiert ein Geonames-Suchfeld. Damit ist es nicht möglich, den Wert von Hand zu editieren. Stattdessen gibt es die Opption in der Geonames zu suchen und dort einen Wert auszuwählen, der dann importiert wird.
+Dieses Feld definiert ein Geonames-Suchfeld. Damit ist es nicht möglich, den Wert von Hand zu editieren. Stattdessen gibt es die Option in Geonames zu suchen und dort einen Wert auszuwählen, der dann importiert wird.
 
 ### VIAF Suche 
-
 ```xml
         <field
             label="Schlagwort"
@@ -248,9 +238,7 @@ Dieses Feld definiert ein Geonames-Suchfeld. Damit ist es nicht möglich, den We
             required="false"
             readonly="false" />
 ```
-Dieses Feld definiert ein VIAF-Suchfeld. Damit ist es nicht möglich, den Wert von Hand zu editieren. Stattdessen gibt es die Opption in der VIAF zu suchen und dort einen Wert auszuwählen, der dann importiert wird.
-
-
+Dieses Feld definiert ein VIAF-Suchfeld. Damit ist es nicht möglich, den Wert von Hand zu editieren. Stattdessen gibt es die Option in VIAF zu suchen und dort einen Wert auszuwählen, der dann importiert wird.
 
 Im Anschluß an die Felddefinition wird konfiguriert, wie Verweise auf andere Vorgänge gespeichert werden:
 
@@ -284,16 +272,20 @@ Als letztes wird noch konfiguriert, wie die Suche nach Verweisen funktioniert:
 Dazu wird in <searchfield> festgelegt, in welchen Metadatenfeldern nach den gewünschten Werten gesucht werden soll und in <display> wird definiert, welche Metadatenfelder in der Trefferliste angezeigt werden sollen.
 
 ## Integration des Plugins in den Workflow
-
 Zur Inbetriebnahme des Plugins muss dieses für einen oder mehrere gewünschte Aufgaben im Workflow aktiviert werden. Dies erfolgt durch Auswahl des Plugins `intranda_step_metadata_per_image` aus der Liste der installierten Plugins.
 
-## Arbeitsweise und Bedienung des Plugins
+[Einrichtung des Plugins im Workflow](../.gitbook/assets/intranda_metadata_per_image1_de.png)
 
+## Arbeitsweise und Bedienung des Plugins
 Wenn das Plugin betreten wird, werden für alle Dateien eigene Strukturelemente erstellt. Die Strukturelemente werden aufgelistet. Links sind die Metadatenfelder zu sehen, rechts das Bild bzw. die Video- oder Audiodatei. Durch einen Klick auf das Bild lässt es sich im Vollbildmodus öffnen.
 Die einzelnen Strukturelemente lassen sich umsortieren, um so die Dateien in die gewünschte Reihenfolge zu bringen.
+
+[Nutzeroberfläche des Plugins](../.gitbook/assets/intranda_metadata_per_image2_de.png)
 
 Für jedes Strukturelement werden die konfigurierten Metadaten angezeigt. Je nach Konfiguration gibt es im linken Bereich Optionen, um ein einzelnes Feld zu duplizieren, zu löschen oder einen Wert in allen Strukturelementen gleichzeitig hinzuzufügen.
 
 Eine Besonderheit stellen die Verweise dar. Hiermit ist es möglich, eine Verknüpfung zwischen dem aktuellen Strukturelement und einem anderen Vorgang zu erstellen. Dabei wird ein Popup geöffnet, in dem nach anderen Vorgängen gesucht werden kann. Anschließend kann aus der Trefferliste der gewünschte Vorgang ausgewählt weren. Im Strukturelement wird dann eine Verknüpfung auf den ausgewählten Vorgang erstellt und im anderen Vorgang wird eine Verknüpfung auf das aktuelle Strukturelement erzeugt. 
 
 Wenn ein Verweis wieder entfernt wird, dann wird er auch aus dem ausgewählten Vorgang entfernt.
+
+[Zugewiesene Verweise zu anderen Vorgängen](../.gitbook/assets/intranda_metadata_per_image3_de.png)

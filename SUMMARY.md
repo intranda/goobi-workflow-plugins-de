@@ -68,7 +68,6 @@
 * [Object Identifier Generierung](step/intranda_step_oid_creation.md)
 * [ePIC PID Registrierung \(Handle & DOI\)](step/intranda_step_epic_pid.md)
 * [Metadaten bearbeiten](step/intranda_step_metadata_edition.md)
-* [Metadaten pro Bild erfassen](step/intranda_step_metadata_per_image.md)
 * [Plugin zur Registrierung von DOIs via DataCite API](step/intranda_step_datacite_doi.md)
 * [Extraktion von Bildmetadaten](step/intranda_step_imagemetadataextraction.md)
 * [Katalogabfrage](step/intranda_step_catalogue_request.md)
@@ -86,6 +85,8 @@
 * [Metatatenübernahme aus einem Verzeichnis](step/intranda_step_import_from_folder.md)
 * [DOI-Registrierung](step/intranda_step_doi.md)
 * [Validierung von Dateien](step/intranda_step_file_validation.md)
+* [Metadaten pro Bild erfassen](step/intranda_step_metadata_per_image.md)
+
 
 ## Opac Plugins <a id="opac"></a>
 * [PICA Import](opac/intranda_opac_pica.md)
@@ -103,6 +104,7 @@
 * [Import von Datensätzen aus einer Excel-Datei](import/intranda_import_excel.md)
 * [Import von Sisis SunRise Dateien](import/intranda_import_sisis_sunrise_file.md)
 * [Import von Datensätzen des BDA Österreich](import/intranda_import_bka_bda.md)
+* [Archiv-Daten-Import](import/intranda_import_crown.md)
 
 
 ## Export Plugins <a id="export"></a>
