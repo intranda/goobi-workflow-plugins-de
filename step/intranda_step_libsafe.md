@@ -1,13 +1,13 @@
 ---
 description: >-
-  Dies ist eine technische Dokumentation für die Integration der Libsafe Langzeitarchivierung.
+  Dies ist eine technische Dokumentation für die Integration der Libsafe Langzeitarchivierung an Goobi workflow.
 ---
 
 # Libsafe Integration
 
 ## Einführung
 
-Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den Einsatz des Plugins zum Ingest in die Libsafe Langzeitarchivierung.
+Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den Einsatz des Plugins zum Ingest in die Langzeitarchivierung Libsafe.
 
 Mithilfe dieses Plugins für Goobi können die in Goobi vorliegenden Metadaten Objekte, sowie zusätzliche beschreibende Dokumente zu einem [E-ARK](https://www.eark-project.com/)-[BagIt](https://datatracker.ietf.org/doc/html/rfc8493) zusammengefasst und auf den Libsafe Server transferiert werden.
 
@@ -17,100 +17,92 @@ Mithilfe dieses Plugins für Goobi können die in Goobi vorliegenden Metadaten O
 | Identifier | intranda_step_bagcreation, intranda_step_bagsubmission |
 | Source code | [https://gitea.intranda.com/goobi-workflow/goobi-plugin-step-bagcreation](https://gitea.intranda.com/goobi-workflow/goobi-plugin-step-bagcreation) |
 | Lizenz | GPL 2.0 oder neuer |
-| Kompatibilität | Goobi workflow ---
-description: >-
-  Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den Einsatz des Plugins zum Ingest in die Libsafe Langzeitarchivierung.
----
+| Dokumentationsdatum | 02.03.2024 |
 
 
 ## Installation
 
 Um den Libsafe Ingest nutzen zu können, müssen folgende Dateien installiert werden:
 
-```text
+```bash
 /opt/digiverso/goobi/plugins/step/plugin_intranda_step_bagcreation.jar
 /opt/digiverso/goobi/plugins/config/plugin_intranda_step_bagcreation.xml
 ```
 
-Im Workflow müssen zwei neue Schritte eingefügt werden. Als erstes ein automatischer Schritt, der das auf E-ARK basierte BagIt Submission Information Package (SIP) erstellt, hier muss als Plugin `intranda_step_bagcreation` ausgewählt werden. Anschließend wird ein zweiter automatischer Schritt benötigt, der die eigentliche Datenlieferung übernimmt. Hier wird das Plugin `intranda_step_bagsubmission` benötigt.
+Im Workflow müssen zwei neue Arbeitsschritte eingefügt werden. Als erstes ein automatischer Schritt, der das auf E-ARK basierende `BagIt Submission Information Package (SIP)` erstellt, hier muss als Plugin `intranda_step_bagcreation` ausgewählt werden. Anschließend wird ein zweiter automatischer Arbeitsschritt benötigt, der die eigentliche Datenlieferung übernimmt. Hierfür wird das Plugin `intranda_step_bagsubmission` benötigt.
+
+## Bedienung des Plugins
+Dieses Plugin wird in den Workflow so integriert, dass es automatisch ausgeführt wird. Eine manuelle Interaktion mit dem Plugin ist nicht notwendig. Zur Verwendung innerhalb eines Arbeitsschrittes des Workflows sollte es wie im nachfolgenden Screenshot konfiguriert werden.
+
+![Integration des Plugins in den Workflow](../.gitbook/assets/intranda_step_libsafe_de.png)
 
 
 ## Überblick und Funktionsweise
-
 Die Langzeitarchivierung besteht aus mehreren Teilschritten.
 
 ### Ordnerstruktur
-
 Als erstes wird die für das SIP notwendige Datei- und Ordnerstruktur erstellt.
 
-Dabei werden innerhalb eines root Ordners ein `metadata` Ordner und ein `representations` Ordner erstellt. Innerhalb des metadata Ordners gibt es die Unterordner `descriptive` und `other`, um MODS Dateien sowie andere Formate wie die DFG-Viewer extensions zu speichern. Innerhalb von `representations` gibt es Unterordner für verschiedene Formate, die jeweils einen Unterordner `data` enthalten, in dem sich die Dateien befinden.
+Dabei werden innerhalb eines root-Ordners ein `metadata` Ordner und ein `representations` Ordner erstellt. Innerhalb des `metadata` Ordners gibt es die Unterordner `descriptive` und `other`, um MODS-Dateien sowie andere Formate wie die DFG-Viewer-extensions zu speichern. Innerhalb von `representations` gibt es Unterordner für verschiedene Formate, die jeweils einen Unterordner `data` enthalten, in dem sich die Dateien befinden.
 
 ### Metadaten
+Zu jedem Format gehört eine METS-Datei, in der die Dateien im `data`-Ordner aufgelistet sind. Jedes Format wird in einer eigenen METS-Datei beschrieben, die je eine `fileGroup` und eine `structMap` enthalten.
 
-Zu jedem Format gehört eine METS Datei, in der die Dateien im data Ordner aufgelistet sind. Jedes Format wird in einer eigenen METS Datei beschrieben, die je eine fileGroup und eine structMap enthalten.
+Die Metadaten werden in MODS beschrieben. Hierbei gibt es im `descriptive` Ordner pro Strukturelement eine eigene Datei. Diese Datei enthält alle Metadaten, für die im Regelsatz ein Exportmapping definiert wurde. Da es auch Metadaten geben kann, die im regulären Export nicht exportiert werden sollen, bei der Langzeitarchivierung jedoch ebenfalls archiviert werden müssen, besteht die Option, in der Konfigurationsdatei weitere Exportparameter zu definierten, die nur beim Libsafe-Export genutzt werden.
 
-Die Metadaten werden in MODS beschrieben. Hierbei gibt es im `descriptive` Ordner pro Strukturelement eine eigene Datei. Diese Datei enthält alle Metadaten, für die im Regelsatz ein Exportmapping definiert wurde. Da es auch Metadaten geben kann, die im regulären Export nicht exportiert werden sollen, bei der Langzeitarchivierung jedoch ebenfalls archiviert werden müssen, besteht die Option, in der Konfigurationsdatei weitere Exportparameter zu definierten, die nur beim Libsafe Export genutzt werden.
-
-Technische oder administrative Metadaten werden im Ordner `other` hinterlegt, anschließend wird im root Ordner eine METS Datei erstellt, die auf die anderen erstellten METS, MODS und AMD verweist.
+Technische oder administrative Metadaten werden im Ordner `other` hinterlegt. Anschließend wird im root-Ordner eine METS-Datei erstellt, die auf die anderen erstellten METS, MODS und AMD verweist.
 
 ### SIP Erstellung
+Die vorbereiteten Daten werden nun zu einem `SIP BagIt` zusammengefasst. Hierzu werden alle Dateien mit einer Checksumme versehen und in der Datei `manifest-sha256.txt` aufgelistet. `bagit.txt` enthält Informationen zur Bag-Version und dem Encoding und `bag-info.txt` enthält Informationen zum Ersteller des Bags, der Größe, Payload und dem Erstellungsdatum, sowie einige Angaben zur Übermittlung des Ingest-Status zurück an Goobi.
 
-Die vorbereiteten Daten werden nun zu einem SIP BagIt zusammengefasst. Hierzu werden alle Dateien mit einer Checksumme versehen und in der Datei `manifest-sha256.txt` aufgelistet. `bagit.txt` enthält Informationen zur Bag Version und dem Encoding und `bag-info.txt` enthält Informationen zum Ersteller des Bags, der Größe, Payload und dem Erstellungsdatum, sowie einiger Angaben zur Übermittlung des Ingest Status zurück an Goobi.
-
-Als letztes wird die `tagmanifest-sha256.txt` Datei erstellt, diese enthält die Namen und Checksummen der zuvor genannten 3 Dateien.
+Als letztes wird die `tagmanifest-sha256.txt` Datei erstellt. Diese enthält die Namen und Checksummen der zuvor genannten 3 Dateien.
 
 ### Tar Generierung
-
-Die zuvor vorbereiteten Ordner und Dateien werden zu einer Tar Datei zusammgengefasst und im Vorgangsordner gespeichert.
+Die zuvor vorbereiteten Ordner und Dateien werden zu einer Tar-Datei zusammgengefasst und im Vorgangsordner gespeichert.
 
 ### Datenlieferung
-
-Die Datenlieferung erfolgt per SFTP Upload. Hierzu wird die zuvor erzeugte SIP Datei auf den entfernten Server hochgeladen. Alternativ kann der Export in ein lokales Verzeichnis auf dem Server oder einen Netzwerk-Share durchgeführt werden. Der Dateiname entspricht dem Bag-Namen und dem Suffix _bag.tar.
+Die Datenlieferung erfolgt per SFTP-Upload. Hierzu wird die zuvor erzeugte SIP-Datei auf den entfernten Server hochgeladen. Alternativ kann der Export in ein lokales Verzeichnis auf dem Server oder einen Netzwerk-Share durchgeführt werden. Der Dateiname entspricht dem Bag-Namen und dem Suffix `_bag.tar`.
 
 ### Rückmeldung an Goobi
 
-Die Statusmeldung zurück an Goobi findet via Rest API Aufrufen statt. Hierzu gibt es verschiedene Endpoints, um die einzelnen Informationen zu liefern. Die Rest API kann mit XML oder JSON umgehen. Hierzu muss bei GET Abfragen der `Accept` header und bei anderen Anfragen `Content-Type` auf `application/xml` oder `application/json` gesetzt werden. Fehlt die Angabe, wird der default json genutzt.
+Die Statusmeldung zurück an Goobi findet via Rest-API-Aufrufen statt. Hierzu gibt es verschiedene Endpoints, um die einzelnen Informationen zu liefern. Die Rest-API kann mit XML oder JSON umgehen. Hierzu muss bei GET-Abfragen der `Accept` header und bei anderen Anfragen `Content-Type` auf `application/xml` oder `application/json` gesetzt werden. Fehlt die Angabe, wird der default JSON genutzt.
 
-Die Authentifizierung kann auf 2 Arten erfolgen. Die notwendigen Methoden können in `goobi_rest.xml` für eine IP Adresse freigeschaltet werden, dann klappen die Anfragen von diesem einen Server, oder man generiert einen API Token. Für diesen API Token können dann einzelne Methoden auch ohne IP Adressen Beschränkung erlaubt werden. Die Authentifizierung erfolgt dann via HTTP Header `Authorization: Basic <TOKEN>`.
+Die Authentifizierung kann auf 2 Arten erfolgen. Die notwendigen Methoden können in `goobi_rest.xml` für eine IP Adresse freigeschaltet werden, dann klappen die Anfragen von diesem einen Server, oder man generiert einen API-Token. Für diesen API-Token können dann einzelne Methoden auch ohne IP-Adressen Beschränkung erlaubt werden. Die Authentifizierung erfolgt dann via HTTP Header `Authorization: Basic <TOKEN>`.
 
-Bei allen Anfragen wird die processid benötigt. Diese Information wird an zwei Stellen übermittelt. Zum einen ist sie Teil der Metadaten und kann in der MODS Datei im Feld `<mods:identifier type="GOOBI">` gefunden werden, alternativ wird wird sie im Feld `Process-ID` in `bag-info.txt` übermittelt.
+Bei allen Anfragen wird die `processid` benötigt. Diese Information wird an zwei Stellen übermittelt. Zum einen ist sie Teil der Metadaten und kann in der MODS-Datei im Feld `<mods:identifier type="GOOBI">` gefunden werden, alternativ wird sie im Feld `Process-ID` in `bag-info.txt` übermittelt.
 
 #### Übermittlung der Libsafe ID
-
 Um die generierte Libsafe ID in Goobi bekannt zu machen, muss eine `POST` Anfrage an `/process/<process id>/metadata` gestellt werden.
 
-```text
+```bash
 curl -H Authorization: Basic <TOKEN> -H 'Content-Type: application/json' -X POST <GOOBI URL>/api/process/<PROCESSID>/metadata -d '{"name":"LibsafeID","value":"<LIBSAFE ID>","metadataLevel":"topstruct"}'
 ```
 
 #### Erfolgs-/Fehlermeldung
-
 Eine Meldung im Vorgangsjournal kann via `POST` Anfrage an `/process/<process id>/journal` erstellt werden.
 
-```text
+```bash
 curl -H Authorization: Basic <TOKEN> -H 'Content-Type: application/json' -X POST <GOOBI URL>/api/process/<PROCESSID>/journal -d '{"userName": "<USERNAME>", "type": "<TYPE>", "message": "<MESSAGE>"}'
 ```
 
 Die Variable `USERNAME` und `MESSAGE` können beliebigen Text beinhalten, `TYPE` muss ein Wert aus der Liste `error`, `warn`, `info` oder `debug` kommen.
 
 #### Statusänderung
+Um den Ingest-Vorgang in Goobi abzuschließen, muss die ID des zu schließenden Schrittes bekannt sein. Diese ID lässt sich über die Rest-API ermitteln, indem ein `GET`-Request nach allen Schritten des Vorgangs gestellt wird.
 
-Um den Ingest-Vorgang in Goobi abzuschließen, muss die ID des zu schließenden Schrittes bekannt sein. Diese ID lässt sich über die Rest API ermitteln, indem ein `GET` Request nach allen Schritten des Vorgangs gestellt wird.
-
-```text
+```bash
 curl -H Authorization: Basic <TOKEN> -H 'Accept: application/json'  <GOOBI URL>/api/process/<PROCESSID>/steps
 ```
 
 Aus der Antwort kann entweder über `steptitle` oder `status` der richtige Schritt und dessen ID gefunden werden. Anschließend kann ein `PUT` Request den Schritt abschließen:
 
 
-```text
+```bash
 curl -H Authorization: Basic <TOKEN> -H 'Content-Type: application/json' -X PUT <GOOBI URL>/api/process/<PROCESSID>/step/<STEPID>/close
 ```
 
 ## Konfiguration
-
-Die Konfiguration erfolgt in der Datei plugin_intranda_step_bagcreation.xml:
+Die Konfiguration des Plugins erfolgt in der Datei `plugin_intranda_step_bagcreation.xml`die hier erläutert wird:
 
 
 ```xml
@@ -127,12 +119,11 @@ Die Konfiguration erfolgt in der Datei plugin_intranda_step_bagcreation.xml:
         <!-- which projects to use for (can be more then one, otherwise use *) -->
         <project>*</project>
         <step>*</step>
-
 ```
 
 Der Bereich `<config>` ist beliebig oft wiederholbar und erlaubt dadurch unterschiedliche Metadatenkonfigurationen oder den Ingest an verschiedene Ziele für verschiedene Projekte.
 
-Die Unterelemente `<project>` und `<step>` werden zur Prüfung genutzt, ob der vorliegende Block für den aktuellen Schritt genutzt werden soll. Dabei wird zuerst geprüft, ob es einen Eintrag gibt, der sowohl den Projektnamen als auch den Schrittenamen enthält. Ist dies nicht der Fall, wird nach einem Eintrag für durch den `*` gekennzeichnete, beliebige Projekte und dem verwendeten Schrittenamen gesucht. Wenn dazu ebenfalls kein Eintrag gefunden wurde, erfolgt eine Suche nach dem Projektnamen und beliebigen Schritten, ansonsten greift der default Block, bei dem sowohl `<project>` als auch `<step>` `*` enthalten.
+Die Unterelemente `<project>` und `<step>` werden zur Prüfung genutzt, ob der vorliegende Block für den aktuellen Schritt genutzt werden soll. Dabei wird zuerst geprüft, ob es einen Eintrag gibt, der sowohl den Projektnamen als auch den Schrittenamen enthält. Ist dies nicht der Fall, wird nach einem Eintrag für durch den `*` gekennzeichnete, beliebige Projekte und dem verwendeten Schrittenamen gesucht. Wenn dazu ebenfalls kein Eintrag gefunden wurde, erfolgt eine Suche nach dem Projektnamen und beliebigen Schritten, ansonsten greift der default-Block, bei dem sowohl `<project>` als auch `<step>` `*` enthalten.
 
 
 ```xml
@@ -146,9 +137,9 @@ Die Unterelemente `<project>` und `<step>` werden zur Prüfung genutzt, ob der v
         </filegroups>
 ```
 
-Hier werden die verschiedenen `<mets:fileGrp>` Elemente definiert. Jede Filegroup entspricht einem Dateiformat, das bei der Lieferung berücksichtigt wird. Jedes definierte Element enthält die Attribute `folder`, `fileGrpName`, `prefix`, `suffix` und `mimeType`, sowie `useOriginalFileExtension`. 
+Hier werden die verschiedenen `<mets:fileGrp>` Elemente definiert. Jede `Filegroup` entspricht einem Dateiformat, das bei der Lieferung berücksichtigt wird. Jedes definierte Element enthält die Attribute `folder`, `fileGrpName`, `prefix`, `suffix` und `mimeType`, sowie `useOriginalFileExtension`. 
 
-In `folder` wird angegeben, welcher Ordner verwendet werden soll. Zuerst wird geprüft, ob der Ordner existiert und Dateien enthält. Wenn dies der Fall ist, wird ein Ordner in der SIP Ordnerstruktur erstellt, der dem `fileGrpName` entspricht. Diese Angabe wird auch als `USE` innerhalb der METS Datei verwendet. 
+In `folder` wird angegeben, welcher Ordner verwendet werden soll. Zuerst wird geprüft, ob der Ordner existiert und Dateien enthält. Wenn dies der Fall ist, wird ein Ordner in der SIP-Ordnerstruktur erstellt, der dem `fileGrpName` entspricht. Diese Angabe wird auch als `USE` innerhalb der METS Datei verwendet. 
 Die einzelnen `<mets:file>` Angaben innerhalb der `fileGroup` werden aus `prefix`, dem eigentlichen Dateinamen und `suffix` zusammengesetzt:
 
 ```xml
@@ -162,9 +153,9 @@ Die einzelnen `<mets:file>` Angaben innerhalb der `fileGroup` werden aus `prefix
 </mets:file>
 ```
 
-Optional kann mittels `useOriginalFileExtension="true"` festgelegt werden, dass file Extension und MIMETYPE automatisch für jede Datei individuell ermittelt werden. Dies funktioniert sowohl für Dateien direkt im angegebenen Ordner als auch für Dateien in Unterordnern.
+Optional kann mittels `useOriginalFileExtension="true"` festgelegt werden, dass `file Extension` und `MIMETYPE` automatisch für jede Datei individuell ermittelt werden. Dies funktioniert sowohl für Dateien direkt im angegebenen Ordner als auch für Dateien in Unterordnern.
 
-Im Anschluss erfolgt die Konfiguration der einzelnen Parameter, die auch aus der Projektkonfiguration bekannt sind. Da hier unter Umständen andere Angaben als im regulären viewer Export notwendig sind, können hier abweichende Angaben gemacht werden:
+Im Anschluss erfolgt die Konfiguration der einzelnen Parameter, die auch aus der Projektkonfiguration bekannt sind. Da hier unter Umständen andere Angaben als im regulären Export zum Goobi viewer notwendig sind, können hier abweichende Angaben vorgenommen werden:
 
 ```xml
         <metsParameter>
@@ -212,9 +203,9 @@ Der Bereich `<submissionParameter>` beinhaltet Angaben zum Besitzer der Daten, d
 
 Neben diesen Feldern enthält die Datei `bag-info.txt` noch eine Reihe weiterer Informationen, wie Erstellungsdatum, Größe des Sets und Oxum, die jedoch nicht konfiguriert werden müssen, da dise automatisch ermittelt werden.
 
-Der Bereich `<additionalMetadata>` dient zur Erweiterung des Regelsatzes. Hier kann ein Mapping für Metadaten, Körperschaften, Personen oder Gruppen hinzugefügt werden, für die im Regelsatz kein Exportmapping vorgesehen ist, weil diese Informationen im regulären Viewer-Export nicht veröffentlicht werden sollen.
+Der Bereich `<additionalMetadata>` dient zur Erweiterung des Regelsatzes. Hier kann ein Mapping für Metadaten, Körperschaften, Personen oder Gruppen hinzugefügt werden, für die im Regelsatz kein Exportmapping vorgesehen ist, weil diese Informationen im regulären Export zum Goobi viewer nicht veröffentlicht werden sollen.
 
-Die Syntax ist dabei identisch zum MODS Mapping im Regelsatz.
+Die Syntax ist dabei identisch zum MODS-Mapping im Regelsatz.
 
 ```xml
         <additionalMetadata>
@@ -246,7 +237,7 @@ Die Syntax ist dabei identisch zum MODS Mapping im Regelsatz.
         </additionalMetadata>
 ```
 
-Als letztes werden die Zugangsdaten für den SFTP Transfer konfiguriert.
+Als letztes werden die Zugangsdaten für den SFTP-Transfer konfiguriert.
 
 ```xml
         <sftp>
@@ -262,8 +253,7 @@ Als letztes werden die Zugangsdaten für den SFTP Transfer konfiguriert.
 
 Die Authentifizierung kann entweder mittels Username und Passwort oder mittels private/public Key erfolgen. Um sich mittels Passwort zu authentifizieren, bleibt das Feld `<keyfile>` leer. Ansonsten wird der dort konfigurierte Key verwendet.
 
-`<hostname>` und `<port>` beschreiben den Zugriff auf den entfernten Server und mittels `<remoteFolder>` kann ein Zielordner auf dem Server angegeben werden, falls der Upload nicht in das root Verzeichnis erfolgen soll. 
-`<knownHostsFile>` enthält den Pfad zu einer known_hosts Datei, in der ein Fingerprint des hosts enthalten sein muss. 
+`<hostname>` und `<port>` beschreiben den Zugriff auf den entfernten Server. Mittels `<remoteFolder>` kann ein Zielordner auf dem Server angegeben werden, falls der Upload nicht in das root Verzeichnis erfolgen soll. `<knownHostsFile>` enthält den Pfad zu einer known_hosts Datei, in der ein Fingerprint des hosts enthalten sein muss. 
 
 
 ```xml
