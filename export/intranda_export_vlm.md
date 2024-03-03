@@ -134,6 +134,28 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 		<hostname></hostname>
 		<password></password>
 	</config>
+
+	<!-- Apply this configuration only under the condition that the `singleDigCollection` in the metadata is a 20 digit number -->
+	<config>
+		<project>Manuscript_Project</project>		
+		<identifier>CatalogIDDigital</identifier>		
+		<volume>CurrentNoSorting</volume>		
+		<path>/tmp/somewhere</path>
+		<subfolderPrefix></subfolderPrefix>
+		
+		<condition>
+            <type>variablematcher</type>
+            <field>{meta.singleDigCollection}</field>
+            <matches>\d{20}</matches>
+        </condition>
+		
+		<sftp>false</sftp>
+		<knownHosts></knownHosts>
+		
+		<username></username>
+		<hostname></hostname>
+		<password></password>
+	</config>
 	
 	<config>
 		<project>*</project>
@@ -162,6 +184,7 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 | `identifier`      | Dieser Parameter legt fest, welches Metadatum als Ordnername verwendet werden soll. Er hat zwei optionale Attribute `@anchorSplitter` und `@volumeFormat`, die für den Fall verwendet werden, dass der Wert dieses `Identifier`s selbst sowohl den Namen des Hauptordners als auch den Namen des Datenträgers enthält, getrennt durch den konfigurierten `@anchorSplitter`. `@volumeFormat` wird in diesem Fall als linker Auffüller für den Namen des Datenträgers verwendet.  |
 | `volume`          | Dieser Parameter steuert, mit dem Inhalt welchen Metadatums die Unterverzeichnisse für Bände benannt werden sollen. |
 | `path`            | Dieser Parameter legt den Export-Pfad fest, wohin die Daten exportiert werden sollen. Erwartet wird ein absoluter Pfad. |
+| `condition`       | Dieses Element ist optional und kann mehrfach auftreten um Bedingungen zu definieren, unter welchen dieser Konfigurationsabschnitt verwendet werden kann. Das Format den `condition` Elements ist weiter unten beschrieben. Ein Konfigurationsabschnitt kann verwendet werden, wenn alle Bedingungen erfüllt sind. Wenn es mehrere Konfigurationsabschnitte gibt und mehr als eine verwendet werden könnte wird der Konfigurationsabschnitt mit den meisten Bedingungen ausgewählt (je spezieller die Bedingungen werden, desto höher ist die Priorität). Sollte das nicht eindeutig sein, wird ein beliebiger Konfigurationsabschnitt gewählt. In diesem Fall wird dem Benutzer eine Fehlermeldung angezeigt. |
 | `subfolderPrefix` | Dieser Parameter beschreibt den Präfix, der für jeden Band eines mehrbändigen Werkes in der Ornderbezeichnung vorangestellt werden soll. (Beispiel `T_34_L_`: Hier steht `T_34` für die Erkennung zur Erstellung eines Strukturknotens des Typs `Band` und das `L` gibt an, dass danach ein Text kommt.) |
 | `sftp`            | Dieser Parameter legt fest, ob der Export mittels SFTP stattfinden soll. |
 | `useSshKey`        | Dieser Parameter legt fest, ob die Verbindung zum Remote-Host mithilfe einer SSH Schlüssel Datei zu erledigen. |
@@ -171,3 +194,18 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 | `port`        | Dieser Parameter definiert die Portnummer des Remote-Hosts. DEFAULT 22. |
 | `password`        | Dieser Parameter definiert das Passwort, das für die Anmeldung mittels `username`@`hostname` verwendet werden soll. |
 | `keyPath`        | Dieser Parameter legt fest, wo sich die SSH Schlüssel Datei befindet, die für die Anmeldung mittels `username`@`hostname` verwendet werden soll. |
+
+
+### Format der Bedingungen
+Aktuell gibt es nur eine mögliche Art von Bedingungen, die `variablematcher` Bedingung. Diese Art der Bedingung prüft eine beliebige Variable, welche im Feld `field` definiert wird, gegen einen regulären Ausdruck, welcher im Feld `matches` definiert wird.
+
+Eine Beispiel `condition` ist hier zu sehen:
+```xml
+<condition>
+    <type>variablematcher</type>
+    <field>{meta.singleDigCollection}</field>
+    <matches>\d{20}</matches>
+</condition>
+```
+
+Diese Bedingung hat den Typen `variablematcher`. Sie prüft das Feld `{meta.singleDigCollection}`, welches dem Metadatum `singleDigCollection` entspricht. Die Bedingung prüft, ob der Wert des Metadatums dem regulären Ausdruck `\d{20}` entspricht, also ob der Wert aus 20 Ziffern besteht.
