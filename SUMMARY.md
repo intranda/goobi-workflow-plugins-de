@@ -96,6 +96,8 @@
 * [Duplizieren von Arbeitsschritten](step/intranda_step_duplicate_tasks.md)
 * [Download und Verifizieren von Dateien](step/intranda_step_download_and_verify_assets.md)
 * [Metadaten pro Bild erfassen](step/intranda_step_metadata_per_image.md)
+* [Strukturdaten aus einer Exceldatei importieren](step/intranda_step_excel_structure_import.md)
+
 
 ## Opac Plugins <a id="opac"></a>
 * [PICA Import](opac/intranda_opac_pica.md)
