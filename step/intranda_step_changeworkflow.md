@@ -106,10 +106,18 @@ Es folgt eine kommentierte Beispielkonfiguration:
                 <title></title>
             </priority>
 
+            <!-- user groups to be assigned to a step -->
             <usergroups step="Image QA">
                 <usergroup>Administration</usergroup>
                 <usergroup>AutomaticTasks</usergroup>
             </usergroups>
+
+            <!-- list of properties to be changed or deleted -->
+            <properties>
+                <property name="My property" value="My value" />
+                <property name="My boolean property" value="true" />
+                <property name="My property to be deleted" delete="true" />
+            </properties>
         </change>
     </config>
 
