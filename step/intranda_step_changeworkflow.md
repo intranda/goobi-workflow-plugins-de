@@ -7,7 +7,6 @@ description: >-
 # Ändern des Workflows auf Grundlage von Vorgangseigenschaften
 
 ## Einführung
-
 Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den Einsatz eines Plugins zum automatischen Ändern von Workflows zur Laufzeit. Das Plugin kann \(je nach Konfiguration\) Schritte öffnen, schließen oder deaktivieren. Benutzergruppen können zugwiesen werden und auch Produktionsvorlagen vollständig getauscht werden. Die Entscheidung, was jeweils genau geschehen soll, wird auf Grundlage von Vorgangseigenschaften getroffen.
 
 | Details |  |
@@ -15,14 +14,12 @@ Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den
 | Identifier | intranda\_step\_changeWorkflow |
 | Source code | [https://github.com/intranda/goobi-plugin-step-change-workflow](https://github.com/intranda/goobi-plugin-step-change-workflow) |
 | Lizenz | GPL 2.0 oder neuer |
-| Dokumentationsdatum | 14.02.2023 |
+| Dokumentationsdatum | 31.03.2024 |
 
 ## Voraussetzung
-
 Voraussetzung für die Verwendung des Plugins ist der Einsatz von Goobi workflow in Version 3.0.0 oder höher, die korrekte Installation und Konfiguration des Plugins sowie die korrekte Einbindung des Plugins in die gewünschten Arbeitsschritte des Workflows.
 
 ## Installation und Konfiguration
-
 Zur Nutzung des Plugins muss es an folgenden Ort kopiert werden:
 
 ```text
@@ -173,10 +170,10 @@ Es folgt eine kommentierte Beispielkonfiguration:
             <workflow>Manuscript workflow</workflow>
 
             <!-- write a message into the journal (aka process log) -->
-			<log type="info">My info message</log>
-			<log type="error">My error message</log>
-			<log type="user">My user message</log>
-			<log type="debug">My debug message</log>
+            <log type="info">My info message</log>
+            <log type="error">My error message</log>
+            <log type="user">My user message</log>
+            <log type="debug">My debug message</log>
         </change>
     </config>
 </config_plugin>
@@ -184,7 +181,7 @@ Es folgt eine kommentierte Beispielkonfiguration:
 
 Jeder `<config>`-Block ist hier für ein bestimmtes Projekt und einen bestimmten Schritt verantwortlich, wobei auch die Wildcard `*` und Mehrfachnennungen von Prozessen bzw. Schritten möglich sind. Wenn im Workflow also ein Schritt mit diesem Plugin ausgeführt wird, wird nach einem `<config>`-Block gesucht, der zum gerade geöffneten Schritt passt. Wenn zum Beispiel im Projekt "PDF Digitalisierung" der Schritt mit Titel "Workflow ändern nach PDF Extraktion" mit diesem Plugin konfiguriert und ausgeführt wird, sucht das Plugin einen `<config>`-Block der folgendermaßen aussieht:
 
-```markup
+```xml
 <config>
     <project>PDF Digitalisierung</project>
     <step>Workflow ändern nach PDF Extraktion</step>
@@ -194,7 +191,7 @@ Jeder `<config>`-Block ist hier für ein bestimmtes Projekt und einen bestimmten
 
 In jedem `<change>`-Element wird dann konfiguriert, welche Prozesseigenschaft überprüft wird \(`<propertyName>`\) und welcher Wert erwartet wird \(`<propertyValue>`\). Bitte beachten Sie, dass die Angabe zur Definition, welche Eigenschaft für die Prüfung eines Wertes verwendet werden soll, mit der Syntax für den sog. Variablen Replacer angegeben werden muss. Entsprechend muss bei der Definition des Feldes, das geprüft werden soll die Angabe wir wie in in folgenden Beispielen erfolgen:
 
-```markup
+```xml
 <propertyName>{process.ABC}</propertyName>
 <propertyName>{{meta.ABC}}</propertyName>
 <propertyName>{meta.topstruct.ABC}</propertyName>
@@ -209,7 +206,6 @@ Weitere Erläuterungen über die Verwendung von Variablen finden sich hier:
 Nach der Definition, wie die Eigenschaften auszuwerten sind, wird die auszuführende Aktion festgelegt. Hier bestehen folgende Möglichkeiten:
 
 ### Ändern des Status von Arbeitsschritten des Workflows
-
 Abhängig von vorhandenen Eigenschaften kann der Status festgelegter Arbeitsschritte innerhalb des Workflows automatisiert geändert werden. Hierbei können Arbeitsschritte geöffnet `type="open"`, deaktiviert `type="deactivate"`, geschlossen `type="close"` oder gesperrt `type="lock"` werden.
 
 ```xml
@@ -237,7 +233,6 @@ Abhängig von vorhandenen Eigenschaften kann der Status festgelegter Arbeitsschr
 
 
 ### Ändern der Priorität von Arbeitsschritten des Workflows
-
 Abhängig von vorhandenen Eigenschaften kann die Priorität festgelegter Arbeitsschritte innerhalb des Workflows automatisiert geändert werden. Mögliche Werte für die Prioritäten sind Standard `value="0"`, Priorität `value="1"`, Hohe Priorität `value="2"`, Höchste Priorität `value="3"`, oder Korrektur `value="10"`. Wenn ein `title` mit `*` konfiguriert ist, dann wird der zugehörige Prioritätswert für alle Schritte von diesem Vorgang benutzt. Wenn aber mehr als zwei `title` mit `*` konfiguriert sind, dann wird nur der erste vorkommende in der Reihenfolge 0, 1, 2, 3, 10 berücksichtigt.
 
 ```xml
@@ -270,7 +265,6 @@ Abhängig von vorhandenen Eigenschaften kann die Priorität festgelegter Arbeits
 
 
 ### Ändern der Zuständigkeit von Benutzergruppen für Arbeitsschritte
-
 Abhängig von vorhandenen Eigenschaften lassen sich die zuständigen Benutzergruppen für mehrere Arbeitsschritte festlegen. Die Konfiguration erfolgt dabei wie wie hier aufgezeigt:
 
 ```xml
@@ -287,7 +281,6 @@ Abhängig von vorhandenen Eigenschaften lassen sich die zuständigen Benutzergru
 
 
 ### Ändern der Produktionsvorlage auf der der Vorgang basiert
-
 Mit einer Konfiguration wie im folgenden Beispiel kann während des laufenden Workflows die Produktionsvorlage des Vorgangs getauscht werden. Abhängig von vorhandenen Eigenschaften läßt sich somit ein Workflow während der Ausführung gegen einen anderen Workflow ersetzen. Arbeitsschritte, die in dem neuen Workflow ebenfalls vorhanden sind, werden dabei automatisch auf den korrekten Status gesetzt.
 
 ```xml
@@ -298,13 +291,29 @@ Mit einer Konfiguration wie im folgenden Beispiel kann während des laufenden Wo
 | :--- | :--- |
 | `workflow` | Definieren Sie hier den Namen der Produktionsvorlage, die für den Vorgang verwendet werden soll. |
 
-## Einstellungen in Goobi
+### Ändern von Eigenschaften
+Mit der Konfiguration wie in dem folgenden Beispiel können Eigenschaften hinzugefügt bzw. geändert sowie gelöscht werden:
 
+```xml
+<properties>
+	<property name="My property" value="My value" />
+	<property name="My boolean property" value="true" />
+	<property name="My property to be deleted" delete="true" />
+</properties>
+```
+
+| Parameter | Erläuterung |
+| :--- | :--- |
+| `name` | Definieren Sie hier den Namen der Eigenschaft, die geändert oder gelöscht werden soll. |
+| `value` | Legen Sie hier fest, welchen Wert die Eigenschaft erhalten soll. Ist sie noch nicht vorhanden, wird sie mit diesem Wert erzeugt. Existiert sie hingegen schon, wird sie auf diesen Wert geändert. Soll eine Eigenschaft gelöscht werden, muss der Parameter `value` nicht angegeben werden. |
+| `delete` | Soll eine Eigenschaft gelöscht werden, muss dieser Parameter mit dem Wert `true` angegeben werden. |
+
+
+## Einstellungen in Goobi
 Nachdem das Plugin installiert und konfiguriert wurde, kann es in der Nutzeroberfläche in einem Workflowschritt konfiguriert werden. Hierbei sollte darauf geachtet werden, dass der Schritt so heißt, wie in der Konfigurationsdatei. Außerdem sollte ein Haken bei `Automatische Aufgabe` gesetzt sein.
 
 ![Konfiguration des Workflowschritts](../.gitbook/assets/intranda_step_changeworkflow.png)
 
 ## Nutzung
-
 Da das Plugin vollautomatisch laufen sollte, ist für die Nutzung nichts weiter zu beachten.
 
