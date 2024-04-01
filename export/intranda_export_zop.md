@@ -16,7 +16,7 @@ Mithilfe dieses Plugins für Goobi können die Goobi-Vorgänge innerhalb eines A
 | Identifier | intranda_export_zop |
 | Source code | [https://github.com/intranda/goobi-plugin-export-zop](https://github.com/intranda/goobi-plugin-export-zop) |
 | Lizenz | GPL 2.0 oder neuer |
-| Dokumentationsdatum | 02.06.2023 |
+| Dokumentationsdatum | 01.04.2024 |
 
 ## Installation
 
