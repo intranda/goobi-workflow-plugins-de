@@ -73,6 +73,10 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 		<!-- Absolute path expected. No difference whether you append the directory separator '/' to the end or not. -->
 		<!-- If left blank, then the default setting '/opt/digiverso/viewer/hotfolder' will be used. -->
 		<path></path>
+
+		<!-- define if the expoart shall be cancelled if the target directory is not empty -->
+		<!-- if this parameter is missing the default is true -->
+		<checkIfPathEmpty>true</checkIfPathEmpty>
 		
 		<!-- Whether or not use SFTP for the export. -->
 		<!-- If true then use SFTP. If false then perform local export. -->
@@ -130,6 +134,7 @@ Die Konfiguration des Plugins erfolgt über die Konfigurationsdatei `plugin_intr
 | `identifier`      | Dieser Parameter legt fest, welches Metadatum als Ordnername verwendet werden soll. |
 | `volume`          | Dieser Parameter steuert, mit dem Inhalt welchen Metadatums die Unterverzeichnisse für Bände benannt werden sollen. |
 | `path`            | Dieser Parameter legt den Export-Pfad fest, wohin die Daten exportiert werden sollen. Erwartet wird ein absoluter Pfad. |
+| `checkIfPathEmpty`| Mit diesem Parameter wird festgelegt, ob der Export abgebrochen werden soll, wenn der Ordner bereits existiert und schon Inhalte hat. |
 | `sftp`            | Dieser Parameter legt fest, ob der Export mittels SFTP stattfinden soll. |
 | `username`        | Dieser Parameter legt fest, welcher Nutzername für die Anmeldung bei dem Remote-Host verwendet werden soll. |
 | `hostname`        | Dieser Parameter legt fest, wie der Remote-Host heißt. |
