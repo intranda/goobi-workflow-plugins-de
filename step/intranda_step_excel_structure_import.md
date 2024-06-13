@@ -21,28 +21,29 @@ Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den
 
 Um den Strukturdatenimport nutzen zu können, müssen folgende Dateien installiert werden:
 
-```text
+```bash
 /opt/digiverso/goobi/plugins/step/plugin_intranda_step_MetadataStructureImport.jar
 /opt/digiverso/goobi/plugins/config/plugin_intranda_step_MetadataStructureImport.xml
 ```
 
-Im Workflow muss ein neuer Schritt eingefügt werden. Der Schritt sollte nach dem Import der Bilder und der Erstellung von Derivaten laufen. Es ist ein automatischer Schritt, bei dem das Plugin `intranda_step_MetadataStructureImport` ausgewählt werden muss.
+Im Workflow muss ein neuer Arbeitsschritt eingefügt werden. Dieser Schritt sollte nach dem Import der Bilder und der Erstellung von Derivaten laufen. Es handelt sich hierbei um einen automatischen Arbeitsschritt, bei dem das Plugin `intranda_step_MetadataStructureImport` ausgewählt werden muss.
 
 ## Überblick und Funktionsweise
 
-Wenn das Plugin ausgeführt wird, sucht es zuerst am konfigurierten Ort nach einer Exceldatei. Die Exceldatei kann einen beliebigen Namen haben, sie muss jedoch die Endung xlsx haben.
+Wenn das Plugin ausgeführt wird, sucht es zuerst am konfigurierten Ort nach einer Exceldatei. Die Exceldatei kann dabei einen beliebigen Namen haben, muss jedoch die Endung `xlsx` aufweisen.
 
-Wenn eine Exceldatei existiert, wird im Anschluß die METS Datei des Vorgangs geöffnet. Sofern noch keine Paginierung vorhanden ist, wird sie automatisch erstellt.  Falls die Datei Strukturdaten enthält, werden diese nun entfernt. Dadurch ist es möglich, das Plugin auch mehrfach, mit aktualisierten Exceldateien aufzurufen.
+Wenn eine Exceldatei existiert, wird im Anschluß die METS-Datei des Vorgangs geöffnet. Sofern noch keine Paginierung vorhanden ist, wird diese automatisch erstellt. Falls die Datei Strukturdaten enthält, werden diese nun entfernt. Dadurch ist es möglich, das Plugin auch mehrfach mit aktualisierten Exceldateien aufzurufen.
 
 Nachdem die Vorbereitungen abgeschlossen sind, wird nun die Exceldatei zeilenweise abgearbeitet. Als erstes wird geprüft, welche Hierarchiestufe in der Zeile eingetragen ist. Dabei gibt es vier Optionen: 
-* Bei 0 wird die Zeile übersprungen, da es sich dabei um die Informationen zum Publikationstyp selbt handelt. Diese Daten wurden bereits durch den regulären Import erstellt und sind daher hier nicht von Belang.
-* Ist die Hierarchienummer der aktuellen Zeile genauso groß, wie die der vorherigen Zeile, handelt es sich um ein Geschwisterelement des letzten Elements. Es wird dann als letztes Kindelement des Elternelements des vorherigen Elements erstellt.
-* Ist die Hierarchienummer größer als die der vorherigen Zeile, handelt es sich um ein Kindelement des vorheringe Elements. Es wird dann eine Hierarchiestufe unterhalb des letzten Elements erstellt.
-* Ist die Hierarchienummer kleiner als die des vorherigen Elements, wird das vorherige Element so lange nach Elternelementen durchsucht, bis eines mit gleicher Nummer gefunden wird. Das neue Element wird dann als Geschwisterelement des gefundenen Elternelements erstellt.
 
-Der Typ des neuen Elements wird anhand des Mappings zwischen dem konfiguriereten Strukturelement in der Exceldatei und dem Regelsatz-Namen ermittelt.
+- Bei `0` wird die Zeile übersprungen, da es sich dabei um die Informationen zum Publikationstyp selbt handelt. Diese Daten wurden bereits durch den regulären Import erstellt und sind daher hier nicht von Belang.
+- Ist die Hierarchienummer der aktuellen Zeile `genauso groß`, wie die der vorherigen Zeile, handelt es sich um ein Geschwisterelement des letzten Elements. Es wird dann als letztes Kindelement des Elternelements des vorherigen Elements erstellt.
+- Ist die Hierarchienummer `größer` als die der vorherigen Zeile, handelt es sich um ein Kindelement des vorheringe Elements. Es wird dann eine Hierarchiestufe unterhalb des letzten Elements erstellt.
+- Ist die Hierarchienummer `kleiner` als die des vorherigen Elements, wird das vorherige Element so lange nach Elternelementen durchsucht, bis eines mit gleicher Nummer gefunden wird. Das neue Element wird dann als Geschwisterelement des gefundenen Elternelements erstellt.
 
-Sofern die Identifier Spalte einen Wert enthält, erfolgt nun eine OPAC Abfrage. Alle auf diese Weise gefundenen Metadaten werden dem neuen Strukturelement hinzugefügt, sofern der Regelsatz dies erlaubt.
+Der Typ des neuen Elements wird anhand des Mappings zwischen dem konfigurierten Strukturelement in der Exceldatei und dem Regelsatz-Namen ermittelt.
+
+Sofern die Identifier-Spalte einen Wert enthält, erfolgt nun eine OPAC-Abfrage. Alle auf diese Weise gefundenen Metadaten werden dem neuen Strukturelement hinzugefügt, sofern der Regelsatz dies erlaubt.
 
 Anschließend werden dem neuen Strukturelement alle Seiten zugewiesen, die zwischen der Startseite und der letzten Seite der Excelzeile liegen.
 
@@ -51,7 +52,7 @@ Als letztes werden die zusätzlich konfigurierten Metadaten übernommen. Dabei w
 
 ## Konfiguration
 
-Die Konfiguration erfolgt in der Datei plugin_intranda_step_MetadataStructureImport.xml:
+Die Konfiguration erfolgt in der Datei `plugin_intranda_step_MetadataStructureImport.xml`:
 
 ```xml
 <config_plugin>
@@ -86,11 +87,9 @@ Die Unterelemente `<project>` und `<step>` werden zur Prüfung genutzt, ob der v
         <rowDataEnd></rowDataEnd>        
 ```
 
-Hier werden grundlegende Dinge konfigureriert. Zum einen mittels `<excelFolder>` der Ort, an dem die Exceldatei zu finden ist. Hier kann ein absoluter Pfad angegeben oder mit dem Goobi-Variablen System gearbeitet werden.
+Hier werden grundlegende Dinge konfigureriert. Zum einen mittels `<excelFolder>` der Ort, an dem die Exceldatei zu finden ist. Hier kann ein absoluter Pfad angegeben oder mit dem Goobi-Variablen-System gearbeitet werden.
 
-Anschließend wird die Exceldatei beschrieben. In `<rowHeader>` wird die Zeile definiert, in der die Spaltenüberschriften stehen. Üblicherweise ist dies 1 für die erste Zeile. `<rowDataStart>` und `<rowDataEnd>` definieren den Bereich, in dem sich die zu importierenden Daten befinden. `<rowDataEnd>` kann genutzt werden, um zum Beispiel nur einige wenige Zeilen testweise zu importieren. Wenn immer alles importiert werden soll, kann der Wert einfach frei bleiben.
-
-
+Anschließend wird die Exceldatei beschrieben. In `<rowHeader>` wird die Zeile definiert, in der die Spaltenüberschriften stehen. Üblicherweise ist dies `1` für die erste Zeile. `<rowDataStart>` und `<rowDataEnd>` definieren den Bereich, in dem sich die zu importierenden Daten befinden. `<rowDataEnd>` kann genutzt werden, um zum Beispiel nur einige wenige Zeilen testweise zu importieren. Wenn immer alles importiert werden soll, kann der Wert leer bleiben.
 
 ```xml
         <!-- which catalogue to use -->
@@ -98,7 +97,8 @@ Anschließend wird die Exceldatei beschrieben. In `<rowHeader>` wird die Zeile d
         <searchField>12</searchField>
         <identifierColumnName>Kalliope-ID</identifierColumnName>
 ```
-Hier wird die optionale OPAC Abfrage konfiguriert. `<identifierColumnName>` enthält dabei den Spaltentitel, in der die zu verwendenden Identifier stehen. `<opacName>` und `<searchField>` müssen mit einem konfigurierten OPAC in der Datei goobi_opac.xml übereinstimmen.
+
+Hier wird die optionale OPAC-Abfrage konfiguriert. `<identifierColumnName>` enthält dabei den Spaltentitel, in der die zu verwendenden Identifier stehen. `<opacName>` und `<searchField>` müssen mit einem konfigurierten OPAC in der Datei `goobi_opac.xml` übereinstimmen.
 
 Fehlen diese Werte oder zeigen nicht auf einen konfigurierten Katalog, findet der Import ohne OAPC-Abfrage statt.
 
