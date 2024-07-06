@@ -20,8 +20,7 @@ Neben der Zuordnung der Dateien auf Basis des Dateinamens ist ebenso konfigurier
 | Identifier | intranda\_workflow\_massupload |
 | Source code | [https://github.com/intranda/goobi-plugin-workflow-massupload](https://github.com/intranda/goobi-plugin-workflow-massupload) |
 | Lizenz | GPL 2.0 oder neuer |
-| Kompatibilität | Goobi workflow 20.06 |
-| Dokumentationsdatum | 20.09.2020 |
+| Dokumentationsdatum | 06.06.2024 |
 
 ## Installation
 
@@ -43,26 +42,31 @@ Der Inhalt dieser Konfigurationsdatei sieht wie folgt aus:
 ```markup
 <config_plugin>
 
-    <!-- which file types shall be allowed for uploading these -->
-    <allowed-file-extensions>/(\.|\/)(gif|jpe?g|png|tiff?|jp2|pdf)$/</allowed-file-extensions>
+	<!-- which file types shall be allowed for uploading these -->
+	<allowed-file-extensions>/(\.|\/)(gif|jpe?g|png|tiff?|jp2|pdf)$/</allowed-file-extensions>
 
-    <!-- name of the folder inside of a users home directory to use as alternative for web upload -->
-    <user-folder-name>mass_upload</user-folder-name>
+	<!-- name of the folder inside of a users home directory to use as alternative for web upload -->
+	<user-folder-name>mass_upload</user-folder-name>
 
-    <!-- define if instead of the file naming a barcode shall be analyzed to match the following images to the corresponding process until the next barcode
-        gets recognized -->
-    <use-barcodes>true</use-barcodes>
+	<!-- define the method how to detect the processes from the uploaded images the following methods are available:
+		- "filename" to use the filenames for matching the right Goobi processes
+		- "barcode" to detect barcodes inside of the images to assign to the right Goobi processes up to the next barcode page
+		- "user" to let the user decide between filename or barcode detection -->
+	<detection-type>filename</detection-type>
 
-    <!-- copy images using goobi script in the background (true or false) -->
-    <copy-images-using-goobiscript>false</copy-images-using-goobiscript>
+	<!-- copy images using goobi script in the background (true or false) -->
+	<copy-images-using-goobiscript>false</copy-images-using-goobiscript>
 
-    <!-- which workflow step has to be open to allow the upload into the process -->
-    <allowed-step>Scanning</allowed-step>
-    <allowed-step>Upload</allowed-step>
+	<!-- which workflow step has to be open to allow the upload into the process -->
+	<allowed-step>Scanning</allowed-step>
+	<allowed-step>Upload</allowed-step>
 
-    <!-- which part of the files shall be used to find the right process (prefix, suffix or complete) -->
-    <filename-part>prefix</filename-part>
-    <filename-separator>_</filename-separator>
+	<!-- which part of the files shall be used to find the right process (prefix, suffix or complete) -->
+	<filename-part>prefix</filename-part>
+	<filename-separator>_</filename-separator>
+
+	<!-- define if the process title must contain the value or must match the exact title (contains or exact)  -->
+	<match-type>contains</match-type>
 
 </config_plugin>
 ```
