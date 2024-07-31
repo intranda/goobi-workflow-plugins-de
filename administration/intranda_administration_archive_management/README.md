@@ -83,6 +83,9 @@ Alternativ dazu kann ebenfalls ein neuer Archivbestand erzeugt werden. In diesem
 
 Als dritte Möglichkeit kann eine vorhandene Datei importiert werden. Hier kann eine EAD-Datei ausgewählt und hochgeladen werden. Wenn noch kein Bestand mit dem Namen der Datei existiert, wird die Datei als neuer Bestand importiert und direkt geöffnet. Falls der Name schon in Verwendung ist, kann nach einer Rückfrage der bestehende Bestand mit dem Inhalt der EAD-XML Datei überschrieben werden.
 
+![Import einer EAD-Datei](../../.gitbook/assets/intranda_administration_archive_management_08_de.png)
+
+
 Nach der Auswahl des zu bearbeitenden Archivbestandes wird man in die Bearbeitungsmaske weitergeleitet. Hier läßt sich nun im linken Bereich der Strukturbaum bearbeiten. Im rechten Bereich können die Details des jeweils ausgewählten Knoten bearbeitet werden.
 
 ![Bearbeitungsmaske f&#xFC;r den Archivbestand](../../.gitbook/assets/intranda_administration_archive_management_06_de.png)
@@ -110,9 +113,18 @@ Im linken Bereich der Bearbeitungsmaske lässt sich die Struktur des Archivbesta
 | `Knoten duplizieren` | Öffnet ein Popup, in dem bei ausgewählten Metadaten (Attribute visible und ) ein Präfix oder Suffix festgelegt werden kann. Dupliziert den ausgewählten Knoten und alle Kindelemente und fügt den neuen Metadaten die angegebenen Präfixe und Suffixe hinzu.|
 
 
+![Mehrere Knoten einfügen](../../.gitbook/assets/intranda_administration_archive_management_11_de.png)
+
+Um mehrere Unterknoten auf einmal zu generieren, muss die Anzahl der zu erstellenden Knoten und der Typ festgelegt werden. Anschließend können verschiedene Metadaten definiert werden, die in alle neuen Knoten eingetragen werden. Dabei kann entweder ein gleichartiger Text in allen Feldern genutzt werden, ein Identifier generiert werden oder ein Text mit anschließendem Zähler generiert werden. Hierbei lässt sich das Zählerformat und der Startwert festlegen.
+ 
+
 ![Suche innerhalb des Bestandes](../../.gitbook/assets/intranda_administration_archive_management_07_de.png)
 
-Im oberen Bereich der Hierarchieanzeige kann darüber hinaus auch eine Suche innerhalb der Metadaten der Knoten erfolgen. Dabei werden die gefundenen Knoten samt Hierarchie angezeigt und farbig hervorgehoben. Um die Suche wieder zurückzusetzen genügt es, den Inhalt des Suchbegriffs wieder zu leeren und entsprechen eine leere Suche auszuführen. Alternativ kann der Button auf der linken Seite des Suchfelds genutzt werden. Rechts neben dem Feld kann die erweiterte Suche genutzt werden. Hier kann geziehlt in einzelnen Feldern gesucht werden. Welche Felder zur Verfügung stehen, kann über die Konfigurationsdatei gesteuert werden (Attribut `searchable="true"` innerhalb von `<metadata>`).
+Im oberen Bereich der Hierarchieanzeige kann darüber hinaus auch eine Suche innerhalb der Metadaten der Knoten erfolgen. Dabei werden die gefundenen Knoten samt Hierarchie angezeigt und farbig hervorgehoben. Um die Suche wieder zurückzusetzen genügt es, den Inhalt des Suchbegriffs wieder zu leeren und entsprechen eine leere Suche auszuführen. 
+
+![Erweiterte Suche](../../.gitbook/assets/intranda_administration_archive_management_10_de.png)
+
+Alternativ kann der Button auf der linken Seite des Suchfelds genutzt werden. Rechts neben dem Feld kann die erweiterte Suche genutzt werden. Hier kann geziehlt in einzelnen Feldern gesucht werden. Welche Felder zur Verfügung stehen, kann über die Konfigurationsdatei gesteuert werden (Attribut `searchable="true"` innerhalb von `<metadata>`).
 
 
 

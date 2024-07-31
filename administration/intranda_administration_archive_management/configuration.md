@@ -393,11 +393,18 @@ Es können auch mehrere Validierungsregeln kombiniert werden, zum Beispiel `uniq
 <metadata xpath="./ead:control/ead:maintenanceagency/ead:agencycode" xpathType="element" name="agencycode" level="1" repeatable="false" fieldType="input"/>
 ```
 
+![Eingabefeld](../../.gitbook/assets/intranda_administration_archive_management_12_de.png)
+
+
+
 ### Textfeld
 
 ```xml
 <metadata xpath="(./ead:archdesc/ead:did/ead:unittitle | ./ead:did/ead:unittitle)[1]" xpathType="element" name="unittitle" level="1" repeatable="false" fieldType="textarea" rulesetName="TitleDocMain" importMetadataInChild="false" />
 ```
+![Textarea](../../.gitbook/assets/intranda_administration_archive_management_13_de.png)
+
+
 
 ### Auswahlliste
 
@@ -416,23 +423,26 @@ Es können auch mehrere Validierungsregeln kombiniert werden, zum Beispiel `uniq
     <value>otherlevel</value>
 </metadata>
 ```
+![Auswahlliste](../../.gitbook/assets/intranda_administration_archive_management_14_de.png)
+
+
 
 ### Mehrfachauswahl
 
 ```xml
-<metadata xpath="(./ead:archdesc/ead:did/ead:langmaterial[@label='Language']/ead:language | ./ead:did/ead:langmaterial[@label='Language']/ead:language)[1]" xpathType="element" name="langmaterial" level="4" repeatable="false" fieldType="multiselect" rulesetName="DocLanguage" importMetadataInChild="false">
-    <value>eng</value>
-    <value>ger</value>
-    <value>dut</value>
-    <value>fre</value>
-    <value>esp</value>
-    <value>ita</value>
-    <value>lat</value>
-    <value>pol</value>
-    <value>rus</value>
-    <value>swe</value>
-</metadata>
+        <metadata xpath="(./ead:archdesc/ead:did/ead:langmaterial[@label='font'] | ./ead:did/ead:langmaterial[@label='font'])[1]" xpathType="element" name="font" level="4" repeatable="false"
+            fieldType="multiselect" rulesetName="FontType" importMetadataInChild="false">
+            <value>antiqua</value>
+            <value>fracture</value>
+            <value>handwritten</value>
+            <value>mixed</value>
+            <value>no text</value>
+        </metadata>
 ```
+
+![Mehrfachauswahl](../../.gitbook/assets/intranda_administration_archive_management_15_de.png)
+
+
 
 ### Validierung von Datumsangaben im ISO 8601 Format
 
@@ -465,17 +475,26 @@ Es können auch mehrere Validierungsregeln kombiniert werden, zum Beispiel `uniq
         <metadata xpath="(./ead:archdesc/ead:relatedmaterial/ead:ref | ./ead:relatedmaterial/ead:ref)" xpathType="element" name="nodelink" fieldType="nodelink" level="5" repeatable="false" />
 ```
 
+![Verknüpfung](../../.gitbook/assets/intranda_administration_archive_management_16_de.png)
+![Auswahl des Knotens](../../.gitbook/assets/intranda_administration_archive_management_17_de.png)
+
+
 ### Suche in der GND
 
 ```xml
             <metadata xpath="./ead:archdesc/ead:index/ead:indexentry/ead:persname/ead:part" xpathType="element" name="Person" level="7" repeatable="true" fieldType="gnd" visible="true" />
 ```
+![GND Feld](../../.gitbook/assets/intranda_administration_archive_management_18_de.png)
+
 
 ## Suche in Geonames
 
 ```xml
             <metadata xpath="./ead:archdesc/ead:index/ead:indexentry/ead:geogname/ead:part[@localtype='place']" xpathType="element" name="Place" level="7" repeatable="true" fieldType="geonames" visible="true" />
 ```
+
+![Geonames Feld](../../.gitbook/assets/intranda_administration_archive_management_19_de.png)
+
 
 
 ## Suche in VIAF
@@ -485,6 +504,9 @@ Es können auch mehrere Validierungsregeln kombiniert werden, zum Beispiel `uniq
                 searchable="true" showField="true" fieldType="viaf" searchFields="210__a; 111__a; 100__a; 110__a; 150__a; 151__a;"
                 displayFields="001=NORM_IDENTIFIER; 0247_a=URI; 1001_a=NORM_NAME; 1001_d=NORM_LIFEPERIOD; 1001_q=NORM_SEX; 375__a=NORM_SEX;" />
 ```
+
+![VIAF Feld](../../.gitbook/assets/intranda_administration_archive_management_20_de.png)
+
 
 ## Konfiguration der Anzeige der Bereiche
 
